@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="144" height="25" tilewidth="20" tileheight="20">
+ <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
+  <image source="../img/defTile.png" width="360" height="140"/>
+ </tileset>
+ <tileset firstgid="127" name="armyMark" tilewidth="20" tileheight="20">
+  <image source="../img/armyMark.png" width="180" height="100"/>
+ </tileset>
+ <layer name="bgFar" width="144" height="25" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJzt0rENACAMA8GMBfsvRhN6InfoTnLh/qsAAAAAAAAAAAD4xert3v3wQj8k9ENCPyT0Q0I/JPRDQj8kJv0cxJgL4w==
+  </data>
+ </layer>
+ <layer name="bg" width="144" height="25" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztldENgkAQRGlCirACoh3Qgqj9dyEkZ0LI7SHC3ewcs8n7EYI7cw/tmqbphAvaGWv3Xn6kNUBnFXm8KQk6995ujnoWMpdnP1g9qr2DtT3QPjB06PHdOltetv7Q+ZD50dnYO0Tnkj+8/aFzofMzdeCta/Se8gdHH/i3a/T+8ieds5Q3MY+Y+pI/5Xa0fm+W17z0Uos/uc6zlOOp/6rYfd/v7BOgfWD3xws5u0afufzx69Bt5B75/LrzuZ7929rlWfxZyzKMPAJD4DXyXlybeM6eNSTY0s+RvaIdzOWtJ3KeFTobo0vono7EGvReNbuE7kb+yB8vWIPeS/5wYA16L/nDgTXovWr2pyaHrEHvJX84sAa9l/zhwBr0XoIDa2L3fgDjfDfp
+  </data>
+ </layer>
+ <layer name="tile" width="144" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztlluugjAQhnlQNyAugURX4P53JiSQkKaFmWn/uWC/ZB4OnnYu/SoOQ8eal2F4o8+hjLe+PM3P8g5ZzDtS3Wd4qkF7blrn4MUV9L5IPN87tENeetO4iwi49aefvdcorZGeC/LcOLVZ5ETUgOzlkwSl7pI/uf8rreXk0TxLrTxof8Y5bnPcifFY17ToSbIHFWt/0L7kclj48xTkmpi9UZ5LyO2dy3P0HHXOWvta+zOd7CfxB33vKFh9/yC8RDmD8IfSA9UfLXK5ovuj4Uxrf6g9Tcnfre9bLdyZaXxPtKjXoz9fwRrK758S3Jolvdaen4Sa87F2R8u1DYk/+/wjo450jYY/2jO39sGzP7n8Y+H5UUjW5HpuOTuEP55A+UN55+XOv8aBVv5QarVc743a+3Y0D+75U4K6RtMfClf1Z6HFnGv9ofqF8ueo1xpvzuZ0BX8WEP5EIEK9Eee60P3xQcS5bvyLP6j3kuZ7zitcfyKBqBmxX8TZ7qH6E43ujw5X9ydKRObMn4hY+9D9KX/2A2IWZqg=
+  </data>
+ </layer>
+ <layer name="js" width="144" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzt1zEKACAMBMF0+f+PbW1MJVHCDNwblosAAAAmy20A8DvNAmCKzqZlMQA4ed0K/QLgFv8LAAAAoLYAXVkA4Q==
+  </data>
+ </layer>
+ <objectgroup name="misc" width="144" height="25">
+  <object name="bPos1" x="100" y="280" width="40" height="40"/>
+  <object name="start" x="20" y="280" width="40" height="40"/>
+  <object name="door1" x="2700" y="260" width="40" height="40"/>
+  <object name="com1" x="2812" y="286" width="34" height="13"/>
+  <object name="end" x="2701" y="417" width="37" height="34"/>
+ </objectgroup>
+ <objectgroup name="enemy" width="144" height="25">
+  <object type="bg" x="2460" y="200" width="60" height="40">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object type="bTrigger" x="1500" y="180" width="240" height="40">
+   <properties>
+    <property name="gid" value="0"/>
+   </properties>
+  </object>
+  <object type="bg" x="840" y="60" width="60" height="40"/>
+  <object type="bg" x="1180" y="420" width="60" height="40">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object type="bg" x="2240" y="20" width="60" height="40">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object type="bg" x="860" y="420" width="60" height="40">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object type="bg" x="1260" y="420" width="60" height="40">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object type="bg" x="1580" y="420" width="60" height="40">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object type="gpMid" x="2420" y="60" width="60" height="60"/>
+  <object type="guard" x="1120" y="420" width="40" height="40">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object type="guard" x="1400" y="420" width="40" height="40">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object type="gpMid" x="660" y="140" width="60" height="60"/>
+  <object type="guard" x="440" y="240" width="40" height="40"/>
+  <object type="guard" x="680" y="240" width="40" height="40"/>
+  <object type="guard" x="900" y="120" width="40" height="40"/>
+  <object type="guard" x="860" y="180" width="40" height="40"/>
+  <object type="guard" x="940" y="240" width="40" height="40"/>
+  <object type="guard" x="880" y="300" width="40" height="40"/>
+  <object type="gpUp" x="1220" y="280" width="60" height="40"/>
+  <object type="gpUp" x="1740" y="80" width="60" height="40"/>
+  <object type="gpUp" x="1960" y="40" width="60" height="40"/>
+  <object type="ac" x="1860" y="60" width="40" height="40">
+   <properties>
+    <property name="hang" value="up"/>
+   </properties>
+  </object>
+  <object type="ac" x="2080" y="20" width="40" height="40">
+   <properties>
+    <property name="hang" value="up"/>
+   </properties>
+  </object>
+  <object type="ac" x="1640" y="100" width="40" height="40">
+   <properties>
+    <property name="hang" value="up"/>
+   </properties>
+  </object>
+  <object type="ac" x="400" y="100" width="40" height="20">
+   <properties>
+    <property name="hang" value="up"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

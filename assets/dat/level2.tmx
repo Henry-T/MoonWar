@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="168" height="30" tilewidth="20" tileheight="20">
+ <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
+  <image source="../img/defTile.png" width="360" height="140"/>
+ </tileset>
+ <layer name="bg" width="168" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt1UsOwjAMBcAcpGfoGbgOn/uvCTtAyM2iSRwxI3kRvYfkhVVKAQAAAAAAgE/XOrc6W517ncfkzq/fbG/ds9+riPbukWXy2nMv8Z4jO9/2zu9VRHv3yDJp2XNkJ+q7zzFZJu6z/f9uVs995ulE/Z7fz9bdZvTcZ55O1HefY7JM3OdxNrv3z/d5SdaJ+me/W7PZvajTIwMAAAAAAAAA1vcEqZQtWw==
+  </data>
+ </layer>
+ <layer name="tile" width="168" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt0rENwDAMA0ENoayQ/Ud06zaFHUK4A1iz+a6qrvP60g+z3GxGn3ylT5I9Q7+YQZ8k0yfJ9EkyfZJMnwAAAAAAAOzeHwYAAAAAAAAA0yz54wXr
+  </data>
+ </layer>
+ <layer name="tileUp" width="168" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztyjEKADAIBEGL+AP//1bbdIIE0szAFgcXAQAAAAAA/JBD9fBzrg0AAAAAAAAAAAAAAAAAWw3m2wDD
+  </data>
+ </layer>
+ <layer name="scene" width="168" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt2GEOgjAMhuH9UE+Ah/BwRgG9v1niEiQd3VaGDt8naUwYoMLHOnVuW92kUlyFGiPbSwsIcrLp5eTspozHcg0EZ5eXT89n6FKhWs1maR+gf+jO70pVs6+3en+k5zU1n3t5Rmvxc2dOPn0ma8ydLd+fWM5Sag/fv6bc/l6rt7d8f/xnfjhbf+8zjvsnJf2dfH6yrHPu72p5fVOTZf1pqdhv+9HwfiWk8wyTsSHhfbTv1gv77Gn9XdMa+by5eN60/5i0+xNbo6XMu9O85Z5fG9OuiaV+We5/PWs6CtV98dWz5lPbrySf/rMdlOu19hh+03Rema/T5ttixy7Nn1L/bnl+w7YsuZHWldL8GeopHCNtA5b6XajTF/YL+wAAAAAAAAAAAAAAAAAAAAAAbF42T6xT
+  </data>
+ </layer>
+ <layer name="break" width="168" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt0tEJwyAUBVB3KB0hM3SdtN1/h9qPUBAjIeDTlHPgfag38Ag3JQAAAAAAAPi55XnleVfe1jzPgMx9Z7b9yn17nMv7mXx32/uvvd5msaT6nps1INPq51LZt8e5vJ9Ja7fot2hHdumd0c82/RybuVI/R+T0c2xGP89n9FM/W99H5PRzbEY/z2f+vZ+PCTKtfpbf9Dof2X9UrpWJfgMAAAAAAAAArucDQTIlCQ==
+  </data>
+ </layer>
+ <layer name="cover" width="168" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztwwENAAAIA6Cn0f4NraEONhIAAAAAAAAAAAAAAPivdPFWVVVVVVVVPXIANqsyiA==
+  </data>
+ </layer>
+ <objectgroup name="misc" width="168" height="30" visible="0">
+  <object name="spawn" x="188" y="100" width="32" height="30"/>
+ </objectgroup>
+ <objectgroup name="boss" width="168" height="30" visible="0">
+  <object name="appear" x="365" y="519" width="133" height="14"/>
+  <object name="rect" x="61" y="400" width="136" height="137"/>
+  <object name="appearUp" x="60" y="360" width="137" height="19"/>
+  <object name="appearUp" x="363" y="361" width="137" height="19"/>
+  <object name="appear" x="60" y="524" width="133" height="14"/>
+  <object name="jumpLen" x="60" y="389" width="299" height="9"/>
+  <object x="9" y="7"/>
+ </objectgroup>
+</map>

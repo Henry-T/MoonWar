@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="110" height="20" tilewidth="20" tileheight="20" backgroundcolor="#424242">
+ <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
+  <image source="../img/defTile.png" width="360" height="140"/>
+ </tileset>
+ <tileset firstgid="127" name="armyMark" tilewidth="20" tileheight="20">
+  <image source="../img/armyMark.png" width="180" height="100"/>
+ </tileset>
+ <layer name="bg" width="110" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt2MENgCAMBVCmcBd0A68eNbr/FnIhMQSRKuQX+Yd3MEJS2loSrTHGUrahIPRZesK6tUlL3UrGQUT/MQcWgXAv+izUr5ze9etipHue1qPzgaxDDDouel/PnHWjMymIV5vSvS/5rmLvt8DuHJdndL40qDWvJLNQOjfXBHQ+W65Zqjba77ZUT9Tojbu7PwWdo6/CeapBq3HXPjPphP5PS0REROSdPDBfwA==
+  </data>
+ </layer>
+ <layer name="tile" width="110" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztlg0OgyAMhbvfC+iOsERP4P1vNheXrKstSFYE4vuSFxWhVB5WiYDGw1BrcxwN+NYmtftmjYXK+QaF1c26RdSJMZ54Pcf4Uan7sT6evOM9N8wt+3jnwOcbDckcS+/3VHkiPbHWak/ftr5bOXLxQPMrx5pNVJdvvG0UbS37puWb+p5eafluXWb1tF6TknWSaL1/eN8WfeP35PWgjOHtodgxcd9yIGNbvmm510aqb5p3/DoUO6ZJieFNrE5a/VPqTGlCPgziqOV/mnWm738+P5e601JLa0P609NvzZf1P+bp1jZPWtt3HlieyfOcvv277kf3DWpLAAAAAAC18AKDxT8A
+  </data>
+ </layer>
+ <layer name="js" width="110" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt1KENAAAMAkFc99+4tgsgmtwl79AkAAAA0DGnxh7gOz8JAADAFwvKWwBV
+  </data>
+ </layer>
+ <layer name="nail" width="110" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztyaERAAAIAzHWYP9FsQgEqiq5e9NWAQAAAABATq++2/UDAAA5A8wDAS0=
+  </data>
+ </layer>
+ <objectgroup name="tip" width="110" height="20"/>
+ <objectgroup name="bonus" width="110" height="20" visible="0">
+  <object name="life" x="498" y="118"/>
+ </objectgroup>
+ <objectgroup name="misc" width="110" height="20">
+  <object name="spawn" x="95" y="184" width="41" height="35"/>
+  <object name="end" x="2080" y="240" width="40" height="40"/>
+  <object type="cube" x="760" y="220" width="40" height="40"/>
+  <object name="nail" type="sign" x="340" y="140" width="180" height="20">
+   <properties>
+    <property name="text" value="be ware of the nails"/>
+   </properties>
+  </object>
+  <object name="jump" type="sign" x="40" y="140" width="240" height="20">
+   <properties>
+    <property name="text" value="arrow keys to move, Z to jump"/>
+   </properties>
+  </object>
+  <object name="knock" type="sign" x="940" y="100" width="220" height="20">
+   <properties>
+    <property name="text" value="Jump to knock bullets down"/>
+   </properties>
+  </object>
+  <object name="shoot" type="sign" x="580" y="140" width="160" height="20">
+   <properties>
+    <property name="text" value="X to shoot up the cube"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="army" width="110" height="20"/>
+ <objectgroup name="enemy" width="110" height="20">
+  <object name="mine" type="mine" x="280" y="220" width="20" height="20"/>
+ </objectgroup>
+</map>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="22" tilewidth="20" tileheight="20">
+ <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
+  <image source="../img/defTile.png" width="360" height="140"/>
+ </tileset>
+ <layer name="bg" width="60" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0sEJACAIQFGXsFlq/8XqGFFCXtL4h38z8UFVRKqRjtqSGvMleJYVL168scOLFy/erF7dtPOuZfaWg+nUvOe1x/Ofb97jjR1enzdLeN/fhBcvXr/35zrgJpo0
+  </data>
+ </layer>
+ <layer name="tile" width="60" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztlmEKgDAIRr3E7tD9Txj9CELUkflNKx8IgfG5t42IKJZRvKLJ9qngm0n7YvPbl2hj9YRZVgXfGdLavXvzBt9Isnwj77CGNKPPF5tf3dezxsGerRmoO63lZvuupn3l/t1MLf8o9HeZc52H8rUqk/aV+9r7njpB/nNo2YjzrUz72v2v1d98d9jzJcE=
+  </data>
+ </layer>
+ <layer name="js" width="60" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztw0EJAAAIBLCrav8Sfi6E4AZLAAAAgC+mAa5YjnkAww==
+  </data>
+ </layer>
+ <objectgroup name="misc" width="60" height="22">
+  <object name="mislPos" x="760" y="300" width="80" height="100"/>
+  <object name="bossLaunchMark" x="920" y="220" width="80" height="100"/>
+  <object name="energy" x="760" y="280" width="100" height="120"/>
+  <object name="energy" x="760" y="280" width="100" height="120"/>
+  <object name="fightArea" x="500" y="40" width="620" height="360"/>
+  <object name="boss" x="920" y="300" width="80" height="100"/>
+  <object name="trigger" x="420" y="360" width="280" height="40"/>
+  <object name="start" x="200" y="160" width="40" height="40"/>
+  <object name="door" x="200" y="300" width="40" height="40"/>
+  <object name="door1" x="200" y="300" width="40" height="40"/>
+ </objectgroup>
+</map>

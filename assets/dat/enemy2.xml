@@ -1,0 +1,52 @@
+<Xml>
+	<EnemyGroup span="5">
+		<EnemyData type="Monk" camX="20" camY="2"/>
+		<EnemyData type="Monk" camX="23" camY="3"/>
+		<EnemyData type="Monk" camX="24" camY="6"/>
+	</EnemyGroup>
+	<EnemyGroup span="5">
+		<EnemyData type="Monk" camX="6" camY="2"/>
+		<EnemyData type="Monk" camX="3" camY="3"/>
+		<EnemyData type="Monk" camX="2" camY="6"/>
+	</EnemyGroup>
+	<EnemyGroup span="5">
+		<EnemyData type="Fighter" camX="3" camY="3"/>
+		<EnemyData type="Fighter" camX="22" camY="3"/>
+	</EnemyGroup>
+	<EnemyGroup span="5">
+		<EnemyData type="Fighter" camX="4" camY="2"/>
+		<EnemyData type="Fighter" camX="21" camY="2"/>
+		<EnemyData type="Fighter" camX="1" camY="5"/>
+		<EnemyData type="Fighter" camX="24" camY="5"/>
+	</EnemyGroup>
+	<EnemyGroup span="5">
+		<EnemyData type="Monk" camX="5" camY="5"/>
+		<EnemyData type="Monk" camX="10" camY="3"/>
+		<EnemyData type="Monk" camX="15" camY="3"/>
+		<EnemyData type="Monk" camX="20" camY="5"/>
+		<EnemyData type="Bomb" camX="23" camY="1"/>
+	</EnemyGroup>
+	<EnemyGroup span="5">
+		<EnemyData type="Blow" camX="21" camY="4"/>
+	</EnemyGroup>
+	<EnemyGroup span="5">
+		<EnemyData type="Blow" camX="21" camY="4"/>
+		<EnemyData type="Fighter" camX="20" camY="2"/>
+		<EnemyData type="Fighter" camX="23" camY="5"/>
+	</EnemyGroup>
+	<EnemyGroup span="5">
+		<EnemyData type="Monk" camX="2" camY="7"/>
+		<EnemyData type="Monk" camX="10" camY="2"/>
+		<EnemyData type="Monk" camX="15" camY="2"/>
+		<EnemyData type="Monk" camX="23" camY="7"/>
+		<EnemyData type="Fighter" camX="5" camY="4"/>
+		<EnemyData type="Fighter" camX="20" camY="4"/>
+	</EnemyGroup>
+	<EnemyGroup span="5">
+		<EnemyData type="Blow" camX="2" camY="2"/>
+		<EnemyData type="Blow" camX="24" camY="2"/>
+		<EnemyData type="Monk" camX="2" camY="6"/>
+		<EnemyData type="Monk" camX="24" camY="6"/>
+		<EnemyData type="Bomb" camX="6" camY="4"/>
+	</EnemyGroup>
+</Xml>

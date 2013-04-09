@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="144" height="50" tilewidth="20" tileheight="20" backgroundcolor="#2a2a2a">
+ <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
+  <image source="../img/defTile.png" width="360" height="140"/>
+ </tileset>
+ <layer name="bgFar" width="144" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2bEJwEAMBEGV9e6/MYeGd/CGBUczcJnCzTTzdm2DNU8P63CrH3b6odAPhX4o9EOhHwr9UOiHQj/8RT8U+qHQD4V+KPRDoR8K/VDoh0I/FPqh0A+Ffij0Q6EfCv1Q6IdCPxT6odAPAAAAAAAAAHT+7xT6odAPhX4o9EOhHwr9UOiHr24DFSjn
+  </data>
+ </layer>
+ <layer name="bg" width="144" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2+1NwzAURmEvkc6AOkEEE9AVoLD/FuRHIqUXO3Vip68/jqWjojbQJPdpQEUdnHPj3DBn13L/2FE9HPMl0ODJLt/5wU9bfnzHEDKDn/b9+Ob6rBgv+DnXz5EZpBTaF/v4Wc+Pn7r9WEMp1xL89OnnInxu/LThRxV+8vrZSj1r/JTZq//mKCn85PPT6jUmV/jh+mP7XHXbCD/48fW26tm2+MFPSvjBT2zvUx/z11eHH/z4+wr0M/U79T11d/jBT3r46cuP75h87/fEhp/2/aT4wE+7ftb7qQo/r/Wjnjd+8FNS+MEPfsrxs7XUs1b7CX2f/Rlj5Lneu30Lqeddgp9le/UsaizmNVhre/yo51Br+NHPoObwo5+Bcub4wU8pFtXzzpX6nPYUfgg/+MEPfmoMP4Qf/OAHPzWGn3Ya3f/3tlT/e6w59RzPcKG2gZ9y8u2zevb4efRzNbfrzxr28vsEP8f93M3t8lnDnD7U8yot9dxz+sEJfo5mj8su9XluNfXc8VN36rnjp+7Ucz/LkV2tHi/lDT+UEn4oJfxQSvihvf0B55oZ7w==
+  </data>
+ </layer>
+ <layer name="tile" width="144" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztm21OwzAMQMv4uADbEfixE3AGboOmcX8a0WrV6JI6H3aavCdZk0pYWudhp1UZBvBx6jAgH9ZraRHnu4B4rNfSIi5TXMf4SU9h11jU87V6cLr7ealjLr6Hmz/X5KvpGwt/5nmt/fka8CcVK3/muS38ce4saxDEY+nPPL/V/scF+580QrmWjg/9vu/7NI7NtYj7rzzkrD+x/mj3L8hHCX+OU2xZL21/3Hk9jXEIxPM0FvyU6F/Hu/B5pN2/3h+cxxqSsb1Ssv5sdUiTT8HYj2Jn0Q6l/Fn2iKVDewJ/wpTqXy735+mzxjq0BfwJU6r+uD5xmD5r7WUhJL2uV7T2P48c0t4/u7lfxngNxNvA/dcWSvSv2FibI/ex2HOCdUrUn5YC/OAP/qQgzR/5hiW56w/0Bf5ACvSv/Fjv2fa6R8SfP6zXE3/2jfV61hTS3ID9mmmuQ6458edGa474yHk+tVyTNa054iPnde3hemOQvvPakh+atJoP6Tuv+BFHq/mSvEfmxuKPjNbzhT86tJov/NGh1XxJ/emJFp9J5KZHf7SeYeHP/7E154P11Efij3v+s3wHXwv+1uulhp6EG/tFyx+8aJMc/0dI/egX7jEAAAAAAAAAAABgjV/DhHBI
+  </data>
+ </layer>
+ <layer name="js" width="144" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1UENACAMwMBZxb8J/lNAyV1SDZ0BAAAA+NtZAUCBfwFQ5F8AFPkXAEX+BUCRfwFQ5F8AAAAAAAAAAAAAAAAAvOgCupoKnQ==
+  </data>
+ </layer>
+ <layer name="po" width="144" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt0rEJAAAIA0HHcP9JbRxAEBu5g29SJwIAAAAAAAAAAJjI7nLjL/8BAAAAAAAAAAAAAAAAAAAAAABgqwCTkgHh
+  </data>
+ </layer>
+ <layer name="cover" width="144" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt0rENgDAQBMGvgmKgA1owgv674J06ezmwLM1Im19wEQAAAAAAAGvcQ1BxDEGF/zCjf+bMrvAf6lr2Zl/2LN4CAAAAAAAAAAAAAAAAAAAAAAAAwH5+oisD7g==
+  </data>
+ </layer>
+ <objectgroup name="misc" width="144" height="50">
+  <object name="door2" x="120" y="780" width="40" height="40"/>
+  <object name="door1" x="2780" y="260" width="40" height="40"/>
+  <object name="com1" x="45" y="797" width="51" height="21"/>
+  <object name="start" x="2780" y="80" width="40" height="40"/>
+  <object name="end" x="120" y="940" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup name="enemy" width="144" height="50">
+  <object type="gpUp" x="1300" y="520" width="60" height="40"/>
+  <object type="gpMid" x="1040" y="580" width="60" height="60"/>
+  <object type="bg" x="2220" y="300" width="60" height="40">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object type="bg" x="260" y="680" width="60" height="40">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object type="gpMid" x="640" y="620" width="60" height="60"/>
+  <object type="gpDown" x="580" y="740" width="60" height="40"/>
+  <object type="gpDown" x="420" y="760" width="60" height="40"/>
+  <object type="gpDown" x="740" y="720" width="60" height="40"/>
+  <object type="gpDown" x="940" y="700" width="60" height="40"/>
+  <object type="gpDown" x="1140" y="680" width="60" height="40"/>
+  <object type="gpDown" x="1840" y="100" width="60" height="40"/>
+  <object type="bg" x="1440" y="640" width="60" height="40">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="2540" y="140" width="40" height="200">
+   <properties>
+    <property name="offTime" value="1"/>
+    <property name="onTime" value="1"/>
+    <property name="start" value="0"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="2440" y="140" width="40" height="200">
+   <properties>
+    <property name="offTime" value="1"/>
+    <property name="onTime" value="1"/>
+    <property name="start" value="1"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="2340" y="140" width="40" height="200">
+   <properties>
+    <property name="offTime" value="1"/>
+    <property name="onTime" value="1"/>
+    <property name="start" value="0"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="2240" y="140" width="40" height="200">
+   <properties>
+    <property name="offTime" value="1"/>
+    <property name="onTime" value="1"/>
+    <property name="start" value="1"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="2140" y="140" width="40" height="200">
+   <properties>
+    <property name="offTime" value="1"/>
+    <property name="onTime" value="1"/>
+    <property name="start" value="0"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="1460" y="160" width="360" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="-12"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="1460" y="220" width="360" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="-9.6"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="1460" y="280" width="360" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="-7.2"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="1460" y="340" width="360" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="-4.8"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="1460" y="400" width="360" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="-2.4"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="1460" y="460" width="360" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="0"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="1460" y="220" width="360" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="-9.6"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

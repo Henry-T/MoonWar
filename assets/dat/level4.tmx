@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="144" height="58" tilewidth="20" tileheight="20">
+ <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
+  <image source="../img/defTile.png" width="360" height="140"/>
+ </tileset>
+ <tileset firstgid="127" name="armyMark" tilewidth="20" tileheight="20">
+  <image source="../img/armyMark.png" width="180" height="100"/>
+ </tileset>
+ <layer name="bg" width="144" height="58">
+  <data encoding="base64" compression="zlib">
+   eJzt3EFOwkAYhuGewjN4BNQTqEew6v1vAYsuGkLtlE+YzvAsnhRSFv3DS2dCAodhGA5wpSe6px/0g35okT0R+uFR+tFRX/RDi/3oqA/6obVmdNS2j430w7XGwvefbZ+R2tdyy9l6npPM0hq11E/NNY39WVuvnidrr6s9B/vsp1TtOdAP7dm6Xi2drz0H++jH/YctSvfHa/ej2nNQh/sPt+zn9eTtj/Ofg+9/Htk48zWZP/45+Z09P/c9HWvPAfTnZVL7OmiTfkjoh4R+SOiHhH5I6IeEfkjoh4R+SOiHhH5I6IeEfkjoh4R+SOiHhH5I6IdEaT+X/pPj/exYexbur7QfvxHjktJ+xgK1Z+H+7H9I6IeEfkjoh4R+SOiHhH5I6IeEfkjoh8R/9nME8spcUg==
+  </data>
+ </layer>
+ <layer name="tile" width="144" height="58">
+  <data encoding="base64" compression="zlib">
+   eJztnF1uwyAQBmmb9AJJjhC1vf8F60ixVKUsxuzys3g+aZ6MbQyTBT/EtxDCDabnqxK9nwv+Yx388cVoqemPtl/aMYuN/3cCi/nCn3n8iV2vpz8/Gez1Rzs+Wo9r+qOZjxH9yZnT1v5YpfTao/oj9bW0vcV6YeXP3mP4YzMO2jq7dV8rf6Rz/jry2ibmT+w6qXvticVYrnjyp7T9CP5Y1LVa8VZ/tsajRc3eG+1vIcefXsGf+rGopVa1RTPf2jXrtHB+cl14W3gX+Hi2qeXP7Ghica9WfU3lHvz7I72fl7Yb0Z/X+7Xsayqz+JNL7b5cI/Qen9x+nyN8Bjkn4ZycNa3384Idj/m8BLtcQr19N4zJPdildE0Dv+T4s9arreDP8aD+AP7ASP5srVfScfw5HtQf0PqTuz+Wsp6PP8eD+gP4A/gDHsEfwB/AH/AI/gD+AP6AR/AH8AfwBzyCP4A/gD/gEfwB/AH8AY/gD+AP4A94xNKfx/c3pG9zrN/06P28MK4/Oen9vIA/MA74AxpK/3cq7XFSsP+ZD96/AH8Af8Aj+AP4A/gDHsEfwB/AH/BIa39+AU7/vQg=
+  </data>
+ </layer>
+ <layer name="po" width="144" height="58">
+  <data encoding="base64" compression="zlib">
+   eJzt0qENAAAIA8EuzP4WywgluUveVjUBAAAA6DSnhh1+8R8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+WXIxBR0=
+  </data>
+ </layer>
+ <layer name="js" width="144" height="58">
+  <data encoding="base64" compression="zlib">
+   eJzt19EJACAIBcD+Gq/9t2mDCDShugM/Q1DwUWsAAJCvByrak7WdWWfsA+A2Vbk1Am9/Jr+A12T+gU7mlrsKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFBnAuSiAgk=
+  </data>
+ </layer>
+ <layer name="land" width="144" height="58">
+  <data encoding="base64" compression="zlib">
+   eJztw0EJAAAIBLArYf+qljh8yAZLAAAAAAAAAAAAAAAAAIALUwoAAAAAAAAAAAAAAAAAAAAAAMA/C5i2AXs=
+  </data>
+ </layer>
+ <layer name="land2" width="144" height="58">
+  <data encoding="base64" compression="zlib">
+   eJztw7EJAAAIA7Au/v+yP3RSSCAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8NkUAAAAAALhkAU6uAEI=
+  </data>
+ </layer>
+ <layer name="nail" width="144" height="58">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAIA7DZwL9RFOzmoE2aAAAAAADAjSkBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOCbBbM9AJc=
+  </data>
+ </layer>
+ <objectgroup name="misc" width="144" height="58">
+  <object name="start" x="20" y="60" width="51" height="50"/>
+  <object name="lift1" x="2500" y="440" width="40" height="40"/>
+  <object name="com1" x="2653" y="464" width="36" height="14"/>
+  <object name="breakCenter" x="2419" y="468" width="60" height="52"/>
+  <object name="bossEnd" x="2400" y="360" width="100" height="120"/>
+  <object name="hmPos1" x="40" y="460" width="80" height="100"/>
+  <object name="hmPos2" x="2140" y="380" width="80" height="100"/>
+  <object name="hmPos3" x="2420" y="380" width="80" height="100"/>
+  <object name="end" x="2740" y="900" width="40" height="42"/>
+ </objectgroup>
+ <objectgroup name="enemy" width="144" height="58">
+  <object type="bg" x="500" y="180" width="60" height="40"/>
+  <object type="guard" x="1080" y="60" width="40" height="40"/>
+  <object type="gpDown" x="1860" y="220" width="60" height="40"/>
+  <object type="bg" x="2080" y="40" width="60" height="40"/>
+  <object type="bg" x="2160" y="160" width="60" height="40">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object type="gpUp" x="500" y="60" width="60" height="40"/>
+  <object type="bg" x="2080" y="100" width="60" height="40"/>
+  <object type="bg" x="2080" y="160" width="60" height="40"/>
+  <object type="bg" x="2160" y="100" width="60" height="40">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object type="bg" x="2160" y="220" width="60" height="40">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object type="guard" x="580" y="100" width="40" height="40"/>
+  <object type="bTrigger" x="1380" y="220" width="140" height="40">
+   <properties>
+    <property name="gid" value="0"/>
+   </properties>
+  </object>
+  <object type="birth" x="1600" y="140" width="60" height="40">
+   <properties>
+    <property name="count" value="3"/>
+    <property name="gid" value="0"/>
+    <property name="span" value="1.5"/>
+    <property name="type" value="bWalk"/>
+   </properties>
+  </object>
+  <object type="birth" x="1240" y="140" width="60" height="40">
+   <properties>
+    <property name="count" value="3"/>
+    <property name="gid" value="0"/>
+    <property name="span" value="1.5"/>
+    <property name="type" value="bWalk"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

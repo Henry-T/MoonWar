@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="27" height="20" tilewidth="20" tileheight="20">
+ <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
+  <image source="../../mw/MWGame/img/defTile.png" width="360" height="320"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="27" height="20">
+  <data encoding="base64" compression="zlib">
+   eJyzYGBgsBjFo3gUj+JRPIpH8SimIQYAaO12IQ==
+  </data>
+ </layer>
+ <objectgroup name="1" width="27" height="20" visible="0">
+  <object name="Monk" x="400" y="40" width="40" height="40"/>
+  <object name="Monk" x="460" y="60" width="40" height="40"/>
+  <object name="Monk" x="480" y="120" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup name="2" width="27" height="20" visible="0">
+  <object name="Monk" x="40" y="120" width="40" height="40"/>
+  <object name="Monk" x="60" y="60" width="40" height="40"/>
+  <object name="Monk" x="120" y="40" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup name="3" width="27" height="20" visible="0">
+  <object name="Fighter" x="60" y="60" width="40" height="40"/>
+  <object name="Fighter" x="440" y="60" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup name="4" width="27" height="20" visible="0">
+  <object name="Fighter" x="420" y="40" width="40" height="40"/>
+  <object name="Fighter" x="80" y="40" width="40" height="40"/>
+  <object name="Fighter" x="480" y="100" width="40" height="40"/>
+  <object name="Fighter" x="20" y="100" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup name="5" width="27" height="20" visible="0">
+  <object name="Monk" x="100" y="100" width="40" height="40"/>
+  <object name="Monk" x="200" y="60" width="40" height="40"/>
+  <object name="Monk" x="300" y="60" width="40" height="40"/>
+  <object name="Monk" x="400" y="100" width="40" height="40"/>
+  <object name="Bomb" x="460" y="20" width="40" height="40"/>
+  <object name="Monk" x="200" y="60" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup name="6" width="27" height="20" visible="0">
+  <object name="Blow" x="420" y="80" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup name="7" width="27" height="20" visible="0">
+  <object name="Bomb" x="80" y="80" width="40" height="40"/>
+  <object name="Fighter" x="400" y="40" width="40" height="40"/>
+  <object name="Fighter" x="460" y="100" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup name="8" width="27" height="20" visible="0">
+  <object name="Fighter" x="100" y="80" width="40" height="40"/>
+  <object name="Fighter" x="400" y="80" width="40" height="40"/>
+  <object name="Monk" x="40" y="140" width="40" height="40"/>
+  <object name="Monk" x="460" y="140" width="40" height="40"/>
+  <object name="Monk" x="200" y="40" width="40" height="40"/>
+  <object name="Monk" x="300" y="40" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup name="9" width="27" height="20">
+  <object name="Blow" x="40" y="40" width="40" height="40"/>
+  <object name="Blow" x="480" y="40" width="40" height="40"/>
+  <object name="Monk" x="40" y="120" width="40" height="40"/>
+  <object name="Monk" x="480" y="120" width="40" height="40"/>
+  <object name="Bomb" x="260" y="80" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup name="intro" width="27" height="20" visible="0">
+  <object name="Monk" x="0" y="360" width="40" height="40"/>
+  <object name="Fighter" x="40" y="360" width="40" height="40"/>
+  <object name="Bomb" x="80" y="360" width="40" height="40"/>
+  <object name="Blow" x="120" y="360" width="40" height="40"/>
+ </objectgroup>
+</map>
