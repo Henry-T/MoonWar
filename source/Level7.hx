@@ -9,18 +9,24 @@ import org.flixel.tmx.TmxObjectGroup;
 
 class Level7 extends Level 
 {
-public var doorPos:FlxPoint;
 public var downing:Bool;
+public var downing2:Bool;
 public var zBallCenter:FlxPoint;
 public var zBallRadius:Float;
 public var zBallAngle:Float;
 public var zBallSpeed:Float;
+public var lock1:Bool;
+public var lock2:Bool;
+public var lock3:Bool;
+public var lock4:Bool;
+public var lastCom:Com;
+
 
 public function new()
 {
 	super();
 	tileXML = nme.Assets.getText("assets/dat/level7.tmx");
-	zBallSpeed = 0.5;
+	zBallSpeed = 1.0;
 	zBallAngle = 0;
 }
 
@@ -34,7 +40,34 @@ public override function create():Void
 	for (o in mG.objects) 
 	{
 		if (o.name == "door1")
-			doorPos = new FlxPoint(o.x, o.y);
+		{
+			bot.x = o.x+10; bot.y = o.y;
+			door1Up = new LDoor(o.x, o.y, true); 
+		}
+		else if (o.name == "door2")
+		{
+			bInLift2 = new FlxSprite(o.x - 10, o.y - 6, "assets/img/bInLift.png");
+			door2Up = new LDoor(o.x, o.y, false);
+			door2Down = new LDoor(o.x, o.y, true);
+		}
+		else if (o.type == "com")
+		{
+			var com:Com = cast(coms.recycle(Com), Com);
+			com.make(o);
+			if (com.name == "comOut")
+			{
+				lastCom = com;
+				com.onTig = function() { if (lock1 && lock2 && lock3 && lock4) door2Down.Unlock();};
+			}
+			else if(com.name == "comLock1")
+				com.onTig = function() { lock1 = true; };
+			else if(com.name == "comLock2")
+				com.onTig = function() { lock2 = true; };
+			else if(com.name == "comLock3")
+				com.onTig = function() { lock3 = true; };
+			else if(com.name == "comLock4")
+				com.onTig = function() { lock4 = true; };
+		}
 		else if (o.name == "zBallPath")
 		{
 			zBallRadius = o.width / 2;
@@ -44,16 +77,13 @@ public override function create():Void
 		{
 			zball = new FlxSprite(o.x, o.y);
 			zball.makeGraphic(o.width, o.height, 0xff990000);
-		}	
+		}
 	}
-	
 		
 	// tile
 	bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift.png");
 	tile.follow();
 	
-	bot = new Bot(doorPos.x + 10, doorPos.y,bullets);
-	door3 = new LDoor(doorPos.x, doorPos.y, true); 
 	
 	AddAll();
 	
@@ -62,41 +92,60 @@ public override function create():Void
 	bot.facing = FlxObject.RIGHT;
 	bInLift.velocity.y = 30;
 	downing = true;
+	downing2 = false;
 	FlxG.camera.follow(bot);
 	FlxG.flash(0xff000000, 2);
 	ResUtil.playGame2();
+	lock1 = false;
+	lock2 = false;
+	lock3 = false;
+	lock4 = false;
 	
-	// test
-	//bot.x = testPos1.x; bot.y = testPos1.y;
-	
-	// test boss fight
-	// FlxG.camera.bounds.make(20 * 59, 20 * 74, 20 * 34, 20 * 24);
 }
 
 override public function update():Void 
 {
 	super.update();
 	
-	if (downing && bInLift.y > doorPos.y)
+	if (!lock1 || !lock2 || !lock3 || !lock4)
+		lastCom.SetOn(false);
+	
+	// Start
+	if (downing && bInLift.y > door1Up.y)
 	{
-	bInLift.velocity.y = 0;
-	bot.EnableG(true);
-	bot.On = true;
-	door3.Unlock();
-	//tileCover.visible = false;
+		bInLift.velocity.y = 0;
+		door1Up.Unlock();
+	}
+	if (door1Up.open && downing)
+	{
+		downing = false;
+		bot.On = true;
 	}
 	
-	if (door3.open && downing)
+	// End
+	if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey))
 	{
-	downing = false;
-	bot.On = true;
+		door2Up.Colse(bot);
+		bot.On = false;
+	}
+	if (!downing2 && door2Up.locked)
+	{
+		bInLift2.velocity.y = 30;
+		downing2 = true;
+	}
+	if (bInLift2.y > end.y)
+	{
+		FlxG.fade(0xff000000, 1, function():Void {
+			if (GameStatic.ProcLvl < 7) GameStatic.ProcLvl = 7;
+			FlxG.switchState(new Level8());
+		});
 	}
 	
 	// update zball
 	zBallAngle += FlxG.elapsed * zBallSpeed;
 	var newZBPos = new FlxPoint(zBallCenter.x + Math.cos(zBallAngle) * zBallRadius, zBallCenter.y + Math.sin(zBallAngle) * zBallRadius);
-	zball.x = newZBPos.x;// - zball.width;
-	zball.y = newZBPos.y;// - zball.height;
+	zball.x = newZBPos.x - zball.width / 2;
+	zball.y = newZBPos.y - zball.height / 2;
 }
 
 }

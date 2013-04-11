@@ -48,27 +48,35 @@ override public function create():Void
 	var mG:TmxObjectGroup = tmx.getObjectGroup("misc");
 	for(o in mG.objects)
 	{
-	if (o.name == "door1")
-	{
-		door3 = new LDoor(o.x, o.y, true);
-	}
-	else if (o.name == "testPos1")
-		testPos1 = new FlxPoint(o.x, o.y);
-	else if (o.name == "trigger")
-		triggerRect = new FlxRect(o.x, o.y, o.width, o.height);
-	else if (o.name == "energy")
-	{
-		energy = new FlxSprite(o.x, o.y, "assets/img/energy.png");	
-		eStar = new FlxSprite(o.x + 7, o.y+4, "assets/img/eStar.png");
-	}
-	else if (o.name == "boss")
-		bossPos = new FlxPoint(o.x, o.y);
+		if (o.name == "door1")
+		{
+			door1Up = new LDoor(o.x, o.y, true);
+			bot.x = o.x+10; bot.y = o.y;
+		}
+		else if (o.name == "testPos1")
+			testPos1 = new FlxPoint(o.x, o.y);
+		else if (o.name == "trigger")
+			triggerRect = new FlxRect(o.x, o.y, o.width, o.height);
+		else if (o.name == "energy")
+		{
+			energy = new FlxSprite(o.x, o.y, "assets/img/energy.png");	
+			eStar = new FlxSprite(o.x + 7, o.y+4, "assets/img/eStar.png");
+		}
+		else if (o.name == "boss")
+			bossPos = new FlxPoint(o.x, o.y);
+		else if (o.name == "gate")
+		{
+			gate = new FlxSprite(o.x, o.y);
+			gate.makeGraphic(o.width, o.height, 0xffaaaaaa);
+			gate.immovable = true;
+			gate.y -= 100;
+		}
 	}
 	
 	bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift.png");
 	tile.follow();
 	
-	bot = new Bot(door3.x + 10, door3.y, bullets);
+	
 	boss3 = new Boss3(bossPos.x, bossPos.y);
 	
 	// trigger path to Boss room
@@ -88,11 +96,17 @@ override public function create():Void
 	FlxG.camera.follow(bot);
 	FlxG.flash(0xff000000, 2);
 	ResUtil.playGame2();
-	
+	gate.visible = false;
 }
 
 override public function update():Void 
 {
+	// gate
+	FlxG.collide(bot, gate);
+	FlxG.overlap(gate, missles, function(g:FlxObject, msl:FlxObject):Void { msl.kill(); } );
+	FlxG.overlap(gate, bouncers, function(g:FlxObject, bcr:FlxObject):Void { cast(bcr,Bouncer).bounceCount--; } );
+	FlxG.overlap(gate, bigGunBuls, function(g:FlxObject, bgb:FlxObject):Void { bgb.kill(); } );
+	
 	FlxG.collide(bouncers, tile, function(bcr:FlxObject, tile:FlxObject) { cast(bcr,Bouncer).bounceCount--; } );
 	FlxG.collide(bigGunBuls, tile, function(bgb:FlxObject, tile:FlxObject) { bgb.kill(); } );
 	FlxG.collide(missles, tile, function(msl:FlxObject, tile:FlxObject):Void {msl.kill();});
@@ -100,6 +114,8 @@ override public function update():Void
 	FlxG.overlap(bot, missles, function(bot:FlxObject, msl:FlxObject):Void { msl.kill(); } );
 	FlxG.overlap(bot, bouncers, function(bot:FlxObject, bcr:FlxObject):Void { bcr.kill();} );
 	FlxG.overlap(bot, bigGunBuls, function(bot:FlxObject, bgb:FlxObject):Void {bgb.kill();} );
+	
+	FlxG.collide(tile, boss3);		// Boss3 with Tile
 	
 	// bul on boss
 	FlxG.overlap(bullets, boss3, function(bul:FlxObject, boss3:FlxObject):Void { 
@@ -122,16 +138,16 @@ override public function update():Void
 	}
 	
 	// lift
-	if (downing && bInLift.y > door3.y)
+	if (downing && bInLift.y > door1Up.y)
 	{
 	bInLift.velocity.y = 0;
 	bot.EnableG(true);
 	bot.On = true;
-	door3.Unlock();
+	door1Up.Unlock();
 	//tileCover.visible = false;
 	}
 	
-	if (door3.open && downing)
+	if (door1Up.open && downing)
 	{
 	downing = false;
 	bot.On = true;
@@ -171,6 +187,8 @@ override public function update():Void
 		line.visible = false;
 		lineBg.visible = false;
 		drHead.visible = false;
+		gate.y += 100;
+		gate.visible = true;
 		
 		boss3.ChangeState("launching");
 		hbL.visible = true;

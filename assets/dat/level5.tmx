@@ -29,8 +29,12 @@
  <objectgroup name="misc" width="144" height="25">
   <object name="bPos1" x="100" y="280" width="40" height="40"/>
   <object name="start" x="20" y="280" width="40" height="40"/>
-  <object name="door1" x="2700" y="260" width="40" height="40"/>
-  <object name="com1" x="2812" y="286" width="34" height="13"/>
+  <object name="door2" x="2700" y="260" width="40" height="40"/>
+  <object name="comOut" type="com" x="2820" y="260" width="20" height="40">
+   <properties>
+    <property name="on" value="off"/>
+   </properties>
+  </object>
   <object name="end" x="2701" y="417" width="37" height="34"/>
  </objectgroup>
  <objectgroup name="enemy" width="144" height="25">

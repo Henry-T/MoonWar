@@ -9,10 +9,7 @@ import org.flixel.tmx.TmxObjectGroup;
 
 class Level4 extends Level 
 {
-
-
-
-public var liftPos:FlxPoint;
+public var door2Pos:FlxPoint;
 
 
 public static var camLefting:Bool = false;
@@ -45,29 +42,31 @@ override public function create():Void
 	var os:TmxObjectGroup = tmx.getObjectGroup("misc");
 	for ( to in os.objects)
 	{
-	if (to.name == "lift1")
-		liftPos = new FlxPoint(to.x, to.y);	
-	else if (to.name == "com1")
-	{
-		com1 = new Com(to.x, to.y, to.width, to.height);
-		com1.onTig = openDoor;
-	}
-	else if (to.name == "hmPos1")
-		bossP1 = new FlxPoint(to.x, to.y);
-	else if (to.name == "hmPos2")
-		bossP2 = new FlxPoint(to.x, to.y);
-	else if (to.name == "hmPos3")
-		bossP3 = new FlxPoint(to.x, to.y);
+		if (to.name == "door2")
+		{
+			door2Pos = new FlxPoint(to.x, to.y);		
+			door2Down = new LDoor(door2Pos.x, door2Pos.y, true);
+			door2Up = new LDoor(door2Pos.x, door2Pos.y, false);
+		}
+		else if (to.name == "comOut")
+		{
+			var com:Com = cast(coms.recycle(Com), Com);
+			com.make(to);
+			com.onTig = openDoor;
+		}
+		else if (to.name == "hmPos1")
+			bossP1 = new FlxPoint(to.x, to.y);
+		else if (to.name == "hmPos2")
+			bossP2 = new FlxPoint(to.x, to.y);
+		else if (to.name == "hmPos3")
+			bossP3 = new FlxPoint(to.x, to.y);
 	}
 	
 	tileLand = GetTile("land", FlxObject.ANY); 
 	tileLand2 = GetTile("land2", FlxObject.ANY); 
 	
 	boss2 = new Boss2(100, 250);
-	bot = new Bot(start.x,start.y,bullets);
-	
-	door1 = new LDoor(liftPos.x, liftPos.y, true);
-	door2 = new LDoor(liftPos.x, liftPos.y, false);
+	bot.x = start.x; bot.y = start.y;
 	
 	AddAll();
 	
@@ -158,25 +157,20 @@ override public function update():Void
 	});
 	}
 	
-	if (FlxG.overlap(bot, com1 ) && FlxG.keys.justPressed(bot.actionKey))
+	if (FlxG.overlap(bot, door2Down) && door2Down.open && FlxG.keys.justPressed(bot.actionKey))
 	{
-		com1.onTig();
-		FlxG.camera.shake(0.01, 2.0);
-		bot.facing = FlxObject.LEFT;
-		FlxG.camera.follow(null);
-		camLeftStart = FlxG.camera.scroll.x;
-		camLefting = true;
-	}
-	
-	if (FlxG.overlap(bot, door1) && FlxG.keys.justPressed(bot.actionKey))
-	{
-	door2.Colse(bot);
+		door2Up.Colse(bot);
 	}
 	super.update();
 }
 
 public function openDoor():Void
 {
-	door1.Unlock();
+	door2Down.Unlock();
+	FlxG.camera.shake(0.01, 2.0);
+	bot.facing = FlxObject.LEFT;
+	FlxG.camera.follow(null);
+	camLeftStart = FlxG.camera.scroll.x;
+	camLefting = true;
 }
 }

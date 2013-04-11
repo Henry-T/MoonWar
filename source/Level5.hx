@@ -29,21 +29,25 @@ override public function create():Void
 	var os:TmxObjectGroup = tmx.getObjectGroup("misc");
 	for ( to in os.objects)
 	{
-	if (to.name == "bPos1")
-		botPos1 = new FlxPoint(to.x, to.y);
-	else if (to.name == "com1")
-	{
-		com1 = new Com(to.x, to.y, to.width, to.height);
-	}
-	else if (to.name == "door1")
-		doorPos = new FlxPoint(to.x, to.y);
+		if (to.name == "bPos1")
+			botPos1 = new FlxPoint(to.x, to.y);
+		else if (to.name == "comOut")
+		{
+			var c = new Com(to.x, to.y, false);
+			c.make(to);
+			c.onTig = function(){ door2Down.Unlock(); };
+		}
+		else if (to.name == "door2")
+		{
+			doorPos = new FlxPoint(to.x, to.y);
+			door2Down = new LDoor(doorPos.x, doorPos.y, true);
+			door2Up = new LDoor(doorPos.x, doorPos.y, false);
+		}
 	}
 	
 	bInLift = new FlxSprite(doorPos.x-10, doorPos.y-6, "assets/img/bInLift.png");
-	door1 = new LDoor(doorPos.x, doorPos.y, true);
-	door2 = new LDoor(doorPos.x, doorPos.y, false);
 	
-	bot = new Bot(start.x,start.y,bullets);
+	bot.x = start.x; bot.y = start.y;
 	
 	AddAll();
 	
@@ -63,34 +67,25 @@ override public function update():Void
 	
 	if (botRighting)
 	{
-	if (bot.x > botPos1.x)
-	{
-		botRighting = false;
-		bot.velocity.x = 0;
-	}
-	else
-		bot.velocity.x = 60;	
-	}
-	
-	if (FlxG.overlap(bot, com1))
-	{
-	if (FlxG.keys.justPressed(bot.actionKey))
-	{
-		door1.Unlock();
-	}
+		if (bot.x > botPos1.x)
+		{
+			botRighting = false;
+			bot.velocity.x = 0;
+		}
+		else
+			bot.velocity.x = 60;	
 	}
 	
-	if (FlxG.overlap(bot, door1) && door1.open && FlxG.keys.justPressed(bot.actionKey))
+	if (FlxG.overlap(bot, door2Down) && door2Down.open && FlxG.keys.justPressed(bot.actionKey))
 	{
-	door2.Colse(bot);
-	bot.On = false;
+		door2Up.Colse(bot);
+		bot.On = false;
 	}
-	
-	if (door2.locked)
+	if (door2Up.locked)
 	{
-	bInLift.visible = true;
-	bInLift.velocity.y = 30;
-	bot.active = false;
+		bInLift.visible = true;
+		bInLift.velocity.y = 30;
+		bot.active = false;
 	}
 	
 	if (bInLift.y > end.y)

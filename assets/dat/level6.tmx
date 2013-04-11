@@ -36,9 +36,18 @@
  <objectgroup name="misc" width="144" height="50">
   <object name="door2" x="120" y="780" width="40" height="40"/>
   <object name="door1" x="2780" y="260" width="40" height="40"/>
-  <object name="com1" x="45" y="797" width="51" height="21"/>
+  <object name="comOut" type="com" x="80" y="780" width="20" height="40">
+   <properties>
+    <property name="on" value="0"/>
+   </properties>
+  </object>
   <object name="start" x="2780" y="80" width="40" height="40"/>
   <object name="end" x="120" y="940" width="40" height="40"/>
+  <object name="comIn" type="com" x="2840" y="260" width="20" height="40">
+   <properties>
+    <property name="on" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemy" width="144" height="50">
   <object type="gpUp" x="1300" y="520" width="60" height="40"/>

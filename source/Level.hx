@@ -96,6 +96,8 @@ public var boss3:Boss3;
 public var sBase:FlxSprite;
 public var cubes:FlxGroup;
 public var zball:FlxSprite;		// zBall in level7
+public var coms:FlxGroup;
+public var gate:FlxSprite;
 
 // Bullets
 public var bullets:FlxGroup;	// Bullets of Bot
@@ -132,11 +134,10 @@ public var gvTimer:FlxTimer;	// Game Over Time
 public var jsCntr:Int;		//
 
 // doors
-public var door1:LDoor;		// door closed to next level
-public var door2:LDoor;		// door open to next level
-public var door3:LDoor;		// first door in game
-public var com1:Com;
-public var com2:Com;
+public var door1Up:LDoor;	// level entrance door
+public var door2Down:LDoor;	// level exit door under bot
+public var door2Up:LDoor;	// level exit door over bot
+
 
 // misc
 public var bInLift:FlxSprite;
@@ -147,6 +148,7 @@ public var eStar:FlxSprite;
 public function new()
 {
 	super();
+	zball = null;
 }
 
 override public function create():Void
@@ -185,7 +187,15 @@ override public function create():Void
 	if (tileXML != null)
 	tmx = new TmxMap(tileXML);
 	
+	// Bullets
+	bullets = new FlxGroup();
+	bigGunBuls = new FlxGroup();
+	bouncers = new FlxGroup();
+	fgBuls = new FlxGroup();
+	missles = new FlxGroup();
+	
 	// Characters
+	bot = new Bot(0, 0, bullets);
 	ducks = new FlxGroup();
 	Bees = new FlxGroup();
 	bigGuns = new FlxGroup();
@@ -201,13 +211,7 @@ override public function create():Void
 	lifts = new FlxGroup();
 	mines = new FlxGroup();
 	cubes = new FlxGroup();
-	
-	// Bullets
-	bullets = new FlxGroup();
-	bigGunBuls = new FlxGroup();
-	bouncers = new FlxGroup();
-	fgBuls = new FlxGroup();
-	missles = new FlxGroup();
+	coms = new FlxGroup();
 	
 	// Particles
 	breakEmt = new FlxEmitter(100, 100);
@@ -272,18 +276,22 @@ override public function create():Void
 		}
 		else if (o.type == "lift")
 		{
-		var lift:Lift = cast(lifts.recycle(Lift),Lift);
-		lift.make(o);
+			var lift:Lift = cast(lifts.recycle(Lift),Lift);
+			lift.make(o);
 		}
 		else if (o.type == "sign")
 		{
-		var t:Tip1 =  cast(tips.recycle(Tip1),Tip1);
-		t.make(o);
+			var t:Tip1 =  cast(tips.recycle(Tip1),Tip1);
+			t.make(o);
 		}
 		else if (o.type == "cube")
 		{
-		var cube:Cube = cast(cubes.recycle(Cube),Cube);
-		cube.reset(o.x, o.y);
+			var cube:Cube = cast(cubes.recycle(Cube),Cube);
+			cube.reset(o.x, o.y);
+		}
+		else if (o.type == "com")
+		{
+			// do nothing.. com will be load by levels themself
 		}
 	}
 	}
@@ -375,9 +383,6 @@ public function AddAll():Void
 	add(bg1);
 	add(bg2);
 	
-	add(com1);	// rect marker
-	add(com2);	// rect marker for computer
-	
 	add(tileBgFar);
 	add(bInLift);
 	add(bInLift2);
@@ -395,9 +400,11 @@ public function AddAll():Void
 	add(tileJS);
 	add(tileNail);
 	
+	add(door2Down);
 	add(energy);
 	add(eStar);
 	add(sBase);
+	add(coms);
 	
 	add(breakEmt);
 	add(bigGunBuls);
@@ -420,6 +427,7 @@ public function AddAll():Void
 	add(Bees);
 	add(mines);
 	add(zball);
+	add(gate);
 	
 	add(t);
 	add(bullets);
@@ -427,9 +435,8 @@ public function AddAll():Void
 	
 	add(tileCover);
 	
-	add(door1);
-	add(door2);
-	add(door3);
+	add(door2Up);
+	add(door1Up);
 	
 	add(birthRay);
 	add(explo2s);
@@ -462,9 +469,18 @@ public function AddAll():Void
 }
 
 override public function update():Void 
-{
+{	
+	// computer trigger
+	FlxG.overlap(coms, bot, function(c:FlxObject, b:FlxObject) { 
+		if (FlxG.keys.justPressed(bot.actionKey))
+		{
+			cast(c, Com).ToggleOn();
+		}
+	} );
+	
 	// zball hurt bot
-	FlxG.overlap(zball, bot, function(z:FlxObject, bot:FlxObject) { bot.hurt(20); } );
+	if(zball!=null)
+		FlxG.overlap(zball, bot, function(z:FlxObject, bot:FlxObject) { bot.hurt(20); } );
 	
 	FlxG.overlap(bullets, cubes, function(b:FlxObject, c:FlxObject) { b.kill(); c.hurt(1); } );
 	FlxG.collide(cubes, bot);

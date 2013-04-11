@@ -25,7 +25,7 @@ override public function create():Void
 	Tile.follow();
 	
 	bullets = new FlxGroup();
-	bot = new Bot(100, 100, bullets);
+	bot.x = 100; bot.y = 100;
 	
 	add(Tile);
 	add(bot);

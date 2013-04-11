@@ -20,7 +20,7 @@ override public function create():Void
 	
 	tile.follow();
 	
-	bot = new Bot(50, 150, bullets);
+	bot.x = 50; bot.y = 150;
 	
 	FlxG.camera.follow(bot);
 	

@@ -43,8 +43,12 @@
  </layer>
  <objectgroup name="misc" width="144" height="58">
   <object name="start" x="20" y="60" width="51" height="50"/>
-  <object name="lift1" x="2500" y="440" width="40" height="40"/>
-  <object name="com1" x="2653" y="464" width="36" height="14"/>
+  <object name="door2" x="2500" y="440" width="40" height="40"/>
+  <object name="comOut" type="com" x="2660" y="440" width="20" height="40">
+   <properties>
+    <property name="on" value="0"/>
+   </properties>
+  </object>
   <object name="breakCenter" x="2419" y="468" width="60" height="52"/>
   <object name="bossEnd" x="2400" y="360" width="100" height="120"/>
   <object name="hmPos1" x="40" y="460" width="80" height="100"/>

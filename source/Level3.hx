@@ -86,21 +86,21 @@ override public function create():Void
 	for (to in os.objects)
 	{
 		if(to.name=="botPos1")
-		botPos1 = new FlxPoint(to.x, to.y);
+			botPos1 = new FlxPoint(to.x, to.y);
 		else if(to.name == "botPos2")
-		botPos2 = new FlxPoint(to.x, to.y);
+			botPos2 = new FlxPoint(to.x, to.y);
 		else if(to.name == "botPos3")
-		botPos3 = new FlxPoint(to.x, to.y);
+			botPos3 = new FlxPoint(to.x, to.y);
 		else if(to.name == "tPos")
-		tPos = new FlxPoint(to.x, to.y);
+			tPos = new FlxPoint(to.x, to.y);
 		else if(to.name == "tPos2")
-		tPos2 = new FlxPoint(to.x, to.y);
+			tPos2 = new FlxPoint(to.x, to.y);
 		else if(to.name == "duckStart")
-		duckStart = to.x;
+			duckStart = to.x;
 		else if(to.name == "duckEnd")
-		duckEnd = to.x;
+			duckEnd = to.x;
 		else if (to.name == "battle")
-		battlePos = new FlxPoint(to.x, to.y);
+			battlePos = new FlxPoint(to.x, to.y);
 	}
 	
 	FGLastShot = 0;
@@ -162,7 +162,7 @@ override public function create():Void
 	fg.velocity.x = t.velocity.x;
 	//add(fg);fg.active=false;
 	
-	bot = new Bot(botPos1.x,botPos1.y,bullets);
+	bot.x = botPos1.x; botPos1.y = botPos1.y;
 	// FlxG.camera.follow(t);
 	
 	AddAll();

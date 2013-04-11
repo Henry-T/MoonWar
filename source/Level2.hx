@@ -100,7 +100,6 @@ override public function create():Void
 	sBase.width = 60; sBase.height = 75;
 	sBase.health = 100;
 	
-	bot = new Bot(-100, 0, bullets); bot.On = false;
 	boss1 = new Boss1(bossX + xExtend, bossY/* + bossBury*/, this); 	// final pos 10, 230
 	tileCover = GetTile( "cover", FlxObject.NONE); 
 	
@@ -158,6 +157,7 @@ override public function create():Void
 	drHead.visible = true;
 	line.visible = true;
 	lineBg.visible = true;
+	bot.On = false;
 	ResUtil.playGame1();
 }
 

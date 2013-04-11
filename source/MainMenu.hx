@@ -20,25 +20,29 @@ public function new()
 override public function create():Void
 {
 	super.create();
-	bgImage = new FlxSprite(0, 0, "assets/img/mainmenu.png");
+
+	bgImage = new FlxSprite(0, 0, "assets/img/title.png");
 	this.add(bgImage);
 	
-	startBtn = new FlxButton(100,100,"START",onStart);
-	startBtn.color =  0x729954;
-	startBtn.label.color = 0xffd8eba2;
+	startBtn = new FlxButton(100 ,190,"",function(){FlxG.switchState(new IntroScreen());});
+	startBtn.loadGraphic("assets/img/bStart.png"); startBtn.x = FlxG.width / 2 - startBtn.width / 2;
+	startBtn.onOver = function(){startBtn.loadGraphic("assets/img/bStartOver.png");};
+	startBtn.onOut = function(){startBtn.loadGraphic("assets/img/bStart.png");};
+	
+	btnMap = new FlxButton(100, 240, "", function():Void { FlxG.switchState(new GameMap()); } );
+	btnMap.loadGraphic("assets/img/bLevel.png"); btnMap.x = FlxG.width / 2 - btnMap.width / 2;
+	btnMap.onOver = function(){btnMap.loadGraphic("assets/img/bLevelOver.png");};
+	btnMap.onOut = function(){btnMap.loadGraphic("assets/img/bLevel.png");};
+	
+	btnClearData = new FlxButton(100, 290, "", function() { GameStatic.ClearSavedData(); } );
+	btnClearData.loadGraphic("assets/img/bClear.png"); btnClearData.x = FlxG.width / 2 - btnClearData.width / 2;
+	btnClearData.onOver = function(){btnClearData.loadGraphic("assets/img/bClearOver.png");};
+	btnClearData.onOut = function(){btnClearData.loadGraphic("assets/img/bClear.png");};
+	
 	add(startBtn);
-	
-	btnMap = new FlxButton(100, 140, "MAP", function():Void { FlxG.switchState(new GameMap()); } );
 	add(btnMap);
-	
-	btnClearData = new FlxButton(100, 180, "CLEAR DATA", function() { GameStatic.ClearSavedData(); } );
 	add(btnClearData);
-	
-	ResUtil.playTitle();
-}
 
-public function onStart() : Void
-{
-	FlxG.switchState(new IntroScreen());
+	ResUtil.playTitle();
 }
 }

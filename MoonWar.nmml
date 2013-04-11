@@ -2,7 +2,7 @@
 <project>
 	<app title="MoonWar" file="MoonWar" main="Main" version="0.0.1" company="Zaphod" />
 	
-	<window width="550" height="400" fps="30" orientation="portrait" resizable="true" if="web" />
+	<window width="550" height="400" fps="30" orientation="portrait" resizable="false" if="web" />
 	<window width="550" height="400" fps="30" orientation="landscape" fullscreen="false" unless="web" />
  	
 	<set name="BUILD_DIR" value="export" />

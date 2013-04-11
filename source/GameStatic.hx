@@ -60,6 +60,8 @@ public static function GetCurLvlInst() : FlxState
 {
 	switch(CurLvl)
 	{
+	case 0:
+		return new IntroScreen();
 	case 1:
 		return new Level1();
 	case 2:
@@ -74,6 +76,10 @@ public static function GetCurLvlInst() : FlxState
 		return new Level6();
 	case 7:
 		return new Level7();
+	case 8:
+		return new Level8();
+	case 9:
+		return new EndScreen();
 	}
 	return null;
 }
@@ -100,5 +106,44 @@ public static function GetNextInst():FlxState
 		return new EndScreen();
 	}
 	return null;
+}
+
+public static function GetMissionName(id:Int):String
+{
+	switch (id) {
+		case 0:
+			return "DOOM APPROACH";
+		case 1:
+			return "Dr.CUBE & CUBE BOT";
+		case 2:
+			return "DEFEND SURFACE BASE";
+		case 3:
+			return "FIGHT THE WAY OUT";
+		case 4:
+			return "BROKEN INSIDE";
+		case 5:
+			return "ANOTHER WAY";
+		case 6:
+			return "ALMOST THERE";
+		case 7:
+			return "INNER LOCK";
+		case 8:
+			return "INNER CORE";
+	}
+	return "MISSION UNKNOWN";
+}
+
+public static function GetMissionDesc(id:Int):String
+{
+	switch (id) {
+		case 0:
+			return "Space bot RageMetal is on its way to moon with its fellow army. But the moon is totally defencless.";
+		case 1:
+			return "Space bot RageMetal is on its way to moon with its fellow army. But the moon is totally defencless.
+			Space bot RageMetal is on its way to moon with its fellow army. But the moon is totally defencless.
+			Space bot RageMetal is on its way to moon with its fellow army. But the moon is totally defencless.
+			Space bot RageMetal is on its way to moon with its fellow army. But the moon is totally defencless.";
+	}
+	return "No Description";
 }
 }
