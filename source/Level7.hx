@@ -28,6 +28,11 @@ public function new()
 	tileXML = nme.Assets.getText("assets/dat/level7.tmx");
 	zBallSpeed = 1.0;
 	zBallAngle = 0;
+
+	lines1 = [
+		new Line(0,"To enter Moon Core, you have to start four terminals."),
+		new Line(0,"Watch out for the electric ball.")
+	];
 }
 
 public override function create():Void

@@ -48,15 +48,10 @@ public function new()
 	super();
 	rotSpd = 360;
 	lines1 = [
-	"nice to see you again!",
-	"come on!",
-	"& protect the transport",
-	"reach the second base!"];
-	lines2 = [
-	"good job",
-	"now you will go down",
-	"the lift",
-	"will take you to core base."];
+		new Line(1,"Maintenance done."),
+		new Line(0,"OK, a bunch of airforce is waiting ahead."),
+		new Line(0,"Get onto the car, you are only weapon to fight.")
+	];
 	
 	tileXML = nme.Assets.getText("assets/dat/level3.tmx");
 }
@@ -188,20 +183,12 @@ public function switchState(s:Int):Void
 		bot.On = true;
 		
 		case 2:
-		lineBg.visible = true;
-		line.visible = true;
-		line.text = lines2[0];
-		this.drHead.visible = true;
-		
+		FlxG.fade(0xff0000ff, 2, function():Void{
+			if (GameStatic.ProcLvl < 3) GameStatic.ProcLvl = 3;
+			FlxG.switchState(new Level4());}, true);
 	}
 }
 
-public function preWalk1End(t:FlxTimer):Void
-{
-	lineBg.visible = true;
-	line.visible = true;
-	drHead.visible = true;
-}
 public function talkOver(t:FlxTimer):Void
 {
 	preWalking2 = true;
@@ -216,51 +203,33 @@ public function updateTiny():Void
 	switch(lvlState)
 	{
 	case 0:	// pre
-	if(preWalking)
-	{
-		bot.play("walk", false);
-		bot.velocity.x = botWalkSpd;
-		if(bot.x > botPos2.x)
+		if(preWalking)
 		{
-			preWalking = false;
-			bot.velocity.x = 0;
-			bot.play("idle");
-			timer1.start(0.5, 1, preWalk1End);
-		}
-	}
-	if(line.visible)
-	{
-		if(FlxG.keys.justPressed(bot.actionKey))
-		{
-			lineId1++;
-			if(lineId1 >= lines1.length)
+			bot.play("walk", false);
+			bot.velocity.x = botWalkSpd;
+			if(bot.x > botPos2.x)
 			{
-				lineBg.visible = false;
-				line.visible = false;
-				drHead.visible = false;
-				timer1.start(0.5,1,talkOver);
-			}
-			else
-			{
-				line.text = lines1[lineId1];
+				preWalking = false;
+				bot.velocity.x = 0;
+				bot.play("idle");
+				timer1.start(0.5, 1, function(t:FlxTimer) { lineMgr.Start(lines1, function() {
+					timer1.start(0.5, 1, talkOver);});});
 			}
 		}
-	}
-	if(preWalking2)
-	{
-		bot.play("walk", false);
-		bot.velocity.x = botWalkSpd;
-		if(bot.x >= botPos3.x)
+		if(preWalking2)
 		{
-			preWalking2 = false;
-			bot.velocity.y = -bot._jumpPower;
-			bot.play("jump_up", true); 
-			timer1.start(2, 1, preEnd);
+			bot.play("walk", false);
+			bot.velocity.x = botWalkSpd;
+			if(bot.x >= botPos3.x)
+			{
+				preWalking2 = false;
+				bot.velocity.y = -bot._jumpPower;
+				bot.play("jump_up", true); 
+				timer1.start(2, 1, preEnd);
+			}
 		}
-	}
-
 	case 1:	// fight
-	FlxG.camera.scroll.x += FlxG.elapsed * t.velocity.x;
+		FlxG.camera.scroll.x += FlxG.elapsed * t.velocity.x;
 		// keep bot on transport
 		if (bot.x < t.x - bot.width / 2)
 		bot.x = t.x - bot.width / 2;
@@ -272,30 +241,8 @@ public function updateTiny():Void
 			fg.velocity.x = 0;
 			timer1.start(2, 1, function(t:FlxTimer):Void{switchState(2);});
 		}
-		
 	case 2:	// post
-	if(line.visible)
-	{
-		if(FlxG.keys.justPressed(bot.actionKey))
-		{
-			lineId2++;
-			if(lineId2 >= lines2.length)
-			{
-				lineBg.visible = false;
-				line.visible = false;
-				drHead.visible = false;
-				FlxG.fade(0xff0000ff, 2, function():Void{
-					if (GameStatic.ProcLvl < 3) GameStatic.ProcLvl = 3;
-					FlxG.switchState(new Level4());}, true);
-			}
-			else
-			{
-				line.text = lines2[lineId2];
-			}
-		}
 	}
-
-}
 }
 
 public function spawnBee():Void {

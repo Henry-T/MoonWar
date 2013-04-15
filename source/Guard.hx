@@ -4,7 +4,7 @@ import org.flixel.FlxSprite;
 
 
 
-class Guard extends FlxSprite 
+class Guard extends Enemy 
 {
 
 

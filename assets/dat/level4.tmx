@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="144" height="58" tilewidth="20" tileheight="20">
+<map version="1.0" orientation="orthogonal" width="144" height="58" tilewidth="20" tileheight="20" backgroundcolor="#313131">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
-  <image source="../img/defTile.png" width="360" height="140"/>
+  <image source="../img/defTile.png" width="360" height="280"/>
+  <terraintypes>
+   <terrain name="light" tile="-1"/>
+  </terraintypes>
+  <tile id="7" terrain=",0,0,"/>
+  <tile id="8" terrain="0,,,0"/>
+  <tile id="25" terrain="0,0,,"/>
+  <tile id="26" terrain=",0,,0"/>
+  <tile id="42" terrain="0,0,0,0"/>
+  <tile id="43" terrain=",,0,0"/>
+  <tile id="44" terrain="0,,0,"/>
+  <tile id="59" terrain=",,0,"/>
+  <tile id="60" terrain=",,,0"/>
+  <tile id="61" terrain=",0,,"/>
+  <tile id="62" terrain="0,,,"/>
+  <tile id="77" terrain="0,0,,0"/>
+  <tile id="78" terrain="0,0,0,"/>
+  <tile id="79" terrain="0,,0,0"/>
+  <tile id="80" terrain=",0,0,0"/>
  </tileset>
- <tileset firstgid="127" name="armyMark" tilewidth="20" tileheight="20">
+ <tileset firstgid="253" name="armyMark" tilewidth="20" tileheight="20">
   <image source="../img/armyMark.png" width="180" height="100"/>
  </tileset>
  <layer name="bg" width="144" height="58">
   <data encoding="base64" compression="zlib">
-   eJzt3EFOwkAYhuGewjN4BNQTqEew6v1vAYsuGkLtlE+YzvAsnhRSFv3DS2dCAodhGA5wpSe6px/0g35okT0R+uFR+tFRX/RDi/3oqA/6obVmdNS2j430w7XGwvefbZ+R2tdyy9l6npPM0hq11E/NNY39WVuvnidrr6s9B/vsp1TtOdAP7dm6Xi2drz0H++jH/YctSvfHa/ej2nNQh/sPt+zn9eTtj/Ofg+9/Htk48zWZP/45+Z09P/c9HWvPAfTnZVL7OmiTfkjoh4R+SOiHhH5I6IeEfkjoh4R+SOiHhH5I6IeEfkjoh4R+SOiHhH5I6IdEaT+X/pPj/exYexbur7QfvxHjktJ+xgK1Z+H+7H9I6IeEfkjoh4R+SOiHhH5I6IeEfkjoh8R/9nME8spcUg==
+   eJztnUFu3DAMRbXMCbpIrpDuW2CSWSeLNN3n/ufoGIhQhiAlSl+yxpNP4CFtxpYp8ouU7QGS0nz79U14uvAI8PfC3SR+TsoNMl+LbNHjT868Iobka7vuj8E8pDG5/nPhfhBvaa5+Rus8iZ9J/N/jPfXrCcmXF09pvfpB839uiEHNsk+z9IPqGlkzeoxoXnVsWq5dW4+I1XLVY2iNHe1TpH9FaoBe+z3+PScsrzo2pVifnHNG2oyx0Ro7Wz+9td3ST85ftAfJ4/N4up+1aKEUa31MaY6eDmvzmqGfvMby+mqptecJPpX6V/Yx57AUL1k7tK8RDcj7DblOWvYunn5kjHVdi8TT80XXOR2fkbnSGs6xqsX2pM6VMR5hWj/S0J7UW2u1frw1pvWtY2Plz9OYlQdd17Ifb5//3tbIU/JzOTJXo2KJ7C8sK+lH18pSHdLrQ/agaI2VtUHO2ZtrrS606MfiPdl7zof0vz9HntGMyJWu79H+dU74vrJkJf1ki9Qh65jsd/T+Ux4v5+ydr2Oqj4/oxxsjx3rTkFXX5O8jOWzdC2bz9l6l/qV7Vk/fi/oa0Y9Xhyy/7grH7I3VPyJ7shy35/T1mYJVs3If26x0v+flTefI2+eM6Fk949Qsop9so56n7o2ln+jxVh30amNPfHKP3KzWD637AKv26frd+xxutH4Qn3rvOUcgc1zrV0jtjPYzeS15PakdTxfZWu9to/2pdD9gndOiH9Ra90N726j6Glm3ujfqOlOL0az+VBtXn7Onfq7d0Ppa2+9Hrxc5P+Jrrd5b1/HG9Xoa9XO71vpsvXS/5Y1F/dyWyTy2PluPHEf99FvvdxpW+LhZRD+R52ylsaifuN2Cfmr9yvtcjrV6rsj3k1baEXyu6afWr7zPqR/cjuCzpR/53rLWr/TnuR7JZ/lI/laz0o7gs6WfludS2qwxVmuA+tnHR/39h57ntvrdZ23/fO2stCP4bOlnxLts77tMq/VA5jHjfTf1830Y9T6m9M5j9RzJXHqs5fzV8yPXrR9Cavz+ZLUf5JhQPwSB+iEI1A9BoH4IAvVDEKgfgkD9EATqhyBQPwSB+iEI1A9BoH4IAvVDEKgfgkD9EISofl4NXtTP1XMh+xPVT+RvNqyeC9mfqH4+AqyeC9kf7n8IAvVDEKgfgkD9EATqhyBQPwSB+iEI1A9BoH4IAvVDEEbq5x87zi9v
   </data>
  </layer>
  <layer name="tile" width="144" height="58">
@@ -23,7 +41,7 @@
  </layer>
  <layer name="js" width="144" height="58">
   <data encoding="base64" compression="zlib">
-   eJzt19EJACAIBcD+Gq/9t2mDCDShugM/Q1DwUWsAAJCvByrak7WdWWfsA+A2Vbk1Am9/Jr+A12T+gU7mlrsKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFBnAuSiAgk=
+   eJzt10EKACAIBEBv/f/H/SAKTShmwLOg4GIEAADUG4nK9mRtZ9YV+wB4TWduubHn5Bfwm8of6GZuuasAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH0mB1gBug==
   </data>
  </layer>
  <layer name="land" width="144" height="58">

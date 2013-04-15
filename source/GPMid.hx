@@ -5,7 +5,7 @@ import org.flixel.FlxPoint;
 
 
 
-class GPMid extends FlxSprite
+class GPMid extends Enemy
 {
 
 public static var ColdDown:Float = 2.8;

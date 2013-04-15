@@ -10,7 +10,7 @@ import flash.geom.Point;
 import org.flixel.tmx.TmxMap;
 import org.flixel.tmx.TmxObjectGroup;
 
-class Boss3 extends FlxSprite
+class Boss3 extends Enemy
 {
 public var timer1:FlxTimer;
 public var timer2:FlxTimer;

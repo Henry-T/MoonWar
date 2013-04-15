@@ -2,7 +2,7 @@ package;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 
-class Duck extends FlxSprite
+class Duck extends Enemy
 {
 
 

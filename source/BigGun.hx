@@ -4,7 +4,7 @@ import org.flixel.FlxSprite;
 import org.flixel.FlxPoint;
 import org.flixel.FlxObject;
 
-class BigGun extends FlxSprite
+class BigGun extends Enemy
 {
 
 

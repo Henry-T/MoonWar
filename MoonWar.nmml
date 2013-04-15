@@ -13,6 +13,7 @@
 	
 	<assets path="assets" include="*.png" type="image" />
 	<assets path="assets" include="*.tmx" />
+	<assets path="assets" include="*.tsx" />
 	<assets path="assets" include="*.xml" />
 
 	<assets path="assets" if="android" >

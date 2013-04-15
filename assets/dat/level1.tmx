@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="110" height="20" tilewidth="20" tileheight="20" backgroundcolor="#424242">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
-  <image source="../img/defTile.png" width="360" height="140"/>
- </tileset>
- <tileset firstgid="127" name="armyMark" tilewidth="20" tileheight="20">
-  <image source="../img/armyMark.png" width="180" height="100"/>
+  <image source="../img/defTile.png" width="360" height="280"/>
+  <terraintypes>
+   <terrain name="light" tile="-1"/>
+  </terraintypes>
+  <tile id="7" terrain=",0,0,"/>
+  <tile id="8" terrain="0,,,0"/>
+  <tile id="25" terrain="0,0,,"/>
+  <tile id="26" terrain=",0,,0"/>
+  <tile id="42" terrain="0,0,0,0"/>
+  <tile id="43" terrain=",,0,0"/>
+  <tile id="44" terrain="0,,0,"/>
+  <tile id="59" terrain=",,0,"/>
+  <tile id="60" terrain=",,,0"/>
+  <tile id="61" terrain=",0,,"/>
+  <tile id="62" terrain="0,,,"/>
+  <tile id="77" terrain="0,0,,0"/>
+  <tile id="78" terrain="0,0,0,"/>
+  <tile id="79" terrain="0,,0,0"/>
+  <tile id="80" terrain=",0,0,0"/>
  </tileset>
  <layer name="bg" width="110" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2MENgCAMBVCmcBd0A68eNbr/FnIhMQSRKuQX+Yd3MEJS2loSrTHGUrahIPRZesK6tUlL3UrGQUT/MQcWgXAv+izUr5ze9etipHue1qPzgaxDDDouel/PnHWjMymIV5vSvS/5rmLvt8DuHJdndL40qDWvJLNQOjfXBHQ+W65Zqjba77ZUT9Tojbu7PwWdo6/CeapBq3HXPjPphP5PS0REROSdPDBfwA==
+   eJztV1EOwjAI7Sn80CPMHUCdeoO53v8yth8kBOlKJ7jN8JL3IZIKPKA1BAeHC+EpsUvslc7H59HfciyH67ZPbF23ww54TzwbcGiIwVK3tetrRchRmy0125puFn2sPQuQ4yvxqMBxQc0sdaP7ZCA2bi9Y9LHmLOT4o2HNtqAb3SfUNoVP7TT72GIWaPzQfxnSe4/6x7Av3TjtNGPRAJ0F7m7ria9kdql/7tVnkGlmOfMTOrtjbDnOEdmhD7lYrok3pfhagfOB2YB9gGcR+5b2Rckfn197X2LNQGsNPFB8tZ6jvtNMDtye+QUk88V9luy22nxydbDQDCDRrke+R4F/LZ/S3VGzSXKhcwP1statRAvNAFy+XO4AyEH6Tmi5O+ZsGK3vCsiR01GiW61G0tqtCcipVjN6Z5ZmMQptLWfX5j1++f0eKa2Zc5tc+/+acxkdDofD4fhHvAGJgqrD
   </data>
  </layer>
  <layer name="tile" width="110" height="20">
   <data encoding="base64" compression="zlib">
-   eJztlg0OgyAMhbvfC+iOsERP4P1vNheXrKstSFYE4vuSFxWhVB5WiYDGw1BrcxwN+NYmtftmjYXK+QaF1c26RdSJMZ54Pcf4Uan7sT6evOM9N8wt+3jnwOcbDckcS+/3VHkiPbHWak/ftr5bOXLxQPMrx5pNVJdvvG0UbS37puWb+p5eafluXWb1tF6TknWSaL1/eN8WfeP35PWgjOHtodgxcd9yIGNbvmm510aqb5p3/DoUO6ZJieFNrE5a/VPqTGlCPgziqOV/mnWm738+P5e601JLa0P609NvzZf1P+bp1jZPWtt3HlieyfOcvv277kf3DWpLAAAAAAC18AKDxT8A
+   eJztlg0OgyAMhbvfC+iOsERP4P1vNhaXrKstSFYF4vuSFxWhVB5WiYDGw1BrcxwN+NYmtftmjYXK+QbF1QXdEurEGE+8nmP8qNT9VB9P3vGeK+aWfbxz4PONhmSOpfd7rjyRnlhrtadva9+tLXLxYC/fJqrLN942iraWfdPyzX1PrzR/ty5BPS3XpGSdJFruH963Nd/kPXk9KGN4eyx2Sty3LZCxLd+03Gsj1zfNO34di53SpMTwJlUnrf45daY0MR8GcdTyPwWd6fufz8+l7jTX0tqQ/vT0W/Nl/V/7rUm1edLavvPA8kyeb+nbv+t+dN+gtgQAAAAAUAsv72I/Kg==
   </data>
  </layer>
  <layer name="js" width="110" height="20">
@@ -31,7 +46,7 @@
   <object name="life" x="498" y="118"/>
  </objectgroup>
  <objectgroup name="misc" width="110" height="20">
-  <object name="spawn" x="95" y="184" width="41" height="35"/>
+  <object name="spawn" x="100" y="180" width="40" height="40"/>
   <object name="end" x="2080" y="240" width="40" height="40"/>
   <object type="cube" x="760" y="220" width="40" height="40"/>
   <object name="nail" type="sign" x="340" y="140" width="180" height="20">

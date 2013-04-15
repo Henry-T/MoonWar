@@ -57,13 +57,13 @@ public var tileLand:FlxTilemap;		// breakable land1 for level4
 public var tileLand2:FlxTilemap;	// breakable land2 for level4
 
 // Dialog
-public var drHead:FlxSprite;
-public var lineBg:FlxSprite;
-public var line:FlxText;
-public var lineId1:Int;
-public var lineId2:Int;
-public var lines1:Array<String>;
-public var lines2:Array<String>;
+public var lines1:Array<Line>;
+public var lines2:Array<Line>;
+public var lines3:Array<Line>;
+public var lines4:Array<Line>;
+
+// New Dialog
+public var lineMgr:LineMgr;
 
 // Data
 public var rGameOver:Bool;
@@ -154,6 +154,9 @@ public function new()
 override public function create():Void
 {
 	super.create();
+	this.bgColor = 0xff000000;
+
+	lineMgr = new LineMgr();
 
 	btnUp = new FlxSprite(100, FlxG.height - 150); btnUp.makeGraphic(70, 40, 0x44ffffff); btnUp.scrollFactor.make(0,0);
 	btnDown = new FlxSprite(100, FlxG.height - 50); btnDown.makeGraphic(70, 40, 0x44ffffff); btnDown.scrollFactor.make(0,0);
@@ -172,12 +175,8 @@ override public function create():Void
 	
 	jsCntr = 0;
 	
-	FlxG.bgColor = 0xffaaaaaa;
 	rGameOver = false;
 	isWin = false;
-	
-	lineId1 = 0;
-	lineId2 = 0;
 	
 	timer1 = new FlxTimer();
 	timer2 = new FlxTimer();
@@ -243,13 +242,6 @@ override public function create():Void
 	hbH = new FlxSprite(120, 370, "assets/img/hbH.png"); hbH.origin = new FlxPoint(0, 0);  hbH.scrollFactor = new FlxPoint(0, 0); hbH.visible = false;
 	
 	// Dialogs
-	lineBg = new FlxSprite(0, 50, "assets/img/lineBg.png"); lineBg.visible = false;
-	lineBg.scrollFactor = new FlxPoint(0,0);
-	line = new FlxText(100, 80, 400, ""); line.visible = false;
-	line.scrollFactor = new FlxPoint(0,0);
-	drHead = new FlxSprite(8, 62, "assets/img/drHead.png"); drHead.visible = false;
-	drHead.scrollFactor = new FlxPoint(0, 0);
-	
 	// try load tile layers
 	tileBgFar = GetTile("bgFar", FlxObject.NONE);
 	tileBg = GetTile("bg", FlxObject.NONE);
@@ -380,12 +372,12 @@ override public function create():Void
 
 public function AddAll():Void
 {
-	add(bg1);
-	add(bg2);
+	//add(bg1);
+	//add(bg2);
 	
-	add(tileBgFar);
-	add(bInLift);
-	add(bInLift2);
+	//add(tileBgFar);
+	//add(bInLift);
+	//add(bInLift2);
 	add(tileBg);
 	add(tile);
 	add(tileUp);
@@ -449,9 +441,7 @@ public function AddAll():Void
 	add(bhBar);
 	add(bhCover);
 	
-	add(lineBg);
-	add(line);
-	add(drHead);
+	add(lineMgr);
 	
 	add(hbL);
 	add(hbR);

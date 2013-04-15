@@ -6,7 +6,7 @@ import org.flixel.FlxPoint;
 import org.flixel.FlxTimer;
 import org.flixel.FlxObject;
 
-class Boss1 extends FlxSprite
+class Boss1 extends Enemy
 {
 
 

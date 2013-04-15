@@ -29,12 +29,9 @@ public function new()
 	tileXML = nme.Assets.getText("assets/dat/level8.tmx");
 	
 	lines1 = [
-	"Whoa! MetalAnger! such a BIG guy!", 
-	"glade to see you ready, cube bot.", 
-	"as you see the MetalAnger is invading the core of moon base",
-	"you have to do your best to brevent him",
-	"lucky, the guy have no way to come up here",
-	"remenber to make use of his own canon.",
+		new Line(0,"Dr.Cube:It's too bad, RageMetal take control of the energy."), 
+		new Line(2,"Finally, I will bring you ... doom!"), 
+		new Line(1,"Then I have to bury you here now.")
 	];
 }
 
@@ -167,44 +164,20 @@ override public function update():Void
 		righting = false;
 		bot.velocity.x = 0;
 		timer1.start(1, 1, function(t:FlxTimer):Void {
-		line.text = lines1[0];
-		line.visible = true;
-		lineBg.visible = true;
-		drHead.visible = true;
-		
-		FlxG.camera.bounds.make(20*24, 20*1, 20*34, 20*21);
+			lineMgr.Start(lines1, function(){
+				gate.y += 100;
+				gate.visible = true;
+				boss3.ChangeState("launching");
+				hbL.visible = true;
+				hbR.visible = true;
+				hbBg.visible = true;
+				hbH.visible = true;
+				ResUtil.playGame1();
+			});
+			FlxG.camera.bounds.make(20*24, 20*1, 20*34, 20*21);
 		});
 	}
 	}
-	
-	if (line.visible && lineId1!=lines1.length)
-	{
-	if (FlxG.keys.justPressed(bot.actionKey))
-	{
-		lineId1 ++;
-		if (lineId1 >= lines1.length)
-		{
-		line.visible = false;
-		lineBg.visible = false;
-		drHead.visible = false;
-		gate.y += 100;
-		gate.visible = true;
-		
-		boss3.ChangeState("launching");
-		hbL.visible = true;
-		hbR.visible = true;
-		hbBg.visible = true;
-		hbH.visible = true;
-		
-		ResUtil.playGame1();
-		}
-		else
-		{
-		line.text = lines1[lineId1];
-		}
-	}
-	}
-	
 	super.update();
 }
 

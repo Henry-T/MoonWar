@@ -44,7 +44,7 @@ override public function kill():Void
 	velocity.x = 0;
 	velocity.y = 0;
 	if(onScreen())
-		FlxG.play("assets/snd/shoot.mp3");
+		FlxG.play("assets/snd/hit2.mp3");
 	alive = false;
 	solid = false;
 	play("poof");
@@ -52,7 +52,7 @@ override public function kill():Void
 
 public function shoot(Location:FlxPoint, Aim:Int):Void
 {
-	FlxG.play("assets/snd/shoot.mp3");
+	FlxG.play("assets/snd/shoot1.mp3");
 	super.reset(Location.x-width/2,Location.y-height/2);
 	solid = true;
 	switch(Aim)

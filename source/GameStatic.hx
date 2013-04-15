@@ -112,23 +112,25 @@ public static function GetMissionName(id:Int):String
 {
 	switch (id) {
 		case 0:
-			return "DOOM APPROACH";
+			return "INVADER";
 		case 1:
-			return "Dr.CUBE & CUBE BOT";
+			return "FIRST BLOOD";
 		case 2:
-			return "DEFEND SURFACE BASE";
+			return "TEAM DEFENCE";
 		case 3:
-			return "FIGHT THE WAY OUT";
+			return "BREAK OUT";
 		case 4:
 			return "BROKEN INSIDE";
 		case 5:
-			return "ANOTHER WAY";
+			return "SPARE CHANNEL";
 		case 6:
-			return "ALMOST THERE";
+			return "BASE ENTRANCE";
 		case 7:
-			return "INNER LOCK";
+			return "INNER BASE";
 		case 8:
-			return "INNER CORE";
+			return "MOON CORE";
+		case 9:
+			return "IT'S OVER";
 	}
 	return "MISSION UNKNOWN";
 }
@@ -137,12 +139,25 @@ public static function GetMissionDesc(id:Int):String
 {
 	switch (id) {
 		case 0:
-			return "Space bot RageMetal is on its way to moon with its fellow army. But the moon is totally defencless.";
+			return "RageMetal leads its force to conquer Moon\rPeople in Surface Base are on emergency meeting";
 		case 1:
-			return "Space bot RageMetal is on its way to moon with its fellow army. But the moon is totally defencless.
-			Space bot RageMetal is on its way to moon with its fellow army. But the moon is totally defencless.
-			Space bot RageMetal is on its way to moon with its fellow army. But the moon is totally defencless.
-			Space bot RageMetal is on its way to moon with its fellow army. But the moon is totally defencless.";
+			return "While RageMetal's pioneers approaching\rCubeBot is under it's launch test";
+		case 2:
+			return "RageMetal lands near Surface Base\rDr.Cube has gifts for it";
+		case 3:
+			return "Transport station is needed to find RageMetal\nBut we spoted the air blocked by it's force";
+		case 4:
+			return "RageMetal's force is filling the tunnel\nMain Tunnel is shortcut Moon Core";
+		case 5:
+			return "Lift in Main Tunnel is destroied by RageMetal\nWell we still have a spare channel";
+		case 6:
+			return "Inner Base is surrounded\nThe situation is not so good";
+		case 7:
+			return "Inner Base is a huge facility\nMoon Gate to Moon Core is locked";
+		case 8:
+			return "RageMetal absorbed energy in Moon Core\nWe will have to bury it here";
+		case 9:
+			return "Moon is in peace again";
 	}
 	return "No Description";
 }

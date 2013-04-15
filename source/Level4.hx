@@ -31,6 +31,18 @@ public function new()
 {
 	super();
 	tileXML = nme.Assets.getText("assets/dat/level4.tmx");
+
+	lines1 = [
+		new Line(1,"Enemy spotted."),
+		new Line(0,"RageMetal's force is dispersing in tunnel."),
+		new Line(1,"Then I can handle them one by one."),
+	];
+
+	lines2 = [
+		new Line(2,"Look, you don't have a lift anymore. See you!"),
+		new Line(1,"It fled."),
+		new Line(0,"We can take the spare path, it is a little far throuth."),
+	];
 }
 
 override public function create():Void 

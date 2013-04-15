@@ -5,7 +5,7 @@ import org.flixel.FlxPoint;
 
 
 
-class GPUp extends FlxSprite
+class GPUp extends Enemy
 {
 
 public static var ColdDown:Float = 2.8;

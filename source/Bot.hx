@@ -205,17 +205,17 @@ override public function update():Void
 	}
 	if(On && !InVc && FlxG.keys.justPressed("Z") && !FlxG.keys.DOWN && isTouching(FlxObject.DOWN))
 	{
-	velocity.y = -_jumpPower;
-	//FlxG.play(SndJump);
+		velocity.y = -_jumpPower;
+		FlxG.play("assets/snd/jump2.mp3");
 	}
 	if (On && !InVc && FlxG.keys.justPressed("Z") && FlxG.keys.DOWN && (velocity.y == 0))
 	{
-	cast(FlxG.state , Level).DisJS1Frame();
-	//if (this.isTouching(FlxObject.FLOOR))
-	//{
-	//	y += 10;
-	//	velocity.y = 10;
-	//}
+		cast(FlxG.state , Level).DisJS1Frame();
+		//if (this.isTouching(FlxObject.FLOOR))
+		//{
+		//	y += 10;
+		//	velocity.y = 10;
+		//}
 	}
 
 

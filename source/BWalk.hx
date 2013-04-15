@@ -5,7 +5,7 @@ import org.flixel.FlxObject;
 
 
 
-class BWalk extends FlxSprite 
+class BWalk extends Enemy 
 {
 
 

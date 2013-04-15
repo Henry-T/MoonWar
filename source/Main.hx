@@ -1,7 +1,4 @@
 package;
-import org.flixel.FlxGame;
-
-
 import nme.display.StageAlign;
 import nme.display.StageScaleMode;
 import nme.display.Sprite;
@@ -10,7 +7,7 @@ import nme.events.KeyboardEvent;
 import nme.Lib;
 import nme.ui.Keyboard;
 import org.flixel.FlxGame;
-
+ 
 /**
  * @author Joshua Granick
  */

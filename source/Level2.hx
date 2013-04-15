@@ -57,17 +57,24 @@ public function new()
 	tileXML = nme.Assets.getText("assets/dat/level2.tmx");
 	
 	lines1 = [
-	"Whoa! MetalAnger! such a BIG guy!", 
-	"glade to see you ready, cube bot.", 
-	"as you see the MetalAnger is invading the core of moon base",
-	"you have to do your best to brevent him",
-	"lucky, the guy have no way to come up here",
-	"remenber to make use of his own canon.",
+		new Line(2, "Proceed!Crash them to ash!"), 
+		new Line(0, "Calm giant buddy, take the gifts first."), 
 	];
 	
 	lines2 = [
-	"He is moving to the sub-base", 
-	"prepare your self, bot!"
+		new Line(0, "Uh,turbine...broken...I deside to handle you with my own hands!"),
+	];
+
+	lines3 = [
+		new Line(0, "CubeBot, RageMetal still have the ability to ruin us."), 
+		new Line(0, "Protect the Surface Base and try defeat it.")
+	];
+
+	lines4 = [
+		new Line(0, "You're fantastic!"), 
+		new Line(0, "No time to celebrate. We spotted it sinking into the tunnel."),
+		new Line(0, "It is going for the Moon Core. Energy there can repare it."), 
+		new Line(0, "We will go prevent that.")
 	];
 }
 
@@ -154,9 +161,6 @@ override public function create():Void
 	add(tSBHeal);
 	
 	// initial
-	drHead.visible = true;
-	line.visible = true;
-	lineBg.visible = true;
 	bot.On = false;
 	ResUtil.playGame1();
 }
@@ -182,12 +186,12 @@ override public function update():Void
 		boss1.x -= bossPreDashSpeed;
 		//boss.y -= bossPreDashSpeed / xExtend * bossBury;
 		if(smokeEmt1.x < 0)
-		smokeEmt1.x = FlxG.width;
+			smokeEmt1.x = FlxG.width;
 		if(boss1.x <= 460)
 		{
-		preDashFocus.x = FlxG.width/2;
-		switchState(1);
-		smokeEmt1.on = false;
+			preDashFocus.x = FlxG.width/2;
+			switchState(1);
+			smokeEmt1.on = false;
 		}
 		//FlxG.camera.focusOn(preDashFocus);
 		
@@ -199,53 +203,18 @@ override public function update():Void
 		}
 		else
 		{
-		FlxG.camera.focusOn(camFinalPoint);
+			FlxG.camera.focusOn(camFinalPoint);
 		}
-		
-		if(FlxG.keys.justPressed("SPACE"))
-		{
-		lineId1++;
-		if(lineId1 >=lines1.length)
-		{
-			lineBg.visible =false;
-			line.visible = false;
-			drHead.visible = false;
-			bot.On = true;
-			boss1.switchState(1);
-			ShowBossHP(true);
-		}
-		else
-		{
-			line.text = lines1[lineId1];
-		}
-		}
-		
 	case STfight:
 		
 	case STpostTalk:
-		if(FlxG.keys.justPressed("SPACE"))
-		{
-		lineId2++;
-		if(lineId2 >=lines2.length)
-		{
-			lineBg.visible =false;
-			line.visible = false;
-			drHead.visible = false;
-			boss1.switchState(8);
-			lvlState = 4;
-		}
-		else
-		{
-			line.text = lines2[lineId2];
-		}
-		}
 		
 	}
 	
 	if(!bg1.onScreen())
-	bg1.x -= 2*FlxG.width;
+		bg1.x -= 2*FlxG.width;
 	if(!bg2.onScreen())
-	bg2.x -= 2*FlxG.width;
+		bg2.x -= 2*FlxG.width;
 	
 	//FlxG.camera.follow(boss);
 	
@@ -303,34 +272,29 @@ public function switchState(state:Int):Void
 	
 	switch(lvlState)
 	{
-	case STpreDash:	// pre dash
-		
-	case STpreTalk:	// pre talk
-		FlxG.camera.follow(null);
-		var curCamPos:FlxPoint = new FlxPoint(FlxG.camera.scroll.x + FlxG.width * 0.5, FlxG.camera.scroll.y + FlxG.height * 0.5);
-		camMoveXUnit = (camFinalPoint.x - curCamPos.x) / camMoveTime;
-		camMoveYUnit = (camFinalPoint.y - curCamPos.y) / camMoveTime;
-		birthRay.x = 150;
-		birthRay.play("birth");
-		bot.x = 152;
-		bot.y = 130;
-		//FlxG.camera.focusOn(camFinalPoint);
-		
-	case STfight:	// fight
-		
-	case STpostTalk:	// post talk
-		ShowBossHP(false);
-		bot.On = false;
-		lineBg.visible = true;
-		line.visible = true;
-		drHead.visible = true;
-		line.text = lines2[0];
-		
-	case 5:
-		if (GameStatic.ProcLvl < 2) GameStatic.ProcLvl = 2;
-		timer1.start(1, 1, function(t:FlxTimer) { FlxG.switchState(new Win());} );
-		
-	}
+		case STpreDash:	// pre dash
+			
+		case STpreTalk:	// pre talk
+			FlxG.camera.follow(null);
+			var curCamPos:FlxPoint = new FlxPoint(FlxG.camera.scroll.x + FlxG.width * 0.5, FlxG.camera.scroll.y + FlxG.height * 0.5);
+			camMoveXUnit = (camFinalPoint.x - curCamPos.x) / camMoveTime;
+			camMoveYUnit = (camFinalPoint.y - curCamPos.y) / camMoveTime;
+			birthRay.x = 150;
+			birthRay.play("birth");
+			bot.x = 152;
+			bot.y = 130;
+			//FlxG.camera.focusOn(camFinalPoint);
+			lineMgr.Start(lines1, function(){bot.On = true; boss1.switchState(1); ShowBossHP(true);});
+		case STfight:	// fight
+			
+		case STpostTalk:	// post talk
+			ShowBossHP(false);
+			bot.On = false;
+			lineMgr.Start(lines2, function(){boss1.switchState(8); lvlState = 4;});
+		case 5:
+			if (GameStatic.ProcLvl < 2) GameStatic.ProcLvl = 2;
+			timer1.start(1, 1, function(t:FlxTimer) { FlxG.switchState(new Win());} );
+		}
 }
 
 public function onBreak(t:FlxObject, b:FlxObject):Void
@@ -338,14 +302,14 @@ public function onBreak(t:FlxObject, b:FlxObject):Void
 	var tile:FlxTile = cast(t, FlxTile);
 	if(tile.mapIndex!=0 && tileBreak.getTileByIndex(tile.mapIndex) != 0)
 	{
-	tileBreak.setTileByIndex(tile.mapIndex, 0);
-	
-	breakEmt.x = tile.x;
-	breakEmt.y = tile.y;
-	for(i in 0...4)
-	{
-		breakEmt.emitParticle();
-	}
+		tileBreak.setTileByIndex(tile.mapIndex, 0);
+		
+		breakEmt.x = tile.x;
+		breakEmt.y = tile.y;
+		for(i in 0...4)
+		{
+			breakEmt.emitParticle();
+		}
 	}
 }
 }

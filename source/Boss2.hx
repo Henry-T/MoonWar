@@ -3,7 +3,7 @@ import org.flixel.FlxSprite;
 
 
 
-class Boss2 extends FlxSprite
+class Boss2 extends Enemy
 {
 public function new(x:Float, y:Float) 
 {

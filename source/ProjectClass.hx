@@ -15,6 +15,6 @@ class ProjectClass extends FlxGame
 		var ratio:Float = Math.min(ratioX, ratioY);
 		super(Math.ceil(stageWidth / ratio), Math.ceil(stageHeight / ratio), MainMenu, ratio, 30, 30);
 		GameStatic.Load();
-		GameStatic.ProcLvl = 9;
+		// GameStatic.ProcLvl = 9;
 	}
 }

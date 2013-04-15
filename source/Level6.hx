@@ -19,6 +19,12 @@ public function new()
 {
 	super();
 	tileXML = nme.Assets.getText("assets/dat/level6.tmx");
+
+	lines1 = [
+		new Line(0,"CubeBot, this is entrance to Inner Base."),
+		new Line(0,"We lost connetion with the base during your way here."),
+		new Line(1,"I can manage entering."),
+	];
 }
 
 public override function create():Void

@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="60" height="22" tilewidth="20" tileheight="20">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
-  <image source="../img/defTile.png" width="360" height="140"/>
+  <image source="../img/defTile.png" width="360" height="280"/>
+  <terraintypes>
+   <terrain name="light" tile="-1"/>
+  </terraintypes>
+  <tile id="7" terrain=",0,0,"/>
+  <tile id="8" terrain="0,,,0"/>
+  <tile id="25" terrain="0,0,,"/>
+  <tile id="26" terrain=",0,,0"/>
+  <tile id="42" terrain="0,0,0,0"/>
+  <tile id="43" terrain=",,0,0"/>
+  <tile id="44" terrain="0,,0,"/>
+  <tile id="59" terrain=",,0,"/>
+  <tile id="60" terrain=",,,0"/>
+  <tile id="61" terrain=",0,,"/>
+  <tile id="62" terrain="0,,,"/>
+  <tile id="77" terrain="0,0,,0"/>
+  <tile id="78" terrain="0,0,0,"/>
+  <tile id="79" terrain="0,,0,0"/>
+  <tile id="80" terrain=",0,0,0"/>
  </tileset>
- <layer name="bgFar" width="60" height="22">
+ <layer name="bgFar" width="60" height="22" visible="0">
   <data encoding="base64" compression="zlib">
    eJztzzENADAMwLDSGn9i+/vsz2wpADLzdlZ1ftv8tvlt89vmFwAA/nQBpW4JzQ==
   </data>
  </layer>
  <layer name="bg" width="60" height="22">
   <data encoding="base64" compression="zlib">
-   eJzt0lEKgCAMgOFdYp5F6i51/1vkY9QcFoTOfuF/28QPzCKSnVTuR535NHieFS9evGOHFy9evFG9amR5r0X2poqp1vme3p43//nJPt6xw2vPLaXV8Uap1buV9h95Zwlv/zfh/dY7cwc6i5FC
+   eJzt100KgCAQBeC5hC3qCOU+yuoG/dz/Mgm1GKjMSswHM/BWDeYHFmNNRLUjio6lHP0ZS2dTJRDD9uSyfvUWNmUC0ZG9k03+Q8afvPpkjRjF3y9e8Yp3K/GKF8X7ZiYyhOt9MxNpwvf6zER8fkH3+uyR94oX29vYtB7rIXvv/tXL3jvfPEfxhrq/onh7CnMPHWLgTuqJ9+qMIoV/TyHnjdTj8oY6wyllYL4V8Ad/PQ==
   </data>
  </layer>
  <layer name="tile" width="60" height="22">
   <data encoding="base64" compression="zlib">
-   eJztkUEKACAMw/zE/v9V7zIFxa1DEygIlWKwtbtY8dxG7VPBVwm+sfv45oJv7D6+ueAbu1/d9+SNNpzx1YGv3+9uzvZf9V1FCb5+P7t/EiUR/1sZfNf9a/nNtwN6Mx+B
+   eJzt1UsKACEMBFEv4f2v6gU0GDFpP1XgKtDwNjOl7K0e/nan9pzgVYY3dh9vbnhj9/Hmhte+e//jeLXNer17o328ueHt31f38Grzele/17d6bw+vfX/t/eZtVqoh9w==
   </data>
  </layer>
  <layer name="po" width="60" height="22">

@@ -3,7 +3,7 @@ import org.flixel.FlxSprite;
 
 
 
-class Cube extends FlxSprite 
+class Cube extends Enemy 
 {
 
 

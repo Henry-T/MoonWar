@@ -5,7 +5,7 @@ import org.flixel.FlxPoint;
 
 
 
-class GPDown extends FlxSprite 
+class GPDown extends Enemy 
 {
 
 
