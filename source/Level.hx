@@ -372,12 +372,12 @@ override public function create():Void
 
 public function AddAll():Void
 {
-	//add(bg1);
-	//add(bg2);
+	add(bg1);
+	add(bg2);
 	
-	//add(tileBgFar);
-	//add(bInLift);
-	//add(bInLift2);
+	add(tileBgFar);
+	add(bInLift);
+	add(bInLift2);
 	add(tileBg);
 	add(tile);
 	add(tileUp);

@@ -91,9 +91,9 @@ override public function create():Void
 	bossBury = 300;
 	
 	// BG for Game and PreDash
-	bg1 = new FlxSprite(0,0, "assets/img/mSurf2.png");
+	bg1 = new FlxSprite(0,0, "assets/img/bgStar.png");
 	bg1.x = xExtend; bg1.y = 0; 
-	bg2 = new FlxSprite(0,0, "assets/img/mSurf2.png");
+	bg2 = new FlxSprite(0,0, "assets/img/bgStar.png");
 	bg2.x = xExtend-FlxG.width; bg2.y = 0; 
 	
 	// Load Tiles
