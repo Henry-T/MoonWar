@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-	<app title="MoonWar" file="MoonWar" main="Main" version="0.0.1" company="Zaphod" />
+	<app title="MoonWar" file="MoonWar" main="Main" version="0.0.1" company="Zaphod"/>
+	<!--app main="Main" file="Game" path="bin"  preloader="Preloader"/-->
 	
 	<window width="550" height="400" fps="30" orientation="portrait" resizable="false" if="web" />
 	<window width="550" height="400" fps="30" orientation="landscape" fullscreen="false" unless="web" />
@@ -50,7 +51,8 @@
 	<assets path="assets" if="mobile" />
 	
 	<icon name="assets/mw.png" />
-	
+
+	<compilerflag name="-swf-lib lib/mochi.swf"/>
 	<haxelib name="nme" />
 	<haxelib name="flixel"/>
 	<!--haxelib name="tmx" /-->
@@ -67,5 +69,5 @@
     <!--<set name="FLX_NO_KEYBOARD" if="mobile" />-->
     <!--<set name="FLX_NO_TOUCH" if="desktop" />-->
     <!--<set name="FLX_NO_JOYSTICK" />-->
-
+    <app preloader="Preloader"/>
 </project>

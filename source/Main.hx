@@ -7,6 +7,8 @@ import nme.events.KeyboardEvent;
 import nme.Lib;
 import nme.ui.Keyboard;
 import org.flixel.FlxGame;
+import mochi.as3.MochiAd;
+import mochi.as3.MochiServices;
  
 /**
  * @author Joshua Granick
@@ -32,13 +34,16 @@ class Main extends Sprite
 		}
 		
 		initialize();
-		
+
+		//MochiServices.connect("2d8d1d2659355cf2", root);
+		MochiAd.showPreGameAd({clip:root, id:"2d8d1d2659355cf2", res:"300x300"});
 		var demo:FlxGame = new ProjectClass();
 		addChild(demo);
 		
 		#if (cpp || neko)
 		Lib.current.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUP);
 		#end
+
 	}
 	
 	#if (cpp || neko)
