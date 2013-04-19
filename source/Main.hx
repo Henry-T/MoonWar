@@ -35,8 +35,8 @@ class Main extends Sprite
 		
 		initialize();
 
-		//MochiServices.connect("2d8d1d2659355cf2", root);
-		MochiAd.showPreGameAd({clip:root, id:"2d8d1d2659355cf2", res:"300x300"});
+		MochiServices.connect("2d8d1d2659355cf2", root);
+		MochiAd.showPreGameAd({clip:root, id:"2d8d1d2659355cf2", res:"550x400"});
 		var demo:FlxGame = new ProjectClass();
 		addChild(demo);
 		

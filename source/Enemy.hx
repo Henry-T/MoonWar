@@ -9,10 +9,12 @@ import org.flixel.FlxG;
  */
 class Enemy extends FlxSprite
 {
+	public var On : Bool;
 
 	public function new(X:Float=0, Y:Float=0, SimpleGraphics:Dynamic=null ) 
 	{
 		super(X, Y, SimpleGraphics);
+		On = true;
 	}
 
 	override public function hurt(dmg:Float):Void

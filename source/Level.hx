@@ -36,6 +36,8 @@ public var btnJump:FlxSprite;
 
 
 // bg
+public var bgStar:FlxSprite;
+public var bgMetal:FlxSprite;
 public var bg1:FlxSprite;
 public var bg2:FlxSprite;
 
@@ -47,7 +49,8 @@ public var tileCover:FlxTilemap;	// cover everything
 public var tileBreak:FlxTilemap;	// logic tile : can be break (logic)
 public var tileScene:FlxTilemap;	// scene without collision
 public var tileUp:FlxTilemap;		// logic tile : can jump throuth
-public var tile:FlxTilemap;		// tile for anything
+public var tile:FlxTilemap;			// tile for anything
+public var tileEO:FlxTilemap;		// tile for enemy collide only
 public var tilePO:FlxTilemap;		// tile for player only
 public var tileJS:FlxTilemap;		// tiles can jump through
 public var tileBg:FlxTilemap;		// justBg
@@ -106,6 +109,9 @@ public var fgBuls:FlxGroup;		// Bullets of Fixed Gun
 public var missles:FlxGroup;	// Missle of Rocket Launcher & BossLvl4
 public var bouncers:FlxGroup;	// Bounce Bullets by BossLvl4
 
+// items
+public var hps:FlxGroup;		// hp
+
 // Particles
 public var bombFlower:FlxGroup;	// Normal Explosion Sprite Group
 public var breakEmt:FlxEmitter; 	// Intelligence Broken Tile Emitter
@@ -155,6 +161,9 @@ override public function create():Void
 {
 	super.create();
 	this.bgColor = 0xff000000;
+
+	bgStar = new FlxSprite(0, 0, "assets/img/bgStar.png");	bgStar.scrollFactor = new FlxPoint(0, 0);
+	bgMetal = new FlxSprite(0, 0, "assets/img/metal.png");	bgMetal.scrollFactor = new FlxPoint(0, 0);
 
 	lineMgr = new LineMgr();
 
@@ -211,6 +220,9 @@ override public function create():Void
 	mines = new FlxGroup();
 	cubes = new FlxGroup();
 	coms = new FlxGroup();
+
+	// items
+	hps = new FlxGroup();
 	
 	// Particles
 	breakEmt = new FlxEmitter(100, 100);
@@ -246,6 +258,7 @@ override public function create():Void
 	tileBgFar = GetTile("bgFar", FlxObject.NONE);
 	tileBg = GetTile("bg", FlxObject.NONE);
 	tile = GetTile("tile", FlxObject.ANY);
+	tileEO = GetTile("eo", FlxObject.ANY);
 	tileJS = GetTile("js", FlxObject.UP);
 	tilePO = GetTile("po", FlxObject.ANY);
 	tileNail = GetTile("nail", FlxObject.ANY);
@@ -372,6 +385,8 @@ override public function create():Void
 
 public function AddAll():Void
 {
+	add(bgStar);
+	add(bgMetal);
 	add(bg1);
 	add(bg2);
 	
@@ -380,6 +395,7 @@ public function AddAll():Void
 	add(bInLift2);
 	add(tileBg);
 	add(tile);
+	add(tileEO);	tileEO.visible = false;
 	add(tileUp);
 	add(tileBreak);
 	add(tileNail);
@@ -397,6 +413,8 @@ public function AddAll():Void
 	add(eStar);
 	add(sBase);
 	add(coms);
+
+	add(hps);
 	
 	add(breakEmt);
 	add(bigGunBuls);
@@ -459,7 +477,15 @@ public function AddAll():Void
 }
 
 override public function update():Void 
-{	
+{
+	FlxG.collide(guards, tileJS);
+
+	// hp repair for bot
+	FlxG.overlap(hps, bot, function(h:FlxObject, b:FlxObject){bot.health += 10; h.kill();});
+
+	// tile that collides enemy only
+	FlxG.collide(tileEO,guards);
+
 	// computer trigger
 	FlxG.overlap(coms, bot, function(c:FlxObject, b:FlxObject) { 
 		if (FlxG.keys.justPressed(bot.actionKey))
@@ -525,19 +551,14 @@ override public function update():Void
 	jsCntr--;
 	
 	// Bullet Hits
-	FlxG.collide(bullets, tile, function(bul:FlxObject, tile:FlxObject){
-	bul.kill();
-	});
-	FlxG.collide(bigGunBuls, tile, function(bul:FlxObject, tile:FlxObject){
-	bul.kill();
-	});
-	FlxG.overlap(bullets, Bees, function(bul:FlxObject, bee:FlxObject) { 
-		bul.kill();bee.hurt(1);
-	});
-	FlxG.overlap(bullets, bigGuns, function (bul:FlxObject, g:FlxObject):Void{bul.kill();g.hurt(1);	});
-	FlxG.overlap(bullets, gpUps, function (bul:FlxObject, gp:FlxObject):Void {bul.kill();gp.hurt(1);});
-	FlxG.overlap(bullets, gpMids, function (bul:FlxObject, gp:FlxObject):Void {bul.alive=false;gp.hurt(1);});
-	FlxG.overlap(bullets, gpDowns, function (bul:FlxObject, gp:FlxObject):Void {bul.alive=false;gp.hurt(1);});
+	FlxG.collide(bullets, tile, function(bul:FlxObject, tile:FlxObject){bul.kill();	});
+	FlxG.collide(bigGunBuls, tile, function(bul:FlxObject, tile:FlxObject){bul.kill();});
+	FlxG.overlap(bullets, Bees, function(bul:FlxObject, bee:FlxObject) {bul.kill();bee.hurt(1);});
+	FlxG.overlap(bullets, bigGuns, function (bul:FlxObject, g:FlxObject){bul.kill();g.hurt(1);	});
+	FlxG.overlap(bullets, gpUps, function (bul:FlxObject, gp:FlxObject) {bul.kill();gp.hurt(1);});
+	FlxG.overlap(bullets, gpMids, function (bul:FlxObject, gp:FlxObject) {bul.kill();gp.hurt(1);});
+	FlxG.overlap(bullets, gpDowns, function (bul:FlxObject, gp:FlxObject) { bul.kill(); gp.hurt(1); } );
+	FlxG.overlap(bullets, aCatchs, function(b:FlxObject, ac:FlxObject){b.kill(); ac.hurt(1);});
 	
 	FlxG.collide(bot, tile);
 	

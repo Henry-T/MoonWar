@@ -165,6 +165,7 @@ override public function create():Void
 	// initial
 	FlxG.camera.scroll.x = t.x + t.width / 2 -FlxG.width / 2;
 	switchState(0);
+	bgMetal.visible = false;
 	
 	ResUtil.playGame1();
 }
@@ -180,7 +181,7 @@ public function switchState(s:Int):Void
 		case 1:
 		t.active = true;
 		fg.active = true;
-		bot.On = true;
+		//bot.On = true;
 		
 		case 2:
 		FlxG.fade(0xff0000ff, 2, function():Void{
@@ -229,6 +230,7 @@ public function updateTiny():Void
 			}
 		}
 	case 1:	// fight
+		bot.On = true;
 		FlxG.camera.scroll.x += FlxG.elapsed * t.velocity.x;
 		// keep bot on transport
 		if (bot.x < t.x - bot.width / 2)
@@ -319,18 +321,18 @@ override public function update():Void
 	//	dm.active = true;
 	//else 
 	//	dm.active = false;
-	dm.active = true;
-}
+		dm.active = true;
+	}
 
-if (t.x > tEndX)
-{
-	rGameOver = true;
-	isWin = true;
-}
+	if (t.x > tEndX)
+	{
+		rGameOver = true;
+		isWin = true;
+	}
 
-FlxG.collide(bot, t);
+	FlxG.collide(bot, t);
 
-updateTiny();
+	updateTiny();
 }
 
 public function DrawGui():Void
@@ -338,8 +340,4 @@ public function DrawGui():Void
 	//game.SpriteBatch.DrawString(game.debugFont, (((t.transLife))).toString(), new FlxPoint(), Color.White);
 }
 
-public function GetEnemyXMLStr():String
-{
-	return '<Xml><EnemyGroup span="5"><EnemyData type="Monk" camX="20" camY="2"/><EnemyData type="Monk" camX="23" camY="3"/><EnemyData type="Monk" camX="24" camY="6"/></EnemyGroup><EnemyGroup span="5"><EnemyData type="Monk" camX="6" camY="2"/><EnemyData type="Monk" camX="3" camY="3"/><EnemyData type="Monk" camX="2" camY="6"/></EnemyGroup><EnemyGroup span="5"><EnemyData type="Fighter" camX="3" camY="3"/><EnemyData type="Fighter" camX="22" camY="3"/></EnemyGroup><EnemyGroup span="5"><EnemyData type="Fighter" camX="4" camY="2"/><EnemyData type="Fighter" camX="21" camY="2"/><EnemyData type="Fighter" camX="1" camY="5"/><EnemyData type="Fighter" camX="24" camY="5"/></EnemyGroup><EnemyGroup span="5"><EnemyData type="Monk" camX="5" camY="5"/><EnemyData type="Monk" camX="10" camY="3"/><EnemyData type="Monk" camX="15" camY="3"/><EnemyData type="Monk" camX="20" camY="5"/><EnemyData type="Bomb" camX="23" camY="1"/></EnemyGroup><EnemyGroup span="5"><EnemyData type="Blow" camX="21" camY="4"/></EnemyGroup><EnemyGroup span="5"><EnemyData type="Blow" camX="21" camY="4"/><EnemyData type="Fighter" camX="20" camY="2"/><EnemyData type="Fighter" camX="23" camY="5"/></EnemyGroup><EnemyGroup span="5"><EnemyData type="Monk" camX="2" camY="7"/><EnemyData type="Monk" camX="10" camY="2"/><EnemyData type="Monk" camX="15" camY="2"/><EnemyData type="Monk" camX="23" camY="7"/><EnemyData type="Fighter" camX="5" camY="4"/><EnemyData type="Fighter" camX="20" camY="4"/></EnemyGroup><EnemyGroup span="5"><EnemyData type="Blow" camX="2" camY="2"/><EnemyData type="Blow" camX="24" camY="2"/><EnemyData type="Monk" camX="2" camY="6"/><EnemyData type="Monk" camX="24" camY="6"/><EnemyData type="Bomb" camX="6" camY="4"/></EnemyGroup></Xml>';
-}
 }

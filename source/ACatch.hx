@@ -9,7 +9,7 @@ class ACatch extends FlxSprite
 {
 
 public var hang : String;
-public static var ColdDown:Float = 1;
+public static var ColdDown:Float = 1.5;
 public static var ShotTimer:Float = 0;
 public var gun : FlxSprite;
 
@@ -33,34 +33,33 @@ public function make(o:TmxObject):Void
 	height = o.height;
 	if (o.custom != null)
 	{
-	hang = o.custom.hang;
-	if (hang == "up")
-	{
-		loadGraphic("assets/img/acBaseUp.png");
-		gun.x = x + 15;
-		gun.y = y + 15;	
-		
+		hang = o.custom.hang;
+		if (hang == "up")
+		{
+			loadGraphic("assets/img/acBaseUp.png");
+			gun.x = x + 15;
+			gun.y = y + 15;	
+			
+		}
+		else if (hang == "down")
+		{
+			loadGraphic("assets/img/acBaseDown.png");
+			gun.x = x + 15;
+			gun.y = y;	
+		}
+		else if (hang == "left")
+		{
+			loadGraphic("assets/img/acBaseLeft.png");
+			gun.x = x + 15;
+			gun.y = y + 15;	
+		}
+		else if (hang == "right")
+		{
+			loadGraphic("assets/img/acBaseRight.png");
+			gun.x = x;
+			gun.y = y + 15;	
+		}
 	}
-	else if (hang == "down")
-	{
-		loadGraphic("assets/img/acBaseDown.png");
-		gun.x = x;
-		gun.y = y + 15;	
-	}
-	else if (hang == "left")
-	{
-		loadGraphic("assets/img/acBaseLeft.png");
-		gun.x = x + 15;
-		gun.y = y + 15;	
-	}
-	else if (hang == "right")
-	{
-		loadGraphic("assets/img/acBaseRight.png");
-		gun.x = x + 15;
-		gun.y = y;	
-	}
-	}
-	
 }
 
 override public function update():Void 
@@ -68,14 +67,14 @@ override public function update():Void
 	var agl:Float = FlxU.getAngle(getMidpoint(), cast(FlxG.state , Level).bot.getMidpoint()) * Math.PI / 180 - Math.PI/2;
 	if (onScreen())
 	{
-	ShotTimer += FlxG.elapsed;
-	if(ShotTimer >= ColdDown)
-	{
-		var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
-		bgb.reset(getMidpoint().x, getMidpoint().y);
-		bgb.velocity = new FlxPoint(Math.cos(agl) * 200, Math.sin(agl) * 200);
-		ShotTimer = 0;
-	}
+		ShotTimer += FlxG.elapsed;
+		if(ShotTimer >= ColdDown)
+		{
+			var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
+			bgb.reset(getMidpoint().x, getMidpoint().y);
+			bgb.velocity = new FlxPoint(Math.cos(agl) * 200, Math.sin(agl) * 200);
+			ShotTimer = 0;
+		}
 	}
 	
 	// aim at bot

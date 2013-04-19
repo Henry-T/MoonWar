@@ -23,12 +23,12 @@
  </tileset>
  <layer name="bg" width="110" height="20">
   <data encoding="base64" compression="zlib">
-   eJztV1EOwjAI7Sn80CPMHUCdeoO53v8yth8kBOlKJ7jN8JL3IZIKPKA1BAeHC+EpsUvslc7H59HfciyH67ZPbF23ww54TzwbcGiIwVK3tetrRchRmy0125puFn2sPQuQ4yvxqMBxQc0sdaP7ZCA2bi9Y9LHmLOT4o2HNtqAb3SfUNoVP7TT72GIWaPzQfxnSe4/6x7Av3TjtNGPRAJ0F7m7ria9kdql/7tVnkGlmOfMTOrtjbDnOEdmhD7lYrok3pfhagfOB2YB9gGcR+5b2Rckfn197X2LNQGsNPFB8tZ6jvtNMDtye+QUk88V9luy22nxydbDQDCDRrke+R4F/LZ/S3VGzSXKhcwP1statRAvNAFy+XO4AyEH6Tmi5O+ZsGK3vCsiR01GiW61G0tqtCcipVjN6Z5ZmMQptLWfX5j1++f0eKa2Zc5tc+/+acxkdDofD4fhHvAGJgqrD
+   eJztWFEOwjAI7Sn80CPMHUCdeoO53f8yth8kBOlKJ7jO8JL3IZIKPKCbITg4XAhPkV1kr3Q+Po/+lmM9XLd9onXdDjvgPfJswKEiBkvdtq6vFSFHbdbUrDXdLPpYexYgx1fkUYHjippZ6kb3yUBs3F6w6GPNWUjxz4Y1a0E3uk+obQqf2mn2scUs0Pih/xKk9x71n8O+dOO004xFA3QWuLutJ76S2aX+qVefQaaZ5cxP6OyOsaU4R2SHPuRiuUbelOKrBc4HZgP2AZ5F7JvbFzl/fH7p+RJrBlpr4IHiK/Uc9Z0WcuD2zC8gmS/us2S3leaTq4OFZgCJdj3yPQr8S/nk7o6STZILnRuol7VuOeIYtMHly+UOgBykzwk1d8eSDaP2uQJy5HSU6FaqkaRuWwNyKtWM3pm5WZyFtpqzS/M+f/l9zbukFWr/C5LWzNkmt35fc66jw+FwOBz/iDcpbabN
   </data>
  </layer>
  <layer name="tile" width="110" height="20">
   <data encoding="base64" compression="zlib">
-   eJztlg0OgyAMhbvfC+iOsERP4P1vNhaXrKstSFYF4vuSFxWhVB5WiYDGw1BrcxwN+NYmtftmjYXK+QbF1QXdEurEGE+8nmP8qNT9VB9P3vGeK+aWfbxz4PONhmSOpfd7rjyRnlhrtadva9+tLXLxYC/fJqrLN942iraWfdPyzX1PrzR/ty5BPS3XpGSdJFruH963Nd/kPXk9KGN4eyx2Sty3LZCxLd+03Gsj1zfNO34di53SpMTwJlUnrf45daY0MR8GcdTyPwWd6fufz8+l7jTX0tqQ/vT0W/Nl/V/7rUm1edLavvPA8kyeb+nbv+t+dN+gtgQAAAAAUAsv72I/Kg==
+   eJztlosNgzAMRN3vAtARKsEE7L9ZqahU19j5qIYk4p50AkLimFwwEAGNh6HW5jga8K1NavfNGguV8w0Kq5t1i6gTYzzxeo7xo1L3Y308ecd7Jswt+3jnwOcbDckcS+/3XHkiPbHWak/fUt+tLXLxYC/fJqrLN942iraWfdPyzX1Pr7R8ty6zelqvSck6SbTeP7xva77Je/J6UMbw9lDsmLhvWyBjW75puddGrm+ad/w6FDumSYnhTaxOWv1z6kxpQj4M4qjlf5p1pu9/Pj+XutNSS2tD+tPTb82X9T/1WxNr86S1feeB5Zk839K3f9f96L5BtlLqzt6xAQAAAABq4QXdZj8o
   </data>
  </layer>
  <layer name="js" width="110" height="20">
@@ -39,6 +39,11 @@
  <layer name="nail" width="110" height="20">
   <data encoding="base64" compression="zlib">
    eJztyaERAAAIAzHWYP9FsQgEqiq5e9NWAQAAAABATq++2/UDAAA5A8wDAS0=
+  </data>
+ </layer>
+ <layer name="eo" width="110" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzDENAAAIA7Dd+BeMhT0kHK2AJgAAAAAAwIV5/gEAQGsB+HAAFQ==
   </data>
  </layer>
  <objectgroup name="tip" width="110" height="20"/>
@@ -69,6 +74,12 @@
     <property name="text" value="X to shoot up the cube"/>
    </properties>
   </object>
+  <object name="grd1" type="posGuard" x="1800" y="240" width="40" height="40"/>
+  <object name="bee2" type="posBee" x="1580" y="80" width="40" height="40"/>
+  <object name="bee1" type="posBee" x="1800" y="80" width="40" height="40"/>
+  <object name="warn" x="1580" y="180" width="120" height="100"/>
+  <object name="hp" type="hp" x="1920" y="260" width="20" height="20"/>
+  <object name="fightArea" x="1520" y="0" width="380" height="280"/>
  </objectgroup>
  <objectgroup name="army" width="110" height="20"/>
  <objectgroup name="enemy" width="110" height="20">
