@@ -131,10 +131,10 @@ public function new(X:Float, Y:Float, Bullets:FlxGroup)
 	shooting = false;
 	
 	actionKey = "SPACE";
-	moveLeftKey = "FlxObject.LEFT";
-	moveRightKey = "FlxObject.RIGHT";
-	moveDownKey = "FlxObject.DOWN";
-	moveUpKey = "FlxObject.UP";
+	moveLeftKey = "LEFT";
+	moveRightKey = "RIGHT";
+	moveDownKey = "DOWN";
+	moveUpKey = "UP";
 	moveJumpKey = "Z";
 	shootKey = "X";
 	
@@ -179,29 +179,36 @@ override public function update():Void
 
 	// hack
 	if (FlxG.keys.Q)
-	hurt(99999);
+		hurt(99999);
 	if (FlxG.keys.W)
 	{
-	var lvl:Level = cast(FlxG.state , Level);
-	if (lvl.boss1 != null)
-		lvl.boss1.hurt(99999);
-	if (lvl.boss2 != null)
-		lvl.boss2.hurt(99999);
-	if (lvl.boss3 != null)
-		lvl.boss3.hurt(99999);
+		var lvl:Level = cast(FlxG.state , Level);
+		if (lvl.boss1 != null)
+			lvl.boss1.hurt(99999);
+		if (lvl.boss2 != null)
+			lvl.boss2.hurt(99999);
+		if (lvl.boss3 != null)
+			lvl.boss3.hurt(99999);
+	}
+	if(FlxG.keys.E)
+	{
+		for (bee in cast(FlxG.state, Level).Bees.members) {
+			if(bee.alive)
+				bee.kill();
+		}
 	}
 
 	//MOVEMENT
 	acceleration.x = 0;
 	if(On && !InVc && FlxG.keys.LEFT)
 	{
-	facing = FlxObject.LEFT;
-	acceleration.x -= drag.x;
+		facing = FlxObject.LEFT;
+		acceleration.x -= drag.x;
 	}
 	else if(On && !InVc && FlxG.keys.RIGHT)
 	{
-	facing = FlxObject.RIGHT;
-	acceleration.x += drag.x;
+		facing = FlxObject.RIGHT;
+		acceleration.x += drag.x;
 	}
 	if(On && !InVc && FlxG.keys.justPressed("Z") && !FlxG.keys.DOWN && isTouching(FlxObject.DOWN))
 	{

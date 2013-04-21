@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="168" height="30" tilewidth="20" tileheight="20">
+<map version="1.0" orientation="orthogonal" width="168" height="30" tilewidth="20" tileheight="20" backgroundcolor="#464646">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
   <image source="../img/defTile.png" width="360" height="280"/>
   <terraintypes>
@@ -28,22 +28,17 @@
  </layer>
  <layer name="bg" width="168" height="30">
   <data encoding="base64" compression="zlib">
-   eJztmElOxDAQRX097tEbBvUgyEFIFnARxCD2DAv2CAS9Z4HgBNhSrC4Zu1JJbMeB/6SvVuxvu5J8HItaKXWh0mPWqLWa9le6ZtN6N2ScbeNUO9d2TOV46tF3BlKSI5t0LashY6w2gXajFdMXUix8f4M5n+9fJObzu9a60dpqXWpdedaKkU+JTnp4Y+HOu448P+VU/f5GSOuryfjSWUWc60trr5XJ6mvb/tn+jsnE0JzmyGVXjSkYss55ptpi4tZ4N3I+m89b0vZI1jr2rMkhydla6JPmx7TRM25D+prAGK5WHzYrS7U7B9Mx3N4muac+55ySWTrXH1rPjqRstd5avZN2k1WT+yHPJMW+KcmnzU6fdxo6U/g4G1CXW1+q+y8Jt74HtTs/Gn33mOvFkZ3HZNXks1Lj8nms4r8bLp9932kfb+x8cvtlxfTNLZ/3EeZ091+jEvbP0DvsWi+0j0prHXs/KZ/J3PL5lGidEvLZNz/c9z2UG9//viT309WX8pmA+dD1LmlmpWMlnopp/+/sax1oLbQOtY4m9vjGLIg39jXFzaA9n0j2HTpuE/BJ9uXQOlzdKfpKQlJnTo/LIvG1Zar9U/r9DdWdqq8kJHXm9HD+VPksHeSzHA/nT5VP6d4+lQ/5LMfD+VPun9LapvAhn+V4OD/ymaevJJDP7r6pfchnOR7Oj3zm6QMAAAAAAAAAAAAAAAAAAAAAAADA/PkBKZoX/w==
+   eJztmMtOxCAUhnmIeSnfoxsvmUvGxuewXeiLGC9x72Xh3mh09i6MPoGQlAxBOD20QBn9v+TPpHCAA/09JTZCiAuRHrVGI9V2v9w12y52ZYzTbZQa61mPqa2YZvTOQEpyeNNcS2vIGK2Vp11pQfT5FAvX32DO8/2LxDy/a6kbqY3UpdSVY60Y/uToOCA2Fva8y8jzm5yK398Ibn6NMb50FhHn+pLa66S8+tq1f3a/Yzwx1Kc5fNmXYwqGrHOeKbeY2DnejZxP+/PWaHs01lo71qTg+GzJjOP6R7WZd9zW6Gs9Y6hcXWivzMX2HmyOoWobZ08h95ySmVvPH1LPlrhspN46vRvtyqvK90POJEXd5PhTeyfknfruFC7OBuRl55dq/yVh5/cgtvdHpe+AuV4s6XmUV5U/azHOn2sR/91Q/gx9pyGxsf1J1cua6Ns1f95HmNOuv0ol1E/fO+xbz1dHubmO3U/KM9k1fz4lWqcEf4b6h/q++3zj+t8XZz99fSnPBLg5KUyKvndpetZmTP2sifapzqIU9qUOpCqpQ6mjiWNcYyojNvazie1BfT/h1B1z3MoTx6nLvnWovFP0lQQnz5wxNlXiZ81U9ZP7/fXlnaqvJDh55oyh4mM/z8T09wufZkTe1J5i9JXEf/anhlvbp4qDP8uJoeJT+bOvb+o4+LOcGCoe/szTVxLwZ3/f1HHwZzkxVDz8macPAAAAAAAAAAAAAAAAAAAAAAAAALvPD8WUSAg=
   </data>
  </layer>
  <layer name="tile" width="168" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt2ElOwzAUBuB3GqQehePABjYcK2Vo9y2Fsg9D6R5EoScgT4klN3I8JPbDof8nPVUtdRya30OyI6IfSm9f1V1TswHHWTWv06quDXXT8X0Yp1PhvlSFmCSsmHjMqHG4JfN4gTClcF+q+npoXp+pzsFjx9+73qe0rGpBh9nH/D2M5Pg+q+qc6nkmVJmgYpPMZ0H91gG9TZHgvGKbC/Z1S/W69y7Yp8sy8rH65pN/G9/9OfcRmk9uM2212VD++4+1YF+81hYUNm716z1J8JlvPtdNW9v+mY/1QYfzs28+59o5PTm+u/A8ZruN6X/Nff+Rez71610m+Cw0nza8J35p1avl+zyfbZriNUXl862qL0u7Ifm8p3oN4z73jvPLgWusxsRzRGg+v8n8HClG8fX5bPXXde05n3q2TePad5+r+lB53lKdR7XGzzqO7zpHG27Dv2VOeysfkve36noMef6Zmi2ftvch2nO4yrDv/Zupvet+r0+bHFwI9nWp1ZVgvyEk8sls9zY7sq/vcLxMe1am8ijxDGJFsvcFMH4qLzH2Q/qzJL3Uvgf5BAAAAAAAAIAxOfmDAgAAAAAAAAAAAAAAAAAA+G9+AVa44z8=
+   eJztmE1OwzAQhec0SD0Kx4ENbDhWyk+7bymUfflpuwdR6AnIKBnJjRzHTuyRI94nPUVJM540frbHORDRL6XnWOqh1mxAO6v6OC11a9Fdy/1gnJwr5xKFMEmomPCYkXG4J/t4AWFslHOJ+vJUH1+p8sFzy+9t5ylZllrQqfcxfw9Dc3xflLqkap4JZZNAsdH0Z0H91gEzpkjwXLGZK+a6p2rd2ynm7GIZua2+/uR341ufc45Qf3LMtBGzpfzrj7ViLl5rCwobt2Z/TxJc8/Xnuo511c/c1iedzs++/pwbz/TSce/Cs81mjO2/5l5/5O5Ps783Ca6F+tMF18RvDb077uf5bFuL1xTx50epb0fcEH8+UrWGcc5jx/PlQNdYjQnPEaH+/CH7d6QY4v75auRr63v2p+lt27j2rXMlh/h5T5UfZY2ftbTf9YwuOIbfZU61lQ+a+1vpjyHfP1Pj8qfrPITmHC4e9t2/2eK79nt9YnLgSjHXtaEbxbwhaPiTce1tDuRe38H/xVazMuJHjW8QK9LdF4DxI36JUQ+Z35JMSd0DfwIAAAAAAAAAAGBMnEFQxgIAAAAAAAAAAAAAAAAAAAAAgLHwB9He9+E=
   </data>
  </layer>
  <layer name="tileUp" width="168" height="30">
   <data encoding="base64" compression="zlib">
    eJztwzEOgCAQADA+q19QIvJ2bmC6GCYSlzZpKQAAAAAAwB+u9In1Y4vH4hvPtMd7BgAAAAAAAAAAAAAAAIBdBtx3C3c=
-  </data>
- </layer>
- <layer name="scene" width="168" height="30">
-  <data encoding="base64" compression="zlib">
-   eJzt1sEJACAMA8AM0V1d3wn8CGKhd5ABklcSAAAAAABgktUsXdkCAO5U/v+LU+phbwAAAAAAAAAAAACAKTbqujAK
   </data>
  </layer>
  <layer name="break" width="168" height="30">
@@ -63,10 +58,14 @@
   <object name="bee2" type="posBee" x="2940" y="140" width="40" height="40"/>
   <object name="bee3" type="posBee" x="3180" y="40" width="40" height="40"/>
   <object name="bee4" type="posBee4" x="3120" y="140" width="40" height="40"/>
-  <object name="grd2" type="posGuard" x="2940" y="320" width="40" height="40"/>
-  <object name="grd1" type="posGuard" x="3180" y="320" width="40" height="40"/>
+  <object name="grd2" type="posGuard" x="2780" y="240" width="40" height="40"/>
+  <object name="grd1" type="posGuard" x="2960" y="240" width="40" height="40"/>
+  <object name="cam2" type="cam" x="2740" y="0" width="540" height="400"/>
+  <object name="cam1" type="cam" x="2120" y="0" width="540" height="400"/>
+  <object name="cam3" type="cam" x="0" y="0" width="540" height="400"/>
+  <object name="posBStart" x="400" y="260" width="80" height="100"/>
  </objectgroup>
- <objectgroup name="boss" width="168" height="30" visible="0">
+ <objectgroup name="boss" width="168" height="30">
   <object name="appear" x="365" y="519" width="133" height="14"/>
   <object name="rect" x="61" y="400" width="136" height="137"/>
   <object name="appearUp" x="60" y="360" width="137" height="19"/>

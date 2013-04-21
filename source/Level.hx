@@ -47,7 +47,6 @@ public var tmx:TmxMap;
 public var EmptyTile:FlxTilemap;
 public var tileCover:FlxTilemap;	// cover everything
 public var tileBreak:FlxTilemap;	// logic tile : can be break (logic)
-public var tileScene:FlxTilemap;	// scene without collision
 public var tileUp:FlxTilemap;		// logic tile : can jump throuth
 public var tile:FlxTilemap;			// tile for anything
 public var tileEO:FlxTilemap;		// tile for enemy collide only
@@ -262,6 +261,7 @@ override public function create():Void
 	tileJS = GetTile("js", FlxObject.UP);
 	tilePO = GetTile("po", FlxObject.ANY);
 	tileNail = GetTile("nail", FlxObject.ANY);
+	tileCover = GetTile("cover", FlxObject.ANY);
 	
 	// load misc
 	var mG:TmxObjectGroup = tmx.getObjectGroup("misc");
@@ -478,6 +478,9 @@ public function AddAll():Void
 
 override public function update():Void 
 {
+	// laser hurt bot
+	FlxG.overlap(lasers, bot, function(l:FlxObject, b:FlxObject){if(cast(l, Laser).NowOn)b.hurt(20);});
+
 	FlxG.collide(guards, tileJS);
 
 	// hp repair for bot

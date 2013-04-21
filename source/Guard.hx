@@ -4,9 +4,9 @@ import org.flixel.FlxSprite;
 
 class Guard extends Enemy 
 {
-	public function new() 
+	public function new(x:Float=0, y:Float=0) 
 	{
-		super(0, 0, null);
+		super(x, y, null);
 		loadGraphic("assets/img/guard.png", true, true);
 		addAnimation("def", [0], 1, true);
 		play("def");
