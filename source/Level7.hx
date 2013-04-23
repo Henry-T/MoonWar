@@ -81,7 +81,7 @@ public override function create():Void
 		else if (o.name == "zBallSize")
 		{
 			zball = new FlxSprite(o.x, o.y);
-			zball.makeGraphic(o.width, o.height, 0xff990000);
+			zball.loadGraphic("assets/img/eball.png");
 		}
 	}
 		
