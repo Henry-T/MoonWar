@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="550"
+   height="400"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="metal.svg"
+   inkscape:export-filename="/home/henry/gproj/MoonWarHx/assets/img/metal.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="425.30075"
+     inkscape:cy="180.89902"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     inkscape:window-width="1301"
+     inkscape:window-height="744"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:snap-grids="false"
+     inkscape:snap-page="false"
+     inkscape:snap-to-guides="false" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="bg"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-652.36218)"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#1e1e1e;fill-opacity:1;stroke:#000000;stroke-width:0.31340396;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect5448"
+       width="549.68665"
+       height="399.68658"
+       x="0.15670198"
+       y="652.51892" />
+    <image
+       y="765.76398"
+       x="594.24005"
+       id="image5426"
+       xlink:href="file:///home/henry/gproj/MoonWarHx/assets/img/defTile.png"
+       height="280"
+       width="360" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="new">
+    <rect
+       style="fill:none;stroke:#2e2e2e;stroke-width:1.4064548;stroke-opacity:1"
+       id="rect6573"
+       width="202.84953"
+       height="137.65479"
+       x="64.395058"
+       y="183.28761" />
+    <use
+       height="400"
+       width="550"
+       transform="matrix(0.0207919,0,0,16.661535,24.009483,1248.9612)"
+       id="use6406-5"
+       xlink:href="#rect6384"
+       y="0"
+       x="0" />
+    <rect
+       y="67.670868"
+       x="36.208317"
+       height="77.823776"
+       width="465.22449"
+       id="rect6530"
+       style="fill:none;stroke:#2e2e2e;stroke-width:1.60151327;stroke-opacity:1" />
+    <rect
+       y="201.83679"
+       x="24.518677"
+       height="177.26888"
+       width="228.22455"
+       id="rect6282-9"
+       style="fill:#181818;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:none;stroke:#2e2e2e;stroke-width:1.71245158;stroke-opacity:1"
+       id="rect6404"
+       width="301.46884"
+       height="137.31184"
+       x="184.83522"
+       y="179.60306" />
+    <rect
+       style="fill:#1e1e1e;fill-opacity:1;stroke:none"
+       id="rect6218-1"
+       width="225.90559"
+       height="171.99956"
+       x="25.678198"
+       y="204.47144" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#rect6384"
+       id="use6386-9"
+       transform="matrix(2.5501886,0,0,0.1145433,175.8697,385.87659)"
+       width="550"
+       height="400" />
+    <use
+       height="400"
+       width="550"
+       transform="matrix(0.0166747,0,0,13.672244,137.06453,970.93784)"
+       id="use6406"
+       xlink:href="#rect6384"
+       y="0"
+       x="0" />
+    <path
+       transform="matrix(0.8453069,0,0,0.8453069,173.39633,157.08321)"
+       d="m 523.259,238.3756 a 156.57364,156.57364 0 1 1 -313.14728,0 156.57364,156.57364 0 1 1 313.14728,0 z"
+       sodipodi:ry="156.57364"
+       sodipodi:rx="156.57364"
+       sodipodi:cy="238.3756"
+       sodipodi:cx="366.68536"
+       id="path6414"
+       style="fill:#000000;fill-opacity:0.74299065;stroke:none"
+       sodipodi:type="arc" />
+    <rect
+       y="111.68057"
+       x="137.4752"
+       height="145.14702"
+       width="178.44464"
+       id="rect6282"
+       style="fill:#181818;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#1e1e1e;fill-opacity:1;stroke:none"
+       id="rect6567"
+       width="174.93205"
+       height="142.28987"
+       x="139.23151"
+       y="113.10915" />
+    <rect
+       style="fill:#616161;fill-opacity:1;stroke:none"
+       id="rect6284"
+       width="91.571518"
+       height="89.965813"
+       x="269.80521"
+       y="495.53854" />
+    <rect
+       y="500.50073"
+       x="274.85596"
+       height="80.04142"
+       width="81.469994"
+       id="rect6286"
+       style="fill:#2c2c2c;fill-opacity:1;stroke:none" />
+    <path
+       d="m 137.15028,132.67857 a 2.1502848,2.1502848 0 1 1 -4.30056,0 2.1502848,2.1502848 0 1 1 4.30056,0 z"
+       sodipodi:ry="2.1502848"
+       sodipodi:rx="2.1502848"
+       sodipodi:cy="132.67857"
+       sodipodi:cx="135"
+       id="path6288"
+       style="fill:#a0a0a0;fill-opacity:1;stroke:none"
+       sodipodi:type="arc"
+       transform="translate(185.59096,386.23573)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text6290"
+       y="678.63538"
+       x="78.473495"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#20a4bd;fill-opacity:1;stroke:none;font-family:BatmanForeverAlternate;-inkscape-font-specification:BatmanForeverAlternate"
+       xml:space="preserve"><tspan
+         y="678.63538"
+         x="78.473495"
+         id="tspan6292"
+         sodipodi:role="line">ffadfaer</tspan></text>
+    <rect
+       y="459.17303"
+       x="-51.423321"
+       height="89.965813"
+       width="91.571518"
+       id="rect6294"
+       style="fill:#616161;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#2c2c2c;fill-opacity:1;stroke:none"
+       id="rect6296"
+       width="81.469994"
+       height="80.04142"
+       x="-46.37257"
+       y="464.13522" />
+    <path
+       transform="translate(-135.63755,349.87023)"
+       sodipodi:type="arc"
+       style="fill:#a0a0a0;fill-opacity:1;stroke:none"
+       id="path6298"
+       sodipodi:cx="135"
+       sodipodi:cy="132.67857"
+       sodipodi:rx="2.1502848"
+       sodipodi:ry="2.1502848"
+       d="m 137.15028,132.67857 a 2.1502848,2.1502848 0 1 1 -4.30056,0 2.1502848,2.1502848 0 1 1 4.30056,0 z" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#20a4bd;fill-opacity:1;stroke:none;font-family:BatmanForeverAlternate;-inkscape-font-specification:BatmanForeverAlternate"
+       x="-39.714367"
+       y="470.54395"
+       id="text6300"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6302"
+         x="-39.714367"
+         y="470.54395">ffadfaer</tspan></text>
+    <rect
+       style="fill:#616161;fill-opacity:1;stroke:none"
+       id="rect6304"
+       width="91.571518"
+       height="89.965813"
+       x="252.6326"
+       y="628.87866" />
+    <rect
+       y="633.84088"
+       x="257.68335"
+       height="80.04142"
+       width="81.469994"
+       id="rect6306"
+       style="fill:#2c2c2c;fill-opacity:1;stroke:none" />
+    <path
+       d="m 137.15028,132.67857 a 2.1502848,2.1502848 0 1 1 -4.30056,0 2.1502848,2.1502848 0 1 1 4.30056,0 z"
+       sodipodi:ry="2.1502848"
+       sodipodi:rx="2.1502848"
+       sodipodi:cy="132.67857"
+       sodipodi:cx="135"
+       id="path6308"
+       style="fill:#a0a0a0;fill-opacity:1;stroke:none"
+       sodipodi:type="arc"
+       transform="translate(168.41836,519.57586)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text6310"
+       y="640.24957"
+       x="264.34155"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#20a4bd;fill-opacity:1;stroke:none;font-family:BatmanForeverAlternate;-inkscape-font-specification:BatmanForeverAlternate"
+       xml:space="preserve"><tspan
+         y="640.24957"
+         x="264.34155"
+         id="tspan6312"
+         sodipodi:role="line">ffadfaer</tspan></text>
+    <rect
+       y="2.584096"
+       x="456.68341"
+       height="89.965813"
+       width="91.571518"
+       id="rect6314"
+       style="fill:#181818;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#1e1e1e;fill-opacity:1;stroke:none"
+       id="rect6316"
+       width="81.469994"
+       height="80.04142"
+       x="461.73416"
+       y="7.5462847" />
+    <rect
+       style="fill:#616161;fill-opacity:1;stroke:none"
+       id="rect6324"
+       width="91.571518"
+       height="89.965813"
+       x="-59.50452"
+       y="-151.96924" />
+    <rect
+       y="-147.00705"
+       x="-54.45377"
+       height="80.04142"
+       width="81.469994"
+       id="rect6326"
+       style="fill:#2c2c2c;fill-opacity:1;stroke:none" />
+    <path
+       d="m 137.15028,132.67857 a 2.1502848,2.1502848 0 1 1 -4.30056,0 2.1502848,2.1502848 0 1 1 4.30056,0 z"
+       sodipodi:ry="2.1502848"
+       sodipodi:rx="2.1502848"
+       sodipodi:cy="132.67857"
+       sodipodi:cx="135"
+       id="path6328"
+       style="fill:#a0a0a0;fill-opacity:1;stroke:none"
+       sodipodi:type="arc"
+       transform="translate(-206.34823,-291.57664)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text6330"
+       y="-157.26585"
+       x="-55.371712"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#20a4bd;fill-opacity:1;stroke:none;font-family:BatmanForeverAlternate;-inkscape-font-specification:BatmanForeverAlternate"
+       xml:space="preserve"><tspan
+         y="-157.26585"
+         x="-55.371712"
+         id="tspan6332"
+         sodipodi:role="line">ffadfaer</tspan></text>
+    <rect
+       y="-118.44708"
+       x="215.25696"
+       height="89.965813"
+       width="91.571518"
+       id="rect6334"
+       style="fill:#616161;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#2c2c2c;fill-opacity:1;stroke:none"
+       id="rect6336"
+       width="81.469994"
+       height="80.04142"
+       x="220.30771"
+       y="-113.48489" />
+    <path
+       transform="translate(131.04271,-227.7499)"
+       sodipodi:type="arc"
+       style="fill:#a0a0a0;fill-opacity:1;stroke:none"
+       id="path6338"
+       sodipodi:cx="135"
+       sodipodi:cy="132.67857"
+       sodipodi:rx="2.1502848"
+       sodipodi:ry="2.1502848"
+       d="m 137.15028,132.67857 a 2.1502848,2.1502848 0 1 1 -4.30056,0 2.1502848,2.1502848 0 1 1 4.30056,0 z" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#20a4bd;fill-opacity:1;stroke:none;font-family:BatmanForeverAlternate;-inkscape-font-specification:BatmanForeverAlternate"
+       x="226.96591"
+       y="-107.07617"
+       id="text6340"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6342"
+         x="226.96591"
+         y="-107.07617">ffadfaer</tspan></text>
+    <rect
+       style="fill:#616161;fill-opacity:1;stroke:none"
+       id="rect6344"
+       width="91.571518"
+       height="89.965813"
+       x="-127.18475"
+       y="241.16722" />
+    <rect
+       y="246.12941"
+       x="-122.134"
+       height="80.04142"
+       width="81.469994"
+       id="rect6346"
+       style="fill:#2c2c2c;fill-opacity:1;stroke:none" />
+    <path
+       d="m 137.15028,132.67857 a 2.1502848,2.1502848 0 1 1 -4.30056,0 2.1502848,2.1502848 0 1 1 4.30056,0 z"
+       sodipodi:ry="2.1502848"
+       sodipodi:rx="2.1502848"
+       sodipodi:cy="132.67857"
+       sodipodi:cx="135"
+       id="path6348"
+       style="fill:#a0a0a0;fill-opacity:1;stroke:none"
+       sodipodi:type="arc"
+       transform="translate(-211.399,131.86441)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text6350"
+       y="252.53813"
+       x="-115.47579"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#20a4bd;fill-opacity:1;stroke:none;font-family:BatmanForeverAlternate;-inkscape-font-specification:BatmanForeverAlternate"
+       xml:space="preserve"><tspan
+         y="252.53813"
+         x="-115.47579"
+         id="tspan6352"
+         sodipodi:role="line">ffadfaer</tspan></text>
+    <rect
+       y="512.89825"
+       x="-171.63145"
+       height="89.965813"
+       width="91.571518"
+       id="rect6354"
+       style="fill:#616161;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#2c2c2c;fill-opacity:1;stroke:none"
+       id="rect6356"
+       width="81.469994"
+       height="80.04142"
+       x="-166.5807"
+       y="517.86047" />
+    <path
+       transform="translate(-255.84571,403.59544)"
+       sodipodi:type="arc"
+       style="fill:#a0a0a0;fill-opacity:1;stroke:none"
+       id="path6358"
+       sodipodi:cx="135"
+       sodipodi:cy="132.67857"
+       sodipodi:rx="2.1502848"
+       sodipodi:ry="2.1502848"
+       d="m 137.15028,132.67857 a 2.1502848,2.1502848 0 1 1 -4.30056,0 2.1502848,2.1502848 0 1 1 4.30056,0 z" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#20a4bd;fill-opacity:1;stroke:none;font-family:BatmanForeverAlternate;-inkscape-font-specification:BatmanForeverAlternate"
+       x="-159.9225"
+       y="524.26917"
+       id="text6360"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6362"
+         x="-159.9225"
+         y="524.26917">ffadfaer</tspan></text>
+    <rect
+       style="fill:#616161;fill-opacity:1;stroke:none"
+       id="rect6364"
+       width="91.571518"
+       height="89.965813"
+       x="101.10973"
+       y="514.91858" />
+    <rect
+       y="519.88074"
+       x="106.16048"
+       height="80.04142"
+       width="81.469994"
+       id="rect6366"
+       style="fill:#2c2c2c;fill-opacity:1;stroke:none" />
+    <path
+       d="m 137.15028,132.67857 a 2.1502848,2.1502848 0 1 1 -4.30056,0 2.1502848,2.1502848 0 1 1 4.30056,0 z"
+       sodipodi:ry="2.1502848"
+       sodipodi:rx="2.1502848"
+       sodipodi:cy="132.67857"
+       sodipodi:cx="135"
+       id="path6368"
+       style="fill:#a0a0a0;fill-opacity:1;stroke:none"
+       sodipodi:type="arc"
+       transform="translate(417.92604,466.22491)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text6370"
+       y="586.89862"
+       x="513.84924"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#20a4bd;fill-opacity:1;stroke:none;font-family:BatmanForeverAlternate;-inkscape-font-specification:BatmanForeverAlternate"
+       xml:space="preserve"><tspan
+         y="586.89862"
+         x="513.84924"
+         id="tspan6372"
+         sodipodi:role="line">ffadfaer</tspan></text>
+    <rect
+       y="478.55307"
+       x="474.86618"
+       height="89.965813"
+       width="91.571518"
+       id="rect6374"
+       style="fill:#616161;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#2c2c2c;fill-opacity:1;stroke:none"
+       id="rect6376"
+       width="81.469994"
+       height="80.04142"
+       x="479.91693"
+       y="483.51526" />
+    <path
+       transform="translate(390.65192,369.25027)"
+       sodipodi:type="arc"
+       style="fill:#a0a0a0;fill-opacity:1;stroke:none"
+       id="path6378"
+       sodipodi:cx="135"
+       sodipodi:cy="132.67857"
+       sodipodi:rx="2.1502848"
+       sodipodi:ry="2.1502848"
+       d="m 137.15028,132.67857 a 2.1502848,2.1502848 0 1 1 -4.30056,0 2.1502848,2.1502848 0 1 1 4.30056,0 z" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#20a4bd;fill-opacity:1;stroke:none;font-family:BatmanForeverAlternate;-inkscape-font-specification:BatmanForeverAlternate"
+       x="486.57513"
+       y="489.92398"
+       id="text6380"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6382"
+         x="486.57513"
+         y="489.92398">ffadfaer</tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:0.5186916;stroke:none"
+       id="rect6384"
+       width="89.285713"
+       height="10.714286"
+       x="-59.290817"
+       y="-62.858631" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#rect6384"
+       id="use6386"
+       transform="matrix(1.9939463,0,0,0.15200361,255.81381,266.03093)"
+       width="550"
+       height="400" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use6386"
+       id="use6388"
+       transform="translate(-307.32637,256.72593)"
+       width="550"
+       height="400" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#rect6384"
+       id="use6390"
+       transform="translate(-112.32128,665.29885)"
+       width="550"
+       height="400" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use6390"
+       id="use6392"
+       transform="translate(648.17342,-32.247993)"
+       width="550"
+       height="400" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use6392"
+       id="use6394"
+       transform="translate(-527.82678,-21.458307)"
+       width="550"
+       height="400" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use6394"
+       id="use6396"
+       transform="translate(323.02324,37.165377)"
+       width="550"
+       height="400" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use6396"
+       id="use6398"
+       transform="matrix(1.0169706,0,0,0.15147184,180.00199,4.1519457)"
+       width="550"
+       height="400" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use6398"
+       id="use6400"
+       transform="translate(-203.04066,625.13425)"
+       width="550"
+       height="400" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use6400"
+       id="use6402"
+       transform="translate(-38.007938,-745.94645)"
+       width="550"
+       height="400" />
+    <use
+       height="400"
+       width="550"
+       transform="matrix(-0.01823374,0,0,8.5896127,461.32684,-5030.1575)"
+       id="use6408"
+       xlink:href="#use6396"
+       y="0"
+       x="0" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#181818;fill-opacity:1;stroke:none;stroke-width:0.29476815000000001;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path6410"
+       sodipodi:cx="366.68536"
+       sodipodi:cy="238.3756"
+       sodipodi:rx="156.57364"
+       sodipodi:ry="156.57364"
+       d="m 523.259,238.3756 a 156.57364,156.57364 0 1 1 -313.14728,0 156.57364,156.57364 0 1 1 313.14728,0 z"
+       transform="matrix(0.8453069,0,0,0.8453069,177.94201,157.08321)" />
+    <path
+       transform="matrix(0.79369399,0,0,0.79369399,196.86771,169.38647)"
+       d="m 523.259,238.3756 a 156.57364,156.57364 0 1 1 -313.14728,0 156.57364,156.57364 0 1 1 313.14728,0 z"
+       sodipodi:ry="156.57364"
+       sodipodi:rx="156.57364"
+       sodipodi:cy="238.3756"
+       sodipodi:cx="366.68536"
+       id="path6412"
+       style="fill:#1e1e1e;fill-opacity:1;stroke:none"
+       sodipodi:type="arc" />
+    <path
+       transform="matrix(0.49053189,0,0,0.49053189,-131.78042,-66.801998)"
+       d="m 523.259,238.3756 a 156.57364,156.57364 0 1 1 -313.14728,0 156.57364,156.57364 0 1 1 313.14728,0 z"
+       sodipodi:ry="156.57364"
+       sodipodi:rx="156.57364"
+       sodipodi:cy="238.3756"
+       sodipodi:cx="366.68536"
+       id="path6414-4"
+       style="fill:#000000;fill-opacity:0.74299065;stroke:none"
+       sodipodi:type="arc" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#181818;fill-opacity:1;stroke:none"
+       id="path6410-2"
+       sodipodi:cx="366.68536"
+       sodipodi:cy="238.3756"
+       sodipodi:rx="156.57364"
+       sodipodi:ry="156.57364"
+       d="m 523.259,238.3756 a 156.57364,156.57364 0 1 1 -313.14728,0 156.57364,156.57364 0 1 1 313.14728,0 z"
+       transform="matrix(0.49053189,0,0,0.49053189,-131.61325,-70.192678)" />
+    <path
+       transform="matrix(0.4605809,0,0,0.4605809,-120.63066,-63.053093)"
+       d="m 523.259,238.3756 a 156.57364,156.57364 0 1 1 -313.14728,0 156.57364,156.57364 0 1 1 313.14728,0 z"
+       sodipodi:ry="156.57364"
+       sodipodi:rx="156.57364"
+       sodipodi:cy="238.3756"
+       sodipodi:cx="366.68536"
+       id="path6412-1"
+       style="fill:#1e1e1e;fill-opacity:1;stroke:none"
+       sodipodi:type="arc" />
+    <use
+       height="400"
+       width="550"
+       transform="matrix(0.02872343,0,0,7.8438882,180.03124,507.55309)"
+       id="use6406-5-0"
+       xlink:href="#rect6384"
+       y="0"
+       x="0" />
+    <rect
+       y="14.588027"
+       x="180.7876"
+       height="81.914467"
+       width="209.81279"
+       id="rect6282-9-7"
+       style="fill:#181818;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#1e1e1e;fill-opacity:1;stroke:none"
+       id="rect6218-1-0"
+       width="206.31059"
+       height="77.87825"
+       x="182.36012"
+       y="16.606125" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#rect6384"
+       id="use6386-9-8"
+       transform="matrix(2.344455,0,0,0.22521962,319.92852,110.46119)"
+       width="550"
+       height="400" />
+    <use
+       height="400"
+       width="550"
+       transform="matrix(0.0236906,0,0,7.8191335,407.23284,617.42563)"
+       id="use6406-5-0-5"
+       xlink:href="#rect6384"
+       y="0"
+       x="0" />
+    <rect
+       y="126.01661"
+       x="407.87653"
+       height="81.914467"
+       width="133.43814"
+       id="rect6282-9-7-3"
+       style="fill:#181818;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#1e1e1e;fill-opacity:1;stroke:none"
+       id="rect6218-1-0-1"
+       width="118.71819"
+       height="72.87825"
+       x="415.23648"
+       y="130.53471" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#rect6384"
+       id="use6386-9-8-2"
+       transform="matrix(1.4910421,0,0,0.19188629,496.3683,219.79448)"
+       width="550"
+       height="400" />
+    <path
+       transform="translate(175.5507,-16.042209)"
+       sodipodi:type="arc"
+       style="fill:#1f1f1f;fill-opacity:0.84112149;stroke:none"
+       id="path6318"
+       sodipodi:cx="135"
+       sodipodi:cy="132.67857"
+       sodipodi:rx="2.1502848"
+       sodipodi:ry="2.1502848"
+       d="m 137.15028,132.67857 a 2.1502848,2.1502848 0 1 1 -4.30056,0 2.1502848,2.1502848 0 1 1 4.30056,0 z" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#2e2e2e;stroke-opacity:1"
+       id="path6575"
+       sodipodi:cx="366.68536"
+       sodipodi:cy="238.3756"
+       sodipodi:rx="156.57364"
+       sodipodi:ry="156.57364"
+       d="m 523.259,238.3756 a 156.57364,156.57364 0 1 1 -313.14728,0 156.57364,156.57364 0 1 1 313.14728,0 z"
+       transform="matrix(0.89574415,0,0,0.89574415,155.15298,144.90791)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text6577"
+       y="350.33582"
+       x="473.44312"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#719e9f;fill-opacity:1;stroke:none;font-family:BatmanForeverAlternate;-inkscape-font-specification:BatmanForeverAlternate"
+       xml:space="preserve"><tspan
+         y="350.33582"
+         x="473.44312"
+         id="tspan6579"
+         sodipodi:role="line">ffadfaer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#719e9f;fill-opacity:1;stroke:none;font-family:BatmanForeverAlternate;-inkscape-font-specification:BatmanForeverAlternate"
+       x="194.64102"
+       y="21.026075"
+       id="text6320"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6322"
+         x="194.64102"
+         y="21.026075">ffadfaer</tspan></text>
+  </g>
+</svg>
