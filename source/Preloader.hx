@@ -20,16 +20,18 @@ import nme.text.TextField;
 class Preloader extends NMEPreloader
 {
 	private var background:Bitmap;
-	private var bg:Sprite;
 	private var moon:Bitmap;
 	private var boss:Bitmap;
 	private var troopAry:Array<Bitmap>;
 	private var text:TextField;
 	private var btnStart:SimpleButton;
+	private var txtBg:Sprite;
+	private var btnBg:Sprite;
+	private var btnTxt:TextField;
 
 	private static var yToBottom:Float = 50;
 	private static var span:Float = 120;
-	private static var spanBoss:Float = 50;
+	private static var spanBoss:Float = 120;
 	
 	private var lastPercent:Float;
 	private static var mileStones:Array<Float> = [0.00, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1];
@@ -39,6 +41,11 @@ class Preloader extends NMEPreloader
 	private var loadedTimeStamp:Float;
 	private var loaded:Bool;
 
+	private var s:Sprite;
+	private var s1:Sprite;
+	private var s2:Sprite;
+	private var sDis:Sprite;
+
 	public function new()
 	{
 		super();
@@ -47,36 +54,60 @@ class Preloader extends NMEPreloader
 		loaded = false;
 		
 		background = new Bitmap(new BackgroundBD(550, 400));
-		bg = new Sprite();
-		bg.graphics.beginBitmapFill(new BDmoon(64, 64, true, 0x00000000));
-		bg.graphics.drawRect(0, 0, 64, 64);
-		bg.x = 100; bg.y = 100;
 		moon = new Bitmap(new BDmoon(64, 64, true, 0x00000000)); moon.x = 550 - span - moon.width / 2; moon.y = 400 - yToBottom - moon.height / 2;
-		moon = new Bitmap(Assets.getBitmapData("assets/img/miniMoon.png"));
+		//moon = new Bitmap(Assets.getBitmapData("assets/img/miniMoon.png"));
 		//moon.x = 550 - span - moon.width / 2; moon.y = 400 - yToBottom - moon.height / 2;
 		troopAry = new Array<Bitmap>();
 		boss = new Bitmap(new BDboss(32, 32, true, 0x00000000)); boss.x = spanBoss - boss.width / 2; boss.y = 400 - yToBottom - boss.height / 2;
-		text = new TextField(); text.text = "0"; text.x = 550 - span + moon.width; text.y = 400 - yToBottom; text.textColor = 0xffffffff;
-		var s:Sprite = new Sprite();
-		s.graphics.beginFill(0xffffff, 1);
-		s.graphics.drawRect(0, 0, 60, 20);
+		text = new TextField(); text.text = "0"; text.x = 50; text.y = 400 - yToBottom; text.textColor = 0xffffffff;
+		text.mouseEnabled = false;
+
+		s = new Sprite();
+		s.graphics.beginFill(0x997700,1);
+		s.graphics.drawRoundRect(0,  0, 70, 30, 10, 10);
+		s.graphics.beginFill(0xff9900, 1);
+		s.graphics.drawRoundRect(0, 10, 70, 30, 10, 10);
 		s.graphics.endFill();
-		var s1:Sprite = new Sprite();
-		s1.graphics.beginFill(0xffff00, 1);
-		s1.graphics.drawRect(0, 0, 60, 20);
+		s1 = new Sprite();
+		s1.graphics.beginFill(0x997700,1);
+		s1.graphics.drawRoundRect(0,  0, 70, 30, 10, 10);
+		s1.graphics.beginFill(0xcc9900, 1);
+		s1.graphics.drawRoundRect(0, 10, 70, 30, 10, 10);
 		s1.graphics.endFill();
-		var s2:Sprite = new Sprite();
-		s2.graphics.beginFill(0x00ffff, 1);
-		s2.graphics.drawRect(0, 0, 60, 20);
+		s2 = new Sprite();
+		s2.graphics.beginFill(0x552200,1);
+		s2.graphics.drawRoundRect(0,  0, 70, 30, 10, 10);
+		s2.graphics.beginFill(0x885500, 1);
+		s2.graphics.drawRoundRect(0, 10, 70, 30, 10, 10);
 		s2.graphics.endFill();
-		btnStart = new SimpleButton(s, s1, s2, s1); btnStart.x = 550 - span + moon.width / 2 + 10; btnStart.y = 400 - yToBottom - 20; btnStart.visible = true;
-		//trace("added!");
+		sDis = new Sprite();
+		sDis.graphics.beginFill(0x111111,1);
+		sDis.graphics.drawRoundRect(0,  0, 70, 30, 10, 10);
+		sDis.graphics.beginFill(0x666666, 1);
+		sDis.graphics.drawRoundRect(0, 10, 70, 30, 10, 10);
+		sDis.graphics.endFill();
+
+		btnStart = new SimpleButton(sDis, s1, s2, s1); btnStart.x = 550 - 50 - btnStart.width/2; btnStart.y = 400 - yToBottom - btnStart.height/2; btnStart.visible = true;
+		btnStart.enabled = false;
+		
+		btnTxt = new TextField(); btnTxt.text="WAIT"; btnTxt.x = 550 - 50 - btnTxt.width/2; btnTxt.y = 400 - yToBottom;
+		btnTxt.textColor = 0xffffffff;
+		btnTxt.mouseEnabled = false;
+
+		txtBg = new Sprite(); //txtBg.width = 90; txtBg.height = 50;
+		txtBg.graphics.beginFill(0x111111, 1.0);
+		txtBg.graphics.drawRoundRect (0,  0, 70, 30, 10, 10);
+		txtBg.graphics.beginFill(0x666666, 1.0);
+		txtBg.graphics.drawRoundRect (0, 10, 70, 30, 10, 10);
+		txtBg.x = 50 - txtBg.width/2; txtBg.y = 400 - 50 - txtBg.height / 2;
+
 		addChildAt (boss, 0);
 		addChildAt (moon, 0);
 		addChildAt (background, 0);
-		addChild(text);
 		addChild(btnStart);
-		addChild(bg);
+		addChild(txtBg);
+		addChild(text);
+		addChild(btnTxt);
 		
 		Lib.current.addEventListener(Event.ENTER_FRAME, update);
 		btnStart.addEventListener(MouseEvent.MOUSE_DOWN, function(_) { trace("OK!"); this.dispatchEvent (new Event (Event.COMPLETE)); } );
@@ -88,6 +119,10 @@ class Preloader extends NMEPreloader
 		btnStart.visible = true;
 		loadedTimeStamp = Timer.stamp();
 		loaded = true;
+		btnTxt.text = "START";
+		btnTxt.x = 550 - 50 - btnTxt.width/2; btnTxt.y = 400 - yToBottom - btnTxt.height/2;
+		btnStart.enabled = true;
+		btnStart.upState = s;
 		//dispatchEvent (new Event (Event.COMPLETE));
 	}
 	

@@ -58,7 +58,7 @@ class Main extends Sprite
 	
 	private function initialize():Void 
 	{
-		Lib.current.stage.align = StageAlign.TOP_LEFT;
+		Lib.current.stage.align = StageAlign.TOP;
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
 	}
 	

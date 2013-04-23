@@ -277,9 +277,9 @@ class Level2 extends Level
 
 		//for(var i:Int=0;i<breakers.countLiving();i++)
 		//{
-		//cast(breakers.members[i] , FlxSprite).offset = new FlxPoint(50,50);	
-		//cast(breakers.members[i] , FlxSprite).x = boss.x;
-		//cast(breakers.members[i] , FlxSprite).y = boss.y;		
+		//	cast(breakers.members[i] , FlxSprite).offset = new FlxPoint(50,50);	
+		//	cast(breakers.members[i] , FlxSprite).x = boss.x;
+		//	cast(breakers.members[i] , FlxSprite).y = boss.y;		
 		//}
 		
 		// gui

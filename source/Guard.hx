@@ -35,14 +35,4 @@ class Guard extends Enemy
 		
 		super.update();
 	}
-
-	override public function hurt(Damage:Float):Void 
-	{
-		super.hurt(Damage);
-	}
-
-	override public function kill():Void 
-	{
-		super.kill();
-	}
 }

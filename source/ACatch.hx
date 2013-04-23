@@ -5,7 +5,7 @@ import org.flixel.FlxU;
 import org.flixel.FlxPoint;
 import org.flixel.tmx.TmxObject;
 
-class ACatch extends FlxSprite 
+class ACatch extends Enemy 
 {
 
 public var hang : String;

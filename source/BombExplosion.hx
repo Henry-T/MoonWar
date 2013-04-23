@@ -3,29 +3,88 @@ import org.flixel.FlxSprite;
 
 class BombExplosion extends FlxSprite
 {
-
-
-public function new(X:Float=0, Y:Float=0, SimpleGraphic:Dynamic=null)
-{
-	super(X, Y, SimpleGraphic);
+	public static var RANDOM:Int	=	0;
+	public static var RED:Int		=	1;
+	public static var YELLOW:Int	=	2;
+	public static var BLUE:Int		=	3;
+	public static var GREEN:Int		=	4;
+	public static var ORANGE:Int	=	5;
+	public static var WHITE:Int		=	6;
+	public static var PURPLE:Int	=	7;
+	public static var PINK:Int		=	8;
 	
-	this.loadGraphic("assets/img/expl.png",true, false, 32,32);
-	this.addAnimation("expl", [0,1,2,3,4,5,6,7], 10, false);
-	this.addAnimationCallback(checkLiving);
-	this.play("expl");
-}
-
-override public function reset(X:Float, Y:Float):Void 
-{
-	super.reset(X, Y);
-	play("expl", true);
-}
-
-public function checkLiving(anim:String, frame:Int, index:Int):Void
-{
-	if(frame == 7)
+	private var bigSprite:FlxSprite;
+	private var smallSprite:FlxSprite;
+	
+	private var isBig:Bool;
+	private var colour:Int;
+	
+	public function new(X:Float=0, Y:Float=0, SimpleGraphic:Dynamic=null)
 	{
-	kill();
+		super(X, Y, SimpleGraphic);
+		
+		bigSprite = new FlxSprite(0, 0);
+		bigSprite.loadGraphic("assets/img/explBig.png", true, false, 64, 64);
+		smallSprite = new FlxSprite(0, 0);
+		smallSprite.loadGraphic("assets/img/explSmall.png", true, false, 32, 32);
+		
+		var tempFrameAry:Array<Int> = [0,1,2,3,4,5,6,7];
+		for (i in 0 ... 8)
+		{
+			trace(tempFrameAry);
+			bigSprite.addAnimation(Std.string(i), GameStatic.Clone(tempFrameAry), 20, false);
+			smallSprite.addAnimation(Std.string(i), GameStatic.Clone(tempFrameAry), 20, false);
+			for (j in 0...tempFrameAry.length) 
+				tempFrameAry[j] += 8;
+		}
 	}
-}
+
+	public function make(ctrX:Float, ctrY:Float, color:Int, isBig:Bool)
+	{
+		if (color != 0)
+			this.colour = color;
+		else
+			this.colour = Math.round(Math.random() * 7) + 1;
+		this.isBig = isBig;
+		super.reset(ctrX, ctrY);
+		if (isBig)
+		{
+			bigSprite.x = this.x - bigSprite.width / 2;
+			bigSprite.y = this.y - bigSprite.height / 2;
+			bigSprite.play(Std.string(colour), true);
+		}
+		else 
+		{
+			smallSprite.x = this.x - smallSprite.width / 2;
+			smallSprite.y = this.y - smallSprite.height / 2;
+			smallSprite.play(Std.string(colour), true);
+		}
+	}
+	
+	override public function update() {
+		super.update();
+		if (isBig)
+		{
+			bigSprite.updateAnimation();
+			if (bigSprite.finished)
+				kill();
+		}
+		else 
+		{
+			smallSprite.updateAnimation();
+			if (smallSprite.finished)
+				kill();
+		}
+	}
+	
+	override public function draw(){
+		if (isBig)
+		{
+			bigSprite.draw();
+		}
+		else 
+		{
+			smallSprite.draw();
+		}
+	}
 }
