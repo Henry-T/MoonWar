@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="40"
+   height="40"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="laserBase.svg"
+   inkscape:export-filename="/media/henry/Work/Projects/MoonWar/Art/character/laserBase.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="57.866935"
+     inkscape:cy="26.561274"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1301"
+     inkscape:window-height="744"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:snap-grids="false"
+     inkscape:snap-to-guides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2985"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       spacingx="10px"
+       spacingy="10px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1012.3622)">
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use3828"
+       id="use3830"
+       transform="matrix(-1,0,0,1,40.193865,0)"
+       width="40"
+       height="40" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g3822"
+       id="use3828"
+       transform="matrix(0,1,-1,0,1052.4672,1012.1471)"
+       width="40"
+       height="40" />
+    <g
+       id="g3822">
+      <rect
+         y="1012.4515"
+         x="6.875"
+         height="3.6607144"
+         width="26.696428"
+         id="rect3050"
+         style="fill:#85daea;fill-opacity:1;stroke:none" />
+      <rect
+         style="fill:#20a4bd;fill-opacity:1;stroke:none"
+         id="rect3052"
+         width="26.696428"
+         height="3.6607144"
+         x="6.875"
+         y="1015.0408" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path3039"
+       id="use3041"
+       transform="translate(28.214286,0)"
+       width="40"
+       height="40" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g3822"
+       id="use3826"
+       transform="matrix(1,0,0,-1,0,2064.8668)"
+       width="40"
+       height="40" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use3041"
+       id="use3043"
+       transform="translate(0,28.214286)"
+       width="40"
+       height="40" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e5ac4e;fill-opacity:1;stroke:none"
+       id="path3039"
+       sodipodi:cx="5"
+       sodipodi:cy="5"
+       sodipodi:rx="5"
+       sodipodi:ry="5"
+       d="M 10,5 C 10,7.7614237 7.7614237,10 5,10 2.2385763,10 0,7.7614237 0,5 0,2.2385763 2.2385763,0 5,0 c 2.7614237,0 5,2.2385763 5,5 z"
+       transform="matrix(1.1785714,0,0,1.1785714,0.08928572,1012.3622)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use3043"
+       id="use3045"
+       transform="translate(-28.125,0)"
+       width="40"
+       height="40" />
+    <rect
+       style="fill:#595b64;fill-opacity:1;stroke:none"
+       id="rect3006"
+       width="29.107143"
+       height="29.107143"
+       x="5.4464288"
+       y="1017.8086" />
+    <rect
+       y="1025.1322"
+       x="12.770036"
+       height="14.459931"
+       width="14.459931"
+       id="rect3837"
+       style="fill:#e5ac4e;fill-opacity:1;stroke:none" />
+    <rect
+       y="709.43597"
+       x="723.32556"
+       height="12.824327"
+       width="12.824327"
+       id="rect3019"
+       style="fill:#595b64;fill-opacity:1;stroke:none"
+       transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#rect3019"
+       id="use3021"
+       transform="translate(20.267857,0.17857143)"
+       width="40"
+       height="40" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use3021"
+       id="use3023"
+       transform="translate(0,20)"
+       width="40"
+       height="40" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use3023"
+       id="use3025"
+       transform="translate(-20,0)"
+       width="40"
+       height="40" />
+    <g
+       id="g3784">
+      <rect
+         y="1054.3622"
+         x="0"
+         height="8"
+         width="40"
+         id="rect2999"
+         style="fill:#85daea;fill-opacity:1;stroke:none" />
+      <rect
+         style="fill:#cef0f7;fill-opacity:1;stroke:none"
+         id="rect3001"
+         width="6.3474898"
+         height="8"
+         x="0"
+         y="1054.3622" />
+      <rect
+         y="1054.3622"
+         x="33.831085"
+         height="8"
+         width="6.1689181"
+         id="rect3782"
+         style="fill:#cef0f7;fill-opacity:1;stroke:none" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g3784"
+       id="use3789"
+       transform="matrix(0,1,-1,0,1104.3622,1012.3622)"
+       width="40"
+       height="40" />
+  </g>
+</svg>
