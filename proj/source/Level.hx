@@ -133,6 +133,10 @@ class Level extends FlxState
 	public var hbBg:FlxSprite;
 	public var hbH:FlxSprite;
 
+	// gui
+	public var endMask:FlxSprite;
+	public var endBg:SliceShape;
+
 	// Utility
 	public var timer1:FlxTimer;
 	public var timer2:FlxTimer;
@@ -143,7 +147,6 @@ class Level extends FlxState
 	public var door1Up:LDoor;	// level entrance door
 	public var door2Down:LDoor;	// level exit door under bot
 	public var door2Up:LDoor;	// level exit door over bot
-
 
 	// misc
 	public var bInLift:FlxSprite;
@@ -254,6 +257,15 @@ class Level extends FlxState
 		hbBg = new FlxSprite(120, 370, "assets/img/hbBg.png"); hbBg.origin = new FlxPoint(0, 0); hbBg.scale = new FlxPoint(31, 1); hbBg.scrollFactor = new FlxPoint(0, 0); hbBg.visible = false;
 		hbH = new FlxSprite(120, 370, "assets/img/hbH.png"); hbH.origin = new FlxPoint(0, 0);  hbH.scrollFactor = new FlxPoint(0, 0); hbH.visible = false;
 		
+		// gui
+		endMask = new FlxSprite(0,0);
+		endMask.makeGraphic(FlxG.width, FlxG.height, 0xff000000); endMask.scrollFactor.make(0,0);
+		endMask.alpha = 0.0;
+		endMask.visible = false;
+		endBg = new SliceShape(Math.round(550*0.5-150), Math.round(200-125), 300, 250,"assets/img/slice1.png", SliceShape.MODE_BOX, 5);
+		endBg.scrollFactor.make(0,0);
+		endBg.visible = false;
+
 		// Dialogs
 		// try load tile layers
 		tileBgFar = GetTile("bgFar", FlxObject.NONE);
@@ -470,6 +482,9 @@ class Level extends FlxState
 		add(hbBg);
 		add(hbH);
 
+		add(endMask);
+		add(endBg);
+
 		#if android
 		add(btnUp);
 		add(btnDown);
@@ -670,6 +685,15 @@ class Level extends FlxState
 	{
 		var b:BombExplosion = cast(bombFlower.recycle(BombExplosion) , BombExplosion);
 		b.make(x, y, 0, false);
+	}
+
+	public function EndLevel(){
+		endMask.visible = true;
+		endMask.alpha = 0;
+		this.timer1.start(0.2, 100, function(t:FlxTimer){
+			endMask.alpha += 0.02;
+		});
+		timer2.start(2, 1, function(t:FlxTimer){endBg.visible = true;});
 	}
 
 }

@@ -86,12 +86,10 @@ class Level1 extends Level
 	override public function update():Void
 	{
 		FlxG.overlap(bot, end, function(b:FlxObject, e:FlxObject) { 
-			FlxG.fade(0xff000000, 2, function() { 
-				if (GameStatic.ProcLvl < 1) 
+			if (GameStatic.ProcLvl < 1) 
 				GameStatic.ProcLvl = 1; 
-				FlxG.switchState(new Win());
-				});
-			});
+			EndLevel();
+		});
 
 		if(!fightOver && !inFight)
 		{

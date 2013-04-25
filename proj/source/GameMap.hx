@@ -5,6 +5,7 @@ import org.flixel.FlxState;
 import org.flixel.FlxSprite;
 import org.flixel.FlxGroup;
 import org.flixel.FlxText;
+import nme.display.BitmapData;
 
 
 class GameMap extends FlxState 
@@ -32,6 +33,17 @@ public var picBg:FlxSprite;
 public var missionTxt:FlxText;
 public var descTxt:FlxText;
 
+public var leftPnl:SliceShape;
+public var bottomPnl:SliceShape;
+public var picPnl:SliceShape;
+
+public var btnGLvlNormal:BitmapData;
+public var btnGLvlOver:BitmapData;
+public var btnGLvlDown:BitmapData;
+
+public var btnGBigNormal:BitmapData;
+public var btnGBigOver:BitmapData;
+
 public function new() 
 {
 	super();
@@ -42,14 +54,29 @@ override public function create():Void
 	super.create();
 	this.bgColor = 0xff000000;
 
+	btnGLvlNormal = new SliceShape(0,0, 100, 18, "assets/img/ui_box.png", SliceShape.MODE_BOX, 3).pixels.clone();
+	btnGLvlOver = new SliceShape(0,0, 100, 18, "assets/img/ui_boxact.png", SliceShape.MODE_BOX, 3).pixels.clone();
+
+	btnGBigNormal = new SliceShape(0,0, 100, 25, "assets/img/ui_box.png", SliceShape.MODE_BOX, 3).pixels.clone();
+	btnGBigOver = new SliceShape(0,0, 100, 25, "assets/img/ui_boxact.png", SliceShape.MODE_BOX, 3).pixels.clone();
+
 	bg = new FlxSprite(0,0,"assets/img/bgStar.png");
+
+	leftPnl = new SliceShape(30, 0, 135, 400, "assets/img/ui_barv.png", SliceShape.MODE_VERTICLE, 1);
+	bottomPnl = new SliceShape(0, 350, 550, 40, "assets/img/ui_barh.png", SliceShape.MODE_HERT, 1);
 
 	picBg = new FlxSprite(0,0,"assets/img/mapBg.png");
 	picBg.x = FlxG.width * 0.66 - picBg.width / 2;
 	picBg.y = FlxG.height * 0.43 - picBg.height / 2;
 
+	picPnl = new SliceShape(Math.round(picBg.x), Math.round(picBg.y), Math.round(picBg.width), Math.round(picBg.height), "assets/img/slice2.png", SliceShape.MODE_BOX, 5);
+
+
 	lvlBtns = new FlxGroup();
 	btnIntro = new FlxButton(50, 10, "INTRO", function() { SwitchLevel(0); FlxG.play("assets/snd/sel2.mp3");}); lvlBtns.add(btnIntro);
+	// btnIntro.label.setFormat(null, 8, 0xffffaa40);
+	btnIntro.label.shadow = 2;//= new FlxText();
+	
 	btnLvl1 = new FlxButton(50, 10 + 35 * 1, "LEVEL1", function() { SwitchLevel(1); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnLvl1);
 	btnLvl2 = new FlxButton(50, 10 + 35 * 2, "LEVEL2", function() { SwitchLevel(2); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnLvl2);
 	btnLvl3 = new FlxButton(50, 10 + 35 * 3, "LEVEL3", function() { SwitchLevel(3); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnLvl3);
@@ -64,19 +91,21 @@ override public function create():Void
 
 
 
-	btnMenu = new FlxButton(0, 0, "", function() { FlxG.switchState(new MainMenu()); } );
-	btnMenu.loadGraphic("assets/img/bLvlBack.png");
-	btnMenu.onOver = function(){btnMenu.loadGraphic("assets/img/bLvlBackOver.png");};
-	btnMenu.onOut = function(){btnMenu.loadGraphic("assets/img/bLvlBack.png");};
+	btnMenu = new FlxButton(0, 0, "BACK", function() { FlxG.switchState(new MainMenu()); } );
+	btnMenu.loadGraphic(btnGBigNormal);
+	btnMenu.onOver = function(){btnMenu.loadGraphic(btnGBigOver);};
+	btnMenu.onOut = function(){btnMenu.loadGraphic(btnGBigNormal);};
 	btnMenu.x = FlxG.width * 0.66 - btnMenu.width - 50;
 	btnMenu.y = FlxG.height * 0.90;
+	btnMenu.label.setFormat("assets/fnt/pixelex.ttf", 16, 0xffffff, "center");
 
-	btnStart = new FlxButton(0, 0, "", function(){FlxG.switchState(GameStatic.GetCurLvlInst());});
-	btnStart.loadGraphic("assets/img/bLvlStart.png");
-	btnStart.onOver = function(){btnStart.loadGraphic("assets/img/bLvlStartOver.png");};
-	btnStart.onOut = function(){btnStart.loadGraphic("assets/img/bLvlStart.png");};
+	btnStart = new FlxButton(0, 0, "START", function(){FlxG.switchState(GameStatic.GetCurLvlInst());});
+	btnStart.loadGraphic(btnGBigNormal);
+	btnStart.onOver = function(){btnStart.loadGraphic(btnGBigOver);};
+	btnStart.onOut = function(){btnStart.loadGraphic(btnGBigNormal);};
 	btnStart.x = FlxG.width * 0.66 + 50;
 	btnStart.y = FlxG.height * 0.90;
+	btnStart.label.setFormat("assets/fnt/pixelex.ttf", 16, 0xffffff, "center");
 
 
 	missionTxt = new FlxText(0, 0, 400, "");
@@ -91,16 +120,16 @@ override public function create():Void
 	descTxt.y = FlxG.height * 0.75;
 
 	add(bg);
-	add(picBg);
+	add(leftPnl);
+	add(bottomPnl);
+	//add(picBg);
+	add(picPnl);
 	add(lvlBtns);
 	add(btnMenu);
 	add(pic);
 	add(btnStart);
 	add(missionTxt);
 	add(descTxt);
-
-
-	
 
 	// init
 	for (b in lvlBtns.members) {
@@ -119,7 +148,8 @@ public function SwitchLevel(id:Int)
 
 	for (i in 0...lvlBtns.length) {
 		if(i <= GameStatic.ProcLvl)
-			cast(lvlBtns.members[i],FlxButton).loadGraphic("assets/img/bLvlNot.png");
+			//cast(lvlBtns.members[i],FlxButton).loadGraphic("assets/img/bLvlNot.png");
+			cast(lvlBtns.members[i],FlxButton).loadGraphic(btnGLvlNormal);
 		else
 		{
 			cast(lvlBtns.members[i],FlxButton).loadGraphic("assets/img/bLvlLock.png");
@@ -129,7 +159,7 @@ public function SwitchLevel(id:Int)
 		}
 	}
 
-	cast(lvlBtns.members[id], FlxButton).loadGraphic("assets/img/bLvlSel.png");
+	cast(lvlBtns.members[id], FlxButton).loadGraphic(btnGLvlOver);
 	//btnIntro.loadGraphic("assets/img/bLvlSel.png");
 
 	// set text
