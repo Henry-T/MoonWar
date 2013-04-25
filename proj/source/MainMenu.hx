@@ -22,6 +22,8 @@ class MainMenu extends GameScreen
 	{
 		super.create();
 
+		this.bgColor = 0xffff00ff;
+
 		bgImage = new FlxSprite(0, 0, "assets/img/title.png");
 		this.add(bgImage);
 		
@@ -45,7 +47,11 @@ class MainMenu extends GameScreen
 		add(btnClearData);
 
 		// testing 
-		ss = new SliceShape(0,0, 80, 50,"assets/img/slice1.png", 5);
+		ss = new SliceShape(0,0, 200, 200,"assets/img/slice1.png", SliceShape.MODE_BOX, 5);
+		add(ss);
+		//ss.setSize(100, 100);
+
+		ss = new SliceShape(30, 80 ,100, 50, "assets/img/ui_boxact.png", SliceShape.MODE_BOX, 3);
 		add(ss);
 
 		ResUtil.playTitle();	
