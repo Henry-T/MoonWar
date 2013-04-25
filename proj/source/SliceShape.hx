@@ -13,6 +13,7 @@ class SliceShape extends FlxSprite
 	public static var MODE_BOX		 = 0;
 	public static var MODE_VERTICLE	 = 1;
 	public static var MODE_HERT		 = 2;
+	public static var MODE_CENTER	 = 3;
 
 	private var paddin:Int;		// for pixel art only
 	public var scratchLen:Int;	// scratch space to fill
@@ -83,6 +84,10 @@ class SliceShape extends FlxSprite
 			_srcCenter = new BitmapData(pixelCache.width - paddin*2, pixelCache.height, true);
 			_srcCenter.copyPixels(pixelCache, new Rectangle(paddin, 0, pixelCache.width-paddin*2, pixelCache.height), _flashPointZero);
 		}
+		else if(mode == MODE_CENTER){
+			_srcCenter = new BitmapData(pixelCache.width, pixelCache.height, true);
+			_srcCenter.copyPixels(pixelCache, pixelCache.rect, _flashPointZero);
+		}
 		
 		rebuildGraphic();
 	}
@@ -125,6 +130,10 @@ class SliceShape extends FlxSprite
 
 			var scaleCenter:BitmapData = scaleBitmapData(_srcCenter, (width-paddin*2)/_srcCenter.width, height/_srcCenter.height);
 			_pixels.copyPixels(scaleCenter, scaleCenter.rect, new Point(paddin, 0));
+		}
+		else if(mode == MODE_CENTER){
+			var scaleCenter:BitmapData = scaleBitmapData(_srcCenter, width/_srcCenter.width, height/_srcCenter.height);
+			_pixels.copyPixels(scaleCenter, scaleCenter.rect, _flashPointZero);
 		}
 	}
 

@@ -26,7 +26,11 @@ class MainMenu extends GameScreen
 
 		bgImage = new FlxSprite(0, 0, "assets/img/title.png");
 		this.add(bgImage);
+
+		ss = new SliceShape(0,0, 550, 400,"assets/img/ui_center2.png", SliceShape.MODE_CENTER, 1);
+		add(ss);
 		
+ 
 		startBtn = new FlxButton(100 ,190,"",function(){FlxG.switchState(new IntroScreen());});
 		startBtn.loadGraphic("assets/img/bStart.png"); startBtn.x = FlxG.width / 2 - startBtn.width / 2;
 		startBtn.onOver = function() { startBtn.loadGraphic("assets/img/bStartOver.png"); FlxG.play("assets/snd/sel1.mp3"); };
@@ -52,6 +56,12 @@ class MainMenu extends GameScreen
 		//ss.setSize(100, 100);
 
 		ss = new SliceShape(30, 80 ,100, 50, "assets/img/ui_boxact.png", SliceShape.MODE_BOX, 3);
+		add(ss);
+
+		ss = new SliceShape(0, 300, 550, 40, "assets/img/ui_barh.png", SliceShape.MODE_HERT, 1);
+		add(ss);
+
+		ss = new SliceShape(500, 0, 30, 400, "assets/img/ui_barv.png", SliceShape.MODE_VERTICLE, 1);
 		add(ss);
 
 		ResUtil.playTitle();	
