@@ -43,16 +43,17 @@ class BombExplosion extends FlxSprite
 		if (color != 0)
 			this.colour = color;
 		else
-			this.colour = Math.round(Math.random() * 7) + 1;
+			this.colour = Math.round(Math.random() * 7);
+
 		this.isBig = isBig;
 		super.reset(ctrX, ctrY);
-		if (isBig)
+		//if (isBig)
 		{
 			bigSprite.x = this.x - bigSprite.width / 2;
 			bigSprite.y = this.y - bigSprite.height / 2;
 			bigSprite.play(Std.string(colour), true);
 		}
-		else 
+		//else 
 		{
 			smallSprite.x = this.x - smallSprite.width / 2;
 			smallSprite.y = this.y - smallSprite.height / 2;
@@ -62,13 +63,13 @@ class BombExplosion extends FlxSprite
 	
 	override public function update() {
 		super.update();
-		if (isBig)
+		//if (isBig)
 		{
 			bigSprite.updateAnimation();
 			if (bigSprite.finished)
 				kill();
 		}
-		else 
+		//else 
 		{
 			smallSprite.updateAnimation();
 			if (smallSprite.finished)
@@ -77,11 +78,11 @@ class BombExplosion extends FlxSprite
 	}
 	
 	override public function draw(){
-		if (isBig)
+		//if (isBig)
 		{
 			bigSprite.draw();
 		}
-		else 
+		//else 
 		{
 			smallSprite.draw();
 		}

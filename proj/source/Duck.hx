@@ -49,6 +49,5 @@ class Duck extends Enemy
 	override public function kill():Void 
 	{
 		super.kill();
-		cast(FlxG.state , Level).AddExp(x, y);
 	}
 }

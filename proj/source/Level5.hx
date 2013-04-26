@@ -32,8 +32,9 @@ class Level5 extends Level
 				botPos1 = new FlxPoint(to.x, to.y);
 			else if (to.name == "comOut")
 			{
-				var c = new Com(to.x, to.y, false);
+				var c = cast(coms.recycle(Com), Com);
 				c.make(to);
+				c.SetOn(false);
 				c.onTig = function(){ door2Down.Unlock(); };
 			}
 			else if (to.name == "door1")
@@ -91,12 +92,9 @@ class Level5 extends Level
 			bot.active = false;
 		}
 		
-		if (bInLift.y > end.y)
-		{
-		FlxG.fade(0xff000000, 1, function():Void {
+		if (!isEnd && bInLift.y > end.y){
 			if (GameStatic.ProcLvl < 5) GameStatic.ProcLvl = 5;
 			EndLevel(true);
-		});
 		}
 	}
 }

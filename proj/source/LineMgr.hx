@@ -19,10 +19,15 @@ class LineMgr extends FlxSprite
 	private var curHeadId:Int;
 	private var lineCnt:Int;
 
+	private var isEnd:Bool;
+
 	private static var  headPos:FlxPoint = new FlxPoint(8, 62);
 
 	public function new():Void{ 	
 		super(0,0,null);
+
+		isEnd = false;
+
 		heads = new Array<FlxSprite>();
 
 		headBg = new SliceShape(0, 50, 90, 90, "assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
@@ -51,6 +56,7 @@ class LineMgr extends FlxSprite
 		curLineId = -1;
 		lineCnt = lines.length;
 		finishCall = finCall;
+		isEnd = false;
 		Next();
 	}
 
@@ -62,16 +68,17 @@ class LineMgr extends FlxSprite
 			//lineBg.setSize(90 + Math.round(line.text.length * 4), 30);
 		}
 		else{
+			isEnd = true;
 			if(finishCall!=null)
 				finishCall();
 		}
 	}
 
 	override public function update(){
-		if(FlxG.keys.justPressed("SPACE")){
+		if(!isEnd && FlxG.keys.justPressed("SPACE")){
 			Next();
+			super.update();
 		}
-		super.update();
 	}
 
 	override public function draw(){

@@ -39,15 +39,13 @@ override public function update():Void
 
 override public function kill():Void
 {
-	if(!alive)
-	return;
-	velocity.x = 0;
-	velocity.y = 0;
+	if(!alive)return;
+	super.kill();
 	if(onScreen())
+	{
 		FlxG.play("assets/snd/hit2.mp3");
-	alive = false;
-	solid = false;
-	play("poof");
+		play("poof");
+	}
 }
 
 public function shoot(Location:FlxPoint, Aim:Int):Void

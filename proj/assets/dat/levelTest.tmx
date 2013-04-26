@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="20" tileheight="20">
+ <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
+  <image source="../img/defTile.png" width="360" height="280"/>
+  <terraintypes>
+   <terrain name="light" tile="-1"/>
+  </terraintypes>
+  <tile id="7" terrain=",0,0,"/>
+  <tile id="8" terrain="0,,,0"/>
+  <tile id="25" terrain="0,0,,"/>
+  <tile id="26" terrain=",0,,0"/>
+  <tile id="42" terrain="0,0,0,0"/>
+  <tile id="43" terrain=",,0,0"/>
+  <tile id="44" terrain="0,,0,"/>
+  <tile id="59" terrain=",,0,"/>
+  <tile id="60" terrain=",,,0"/>
+  <tile id="61" terrain=",0,,"/>
+  <tile id="62" terrain="0,,,"/>
+  <tile id="77" terrain="0,0,,0"/>
+  <tile id="78" terrain="0,0,0,"/>
+  <tile id="79" terrain="0,,0,0"/>
+  <tile id="80" terrain=",0,0,0"/>
+ </tileset>
+ <layer name="bg" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApIBwAGQAAB
+  </data>
+ </layer>
+ <layer name="tile" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAuEKUBprbbRs0bNY9W5uFLu4PBfZSaR0reHIr+paTsGSr+pSYGABrYBw8=
+  </data>
+ </layer>
+ <objectgroup name="misc" width="20" height="20">
+  <object name="start" x="20" y="340" width="40" height="40"/>
+  <object name="end" x="340" y="340" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup name="enemy" width="20" height="20">
+  <object type="bg" x="260" y="160" width="60" height="40"/>
+  <object type="bg" x="180" y="220" width="60" height="40"/>
+  <object type="bg" x="80" y="280" width="60" height="40">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object type="bg" x="80" y="280" width="60" height="40">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -25,6 +25,8 @@ class Level4 extends Level
 	public var bossP3:FlxPoint;
 	public var bossRighting:Bool;
 
+	public var breakShown:Bool;
+
 	public function new()
 	{
 		super();
@@ -98,6 +100,7 @@ class Level4 extends Level
 				bot.On = true;
 			});
 		});
+		breakShown = false;
 	}
 
 
@@ -107,21 +110,23 @@ class Level4 extends Level
 		if(!coverOpen)
 			FlxG.collide(bot, tileCover);
 
-		// End of Level
-		if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey))
+		// Lift Broken Dialog
+		if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey) && !breakShown)
 		{
+			breakShown = true;
 			bot.On = false;
 			timer1.start(2, 1, function(t:FlxTimer){
 				lineMgr.Start(lines2, function(){
 					coverOpen = true;
 					tileCover.visible = false;
-
+					bot.On = true;
 				});
 			});
 		}
-		if(bot.x > end.x)
+
+		// End of Level
+		if(!isEnd && bot.x > end.x)
 		{
-			if (GameStatic.ProcLvl < 4) GameStatic.ProcLvl = 4;
 			EndLevel(true);
 		}
 		super.update();

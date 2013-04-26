@@ -10,7 +10,7 @@ class ACatch extends Enemy
 
 public var hang : String;
 public static var ColdDown:Float = 1.5;
-public static var ShotTimer:Float = 0;
+public var ShotTimer:Float = 0;
 public var gun : FlxSprite;
 
 public function new(X:Float=0, Y:Float=0, SimpleGraphic:Dynamic=null) 
@@ -18,12 +18,14 @@ public function new(X:Float=0, Y:Float=0, SimpleGraphic:Dynamic=null)
 	super(X, Y, SimpleGraphic);
 	gun = new FlxSprite(0, 0, "assets/img/acGun.png");
 	gun.origin = new FlxPoint(5, 5);
+	ShotTimer = 0;
 }
 
 override public function reset(X:Float, Y:Float):Void 
 {
 	super.reset(X, Y);
 	health = 5;
+	ShotTimer = 0;
 }
 
 public function make(o:TmxObject):Void
@@ -73,7 +75,7 @@ override public function update():Void
 			var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
 			bgb.reset(getMidpoint().x, getMidpoint().y);
 			bgb.velocity = new FlxPoint(Math.cos(agl) * 200, Math.sin(agl) * 200);
-			ShotTimer = 0;
+			ShotTimer -=ColdDown;
 		}
 	}
 	

@@ -4,6 +4,7 @@ import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxPoint;
 import org.flixel.tmx.TmxObjectGroup;
+import org.flixel.FlxTimer;
 
 class Level6 extends Level 
 {
@@ -90,7 +91,12 @@ class Level6 extends Level
 		if (door1Up.open && downing && !downing2)
 		{
 			downing = false;
-			bot.On = true;
+			//bot.On = true;
+			timer1.start(0.5, 1, function(t:FlxTimer){
+				lineMgr.Start(lines1, function(){
+					bot.On = true;
+				});
+			});
 		}
 		
 		// End
@@ -104,12 +110,8 @@ class Level6 extends Level
 			bInLift2.velocity.y = 30;
 			downing2 = true;
 		}
-		if (bInLift2.y > end.y)
-		{
-			FlxG.fade(0xff000000, 1, function():Void {
-				if (GameStatic.ProcLvl < 6) GameStatic.ProcLvl = 6;
+		if (!isEnd && bInLift2.y > end.y){
 			EndLevel(true);
-			});
 		}
 	}
 }

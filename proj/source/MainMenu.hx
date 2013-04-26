@@ -72,4 +72,10 @@ class MainMenu extends GameScreen
 
 		ResUtil.playTitle();	
 	}
+
+	public override function update(){
+		super.update();
+		if(FlxG.keys.T)
+			FlxG.switchState(new LevelTest());
+	}
 }

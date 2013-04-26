@@ -20,6 +20,8 @@ public var lock2:Bool;
 public var lock3:Bool;
 public var lock4:Bool;
 public var lastCom:Com;
+public var warnObj:FlxObject;
+public var warned:Bool;
 
 
 public function new()
@@ -73,15 +75,16 @@ public override function create():Void
 			else if(com.name == "comLock4")
 				com.onTig = function() { lock4 = true; };
 		}
-		else if (o.name == "zBallPath")
-		{
+		else if (o.name == "zBallPath"){
 			zBallRadius = o.width / 2;
 			zBallCenter = new FlxPoint(o.x + zBallRadius, o.y + zBallRadius);
 		}
-		else if (o.name == "zBallSize")
-		{
+		else if (o.name == "zBallSize"){
 			zball = new FlxSprite(o.x, o.y);
 			zball.loadGraphic("assets/img/eball.png");
+		}
+		else if(o.name == "warn"){
+			warnObj = new FlxObject(o.x, o.y, o.width, o.height);
 		}
 	}
 		
@@ -91,8 +94,10 @@ public override function create():Void
 	
 	
 	AddAll();
-	
+	add(warnObj);
+
 	// initial scene
+	warned = false;
 	bot.On = false;
 	bot.facing = FlxObject.RIGHT;
 	bInLift.velocity.y = 30;
@@ -115,6 +120,17 @@ override public function update():Void
 	if (!lock1 || !lock2 || !lock3 || !lock4)
 		lastCom.SetOn(false);
 	
+	// warn
+	if(!warned){
+		FlxG.overlap(bot, warnObj, function(b:FlxObject, w:FlxObject){
+			bot.On = false;
+			warned = true;
+			lineMgr.Start(lines1, function(){
+				bot.On = true;
+			});
+		});
+	}
+
 	// Start
 	if (downing && bInLift.y > door1Up.y)
 	{
@@ -138,12 +154,9 @@ override public function update():Void
 		bInLift2.velocity.y = 30;
 		downing2 = true;
 	}
-	if (bInLift2.y > end.y)
+	if (!isEnd && bInLift2.y > end.y)
 	{
-		FlxG.fade(0xff000000, 1, function():Void {
-			if (GameStatic.ProcLvl < 7) GameStatic.ProcLvl = 7;
-			EndLevel(true);
-		});
+		EndLevel(true);
 	}
 	
 	// update zball

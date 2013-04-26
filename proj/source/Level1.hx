@@ -24,10 +24,10 @@ class Level1 extends Level
 		tileXML = nme.Assets.getText("assets/dat/level1.tmx");
 
 		lines1 = [
-		new Line(0, "CubeBot, it will be battle field soon outside the laboratory."),
-		new Line(0, "We will have some test to ensure you are in good condition."),
-		new Line(0, "Your tips are printed on screens, go for it now."),
-		new Line(1, "OK.")
+			new Line(0, "CubeBot, it will be battle field soon outside the laboratory."),
+			new Line(0, "We will have some test to ensure you are in good condition."),
+			new Line(0, "Your tips are printed on screens, go for it now."),
+			new Line(1, "OK.")
 		];
 
 		lines2 = [
@@ -88,8 +88,9 @@ class Level1 extends Level
 	override public function update():Void
 	{
 		FlxG.overlap(bot, end, function(b:FlxObject, e:FlxObject) { 
-			if (GameStatic.ProcLvl < 1) GameStatic.ProcLvl = 1; 
-			EndLevel(true);
+			if(!isEnd){
+				EndLevel(true);
+			}
 		});
 
 		if(!fightOver && !inFight)

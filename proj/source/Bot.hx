@@ -333,7 +333,7 @@ class Bot extends FlxSprite
 
 	override public function hurt(Damage:Float):Void 
 	{
-		if (!isActorImmu)
+		if (!isActorImmu && !cast(FlxG.state, Level).isEnd)
 		{
 			super.hurt(Damage);
 			isActorImmu = true;
@@ -344,7 +344,10 @@ class Bot extends FlxSprite
 
 	override public function kill():Void 
 	{
-		super.kill();
-		cast(FlxG.state , Level).EndLevel(false);
+		if(!cast(FlxG.state, Level).isEnd)
+		{
+			super.kill();
+			cast(FlxG.state , Level).EndLevel(false);
+		}
 	}
 }

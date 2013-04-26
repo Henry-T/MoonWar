@@ -44,6 +44,11 @@ class Level3 extends Level
 			new Line(0,"OK, a bunch of airforce is waiting ahead."),
 			new Line(0,"Get onto the car, you are only weapon to fight.")
 		];
+
+		lines2 = [
+			new Line(0, "Here we are, this is transport station."),
+			new Line(0, "Take the lift to go under ground.")
+		];
 		
 		tileXML = nme.Assets.getText("assets/dat/level3.tmx");
 	}
@@ -159,7 +164,6 @@ class Level3 extends Level
 			t.active = true;
 			
 			case 2:
-			if (GameStatic.ProcLvl < 3) GameStatic.ProcLvl = 3;
 			EndLevel(true);
 		}
 	}
@@ -236,6 +240,8 @@ class Level3 extends Level
 
 	override public function update():Void
 	{
+		FlxG.collide(bot, t);
+
 		super.update();
 		
 		if (!battling && !battleEnd && t.x > battlePos.x)
@@ -261,6 +267,7 @@ class Level3 extends Level
 				}
 				else
 				{
+					bot.On = false;
 					// start trans again!
 					bg1.velocity.x = 0;
 					bg2.velocity.x = 0;
@@ -283,25 +290,9 @@ class Level3 extends Level
 		if (bot.x > FlxG.camera.scroll.x + FlxG.width)
 		bot.x = FlxG.camera.scroll.x + FlxG.width;
 
-		cast(dms.members[0] , Dumom).SpawnPos.x = FlxG.camera.scroll.x + 30;
-		cast(dms.members[1] , Dumom).SpawnPos.x = FlxG.camera.scroll.x + 30;
-		cast(dms.members[2] , Dumom).SpawnPos.x = FlxG.camera.scroll.x + 30;
-		cast(dms.members[3] , Dumom).SpawnPos.x = FlxG.camera.scroll.x + FlxG.width - 30;
-		cast(dms.members[4] , Dumom).SpawnPos.x = FlxG.camera.scroll.x + FlxG.width - 30;
-		cast(dms.members[5] , Dumom).SpawnPos.x = FlxG.camera.scroll.x + FlxG.width - 30;
-		
-		for(dm in ducks.members)
-		{
-		//if(dm.x > duckStart && dm.x < duckEnd)
-		//	dm.active = true;
-		//else 
-		//	dm.active = false;
-			dm.active = true;
-		}
-
 		if (t.x > tEndX)
 		{
-			rGameOver = true;
+			isEnd = true;
 			isWin = true;
 		}
 

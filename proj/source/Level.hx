@@ -68,7 +68,7 @@ class Level extends FlxState
 	public var lineMgr:LineMgr;
 
 	// Data
-	public var rGameOver:Bool;
+	public var isEnd:Bool;
 	public var isWin:Bool;
 	public var birthPos:FlxPoint;
 	public var start:FlxSprite;		// Normal Way to Start Level
@@ -188,12 +188,11 @@ class Level extends FlxState
 		var eD:Array<Int> = [0,0,0,0];
 		EmptyTile.loadMap(FlxTilemap.arrayToCSV(eD, 2), "assets/img/defTile.png", 20, 20);	
 		
-		
 		FlxG.mouse.hide();
 		
 		jsCntr = 0;
 		
-		rGameOver = false;
+		isEnd = false;
 		isWin = false;
 		
 		timer1 = new FlxTimer();
@@ -202,7 +201,7 @@ class Level extends FlxState
 		
 		// Preload Tile Data
 		if (tileXML != null)
-		tmx = new TmxMap(tileXML);
+			tmx = new TmxMap(tileXML);
 		
 		// Bullets
 		bullets = new FlxGroup();
@@ -332,38 +331,38 @@ class Level extends FlxState
 		var mG:TmxObjectGroup = tmx.getObjectGroup("misc");
 		if (mG != null)
 		{
-		for (o in mG.objects)
-		{
-			if (o.name == "start")
+			for (o in mG.objects)
 			{
-			start = new FlxSprite(o.x, o.y);
-			start.width = o.width; start.height = o.height;
+				if (o.name == "start")
+				{
+				start = new FlxSprite(o.x, o.y);
+				start.width = o.width; start.height = o.height;
+				}
+				else if (o.name == "end")
+				{
+				end = new FlxSprite(o.x, o.y);
+				end.width = o.width; end.height = o.height;
+				}
+				else if (o.type == "lift")
+				{
+					var lift:Lift = cast(lifts.recycle(Lift),Lift);
+					lift.make(o);
+				}
+				else if (o.type == "sign")
+				{
+					var t:Tip1 =  cast(tips.recycle(Tip1),Tip1);
+					t.make(o);
+				}
+				else if (o.type == "cube")
+				{
+					var cube:Cube = cast(cubes.recycle(Cube),Cube);
+					cube.reset(o.x, o.y);
+				}
+				else if (o.type == "com")
+				{
+					// do nothing.. com will be load by levels themself
+				}
 			}
-			else if (o.name == "end")
-			{
-			end = new FlxSprite(o.x, o.y);
-			end.width = o.width; end.height = o.height;
-			}
-			else if (o.type == "lift")
-			{
-				var lift:Lift = cast(lifts.recycle(Lift),Lift);
-				lift.make(o);
-			}
-			else if (o.type == "sign")
-			{
-				var t:Tip1 =  cast(tips.recycle(Tip1),Tip1);
-				t.make(o);
-			}
-			else if (o.type == "cube")
-			{
-				var cube:Cube = cast(cubes.recycle(Cube),Cube);
-				cube.reset(o.x, o.y);
-			}
-			else if (o.type == "com")
-			{
-				// do nothing.. com will be load by levels themself
-			}
-		}
 		}
 		
 		// load enemy!
@@ -552,6 +551,12 @@ class Level extends FlxState
 
 	override public function update():Void 
 	{
+		FlxG.collide(bigGuns, bot);
+		FlxG.collide(aCatchs, bot);
+		FlxG.collide(gpUps, bot);
+		FlxG.collide(gpMids, bot);
+		FlxG.collide(gpDowns, bot);
+
 		// laser hurt bot
 		FlxG.overlap(lasers, bot, function(l:FlxObject, b:FlxObject){if(cast(l, Laser).NowOn)b.hurt(20);});
 
@@ -730,8 +735,12 @@ class Level extends FlxState
 
 	public function EndLevel(win:Bool=true){
 		this.isWin = win;
-
+		this.isEnd = true;
 		bot.On = false;
+
+		if(isWin && GameStatic.ProcLvl < GameStatic.CurLvl)
+			GameStatic.ProcLvl = GameStatic.CurLvl;
+
 
 		endMask.visible = true;
 		endMask.alpha = 0;
