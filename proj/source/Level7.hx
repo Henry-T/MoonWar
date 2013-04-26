@@ -142,7 +142,7 @@ override public function update():Void
 	{
 		FlxG.fade(0xff000000, 1, function():Void {
 			if (GameStatic.ProcLvl < 7) GameStatic.ProcLvl = 7;
-			FlxG.switchState(new Level8());
+			EndLevel(true);
 		});
 	}
 	

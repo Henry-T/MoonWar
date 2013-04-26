@@ -95,7 +95,7 @@ class Level5 extends Level
 		{
 		FlxG.fade(0xff000000, 1, function():Void {
 			if (GameStatic.ProcLvl < 5) GameStatic.ProcLvl = 5;
-			FlxG.switchState(new Level6());
+			EndLevel(true);
 		});
 		}
 	}

@@ -159,9 +159,8 @@ class Level3 extends Level
 			t.active = true;
 			
 			case 2:
-			FlxG.fade(0xff0000ff, 2, function():Void{
-				if (GameStatic.ProcLvl < 3) GameStatic.ProcLvl = 3;
-				FlxG.switchState(new Level4());}, true);
+			if (GameStatic.ProcLvl < 3) GameStatic.ProcLvl = 3;
+			EndLevel(true);
 		}
 	}
 

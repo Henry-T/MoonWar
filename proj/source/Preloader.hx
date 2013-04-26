@@ -110,7 +110,7 @@ class Preloader extends NMEPreloader
 		addChild(btnTxt);
 		
 		Lib.current.addEventListener(Event.ENTER_FRAME, update);
-		btnStart.addEventListener(MouseEvent.MOUSE_DOWN, function(_) { trace("OK!"); this.dispatchEvent (new Event (Event.COMPLETE)); } );
+		btnStart.addEventListener(MouseEvent.MOUSE_DOWN, function(_) { this.dispatchEvent (new Event (Event.COMPLETE)); } );
 		
 	}
 

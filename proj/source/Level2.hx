@@ -337,7 +337,7 @@ class Level2 extends Level
 			lineMgr.Start(lines4, function(){boss1.switchState(8); lvlState = 4;});
 		case 5:				// used in Boss1.hx
 			if (GameStatic.ProcLvl < 2) GameStatic.ProcLvl = 2;
-			FlxG.fade(0xff000000, function(){FlxG.switchState(new Win());});
+			EndLevel(true);
 		}
 	}
 

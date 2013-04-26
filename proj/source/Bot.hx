@@ -204,6 +204,10 @@ class Bot extends FlxSprite
 					bee.kill();
 			}
 		}
+		if(FlxG.keys.P)
+		{
+			cast(FlxG.state, Level).EndLevel();
+		}
 
 		//MOVEMENT
 		acceleration.x = 0;
@@ -336,6 +340,6 @@ class Bot extends FlxSprite
 	override public function kill():Void 
 	{
 		super.kill();
-		cast(FlxG.state , Level).StartGV();
+		cast(FlxG.state , Level).EndLevel(false);
 	}
 }

@@ -121,10 +121,8 @@ class Level4 extends Level
 		}
 		if(bot.x > end.x)
 		{
-			FlxG.fade(0xff000000, 2, function():Void {
-				if (GameStatic.ProcLvl < 4) GameStatic.ProcLvl = 4;
-				FlxG.switchState(new Level5());
-			});
+			if (GameStatic.ProcLvl < 4) GameStatic.ProcLvl = 4;
+			EndLevel(true);
 		}
 		super.update();
 	}

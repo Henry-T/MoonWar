@@ -18,6 +18,7 @@ import org.flixel.tmx.TmxLayer;
 import org.flixel.tmx.TmxObjectGroup;
 import org.flixel.tmx.TmxTileSet;
 import org.flixel.tmx.TmxObject;
+import nme.display.BitmapData;
 import nme.Assets;
 
 class Level extends FlxState
@@ -134,14 +135,22 @@ class Level extends FlxState
 	public var hbH:FlxSprite;
 
 	// gui
+	public var btnGNormal:BitmapData;
+	public var btnGOver:BitmapData;
 	public var endMask:FlxSprite;
 	public var endBg:SliceShape;
+	public var btnAgain:FlxButton;
+	public var btnMap:FlxButton;
+	public var btnNext:FlxButton;
+	public var btnHelp:FlxButton;
+	public var lbMission:FlxText;
+	public var lbResult:FlxText;
 
 	// Utility
 	public var timer1:FlxTimer;
 	public var timer2:FlxTimer;
 	public var gvTimer:FlxTimer;	// Game Over Time
-	public var jsCntr:Int;		//
+	public var jsCntr:Int;			// 
 
 	// doors
 	public var door1Up:LDoor;	// level entrance door
@@ -258,6 +267,9 @@ class Level extends FlxState
 		hbH = new FlxSprite(120, 370, "assets/img/hbH.png"); hbH.origin = new FlxPoint(0, 0);  hbH.scrollFactor = new FlxPoint(0, 0); hbH.visible = false;
 		
 		// gui
+		btnGNormal = new SliceShape(0,0, 90, 18, "assets/img/ui_box.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGOver =  new SliceShape(0,0, 90, 18, "assets/img/ui_boxact.png", SliceShape.MODE_BOX, 3).pixels.clone();
+
 		endMask = new FlxSprite(0,0);
 		endMask.makeGraphic(FlxG.width, FlxG.height, 0xff000000); endMask.scrollFactor.make(0,0);
 		endMask.alpha = 0.0;
@@ -265,6 +277,53 @@ class Level extends FlxState
 		endBg = new SliceShape(Math.round(550*0.5-150), Math.round(200-125), 300, 250,"assets/img/slice1.png", SliceShape.MODE_BOX, 5);
 		endBg.scrollFactor.make(0,0);
 		endBg.visible = false;
+
+		btnAgain = new FlxButton(275 - 80, 350, "Again", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
+		btnAgain.loadGraphic(btnGNormal);
+		btnAgain.x = FlxG.width/2 - btnAgain.width/2 - btnAgain.width * 1.1;
+		btnAgain.y = FlxG.height/2 + 100;
+		btnAgain.label.setFormat("assets/fnt/pixelex.ttf", 8, 0xffffff, "center");
+		btnAgain.scrollFactor.make(0, 0);
+		btnAgain.visible = false;
+
+		btnMap = new FlxButton(275, 350, "Map", function() { FlxG.switchState(new GameMap()); } );
+		btnMap.loadGraphic(btnGNormal);
+		btnMap.x = FlxG.width/2 - btnAgain.width/2;
+		btnMap.y = FlxG.height/2 + 100;
+		btnMap.label.setFormat("assets/fnt/pixelex.ttf", 8, 0xffffff, "center");
+		btnMap.scrollFactor.make(0, 0);
+		btnMap.visible = false;
+
+		btnNext = new FlxButton(275 + 80, 350, "Next", function() { FlxG.switchState(GameStatic.GetNextInst()); } );
+		btnNext.loadGraphic(btnGNormal);
+		btnNext.x = FlxG.width/2 - btnAgain.width/2 + btnAgain.width * 1.1;
+		btnNext.y = FlxG.height/2 + 100;
+		btnNext.label.setFormat("assets/fnt/pixelex.ttf", 8, 0xffffff, "center");
+		btnNext.scrollFactor.make(0, 0);
+		btnNext.visible = false;
+
+		btnHelp = new FlxButton(275 + 80, 350, "Help", function(){});
+		btnHelp.loadGraphic(btnGNormal);
+		btnHelp.x = FlxG.width/2 - btnAgain.width/2 + btnAgain.width * 1.1;
+		btnHelp.y = FlxG.height/2 + 100;
+		btnHelp.label.setFormat("assets/fnt/pixelex.ttf", 8, 0xffffff, "center");
+		btnHelp.scrollFactor.make(0,0);
+		btnHelp.visible = false;
+
+		lbMission = new FlxText(0, 0, 200, "MISSION", 26);
+		lbMission.setFormat("assets/fnt/pixelex.ttf", 26, 0xffffffff, "center");
+		lbMission.x = FlxG.width*0.5 - lbMission.width/2;
+		lbMission.y = FlxG.height*0.5 - 120;
+		lbMission.scrollFactor.make(0,0);
+		lbMission.visible = false;
+
+		lbResult = new FlxText(0, 0, 200, "ACCOPLISHED", 18);
+		lbResult.setFormat("assets/fnt/pixelex.ttf", 18, 0xffffffff, "center");
+		lbResult.x = FlxG.width*0.5 - lbMission.width/2;
+		lbResult.y = FlxG.height*0.5 - 90;
+		lbResult.scrollFactor.make(0,0);
+		lbResult.visible = false;
+
 
 		// Dialogs
 		// try load tile layers
@@ -484,6 +543,12 @@ class Level extends FlxState
 
 		add(endMask);
 		add(endBg);
+		add(btnNext);
+		add(btnHelp);
+		add(btnAgain);
+		add(btnMap);
+		add(lbMission);
+		add(lbResult);
 
 		#if android
 		add(btnUp);
@@ -656,13 +721,6 @@ class Level extends FlxState
 		return tMap;
 	}
 
-	public function StartGV():Void
-	{
-		gvTimer.start(2, 1, function(t:FlxTimer):Void {
-		FlxG.fade(0xff000000, 2, function() { FlxG.switchState(new GameOver()); }, true);
-		});
-	}
-
 	public function ShowBossHP(show:Bool):Void
 	{
 		if (show)
@@ -687,13 +745,29 @@ class Level extends FlxState
 		b.make(x, y, 0, false);
 	}
 
-	public function EndLevel(){
+	public function EndLevel(win:Bool=true){
+		this.isWin = win;
+
 		endMask.visible = true;
 		endMask.alpha = 0;
-		this.timer1.start(0.2, 100, function(t:FlxTimer){
-			endMask.alpha += 0.02;
+		this.timer1.start(0.1, 20, function(t:FlxTimer){
+			endMask.alpha += 0.03;
 		});
-		timer2.start(2, 1, function(t:FlxTimer){endBg.visible = true;});
+		timer2.start(2, 1, function(t:FlxTimer){
+			endBg.visible = true;
+			btnAgain.visible = true;
+			btnMap.visible = true;
+			lbMission.visible = true;
+			lbResult.visible = true;
+			if(isWin){
+				btnNext.visible = true;
+				lbResult.text = "ACCOPLISHED";
+			}
+			else{ 
+				btnHelp.visible = true;
+				lbResult.text = "FAILED";
+			}
+			FlxG.mouse.show(); 
+		});
 	}
-
 }
