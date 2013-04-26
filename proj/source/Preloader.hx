@@ -10,7 +10,7 @@ import nme.events.MouseEvent;
 import nme.Lib;
 import nme.text.TextField;
 
-@:bitmap("assets/img/bgStar.png") class BackgroundBD extends BitmapData {}
+@:bitmap("assets/img/bgStar_.png") class BackgroundBD extends BitmapData {}
 @:bitmap("assets/img/miniMoon.png") class BDmoon extends BitmapData {}
 @:bitmap("assets/img/miniBoss.png") class BDboss extends BitmapData {}
 @:bitmap("assets/img/miniGuard.png") class BDguard extends BitmapData {}

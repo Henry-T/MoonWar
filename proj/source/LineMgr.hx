@@ -9,7 +9,7 @@ class LineMgr extends FlxSprite
 {
 	public var heads:Array<FlxSprite>;
 	public var line:FlxText;
-	public var lineBg:FlxSprite;
+	public var lineBg:SliceShape;
 
 	public var finishCall:Void->Void;
 
@@ -24,7 +24,9 @@ class LineMgr extends FlxSprite
 		super(0,0,null);
 		heads = new Array<FlxSprite>();
 
-		lineBg = new FlxSprite(0, 50, "assets/img/lineBg.png"); lineBg.visible = false;
+		//lineBg = new FlxSprite(0, 50, "assets/img/lineBg.png"); lineBg.visible = false;
+		lineBg = new SliceShape(0, 50, 350, 80, "assets/img/slice2.png", SliceShape.MODE_BOX, 5);
+		lineBg.visible = false;
 		lineBg.scrollFactor = new FlxPoint(0,0);
 		line = new FlxText(100, 80, 400, ""); line.visible = false;
 		line.scrollFactor = new FlxPoint(0,0);
