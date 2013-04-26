@@ -12,6 +12,7 @@ import org.flixel.FlxU;
 
 class Bot extends FlxSprite
 {
+	public static var maxHealth:Int = 100;
 	public var gunHand:FlxSprite;
 
 	public var _jumpPower:Int;
@@ -146,7 +147,7 @@ class Bot extends FlxSprite
 		moveJumpKey = "Z";
 		shootKey = "X";
 		
-		health = 100;
+		health = maxHealth;
 	}
 
 	override public function update():Void
@@ -308,6 +309,10 @@ class Bot extends FlxSprite
 
 		// sync gun hand
 		gunHand.facing = facing;
+
+		if(health > maxHealth){
+			health = maxHealth;
+		}
 	}
 
 	public override function draw()

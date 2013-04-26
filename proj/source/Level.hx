@@ -35,7 +35,6 @@ class Level extends FlxState
 	public var btnShoot:FlxSprite;
 	public var btnJump:FlxSprite;
 
-
 	// bg
 	public var bgStar:FlxSprite;
 	public var bgMetal:FlxSprite;
@@ -126,9 +125,7 @@ class Level extends FlxState
 
 	// Huds
 	public var tips:FlxGroup;
-	public var hud:FlxSprite;
-	public var bhBar:FlxSprite;
-	public var bhCover:FlxSprite;
+	public var hpBar:HPBar;
 	public var hbL:FlxSprite;	// Boss Health
 	public var hbR:FlxSprite;
 	public var hbBg:FlxSprite;
@@ -254,12 +251,7 @@ class Level extends FlxState
 		
 		// Huds
 		tips = new FlxGroup();
-		hud = new FlxSprite(0,0, "assets/img/hud.png");
-		hud.scrollFactor = new FlxPoint(0,0);
-		bhBar = new FlxSprite(49, 20, "assets/img/bhBar.png");
-		bhBar.scrollFactor = new FlxPoint(0, 0); bhBar.origin = new FlxPoint(0, 0);
-		bhCover = new FlxSprite(49, 20, "assets/img/bhCover.png");
-		bhCover.scrollFactor = new FlxPoint(0, 0);
+		hpBar = new HPBar();
 		
 		hbL = new FlxSprite(100, 370, "assets/img/hbL.png"); hbL.scrollFactor = new FlxPoint(0, 0); hbL.visible = false;
 		hbR = new FlxSprite(430, 370, "assets/img/hbR.png"); hbR.scrollFactor = new FlxPoint(0, 0); hbR.visible = false;
@@ -267,14 +259,14 @@ class Level extends FlxState
 		hbH = new FlxSprite(120, 370, "assets/img/hbH.png"); hbH.origin = new FlxPoint(0, 0);  hbH.scrollFactor = new FlxPoint(0, 0); hbH.visible = false;
 		
 		// gui
-		btnGNormal = new SliceShape(0,0, 90, 18, "assets/img/ui_box.png", SliceShape.MODE_BOX, 3).pixels.clone();
-		btnGOver =  new SliceShape(0,0, 90, 18, "assets/img/ui_boxact.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGNormal = new SliceShape(0,0, 90, 18, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGOver =  new SliceShape(0,0, 90, 18, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 
 		endMask = new FlxSprite(0,0);
 		endMask.makeGraphic(FlxG.width, FlxG.height, 0xff000000); endMask.scrollFactor.make(0,0);
 		endMask.alpha = 0.0;
 		endMask.visible = false;
-		endBg = new SliceShape(Math.round(550*0.5-150), Math.round(200-125), 300, 250,"assets/img/slice1.png", SliceShape.MODE_BOX, 5);
+		endBg = new SliceShape(Math.round(550*0.5-150), Math.round(200-125), 300, 250,"assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
 		endBg.scrollFactor.make(0,0);
 		endBg.visible = false;
 
@@ -530,9 +522,7 @@ class Level extends FlxState
 		add(smokeEmt2);
 		add(bombFlower);
 		
-		add(hud);
-		add(bhBar);
-		add(bhCover);
+		add(hpBar);
 		
 		add(lineMgr);
 		
@@ -688,13 +678,6 @@ class Level extends FlxState
 				gpDSpr.active = false;
 		}
 		
-		// update bot health bar
-		if (bot!=null)
-		{
-		var bhs:Float = (bot.health / 100 > 0)?(bot.health/100):0;
-		bhBar.scale = new FlxPoint(bhs, 1);
-		}
-		
 		// update boss health bar
 		
 		
@@ -747,6 +730,8 @@ class Level extends FlxState
 
 	public function EndLevel(win:Bool=true){
 		this.isWin = win;
+
+		bot.On = false;
 
 		endMask.visible = true;
 		endMask.alpha = 0;

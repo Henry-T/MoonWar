@@ -9,6 +9,7 @@ class LineMgr extends FlxSprite
 {
 	public var heads:Array<FlxSprite>;
 	public var line:FlxText;
+	public var headBg:SliceShape;
 	public var lineBg:SliceShape;
 
 	public var finishCall:Void->Void;
@@ -24,12 +25,17 @@ class LineMgr extends FlxSprite
 		super(0,0,null);
 		heads = new Array<FlxSprite>();
 
-		//lineBg = new FlxSprite(0, 50, "assets/img/lineBg.png"); lineBg.visible = false;
-		lineBg = new SliceShape(0, 50, 350, 80, "assets/img/slice2.png", SliceShape.MODE_BOX, 5);
+		headBg = new SliceShape(0, 50, 90, 90, "assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
+		headBg.visible = false;
+		headBg.scrollFactor.make(0, 0);
+
+		lineBg = new SliceShape(10, 70, 350, 30, "assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
 		lineBg.visible = false;
-		lineBg.scrollFactor = new FlxPoint(0,0);
-		line = new FlxText(100, 80, 400, ""); line.visible = false;
-		line.scrollFactor = new FlxPoint(0,0);
+		lineBg.scrollFactor.make(0, 0);
+
+		line = new FlxText(100, 80, 400, ""); 
+		line.visible = false;
+		line.scrollFactor.make(0, 0);
 
 		var h:FlxSprite;
 		h = new FlxSprite(headPos.x,headPos.y,"assets/img/drHead.png");h.scrollFactor = new FlxPoint(0,0);
@@ -53,6 +59,7 @@ class LineMgr extends FlxSprite
 		if(curLineId <= lineCnt-1){
 			line.text = lines[curLineId].text;
 			curHeadId = lines[curLineId].headId;
+			//lineBg.setSize(90 + Math.round(line.text.length * 4), 30);
 		}
 		else{
 			if(finishCall!=null)
@@ -69,7 +76,11 @@ class LineMgr extends FlxSprite
 
 	override public function draw(){
 		if(curLineId <= lineCnt-1){
+			var newWidth = 120 + Math.round(line.text.length * 5);
+			if(newWidth < 180) newWidth = 180;
+			lineBg.setSize(newWidth, 30);
 			lineBg.draw();
+			headBg.draw();
 			line.draw();
 			heads[curHeadId].draw();
 		}

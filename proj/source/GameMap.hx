@@ -54,22 +54,22 @@ class GameMap extends FlxState
 		super.create();
 		this.bgColor = 0xff000000;
 
-		btnGLvlNormal = new SliceShape(0,0, 100, 18, "assets/img/ui_box.png", SliceShape.MODE_BOX, 3).pixels.clone();
-		btnGLvlOver = new SliceShape(0,0, 100, 18, "assets/img/ui_boxact.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGLvlNormal = new SliceShape(0,0, 100, 18, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGLvlOver = new SliceShape(0,0, 100, 18, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
 
-		btnGBigNormal = new SliceShape(0,0, 100, 25, "assets/img/ui_box.png", SliceShape.MODE_BOX, 3).pixels.clone();
-		btnGBigOver = new SliceShape(0,0, 100, 25, "assets/img/ui_boxact.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGBigNormal = new SliceShape(0,0, 100, 25, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGBigOver = new SliceShape(0,0, 100, 25, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 
 		bg = new FlxSprite(0,0,"assets/img/bgStar.png");
 
-		leftPnl = new SliceShape(30, 0, 135, 400, "assets/img/ui_barv.png", SliceShape.MODE_VERTICLE, 1);
-		bottomPnl = new SliceShape(0, 350, 550, 40, "assets/img/ui_barh.png", SliceShape.MODE_HERT, 1);
+		leftPnl = new SliceShape(30, 0, 135, 400, "assets/img/ui_barv_b.png", SliceShape.MODE_VERTICLE, 1);
+		bottomPnl = new SliceShape(0, 350, 550, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
 
 		picBg = new FlxSprite(0,0,"assets/img/mapBg.png");
 		picBg.x = FlxG.width * 0.66 - picBg.width / 2;
 		picBg.y = FlxG.height * 0.43 - picBg.height / 2;
 
-		picPnl = new SliceShape(Math.round(picBg.x), Math.round(picBg.y), Math.round(picBg.width), Math.round(picBg.height), "assets/img/slice2.png", SliceShape.MODE_BOX, 5);
+		picPnl = new SliceShape(Math.round(picBg.x), Math.round(picBg.y), Math.round(picBg.width), Math.round(picBg.height), "assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
 
 
 		lvlBtns = new FlxGroup();

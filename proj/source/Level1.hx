@@ -79,8 +79,10 @@ class Level1 extends Level
 		timer1.start(2, 1, function(t:FlxTimer){
 			lineMgr.Start(lines1, function(){
 				bot.On = true;
+				hpBar.visible = true;
 			});
 		});
+		hpBar.visible = false;
 	}
 
 	override public function update():Void
