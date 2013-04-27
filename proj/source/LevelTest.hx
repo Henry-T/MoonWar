@@ -1,5 +1,11 @@
 package;
 
+import org.flixel.tweens.misc.VarTween;
+import org.flixel.tweens.FlxTween;
+import org.flixel.FlxG;
+import org.flixel.tweens.util.Ease;
+
+
 class LevelTest extends Level{
 	public function new(){
 		super();
@@ -13,6 +19,18 @@ class LevelTest extends Level{
 		// initial 
 		bot.x = this.start.x;
 		bot.y = this.end.y;
+
+		//var camTween:VarTween = new VarTween(null, FlxTween.PERSIST);
+		//camTween.tween(FlxG.camera.scroll, "x", 100, 2, Ease.quartInOut);
+		//this.addTween(camTween);
+		TweenCamera(100, 0, 1, true, function(){
+			TweenCamera(100, 100, 1, true, function(){
+				TweenCamera(0, 100, 1, true, function(){
+					TweenCamera(0, 0, 1, true, null);
+				});
+			});
+		});
+
 	}
 
 	public override function update(){

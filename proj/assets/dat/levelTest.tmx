@@ -43,10 +43,5 @@
     <property name="face" value="right"/>
    </properties>
   </object>
-  <object type="bg" x="80" y="280" width="60" height="40">
-   <properties>
-    <property name="face" value="right"/>
-   </properties>
-  </object>
  </objectgroup>
 </map>

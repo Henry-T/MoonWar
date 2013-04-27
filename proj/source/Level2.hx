@@ -188,61 +188,62 @@ class Level2 extends Level
 		FlxG.camera.scroll = posCam1;
 		roam = true;
 		tileCover.visible = false;
+
+		TweenCamera(posCam2.x, posCam2.y, 3, true, function(){
+			roam = false;
+			roamDone = true;
+
+			// Create enemy
+			boss1.x = posBIn.x; boss1.y = posBIn.y;
+			for (grdPos in posGrdAry) {
+				var grd:Guard = new Guard(grdPos.x + 200, grdPos.y);
+				grd.velocity.x = -100;
+				guards.add(grd);
+			}
+			for (bp in posBeeAry) {
+				var bee:Bee = new Bee(bp.x, bp.y); 
+				bee.resetMode(bp.x, bp.y, "Monk");
+				bee.target = bot;
+				bee.canShot = false;
+				Bees.add(bee);
+			}
+
+			timer1.start(3, 1, function(t:FlxTimer){
+				lineMgr.Start(lines1, function(){
+					for (grd in guards.members)grd.kill();
+					for (b in Bees.members)b.kill();
+					timer1.start(2, 1, function(t:FlxTimer){
+						lineMgr.Start(lines2, function(){
+							dash = true;
+							boss1.velocity.x = -400;
+							smokeEmt1.on = true;
+						});
+					});
+				});
+			});
+		});
 	}
 
 	override public function update():Void
 	{
-		if(roam){
-			FlxG.camera.scroll.x += FlxG.elapsed * 150;
-			if(FlxG.camera.scroll.x > posCam2.x) {
-				roam = false;
-				roamDone = true;
-				// Create enemy
-				boss1.x = posBIn.x; boss1.y = posBIn.y;
-				for (grdPos in posGrdAry) {
-					var grd:Guard = new Guard(grdPos.x + 200, grdPos.y);
-					grd.velocity.x = -100;
-					guards.add(grd);
-				}
-				for (bp in posBeeAry) {
-					var bee:Bee = new Bee(bp.x, bp.y); 
-					bee.resetMode(bp.x, bp.y, "Monk");
-					bee.target = bot;
-					bee.canShot = false;
-					Bees.add(bee);
-				}
-
-				timer1.start(3, 1, function(t:FlxTimer){
-					lineMgr.Start(lines1, function(){
-						for (grd in guards.members)grd.kill();
-						for (b in Bees.members)b.kill();
-						timer1.start(2, 1, function(t:FlxTimer){
-							lineMgr.Start(lines2, function(){
-								dash = true;
-								boss1.velocity.x = -400;
-								smokeEmt1.on = true;
-							});
-						});
-					});
-				});
-			}
-		}
-
 		if(dash){
 			if(boss1.x < posBStart.x){
 				dash = false;
 				dashDone = true;
 				boss1.velocity.x = 0;
-				FlxG.camera.scroll = posCam3;
+				smokeEmt1.on = false;
+
 				birthRay.x = 150;
 				birthRay.play("birth");
 				bot.x = 152;
 				bot.y = 130;
-				smokeEmt1.on = false;
-				lineMgr.Start(lines3, function(){
-					bot.On = true;
-					boss1.switchState(1);
-					ShowBossHP(true);
+
+				TweenCamera(posCam3.x, posCam3.y, 2, true, function(){
+					lineMgr.Start(lines3, function(){
+						bot.On = true;
+						boss1.switchState(1);
+						ShowBossHP(true);
+					});
 				});
 			}
 		}

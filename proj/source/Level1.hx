@@ -16,6 +16,7 @@ class Level1 extends Level
 	public var theGuard : FlxSprite;
 	public var inFight : Bool;
 	public var fightOver : Bool;
+	public var camPos1:FlxPoint;
 
 	public function new()
 	{
@@ -66,6 +67,9 @@ class Level1 extends Level
 			{
 				hpPos = new FlxPoint(td.x, td.y);
 			}
+			else if(td.name == "cam1"){
+				camPos1 = new FlxPoint(td.x, td.y);
+			}
 		}
 		
 		// Initial
@@ -106,7 +110,9 @@ class Level1 extends Level
 					guards.add(theGuard);
 					bot.On = false;
 					inFight = true;
-					timer1.start(2, 1, function(t:FlxTimer){
+
+					FlxG.camera.follow(null);
+					TweenCamera(camPos1.x ,camPos1.y, 2, true, function(){
 						lineMgr.Start(lines2, function(){
 							bot.On = true;
 							theGuard.velocity.x = -100;
@@ -137,6 +143,7 @@ class Level1 extends Level
 			{
 				inFight = false;
 				fightOver = true;
+				FlxG.camera.follow(bot, 0 ,null, 5);
 				var rpr : Repair = new Repair(hpPos.x, hpPos.y);
 				hps.add(rpr);
 			}

@@ -19,6 +19,9 @@ import org.flixel.tmx.TmxObjectGroup;
 import org.flixel.tmx.TmxTileSet;
 import org.flixel.tmx.TmxObject;
 import nme.display.BitmapData;
+import org.flixel.tweens.FlxTween;
+import org.flixel.tweens.misc.VarTween;
+import org.flixel.tweens.util.Ease;
 import nme.Assets;
 
 class Level extends FlxState
@@ -159,6 +162,14 @@ class Level extends FlxState
 	public var bInLift2:FlxSprite;
 	public var energy:FlxSprite;
 	public var eStar:FlxSprite;
+
+	// camera
+	public var camScrollXTween : VarTween;
+	public var camScrollYTween : VarTween;
+	private var camXTweenDone:Bool;
+	private var camYTweenDone:Bool;
+	private var camTweening:Bool;
+	private var onCamTweenDone:Void->Void;
 
 	public function new()
 	{
@@ -315,7 +326,6 @@ class Level extends FlxState
 		lbResult.scrollFactor.make(0,0);
 		lbResult.visible = false;
 
-
 		// Dialogs
 		// try load tile layers
 		tileBgFar = GetTile("bgFar", FlxObject.NONE);
@@ -326,6 +336,12 @@ class Level extends FlxState
 		tilePO = GetTile("po", FlxObject.ANY);
 		tileNail = GetTile("nail", FlxObject.ANY);
 		tileCover = GetTile("cover", FlxObject.ANY);
+
+		// camera
+		camScrollXTween = new VarTween(function(){camXTweenDone=true;},0);
+		camScrollYTween = new VarTween(function(){camYTweenDone=true;},0);
+		addTween(camScrollXTween);
+		addTween(camScrollYTween);
 		
 		// load misc
 		var mG:TmxObjectGroup = tmx.getObjectGroup("misc");
@@ -451,6 +467,10 @@ class Level extends FlxState
 				}
 			}
 		}
+
+		camXTweenDone = false;
+		camYTweenDone = false;
+		camTweening = false;
 	}
 
 	public function AddAll():Void
@@ -557,6 +577,13 @@ class Level extends FlxState
 
 	override public function update():Void 
 	{
+		// check camera tween
+		if(camTweening && camXTweenDone && camYTweenDone){
+			camTweening = false;
+			if(onCamTweenDone!=null)
+				onCamTweenDone();
+		}
+
 		FlxG.collide(bigGuns, bot);
 		FlxG.collide(aCatchs, bot);
 		FlxG.collide(gpUps, bot);
@@ -770,4 +797,13 @@ class Level extends FlxState
 			FlxG.mouse.show(); 
 		});
 	}
+
+	public function TweenCamera(x:Float, y:Float, dur:Float, useEase:Bool, onDone:Void->Void){
+		camScrollXTween.tween(FlxG.camera.scroll, "x", x, dur, useEase?Ease.quartInOut:null);
+		camScrollYTween.tween(FlxG.camera.scroll, "y", y, dur, useEase?Ease.quartInOut:null);
+		camXTweenDone = false;
+		camYTweenDone = false;
+		camTweening = true;
+		onCamTweenDone = onDone;
+	} 
 }
