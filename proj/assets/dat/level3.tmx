@@ -26,12 +26,12 @@
  </tileset>
  <layer name="bg" width="215" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2dEJwkAQRdHRlKDYgUgqsIeoHUStICJi/ziSBJb9Crj4yOQeuOzvsDCEJZWZrbytASipHtqoBwGCGXdrrx4ECGbcraN6ECCYtVdZ/97qvPdwAvhN+t56Wb9XD+lEQAzpe+u7U53x3QJKSN9b4zfrKZ0IiIX/WwAAAMtRZwEog90C/qPxTtnZSCcC5meXdPYuXutds7NVDQjMVLpbN++uHQcI7UCTi0J9j0R5UajvkSgvCvU9EuVFob7HpfQBHHBz1A==
+   eJzt2U0KwjAQhuHRHkFxpUuRnkDQG1S9gT8nqIh4f5yQFkpwITQyZHwf+Ai4Gj4Y0mAlIhPNXADkVHeZWQ8CONPv1tp6EMCZfre21oMAzkw1lcT3Vqt5dSeAcYbvrafEvbqbTgT4MHxvhZ1qhXsLyGH43urvrIfpRIAv/L8FAADwP+okAPJYJAEw3lKz0+w1q+63RnNIzsZkOqBcYWeOmpPEPQr31llzSc6z1YBAocLOXDU3iXvENyHwOxvydbyw7tFj6Dhvf6Wy7tFj6Dhvf6Wy7tFj6Dhvf6Wy7tFjPnX8BlSLcrw=
   </data>
  </layer>
  <layer name="tile" width="215" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt18EJg0AQhtE9aBowlhCLiS2Y/ttIBgwushcPsgy8Bx94nMsPaykAAAAAAACQx7j3/378evY7B1KKzQzl2FM0N5p6HQhJxWbOO3o3evU6EJKKzcR21qqtkW3BNbGZ2M6nqvUm9L8F18RmzjsCgEwWSbcEAADAPb7uaShz
+   eJzt18EJg0AQhtE9GBswlqDFpIb0X0cyEBGWuYgsy4b34AOPc/lhLQUAAAAAAADG8fh1fM/fnv3OgSHFZqZy7ilak5ZeB8KgYjP1jl5JW68DYVDZZt5JtgXXxGayN2Cd/y24Z+19APwp24I2Ylu7pCYBAADQxgfGnyYA
   </data>
  </layer>
  <objectgroup name="enemy" width="215" height="20"/>
@@ -41,7 +41,7 @@
   <object name="botPos3" x="297" y="260" width="53" height="46"/>
   <object name="tPos2" x="3960" y="260" width="180" height="40"/>
   <object name="tPos" x="230" y="267" width="175" height="36"/>
-  <object name="exit" x="4240" y="120" width="40" height="40"/>
+  <object name="exit" x="4220" y="360" width="40" height="40"/>
   <object name="battle" x="1920" y="0" width="100" height="300"/>
  </objectgroup>
 </map>

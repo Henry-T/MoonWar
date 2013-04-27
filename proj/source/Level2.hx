@@ -181,6 +181,7 @@ class Level2 extends Level
 		
 		// initial
 		bot.On = false;
+		tile.follow();
 		ResUtil.playGame1();
 		bgMetal.visible = false;
 		FlxG.flash(0xff000000, 2);
@@ -199,7 +200,7 @@ class Level2 extends Level
 				// Create enemy
 				boss1.x = posBIn.x; boss1.y = posBIn.y;
 				for (grdPos in posGrdAry) {
-					var grd:Guard = new Guard(grdPos.x + 10, grdPos.y);
+					var grd:Guard = new Guard(grdPos.x + 200, grdPos.y);
 					grd.velocity.x = -100;
 					guards.add(grd);
 				}
@@ -207,6 +208,7 @@ class Level2 extends Level
 					var bee:Bee = new Bee(bp.x, bp.y); 
 					bee.resetMode(bp.x, bp.y, "Monk");
 					bee.target = bot;
+					bee.canShot = false;
 					Bees.add(bee);
 				}
 
@@ -260,10 +262,14 @@ class Level2 extends Level
 
 		// handle guards
 		if(guards.countLiving()==2){
-			if(cast(guards.members[0], Guard).x <= posGrdAry[0].x)
+			if(cast(guards.members[0], Guard).x <= posGrdAry[0].x){
 				cast(guards.members[0], Guard).On = false;
-			if(cast(guards.members[1], Guard).x <= posGrdAry[1].x)
+				cast(guards.members[0], Guard).velocity.x = 0;
+			}
+			if(cast(guards.members[1], Guard).x <= posGrdAry[1].x){
 				cast(guards.members[1],Guard).On = false;
+				cast(guards.members[1], Guard).velocity.x = 0;
+			}
 		}
 
 		// smoke

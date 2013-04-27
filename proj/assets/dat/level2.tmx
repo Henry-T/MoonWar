@@ -58,8 +58,8 @@
   <object name="bee2" type="posBee" x="2940" y="140" width="40" height="40"/>
   <object name="bee3" type="posBee" x="3180" y="40" width="40" height="40"/>
   <object name="bee4" type="posBee4" x="3120" y="140" width="40" height="40"/>
-  <object name="grd2" type="posGuard" x="2780" y="240" width="40" height="40"/>
-  <object name="grd1" type="posGuard" x="2960" y="240" width="40" height="40"/>
+  <object name="grd2" type="posGuard" x="2980" y="320" width="40" height="40"/>
+  <object name="grd1" type="posGuard" x="3140" y="320" width="40" height="40"/>
   <object name="cam2" type="cam" x="2740" y="0" width="540" height="400"/>
   <object name="cam1" type="cam" x="2120" y="0" width="540" height="400"/>
   <object name="cam3" type="cam" x="0" y="0" width="540" height="400"/>
