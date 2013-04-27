@@ -33,7 +33,7 @@
  </layer>
  <layer name="tile" width="120" height="74">
   <data encoding="base64" compression="zlib">
-   eJztllFuAzEIRHuI5i65/8mqSv2IVq6NgQFsZiSkajceDzw7zftrrdfi2YtVtiQi3ztrxHL0LDsni3xZOL5Weft1EfneLfK9W+R7t07hS+lEvnZl9ij9nUy+epHv2Vr1ULnHU/hmnhfyvZvvySLfu6X5X6xZ670HJROCEe9vHUWwQHl6n7XVd4j2s7Pnu3vszrMj3xvKMjeryJd8PTw7V+TcJH5WZc+zWlnmZhX5kq+HZ+eyzM0q8iVfD8/OZZmbVV34Zua37IvIZlU2S68+vHqx7IXIj/A8ka1XXxZ/RGaE5+lsLf1ZfBFZEZ43cP0U+dZl69Uz+dbnivYjXzxf5Lkh3/y7m+2NzPnfPh55UDnJF8sC4RnN9vX4W+sv3Yt84/iOGFn4SvdD8509mz0n3zP4anQiX+neljwzv92epSJfHd/oz6H4RsxPkzNK6HOA7uXU+xsl9PcG+Y49o0S+OZ5RIt8YzxNUsV/EWavKF32HkH5Rpc1VQdq+subZiW92bzfsV5WvJlfUvGfvpWu1Pd/M9/l+tEbis5PRk69mryrMT+WrmbskYzW2v/r+K41u5vv0kWS0+JOvL99dBpKMuzNA893p23NmO/0+34/WaLNq8nr1nMW2G9/dzOSrVxZfa+5dZbLtyjeKcTbHlT5/j93GV9KDtucq93SlDny97nMG09nssmdSja+mp2ym5NunEDOxiHzJd7RG4tOxqol8yXe0RuLTvSrIK1f2LFnYc5edmUW+LPLtUBplZ2aRL4t8O5RG2Zmz6gcQIoNb
+   eJztlmtuwzAMg3eI9S69/8mGAftRBF4iUU9bJEBgSGuZ0mcvfX896/Xw7EW3tUTke6ZXLFfPqnPS5EvH8bXKu94Uke/ZIt+zRb5naxe+FCbytauyR+nvZPLFRb5766mHzj3uwrfyvJDv2Xx3FvmeLeRdjKz13oOSKYIR728fZbCIqul91p7+h6DfvXuu3UM7z4l8T7Blbh1VPc9utsyto6rn2c2Zc5PUs6p6nt1smZtV5Eu+HjUn2zI3q8iXfD1qTrZlblZN4VuZ37JvRDarqll69eHVi2WviPwRNXdk69WXpX5E5oiau7O19GepG5E1ouYJXD9Fvn3ZevVMvv25Rtcj33i+keeGfOvvbnXtyJz/7eORJyon+cayiKiZzfZ1+RutL92LfPP4rhhZ+Er3i+Z79+zuOfnuwRfRjnyle1vy3NXT9iwV+WJ8vXqRfi+Kb8b8kJxZitg3s5dd72+W0DOcefa1+XeomSXyramZJeQ9lP3u0ubvWJPCFHHWuvKtukOotGw8jObqILSvqnlO4lvd2wn7deWL5Mqa993n0rVozyfzvX6+WiOpo8noyRfZqwvzXfkic5dk7Mb2V99/RnQy32sdSUZLffL15atlIMmonUE0X03fnjPT9Hv9fLUGzYrk9eq5iu00vtrM5Iuriq81t1aVbKfyzWJczfFJn7/HTuMr6QHtucs9fdIEvl73uYLp3eyqZ9KNL9JTNVPyneOImVhEvuS7WiOpM9HdRL7ku1ojqTPdHeSVq3qWdOy5q85Mky9NvhOMqDozTb40+U4wourMVf4BmaOA+g==
   </data>
  </layer>
  <layer name="js" width="120" height="74">
@@ -136,6 +136,7 @@
   </object>
   <object name="end" x="1000" y="1100" width="40" height="40"/>
   <object name="warn" x="2080" y="820" width="40" height="100"/>
+  <object name="border" type="border" x="40" y="60" width="2360" height="1300"/>
  </objectgroup>
  <objectgroup name="enemy" width="120" height="74">
   <object type="ac" x="380" y="580" width="20" height="40">

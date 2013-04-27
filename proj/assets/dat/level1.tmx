@@ -80,6 +80,7 @@
   <object name="warn" x="1580" y="180" width="120" height="100"/>
   <object name="hp" type="hp" x="1920" y="260" width="20" height="20"/>
   <object name="fightArea" x="1520" y="0" width="380" height="280"/>
+  <object name="border" type="border" x="20" y="0" width="2160" height="400"/>
  </objectgroup>
  <objectgroup name="army" width="110" height="20"/>
  <objectgroup name="enemy" width="110" height="20">

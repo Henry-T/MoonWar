@@ -26,12 +26,12 @@
  </tileset>
  <layer name="bg" width="215" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2eEJwjAQhuHTjqAriHQCd6iOULtBpYj740kTCPklWPjI+T7wEvx3BI4S7Mxs5x0NwJb61EE9CBBM3q2TehAgmLxbF/UgQDB7r7P1vTV7r3QC+E353nraulcP6URADOV767NTs/HdArZQvrfyN2uRTgTEwv9bAAAAAACgBYN3rc5BOhHQprxDt/R79O7VOWpGA5qWd2hSDwIEd6avi0J9j0R1UajvkaguCvU9EtVFob7Hf+kNiwNyqg==
+   eJzt2dEJwkAQRdHRlKDYgUgqsIeoHUStICJi/ziSBJb9Crj4yOQeuOzvsDCEJZWZrbytASipHtqoBwGCGXdrrx4ECGbcraN6ECCYtVdZ/97qvPdwAvhN+t56Wb9XD+lEQAzpe+u7U53x3QJKSN9b4zfrKZ0IiIX/WwAAAMtRZwEog90C/qPxTtnZSCcC5meXdPYuXutds7NVDQjMVLpbN++uHQcI7UCTi0J9j0R5UajvkSgvCvU9EuVFob7HpfQBHHBz1A==
   </data>
  </layer>
  <layer name="tile" width="215" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt18EJg0AURdFZxDSQWIIWk5AODPbfhX4wRGQ2gjKMnAMXXP7NgzElAAAAAAAAqEez9Pu+zz3LnQNVis3c0n9PUZvpUepAqFRsZrujV6au1IFQqdhMbOe9ashkW7BPbCa2812VexP634J9YjPbHQHH+5Q+AC5qnOslnRIAAADnmAA9mCkf
+   eJzt18EJg0AQhtE9aBowlhCLiS2Y/ttIBgwushcPsgy8Bx94nMsPaykAAAAAAACQx7j3/378evY7B1KKzQzl2FM0N5p6HQhJxWbOO3o3evU6EJKKzcR21qqtkW3BNbGZ2M6nqvUm9L8F18RmzjsCgEwWSbcEAADAPb7uaShz
   </data>
  </layer>
  <objectgroup name="enemy" width="215" height="20"/>

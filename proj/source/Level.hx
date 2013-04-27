@@ -362,6 +362,12 @@ class Level extends FlxState
 				{
 					// do nothing.. com will be load by levels themself
 				}
+				else if(o.type =="border"){
+					FlxG.camera.setBounds(o.x, o.y, o.width, o.height, true);
+
+					//FlxG.camera.setBounds(200, 200, 100, 100);
+					//FlxG.camera.bounds.make(o.x, o.y, o.width, o.height);
+				}
 			}
 		}
 		
@@ -369,81 +375,81 @@ class Level extends FlxState
 		var eG:TmxObjectGroup = tmx.getObjectGroup("enemy");
 		if (eG != null)
 		{
-		for (o in eG.objects)
-		{
-			if (o.type == "bg")
+			for (o in eG.objects)
 			{
-			var bg:BigGun = cast(bigGuns.recycle(BigGun),BigGun);
-			bg.reset(o.x, o.y);
-			bg.facing = FlxObject.LEFT;
-			if (o.custom!=null && o.custom.face != null)
-			{
-				if (o.custom.face == "right")
-				bg.facing = FlxObject.RIGHT;
-				else
+				if (o.type == "bg")
+				{
+				var bg:BigGun = cast(bigGuns.recycle(BigGun),BigGun);
+				bg.reset(o.x, o.y);
 				bg.facing = FlxObject.LEFT;
+				if (o.custom!=null && o.custom.face != null)
+				{
+					if (o.custom.face == "right")
+					bg.facing = FlxObject.RIGHT;
+					else
+					bg.facing = FlxObject.LEFT;
+				}
+				}
+				else if (o.type == "gpMid")
+				{
+				var gpMid:GPMid = cast(gpMids.recycle(GPMid) , GPMid);
+				gpMid.reset(o.x, o.y);
+				}
+				else if (o.type == "gpUp")
+				{
+				var gpUp:GPUp = cast(gpUps.recycle(GPUp) , GPUp); 
+				gpUp.reset(o.x, o.y);
+				}
+				else if (o.type == "gpDown")
+				{
+				var gpDown:GPDown = cast(gpDowns.recycle(GPDown) , GPDown);
+				gpDown.reset(o.x, o.y);
+				}
+				else if (o.type == "guard")
+				{
+				var guard:Guard = cast(guards.recycle(Guard) , Guard);
+				guard.reset(o.x, o.y);
+				}
+				else if (o.type == "bWalk")
+				{
+				var bWalk:BWalk = cast(bWalks.recycle(BWalk) , BWalk);
+				bWalk.reset(o.x, o.y);
+				}
+				else if (o.type == "birth")
+				{
+				var birth:Birth = cast(births.recycle(Birth) , Birth);
+				birth.reset(o.x, o.y);
+				birth.width = o.width;
+				birth.height = o.height;
+				birth.count = Std.parseInt(o.custom.count);
+				birth.gid = Std.parseInt(o.custom.gid);
+				birth.span = Std.parseFloat(o.custom.span);
+				birth.type = o.custom.type;
+				}
+				else if (o.type == "bTrigger")
+				{
+				var bt:BTrigger = cast(bTriggers.recycle(BTrigger) , BTrigger);
+				bt.reset(o.x, o.y);
+				bt.width = o.width;
+				bt.height = o.height;
+				bt.gid = Std.parseInt(o.custom.gid);
+				}
+				else if (o.type == "laser")
+				{
+				var l:Laser = cast(lasers.recycle(Laser) , Laser);
+				l.make(o);
+				}
+				else if (o.type == "ac")
+				{
+				var a:ACatch = cast(aCatchs.recycle(ACatch) , ACatch);
+				a.make(o);
+				}
+				else if (o.type == "mine")
+				{
+					var mine:Mine = cast(mines.recycle(Mine) , Mine);
+					mine.make(o);
+				}
 			}
-			}
-			else if (o.type == "gpMid")
-			{
-			var gpMid:GPMid = cast(gpMids.recycle(GPMid) , GPMid);
-			gpMid.reset(o.x, o.y);
-			}
-			else if (o.type == "gpUp")
-			{
-			var gpUp:GPUp = cast(gpUps.recycle(GPUp) , GPUp); 
-			gpUp.reset(o.x, o.y);
-			}
-			else if (o.type == "gpDown")
-			{
-			var gpDown:GPDown = cast(gpDowns.recycle(GPDown) , GPDown);
-			gpDown.reset(o.x, o.y);
-			}
-			else if (o.type == "guard")
-			{
-			var guard:Guard = cast(guards.recycle(Guard) , Guard);
-			guard.reset(o.x, o.y);
-			}
-			else if (o.type == "bWalk")
-			{
-			var bWalk:BWalk = cast(bWalks.recycle(BWalk) , BWalk);
-			bWalk.reset(o.x, o.y);
-			}
-			else if (o.type == "birth")
-			{
-			var birth:Birth = cast(births.recycle(Birth) , Birth);
-			birth.reset(o.x, o.y);
-			birth.width = o.width;
-			birth.height = o.height;
-			birth.count = Std.parseInt(o.custom.count);
-			birth.gid = Std.parseInt(o.custom.gid);
-			birth.span = Std.parseFloat(o.custom.span);
-			birth.type = o.custom.type;
-			}
-			else if (o.type == "bTrigger")
-			{
-			var bt:BTrigger = cast(bTriggers.recycle(BTrigger) , BTrigger);
-			bt.reset(o.x, o.y);
-			bt.width = o.width;
-			bt.height = o.height;
-			bt.gid = Std.parseInt(o.custom.gid);
-			}
-			else if (o.type == "laser")
-			{
-			var l:Laser = cast(lasers.recycle(Laser) , Laser);
-			l.make(o);
-			}
-			else if (o.type == "ac")
-			{
-			var a:ACatch = cast(aCatchs.recycle(ACatch) , ACatch);
-			a.make(o);
-			}
-			else if (o.type == "mine")
-			{
-			var mine:Mine = cast(mines.recycle(Mine) , Mine);
-			mine.make(o);
-			}
-		}
 		}
 	}
 

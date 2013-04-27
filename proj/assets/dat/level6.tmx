@@ -61,6 +61,7 @@
     <property name="on" value="1"/>
    </properties>
   </object>
+  <object name="border" type="border" x="20" y="40" width="2860" height="920"/>
  </objectgroup>
  <objectgroup name="enemy" width="144" height="50">
   <object type="gpUp" x="1300" y="520" width="60" height="40"/>

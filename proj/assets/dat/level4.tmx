@@ -68,6 +68,7 @@
   <object name="hmPos2" x="2140" y="380" width="80" height="100"/>
   <object name="hmPos3" x="2420" y="380" width="80" height="100"/>
   <object name="end" x="2800" y="220" width="40" height="42"/>
+  <object type="border" x="20" y="0" width="2840" height="500"/>
  </objectgroup>
  <objectgroup name="enemy" width="144" height="32">
   <object type="bg" x="500" y="180" width="60" height="40"/>
