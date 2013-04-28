@@ -36,8 +36,19 @@ class IntroScreen extends GameScreen
 			add(img);
 		}
 
-		lastBtn = new FlxButton(0, FlxG.height - 25, "Menu", onLast);
-		nextBtn = new FlxButton(FlxG.width - 100, FlxG.height - 25, "Next", onNext);
+		lastBtn = new FlxButton(0, FlxG.height - 25, "", onLast);
+		lastBtn.loadGraphic("assets/img/ui_introbtn_l.png");
+		lastBtn.x = 5; lastBtn.y = FlxG.height/2 - lastBtn.height/2;
+		lastBtn.onOver = function(){lastBtn.loadGraphic("assets/img/ui_introbtn_l_act.png");};
+		lastBtn.onOut = function(){lastBtn.loadGraphic("assets/img/ui_introbtn_l.png");};
+
+		nextBtn = new FlxButton(FlxG.width - 100, FlxG.height - 25, "", onNext);
+		nextBtn.loadGraphic("assets/img/ui_introbtn_r.png");
+		nextBtn.x = FlxG.width - 5 - nextBtn.width; nextBtn.y = FlxG.height/2 - nextBtn.height/2;
+		nextBtn.onOver = function(){nextBtn.loadGraphic("assets/img/ui_introbtn_r_act.png");};
+		nextBtn.onOut = function(){nextBtn.loadGraphic("assets/img/ui_introbtn_r.png");};
+
+
 		text = new FlxText(FlxG.width/2 - 250, 15, 500, lines[0], 10);
 		text.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffffff, "center");
 
@@ -88,13 +99,13 @@ class IntroScreen extends GameScreen
 		}
 
 		if(id == 0)
-			lastBtn.label.text = "Menu";
+			lastBtn.label.text = "";
 		else
-			lastBtn.label.text = "Last";
+			lastBtn.label.text = "";
 		
 		if(id == imgCnt)
-			nextBtn.label.text = "Start";
+			nextBtn.label.text = "";
 		else
-			nextBtn.label.text = "Next";
+			nextBtn.label.text = "";
 	}
 }
