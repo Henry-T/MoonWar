@@ -23,7 +23,7 @@
  </tileset>
  <layer name="bgFar" width="120" height="74">
   <data encoding="base64" compression="zlib">
-   eJzt3LEJADAQxLBfK/svlv4hkNpIcBO4v5k/Z40Wfdv0bdO3Td82fdv0bdO3Td82fdv0bdO3Td82fdv0bdMXAAAAAAAAAAAAAAAAAAAA2nwLtOnbpm+bvm36tunbpm+bvm36tunbpm+bvm36tunbpm+bvm36tunbpm+bvm36tunbpm+bvm36vl113CSF
+   eJzt27EJADAMBLFMkv3HzAQGtzmkyv3xpc/ZucNNg75t+rbp26Zvm75t+rbp26Zvm75t+rbp26Zvm75t+rbpC/+yXwAAAAAAAAAAAAAAAAAAYMNvcpu+bfq26dumb5u+bfq26dumb5u+bfq26dumb5u+bfq26dumb5u+bfq26dumb5u+bfq26dum7+wBy8oJ2Q==
   </data>
  </layer>
  <layer name="bg" width="120" height="74">

@@ -21,9 +21,9 @@
   <tile id="79" terrain="0,,0,0"/>
   <tile id="80" terrain=",0,0,0"/>
  </tileset>
- <layer name="bgFar" width="60" height="22" visible="0">
+ <layer name="bgFar" width="60" height="22">
   <data encoding="base64" compression="zlib">
-   eJztzzENADAMwLDSGn9i+/vsz2wpADLzdlZ1ftv8tvlt89vmFwAA/nQBpW4JzQ==
+   eJztz7ENACAMA8FMwh7svxgNJQhq506y5Par3sblp9KbTW82vdn0ZuvYO/e69J5+Kr0AAP8WK+gDuw==
   </data>
  </layer>
  <layer name="bg" width="60" height="22">

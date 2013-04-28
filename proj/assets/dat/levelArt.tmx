@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="27" height="20" tilewidth="20" tileheight="20" backgroundcolor="#393939">
+ <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
+  <image source="../img/defTile.png" width="360" height="280"/>
+  <terraintypes>
+   <terrain name="light" tile="-1"/>
+  </terraintypes>
+  <tile id="7" terrain=",0,0,"/>
+  <tile id="8" terrain="0,,,0"/>
+  <tile id="25" terrain="0,0,,"/>
+  <tile id="26" terrain=",0,,0"/>
+  <tile id="42" terrain="0,0,0,0"/>
+  <tile id="43" terrain=",,0,0"/>
+  <tile id="44" terrain="0,,0,"/>
+  <tile id="59" terrain=",,0,"/>
+  <tile id="60" terrain=",,,0"/>
+  <tile id="61" terrain=",0,,"/>
+  <tile id="62" terrain="0,,,"/>
+  <tile id="77" terrain="0,0,,0"/>
+  <tile id="78" terrain="0,0,0,"/>
+  <tile id="79" terrain="0,,0,0"/>
+  <tile id="80" terrain=",0,0,0"/>
+ </tileset>
+ <layer name="bg" width="27" height="20">
+  <data encoding="base64" compression="zlib">
+   eJyTYGBgkBjFo3gUj+JRPIpH8SimIQYADToyoQ==
+  </data>
+ </layer>
+ <layer name="light" width="27" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzlVckRgCAMTB1aAtqBRwce/TcjeWQmw2wE4vUwM/sQkiyyCxDdG21EiOhv7vtHri2iUxiSbwQvV4reGNcYKrmmiEZhUVxNBrPj33R8pd9bXOEFLtbvqg6esLxe6z+OMVNned3rG1QnPcX/K5V5PT0/JWdE+j/h/5HwPllcnO/VDt1TFhdaF+JDOtdyyRjv8QLm9XpEZ8njNWlNdT16A/bMfJpDhXnWG1Ayj7jO8g5AkiYt
+  </data>
+ </layer>
+ <layer name="tile" width="27" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYKA+EMWBaQFGml2SUIyLj8ssXOaL4LELHxah0H/o7qAHoMQuXGFIC7tIBbA4HOyAlDRLLbtIzavE6iMm/+DKI/QoP+hlFz7/UxvgK4/wuQtfPEgyoKZHcuwixt/o4URu2iDGLmLjgpxyn1IMAC9HDqA=
+  </data>
+ </layer>
+ <layer name="js" width="27" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIwGwo+FRQDoYDcORC0bjfhSMAsoBAKy3AFU=
+  </data>
+ </layer>
+</map>

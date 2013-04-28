@@ -24,6 +24,11 @@
  <tileset firstgid="253" name="armyMark" tilewidth="20" tileheight="20">
   <image source="../img/armyMark.png" width="180" height="100"/>
  </tileset>
+ <layer name="bgFar" width="144" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt2rEJACAQBMGvxP7LtAJBWBNhJroCNrwZAPjfOmy4oR8K/VDoBwAAAAAAAAAAAAB4xT+ZQj8U+qHQD4V+KPRD8bqfDcXTApU=
+  </data>
+ </layer>
  <layer name="bg" width="144" height="32">
   <data encoding="base64" compression="zlib">
    eJztW81S3DAM9rFPwAHKE0DunXZ/7gW25d6W938LnJnVjCokWbbkzYb4m/kGlo1t2fosKU5IqT++bYT7zEcHXzMfOnHq5BvPfDkCrNfvhHlZ4PHXPO5NMO9SjK9/Zd4G8ZT66udLMBP6mdBnib9Tu57uHHZK64nRqh+v/48Va1AC2NRLPx5dY3+0rBntw+pXvDa1Y8OYNePU2KP5qgXeGBttk5S/akH3fot9h+TzK9gAbbS13gltItFDP56cOHWwieqHjmkFpx/wnzUH4euhP5rParSgrfUktNHsqq3VeugH9hjUMTWx9tjBJil/AawawrED22rVANxvgC9rahlJC1z9QetHi34kW3Ccm0n1FOkrqmG4Nyut7Y60hXa99EPxNfN75o/M+8q+W+tZqh9pj0GOgzXE+oPx6VrRv2kap3EN7Didf5/3yP487uH8GbeP1E9r3pqEtpfSz8/M58yXzCelH7o/cA6yxlhc82D9SHMtxYUa/Uj3gngeuI0lpkbudRrfrfnrmD7WlRabWut0ij+Z/zLfMv8mOZ9RjU/Ibuv9J74ez1lqT9eUXm/Rj9QHrPWsEymuWc9nIE61nG9JftTyF81Zkqb36Fopz9WSA63ZOJvpeNaapye5NbbUDeDjQ/r/TIHTD+SxlPQ9K41L9STVORE5i/rnlfnpPbfUEHWeeu3E8YqLg1JsbFkfyJEzoJbirqO+1PIXjd+tjDy3TAE2Qd3pnVfNeC36aY2d4HvLHE/MeFg7tI9j4rXqifNcLvU+s+sJuEeJ1rU23iX0psUvzTZpPJwTJUTkAs5Ob79bRkTMr4n7pfo/wlYt5nPjSP1a7/cGPg+gnrKerWv3htJZVun8Z2BdwH6EHGk9Wy9dN/TjQ+s7DUvYOMMSfyznbDOGfvxYm364+FPKV9L3WD9Lz9XzftKSWIPNpfhTylfS90M/fqzBZjwmPSOa40kpX9HvIR7h5x4e/y3NJbEGmzn9aOc9pfcruD6W1sDQz2VspO8/cfGm9H4FffZZqp+vnUtiDTZz+tGecdD3K0rPZtaun0E7ezzvHvrZDqP+f+gz5a/Bev1Evj879LMd9tLP0vMaHPoZvH4O/QwO/QxuST/vWMkhuw==
@@ -31,7 +36,7 @@
  </layer>
  <layer name="tile" width="144" height="32">
   <data encoding="base64" compression="zlib">
-   eJztmGuOwyAMBum+LtDmCFV373/BTaVGQgg3gM0jYT5p/rSEODByaBfn3OIRZoFT8KhEeJ8wvZ97RqzT0h8Yb/+1aeFPaV3aNYut/+8bLPYLf87jT2y+nv78JZDrj3Z9tB7jT7o/KXva2h+raPZpRH+kWkvHW7wvrPzJ/Q5/bKLts3u1WPkjXeM7Eo6J+ROb5929cmKxlhtH8qd0/Aj+WPS1Wjlb/2nRs3Ojfaek+NMrNf25rXytfGeS0xNjdfVe0zBaf/w59j5LmackFu8s34WnG5eVD4HP15gWtZ4RTSzu1arWGum9dz7S7/PScSP6E96vZa010tuZ0ItUatdyi9B7fVLrjp1Tfpwc6dwjzZV7/oFj8DwHX51drq7e7zYYk7uzy32A54Hx/Nn61V7wZz7oP4A/MJI/e+8r6Xv8mQ/6D2j9ST0fS9mux5/5oP8A/kBPf6z+z8af+aD/AP4A/sARwR/AH8AfOCKt/fkH6jfGxg==
+   eJztmNENwyAMBTNEMkPb/RfsFxJCkBhsMIF70v00FBw4OW2u4ziuiDQXLMGnE+k6abzve0esM9IfmO/8tRnhT2td2j3L7f/3Bovzwp91/MnN5+nPT0CtP9r90XqMP3J/JGc62h+raM5pRn9KtbaOt3heWPlTew1/bKLts0+1WPlT+k7sSDom509unru1amKxl4E3+dM6fgZ/LPpar6zWf0b07NponykSf7zS05/zaOt3NT0xV5f3nqbR+hPP8fSZZJ6WWD2zAhI3zkG1rogmFmuNqrVHvM8upvT/vHXcjP6k642stUe8nUm9kNK7ljOD9/5I6651r2UuWI/wf8gqYU7YB/yB3v6EfiUZ530/MJ8/0uDPfuAPWPvz9LwqXcef/aD/gNYf6e/jUtJ3ArAP9B/AH/D0x/qdNuwD/QfwB/AH3gj+AP4A/sAbGe3PH2XAx4Q=
   </data>
  </layer>
  <layer name="po" width="144" height="32">
@@ -54,7 +59,7 @@
    eJzt0kEJACAABMELYQWxf0MxgJ9DfzOwDTYBAAAAAIC7VQbHiH/ozfiHnn/4wT8AAAAAAAAAAADAaxseYAmq
   </data>
  </layer>
- <objectgroup name="misc" width="144" height="32">
+ <objectgroup name="misc" width="144" height="32" visible="0">
   <object name="door1" x="100" y="160" width="40" height="40"/>
   <object name="door2" x="2500" y="440" width="40" height="40"/>
   <object name="comOut" type="com" x="2660" y="440" width="20" height="40">
