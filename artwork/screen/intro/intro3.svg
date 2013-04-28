@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="intro4.svg"
+   sodipodi:docname="intro3.svg"
    inkscape:export-filename="/home/henry/gproj/MoonWarHx/proj/assets/img/intro4.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -29,10 +29,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="151.45253"
-     inkscape:cy="197.86306"
+     inkscape:cx="383.45253"
+     inkscape:cy="159.86306"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1301"
      inkscape:window-height="744"
@@ -346,5 +346,142 @@
          x="152"
          id="tspan3024"
          sodipodi:role="line">Dr.Bald remain..</tspan></text>
+    <rect
+       style="color:#000000;fill:#a7ee8a;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.05117846;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3022"
+       width="6.5268097"
+       height="25.019436"
+       x="-342.93579"
+       y="1110.3368"
+       transform="matrix(-0.93949001,0.3425763,0.3425763,0.93949001,0,0)" />
+    <path
+       style="color:#000000;fill:#8bc474;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.00732803;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 651.56493,919.28375 38.45746,0 c 3.77605,0 6.81596,3.18811 6.81596,7.14824 l 0,34.97762 c -7.72696,-1.33019 -12.83814,7.93801 -10.95982,10.9589 l -28.77685,0 c -1.5572,-11.25191 -7.26273,-9.99595 -12.35271,-10.59599 l 0,-35.34053 c 0,-3.96013 3.03992,-7.14824 6.81596,-7.14824 z"
+       id="path3024"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sssccccss" />
+    <path
+       sodipodi:type="arc"
+       style="color:#000000;fill:#8bc474;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path3026"
+       sodipodi:cx="370.17041"
+       sodipodi:cy="315.85428"
+       sodipodi:rx="10.253048"
+       sodipodi:ry="10.960155"
+       d="m 380.42346,315.85428 a 10.253048,10.960155 0 1 1 -20.5061,0 10.253048,10.960155 0 1 1 20.5061,0 z"
+       transform="matrix(0.7267038,0.13704585,-0.19257975,1.0211795,485.63071,595.36079)" />
+    <path
+       transform="matrix(0.81985531,-0.30235742,0.35725819,0.96872107,241.22007,773.85894)"
+       d="m 380.42346,315.85428 a 10.253048,10.960155 0 1 1 -20.5061,0 10.253048,10.960155 0 1 1 20.5061,0 z"
+       sodipodi:ry="10.960155"
+       sodipodi:rx="10.253048"
+       sodipodi:cy="315.85428"
+       sodipodi:cx="370.17041"
+       id="path3028"
+       style="color:#000000;fill:#8bc474;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       sodipodi:type="arc" />
+    <path
+       sodipodi:nodetypes="sssccccss"
+       inkscape:connector-curvature="0"
+       id="path3030"
+       d="m 656.40316,919.28375 38.45747,0 c 3.77605,0 6.81596,3.18811 6.81596,7.14824 l 0,34.97762 c -7.72696,-1.33019 -12.83814,7.93801 -10.95983,10.9589 l -28.77684,0 c -1.5572,-11.25191 -7.26273,-9.99595 -12.35271,-10.59599 l 0,-35.34053 c 0,-3.96013 3.03992,-7.14824 6.81595,-7.14824 z"
+       style="color:#000000;fill:#a7ee8a;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.00732803;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    <rect
+       transform="scale(1,-1)"
+       y="-924.9483"
+       x="644.08038"
+       height="18.435862"
+       width="55.716007"
+       id="rect3032"
+       style="color:#000000;fill:#8bc474;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.64409733;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       rx="3.692121" />
+    <rect
+       rx="3.692121"
+       style="color:#000000;fill:#e8fae1;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.64409733;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3034"
+       width="55.716007"
+       height="18.435862"
+       x="651.69489"
+       y="-924.9483"
+       transform="scale(1,-1)" />
+    <rect
+       rx="5.3224702"
+       transform="scale(1,-1)"
+       style="color:#000000;fill:#a3f2ed;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.80451375;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3036"
+       width="49.303585"
+       height="9.0088806"
+       x="655.98895"
+       y="-915.3396" />
+    <rect
+       style="color:#000000;fill:#8bc474;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.03560114;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3038"
+       width="62.576515"
+       height="45.441891"
+       x="639.09662"
+       y="863.09485"
+       rx="8.1882048" />
+    <rect
+       rx="8.1861658"
+       y="863.1026"
+       x="649.36029"
+       height="46.151516"
+       width="62.56094"
+       id="rect3040"
+       style="color:#000000;fill:#a7ee8a;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.05117846;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    <rect
+       style="color:#000000;fill:#e8fae1;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3042"
+       width="60.747932"
+       height="9.8914595"
+       x="650.08545"
+       y="899.00006" />
+    <rect
+       transform="scale(1,-1)"
+       y="-900.81305"
+       x="663.1391"
+       height="36.88401"
+       width="35.003296"
+       id="rect3044"
+       style="color:#000000;fill:#e8fae1;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    <rect
+       y="907.33984"
+       x="644.64642"
+       height="1.9142483"
+       width="66.549538"
+       id="rect3046"
+       style="color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    <rect
+       style="color:#000000;fill:#d2f5c4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3048"
+       width="27.026087"
+       height="45.949024"
+       x="662.41388"
+       y="-971.88275"
+       transform="scale(1,-1)" />
+    <rect
+       transform="matrix(0.93949001,0.3425763,-0.3425763,0.93949001,0,0)"
+       y="648.32776"
+       x="921.97229"
+       height="25.019436"
+       width="6.5268097"
+       id="rect3050"
+       style="color:#000000;fill:#a7ee8a;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.05117846;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="export"
+     style="display:none">
+    <rect
+       style="color:#000000;fill:#719e9f;fill-opacity:0.39252337;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3052"
+       width="86.14949"
+       height="86.14949"
+       x="631.92523"
+       y="200.4028"
+       inkscape:export-filename="/home/henry/gproj/MoonWarHx/proj/assets/img/botHead.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>

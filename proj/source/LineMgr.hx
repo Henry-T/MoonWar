@@ -45,10 +45,13 @@ class LineMgr extends FlxSprite
 
 		var h:FlxSprite;
 		h = new FlxSprite(headPos.x,headPos.y,"assets/img/drHead.png");h.scrollFactor = new FlxPoint(0,0);
+		h.x = headBg.getMidpoint().x - h.width/2; h.y = headBg.getMidpoint().y - h.height/2;
 		heads.push(h);
 		h = new FlxSprite(headPos.x,headPos.y,"assets/img/botHead.png");h.scrollFactor = new FlxPoint(0,0);
+		h.x = headBg.getMidpoint().x - h.width/2; h.y = headBg.getMidpoint().y - h.height/2;
 		heads.push(h);
 		h = new FlxSprite(headPos.x,headPos.y,"assets/img/rmHead.png");h.scrollFactor = new FlxPoint(0,0);
+		h.x = headBg.getMidpoint().x - h.width/2; h.y = headBg.getMidpoint().y - h.height/2;
 		heads.push(h);
 	}
 
