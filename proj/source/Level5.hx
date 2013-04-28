@@ -80,10 +80,13 @@ class Level5 extends Level
 				bot.velocity.x = 60;	
 		}
 		
+		// End of Level
 		if (FlxG.overlap(bot, door2Down) && door2Down.open && FlxG.keys.justPressed(bot.actionKey))
 		{
-			door2Up.Colse(bot);
-			bot.On = false;
+			if((bot.x > door2Down.x + 5) && (bot.y + bot.width < door2Down.x + door2Down.width - 5)){
+				door2Up.Colse(bot);
+				bot.On = false;
+			}
 		}
 		if (door2Up.locked)
 		{

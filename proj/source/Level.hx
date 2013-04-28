@@ -199,7 +199,7 @@ class Level extends MWState
 		var eD:Array<Int> = [0,0,0,0];
 		EmptyTile.loadMap(FlxTilemap.arrayToCSV(eD, 2), "assets/img/defTile.png", 20, 20);	
 		
-		FlxG.mouse.hide();
+		//FlxG.mouse.hide();
 		
 		jsCntr = 0;
 		

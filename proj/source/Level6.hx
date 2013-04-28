@@ -102,8 +102,10 @@ class Level6 extends Level
 		// End
 		if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey))
 		{
-			door2Up.Colse(bot);
-			bot.On = false;
+			if((bot.x > door2Down.x + 5) && (bot.y + bot.width < door2Down.x + door2Down.width - 5)){
+				door2Up.Colse(bot);
+				bot.On = false;
+			}
 		}
 		if (!downing2 && door2Up.locked)
 		{
