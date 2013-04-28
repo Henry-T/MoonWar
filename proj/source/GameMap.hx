@@ -8,7 +8,7 @@ import org.flixel.FlxText;
 import nme.display.BitmapData;
 
 
-class GameMap extends FlxState 
+class GameMap extends GameScreen 
 {
 	public var lvlBtns:FlxGroup;
 	public var btnIntro:FlxButton;
@@ -130,6 +130,7 @@ class GameMap extends FlxState
 		add(btnStart);
 		add(missionTxt);
 		add(descTxt);
+		add(btnMute);
 
 		// init
 		for (b in lvlBtns.members) {

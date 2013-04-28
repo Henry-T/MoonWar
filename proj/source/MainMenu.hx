@@ -55,6 +55,7 @@ class MainMenu extends GameScreen
 		add(startBtn);
 		add(btnMap);
 		add(btnClearData);
+		add(btnMute);
 
 		// testing 
 		ss = new SliceShape(0,0, 200, 200,"assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);

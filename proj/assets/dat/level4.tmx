@@ -26,12 +26,12 @@
  </tileset>
  <layer name="bg" width="144" height="32">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="tile" width="144" height="32">
   <data encoding="base64" compression="zlib">
-   eJztmGtuwyAQBunzAkmOELW9/wXrSLVkuWx47cJizyfNn5gAhska5xZCuMHh+TJi9H3Bf7SDP3PhLZb+tM6rdc1i6//9BI39wp/j+BPrb6Q/PxmU+tO6Pq0eW/rTsh8e/cnZ097+aKW2b6/+SHOtba/xvNDyp/Qa/uisQ2udTY2r5Y/0na0j+zYxf2L9PBurJBpruTKTP7XtPfijUdesMlv9Sa1Hj5pdmtbfQo4/o2Lpz3XhfeGjEPyR+0h9ltNPTTSeWVsXHm68LLwKvP216THXI9ISjbF6zdUio/dui/R+XtvOoz/78XrO1SKjndl7kYv1XK4RRq9P7rxj55TPIEc690h9lZ5/YA4e5+BL0Msl2L23gU/uQS93B/cD/vxZ61Uq+HM+qD+AP+DJn9TzSrqOP+eD+gOt/uSej6Ws38ef80H9AfyBkf5o/Z+NP+eD+gP4A/gDM4I/gD+APzAjvf35BYZJyP0=
+   eJztmGuOwyAMBum+LtDmCFV373/BTaVGQgg3gM0jYT5p/rSEODByaBfn3OIRZoFT8KhEeJ8wvZ97RqzT0h8Yb/+1aeFPaV3aNYut/+8bLPYLf87jT2y+nv78JZDrj3Z9tB7jT7o/KXva2h+raPZpRH+kWkvHW7wvrPzJ/Q5/bKLts3u1WPkjXeM7Eo6J+ROb5929cmKxlhtH8qd0/Aj+WPS1Wjlb/2nRs3Ojfaek+NMrNf25rXytfGeS0xNjdfVe0zBaf/w59j5LmackFu8s34WnG5eVD4HP15gWtZ4RTSzu1arWGum9dz7S7/PScSP6E96vZa010tuZ0ItUatdyi9B7fVLrjp1Tfpwc6dwjzZV7/oFj8DwHX51drq7e7zYYk7uzy32A54Hx/Nn61V7wZz7oP4A/MJI/e+8r6Xv8mQ/6D2j9ST0fS9mux5/5oP8A/kBPf6z+z8af+aD/AP4A/sARwR/AH8AfOCKt/fkH6jfGxg==
   </data>
  </layer>
  <layer name="po" width="144" height="32">
@@ -55,7 +55,7 @@
   </data>
  </layer>
  <objectgroup name="misc" width="144" height="32">
-  <object name="start" x="20" y="60" width="51" height="50"/>
+  <object name="door1" x="100" y="160" width="40" height="40"/>
   <object name="door2" x="2500" y="440" width="40" height="40"/>
   <object name="comOut" type="com" x="2660" y="440" width="20" height="40">
    <properties>
@@ -69,6 +69,7 @@
   <object name="hmPos3" x="2420" y="380" width="80" height="100"/>
   <object name="end" x="2800" y="220" width="40" height="42"/>
   <object type="border" x="20" y="0" width="2840" height="500"/>
+  <object name="start" x="100" y="-20" width="40" height="40"/>
  </objectgroup>
  <objectgroup name="enemy" width="144" height="32">
   <object type="bg" x="500" y="180" width="60" height="40"/>

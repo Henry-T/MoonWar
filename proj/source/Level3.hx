@@ -29,12 +29,15 @@ class Level3 extends Level
 	public var battleEnd:Bool;
 
 	// trans
-	public static var tEndX:Float = 1800;
 
 	// ducks
 	public var dms:FlxGroup;
 	public var duckStart:Float;
 	public var duckEnd:Float;
+
+	public var posCam1:FlxPoint;
+
+	private var reached:Bool;
 
 	public function new()
 	{
@@ -77,7 +80,17 @@ class Level3 extends Level
 		var os:TmxObjectGroup = tmx.getObjectGroup("misc");
 		for (to in os.objects)
 		{
-			if(to.name=="botPos1")
+			if (to.name == "door2"){
+				door2Up = new LDoor(to.x, to.y, false);
+				door2Down = new LDoor(to.x, to.y, true);
+				bInLift2 = new FlxSprite(to.x - 10, to.y - 6, "assets/img/bInLift.png");
+			}
+			else if (to.name == "comOut"){
+				var com:Com = cast(coms.recycle(Com), Com);
+				com.make(to);
+				com.onTig = function(){door2Down.Unlock();};
+			}
+			else if(to.name=="botPos1")
 				botPos1 = new FlxPoint(to.x, to.y);
 			else if(to.name == "botPos2")
 				botPos2 = new FlxPoint(to.x, to.y);
@@ -93,6 +106,8 @@ class Level3 extends Level
 				duckEnd = to.x;
 			else if (to.name == "battle")
 				battlePos = new FlxPoint(to.x, to.y);
+			else if (to.name == "cam1")
+				posCam1 = new FlxPoint(to.x, to.y);
 		}
 		
 		// bg for game and preDash
@@ -149,6 +164,7 @@ class Level3 extends Level
 		bgMetal.visible = false;
 		bot.On = false;
 		ResUtil.playGame1();
+		reached = false;
 		
 	}
 
@@ -162,9 +178,6 @@ class Level3 extends Level
 			
 			case 1:
 			t.active = true;
-			
-			case 2:
-			EndLevel(true);
 		}
 	}
 
@@ -213,16 +226,6 @@ class Level3 extends Level
 			}
 		case 1:	// fight
 			FlxG.camera.scroll.x += FlxG.elapsed * t.velocity.x;
-			// keep bot on transport
-			if (bot.x < t.x - bot.width / 2)
-			bot.x = t.x - bot.width / 2;
-			if (bot.x > t.x + t.width - bot.width / 2)
-			bot.x = t.x + t.width - bot.width / 2;
-			if(t.x >= tPos2.x)
-			{
-				t.velocity.x = 0;
-				timer1.start(2, 1, function(t:FlxTimer):Void{switchState(2);});
-			}
 		case 2:	// post
 		}
 	}
@@ -244,7 +247,7 @@ class Level3 extends Level
 
 		super.update();
 		
-		if (!battling && !battleEnd && t.x > battlePos.x)
+		if (false && !battling && !battleEnd && t.x > battlePos.x)
 		{
 			battling = true;
 
@@ -277,24 +280,57 @@ class Level3 extends Level
 				}
 			}
 		}
+
+		if(battling){
+			// keep bot on transport
+			if (bot.x < t.x - bot.width / 2)
+			bot.x = t.x - bot.width / 2;
+			if (bot.x > t.x + t.width - bot.width / 2)
+			bot.x = t.x + t.width - bot.width / 2;
+		}
 		
 		if(!bg1.onScreen() && bg1.x < FlxG.camera.scroll.x)
-		bg1.x += 2*FlxG.width;
+			bg1.x += 2*FlxG.width;
 		if(!bg2.onScreen() && bg2.x < FlxG.camera.scroll.x)
-		bg2.x += 2*FlxG.width;
+			bg2.x += 2*FlxG.width;
 		
 		birthPos = new FlxPoint(t.x + 60, 390);
 
 		if(bot.x < FlxG.camera.scroll.x)
-		bot.x = FlxG.camera.scroll.x;
+			bot.x = FlxG.camera.scroll.x;
 		if (bot.x > FlxG.camera.scroll.x + FlxG.width)
-		bot.x = FlxG.camera.scroll.x + FlxG.width;
+			bot.x = FlxG.camera.scroll.x + FlxG.width;
 
-		if (t.x > tEndX)
+		// Reach Trans Station
+		if(!reached && t.x >= tPos2.x)
 		{
-			isEnd = true;
-			isWin = true;
+			reached = true;
+			t.velocity.x = 0;
+			FlxG.camera.follow(null);
+			TweenCamera(posCam1.x, posCam1.y, 1,true, function(){
+				lineMgr.Start(lines2, function(){
+					bot.On = true;
+				});
+			});
 		}
+
+		// End Level
+		if (FlxG.overlap(bot, door2Down) && door2Down.open && FlxG.keys.justPressed(bot.actionKey))
+		{
+			door2Up.Colse(bot);
+			bot.On = false;
+		}
+		if (door2Up.locked)
+		{
+		 	bInLift2.visible = true;
+		 	bInLift2.velocity.y = 30;
+		 	bot.active = false;
+		}
+		
+		if (!isEnd && bInLift2.y > end.y){
+			EndLevel(true);
+		}
+
 
 		FlxG.collide(bot, t);
 

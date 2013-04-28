@@ -27,6 +27,9 @@ class Level4 extends Level
 
 	public var breakShown:Bool;
 
+	public var downing : Bool;
+	public var downing2: Bool;
+
 	public function new()
 	{
 		super();
@@ -62,7 +65,12 @@ class Level4 extends Level
 		var os:TmxObjectGroup = tmx.getObjectGroup("misc");
 		for (to in os.objects)
 		{
-			if (to.name == "door2")
+			if (to.name == "door1")
+			{
+				bot.x = to.x+10; bot.y = to.y;
+				door1Up = new LDoor(to.x, to.y, true);
+			}
+			else if (to.name == "door2")
 			{
 				door2Up = new LDoor(to.x, to.y, false);
 				door2Down = new LDoor(to.x, to.y, true);
@@ -82,25 +90,25 @@ class Level4 extends Level
 				bossP3 = new FlxPoint(to.x, to.y);
 		}
 		
+		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift.png");
+
 		tileLand = GetTile("land", FlxObject.ANY); 
 		tileLand2 = GetTile("land2", FlxObject.ANY); 
 		
 		boss2 = new Boss2(100, 800);
-		bot.x = start.x; bot.y = start.y;
-		
 		AddAll();
 		
 		// initial
 		tile.follow();
 		FlxG.camera.follow(bot);
 		ResUtil.playGame2();
-		bot.On = false;
-		timer1.start(1, 1, function(t:FlxTimer){
-			lineMgr.Start(lines1, function(){
-				bot.On = true;
-			});
-		});
 		breakShown = false;
+		bot.On = false;
+		bot.facing = FlxObject.RIGHT;
+		bInLift.velocity.y = 30;
+		downing = true;
+		downing2 = false;
+		FlxG.flash(0xff000000, 2);
 	}
 
 
@@ -124,6 +132,22 @@ class Level4 extends Level
 			});
 		}
 
+		// Start
+		if (downing && bInLift.y > door1Up.y)
+		{
+			bInLift.velocity.y = 0;
+			door1Up.Unlock();
+		}
+		if (door1Up.open && downing)
+		{
+			downing = false;
+			timer1.start(1, 1, function(t:FlxTimer){
+				lineMgr.Start(lines1, function(){
+					bot.On = true;
+				});
+			});
+		}
+		
 		// End of Level
 		if(!isEnd && bot.x > end.x)
 		{

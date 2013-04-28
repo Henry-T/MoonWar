@@ -4,7 +4,7 @@ import org.flixel.FlxState;
 
 
 
-class GameScreen extends FlxState 
+class GameScreen extends MWState 
 {
 	public function new() 
 	{

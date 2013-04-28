@@ -49,7 +49,7 @@ class Level5 extends Level
 			}
 		}
 		
-		bInLift = new FlxSprite(doorPos.x-10, doorPos.y-6, "assets/img/bInLift.png");
+		bInLift2 = new FlxSprite(doorPos.x-10, doorPos.y-6, "assets/img/bInLift.png");
 		
 		bot.x = start.x; bot.y = start.y;
 		
@@ -87,13 +87,12 @@ class Level5 extends Level
 		}
 		if (door2Up.locked)
 		{
-			bInLift.visible = true;
-			bInLift.velocity.y = 30;
+			bInLift2.visible = true;
+			bInLift2.velocity.y = 30;
 			bot.active = false;
 		}
 		
-		if (!isEnd && bInLift.y > end.y){
-			if (GameStatic.ProcLvl < 5) GameStatic.ProcLvl = 5;
+		if (!isEnd && bInLift2.y > end.y){
 			EndLevel(true);
 		}
 	}

@@ -24,7 +24,7 @@ import org.flixel.tweens.misc.VarTween;
 import org.flixel.tweens.util.Ease;
 import nme.Assets;
 
-class Level extends FlxState
+class Level extends MWState
 {
 	// button for phone
 	public var btnUp:FlxSprite;
@@ -565,6 +565,8 @@ class Level extends FlxState
 		add(lbMission);
 		add(lbResult);
 
+		add(btnMute);
+		
 		#if android
 		add(btnUp);
 		add(btnDown);
