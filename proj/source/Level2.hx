@@ -151,6 +151,7 @@ class Level2 extends Level
 		eExplo.loadGraphic("assets/img/elecExplo.png", true, false, 25, 25);
 		eExplo.addAnimation("expl", [10,0,1,2,3,4,5,6,7,8,9,10], 10, true);
 		eExplo.scale = new FlxPoint(1.5, 1.5);
+		eExplo.visible = false;
 		
 		// datas
 		var fd:TmxObjectGroup = tmx.getObjectGroup("misc");
@@ -230,6 +231,7 @@ class Level2 extends Level
 				smokeEmt1.on = false;
 
 				birthRay.x = 150;
+				birthRay.y = bot.y + bot.height - birthRay.height*birthRay.scale.y;
 				birthRay.play("birth");
 				bot.x = 152;
 				bot.y = 130;
@@ -298,7 +300,7 @@ class Level2 extends Level
 		FlxG.overlap(boss1, bullets, function(b:FlxObject, bul:FlxObject){b.hurt(1);bul.kill();});	// bullet
 		FlxG.collide(tile, ducks, duckHitTile);							// duck
 		FlxG.collide(tileUp, ducks);		
-		FlxG.overlap(sBase, ducks, function(b:FlxObject, d:FlxObject) {b.hurt(10);d.kill();});
+		FlxG.overlap(sBase, ducks, function(b:FlxObject, d:FlxObject) {if(boss1.health>0){b.hurt(10)};d.kill();});
 		
 		// tile breaker follows boss
 		brGP.x = boss1.x + 40;

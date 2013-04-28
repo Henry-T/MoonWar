@@ -28,18 +28,25 @@ class BWalk extends Enemy
 	{
 		if (!walking && isTouching(FlxObject.FLOOR))
 		{
-		velocity.x = (cast(FlxG.state , Level).bot.getMidpoint().x > getMidpoint().x)?40: -40;
+			var botX:Float = cast(FlxG.state , Level).bot.getMidpoint().x;
+			var midX:Float = getMidpoint().x;
+			if(Math.abs(mid - botX) < 3)
+				velocity.x = 0;
+			else if(mid > bot.X)
+				velocity.x = -40;
+			else 
+				velocity.x = 40;
 		}
 		
 		if (walking && isTouching(FlxObject.LEFT))
-		velocity.x = 40;
+			velocity.x = 40;
 		if (walking && isTouching(FlxObject.RIGHT))
-		velocity.x = -40;
+			velocity.x = -40;
 		
 		if (velocity.x > 0)
-		facing = FlxObject.RIGHT;
+			facing = FlxObject.RIGHT;
 		else 
-		facing = FlxObject.LEFT;
+			facing = FlxObject.LEFT;
 		
 		super.update();
 	}

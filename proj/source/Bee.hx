@@ -98,11 +98,11 @@ class Bee extends Enemy
 			
 			//initPos = new FlxPoint(FinPos.x + 300, -40);
 			//FinPos = new FlxPoint(FinPos.x, 100);
-			InitPos = new FlxPoint(FlxG.camera.scroll.x + FlxG.width + 10, FlxG.camera.scroll.y + 20);
-			FinPos = new FlxPoint(FlxG.camera.scroll.x - 50, FlxG.camera.scroll.y + 20);
+			InitPos = new FlxPoint(FlxG.camera.scroll.x + FlxG.width + 20, FlxG.camera.scroll.y + 20);
+			FinPos = new FlxPoint(FlxG.camera.scroll.x - 60, FlxG.camera.scroll.y + 20);
 			
 			locked = true;
-			health = 10;
+			health = 6;
 			shotCnt = 1;
 			shotSpan = 0.5;
 			shotCold = 5;

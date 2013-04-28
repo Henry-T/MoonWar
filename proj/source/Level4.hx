@@ -74,7 +74,7 @@ class Level4 extends Level
 			{
 				door2Up = new LDoor(to.x, to.y, false);
 				door2Down = new LDoor(to.x, to.y, true);
-				bInLift2 = new FlxSprite(to.x - 10, to.y - 6, "assets/img/bInLift.png");
+				bInLift2 = new FlxSprite(to.x - 10, to.y - 6, "assets/img/bInLift_r.png");
 			}
 			else if (to.name == "comOut")
 			{
@@ -90,7 +90,7 @@ class Level4 extends Level
 				bossP3 = new FlxPoint(to.x, to.y);
 		}
 		
-		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift.png");
+		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift_r.png");
 
 		tileLand = GetTile("land", FlxObject.ANY); 
 		tileLand2 = GetTile("land2", FlxObject.ANY); 
@@ -99,7 +99,6 @@ class Level4 extends Level
 		AddAll();
 		
 		// initial
-		tile.follow();
 		FlxG.camera.follow(bot);
 		ResUtil.playGame2();
 		breakShown = false;

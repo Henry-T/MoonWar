@@ -3,6 +3,7 @@ import org.flixel.FlxRect;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxPoint;
+import org.flixel.FlxObject;
 import org.flixel.tmx.TmxObjectGroup;
 import org.flixel.FlxTimer;
 
@@ -42,13 +43,13 @@ class Level6 extends Level
 			else if (to.name == "door1")
 			{
 				bot.x = to.x+10; bot.y = to.y;
-				door1Up = new LDoor(to.x, to.y, false);
+				door1Up = new LDoor(to.x, to.y, true);
 			}
 			else if (to.name == "door2")
 			{
 				door2Up = new LDoor(to.x, to.y, false);
 				door2Down = new LDoor(to.x, to.y, true);
-				bInLift2 = new FlxSprite(to.x - 10, to.y - 6, "assets/img/bInLift.png"); 
+				bInLift2 = new FlxSprite(to.x - 10, to.y - 6, "assets/img/bInLift_r.png"); 
 			}
 			else if (to.type == "com")
 			{
@@ -59,16 +60,15 @@ class Level6 extends Level
 			}
 		}
 		
-		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift.png"); 
+		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift_l.png"); 
 		
 		AddAll();
 		
 		// initial scene
 		FlxG.camera.follow(bot);
 		tile.follow();
-		//bot.EnableG(false);
-		//bot.velocity.y = 30;
 		bot.On = false;
+		bot.facing = FlxObject.LEFT;
 		bInLift.velocity.y = 30;
 		downing = true;
 		botColOn = false;

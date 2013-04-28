@@ -122,7 +122,7 @@ class Bot extends FlxSprite
 		
 		addAnimation("idle",[0, 1, 2, 1],5,true);
 		addAnimation("jump_up",[3],0,false);
-		addAnimation("jump_down",[5],0,false);
+		addAnimation("jump_down",[3],0,false);
 		addAnimation("walk",[3,0,4,0],10,true);
 		
 		this.offset.x = 4;
@@ -237,10 +237,10 @@ class Bot extends FlxSprite
 			//}
 		}
 
-		if(FlxG.keys.UP)inUP = true;
-		if(FlxG.keys.LEFT)inLEFT = true;
-		if(FlxG.keys.DOWN)inDOWN = true;
-		if(FlxG.keys.RIGHT)inRIGHT = true;
+		if(FlxG.keys.UP && On)inUP = true;
+		if(FlxG.keys.LEFT && On)inLEFT = true;
+		if(FlxG.keys.DOWN && On)inDOWN = true;
+		if(FlxG.keys.RIGHT && On)inRIGHT = true;
 
 
 		//AIMING

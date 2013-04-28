@@ -3,6 +3,7 @@ import org.flixel.FlxRect;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxPoint;
+import org.flixel.FlxObject;
 import org.flixel.tmx.TmxObjectGroup;
 
 class Level5 extends Level 
@@ -39,7 +40,6 @@ class Level5 extends Level
 			}
 			else if (to.name == "door1")
 			{
-				
 			}
 			else if (to.name == "door2")
 			{
@@ -49,7 +49,7 @@ class Level5 extends Level
 			}
 		}
 		
-		bInLift2 = new FlxSprite(doorPos.x-10, doorPos.y-6, "assets/img/bInLift.png");
+		bInLift2 = new FlxSprite(doorPos.x-10, doorPos.y-6, "assets/img/bInLift_l.png");
 		
 		bot.x = start.x; bot.y = start.y;
 		
@@ -61,8 +61,8 @@ class Level5 extends Level
 		FlxG.camera.bounds.x += 80;
 		FlxG.camera.bounds.width -= 80;
 		FlxG.camera.follow(bot);
-		//botRighting = true;
 		ResUtil.playGame2();
+		bot.facing = FlxObject.RIGHT;
 	}
 
 	override public function update():Void 

@@ -288,6 +288,7 @@ class Boss1 extends Enemy
 		velocity.x = 0;
 		velocity.y = 30;
 		acceleration = new FlxPoint(0,0);
+		game.eExplo.visible = true;
 		game.eExplo.play("expl", true);
 		timer.start(3, 1, function(t:FlxTimer):Void{game.switchState(3);});
 		}

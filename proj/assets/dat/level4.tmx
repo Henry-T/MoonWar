@@ -59,7 +59,7 @@
    eJzt0kEJACAABMELYQWxf0MxgJ9DfzOwDTYBAAAAAIC7VQbHiH/ozfiHnn/4wT8AAAAAAAAAAADAaxseYAmq
   </data>
  </layer>
- <objectgroup name="misc" width="144" height="32" visible="0">
+ <objectgroup name="misc" width="144" height="32">
   <object name="door1" x="100" y="160" width="40" height="40"/>
   <object name="door2" x="2500" y="440" width="40" height="40"/>
   <object name="comOut" type="com" x="2660" y="440" width="20" height="40">

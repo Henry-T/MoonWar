@@ -19,6 +19,7 @@ public function new(X:Float=0, Y:Float=0, SimpleGraphic:Dynamic=null)
 	gun = new FlxSprite(0, 0, "assets/img/acGun.png");
 	gun.origin = new FlxPoint(5, 5);
 	ShotTimer = 0;
+	immovable = true;
 }
 
 override public function reset(X:Float, Y:Float):Void 

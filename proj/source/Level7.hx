@@ -53,7 +53,7 @@ class Level7 extends Level
 			}
 			else if (o.name == "door2")
 			{
-				bInLift2 = new FlxSprite(o.x - 10, o.y - 6, "assets/img/bInLift.png");
+				bInLift2 = new FlxSprite(o.x - 10, o.y - 6, "assets/img/bInLift_r.png");
 				door2Up = new LDoor(o.x, o.y, false);
 				door2Down = new LDoor(o.x, o.y, true);
 			}
@@ -89,7 +89,7 @@ class Level7 extends Level
 		}
 			
 		// tile
-		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift.png");
+		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift_r.png");
 		tile.follow();
 		
 		

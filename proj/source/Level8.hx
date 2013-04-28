@@ -73,7 +73,7 @@ class Level8 extends Level
 			}
 		}
 		
-		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift.png");
+		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift_r.png");
 		tile.follow();
 		
 		
@@ -158,7 +158,8 @@ class Level8 extends Level
 		}
 		if (righting)
 		{
-			bot.velocity.x = 60;
+			bot.velocity.x = 100;
+			bot.On = false;
 			if (!FlxG.overlap(bot, trigger))
 			{
 				righting = false;
@@ -178,6 +179,7 @@ class Level8 extends Level
 						hbH.visible = true;
 						ResUtil.playGame1();
 						FlxG.camera.follow(bot, 0, null, 5);
+						bot.On = true;
 					});
 				});
 			}
