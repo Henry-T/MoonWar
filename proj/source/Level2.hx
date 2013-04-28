@@ -300,7 +300,7 @@ class Level2 extends Level
 		FlxG.overlap(boss1, bullets, function(b:FlxObject, bul:FlxObject){b.hurt(1);bul.kill();});	// bullet
 		FlxG.collide(tile, ducks, duckHitTile);							// duck
 		FlxG.collide(tileUp, ducks);		
-		FlxG.overlap(sBase, ducks, function(b:FlxObject, d:FlxObject) {if(boss1.health>0){b.hurt(10)};d.kill();});
+		FlxG.overlap(sBase, ducks, function(b:FlxObject, d:FlxObject) { if (boss1.health > 0) { b.hurt(10); } d.kill(); } );
 		
 		// tile breaker follows boss
 		brGP.x = boss1.x + 40;

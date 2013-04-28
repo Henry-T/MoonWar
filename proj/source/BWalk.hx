@@ -30,9 +30,9 @@ class BWalk extends Enemy
 		{
 			var botX:Float = cast(FlxG.state , Level).bot.getMidpoint().x;
 			var midX:Float = getMidpoint().x;
-			if(Math.abs(mid - botX) < 3)
+			if(Math.abs(midX - botX) < 3)
 				velocity.x = 0;
-			else if(mid > bot.X)
+			else if(midX > botX)
 				velocity.x = -40;
 			else 
 				velocity.x = 40;

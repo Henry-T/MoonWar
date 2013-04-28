@@ -54,7 +54,7 @@
 
 	<compilerflag name="-swf-lib lib/mochi.swf"/>
 	<haxelib name="nme" />
-	<haxelib name="flixel"/>
+	<!--haxelib name="flixel"/-->
 	<!--haxelib name="tmx" /-->
 	<!--haxelib name="nme-tiled" /-->
 
