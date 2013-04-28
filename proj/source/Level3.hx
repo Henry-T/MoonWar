@@ -247,7 +247,7 @@ class Level3 extends Level
 
 		super.update();
 		
-		if (false && !battling && !battleEnd && t.x > battlePos.x)
+		if (!battling && !battleEnd && t.x > battlePos.x)
 		{
 			battling = true;
 
