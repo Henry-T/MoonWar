@@ -70,6 +70,11 @@ class Level1 extends Level
 			else if(td.name == "cam1"){
 				camPos1 = new FlxPoint(td.x, td.y);
 			}
+			else if (td.name == "com1")
+			{
+				var com:Com = cast(coms.recycle(Com), Com);
+				com.make(td);
+			}
 		}
 		
 		// Initial

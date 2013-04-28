@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="110" height="20" tilewidth="20" tileheight="20" backgroundcolor="#424242">
+<map version="1.0" orientation="orthogonal" width="125" height="20" tilewidth="20" tileheight="20" backgroundcolor="#424242">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
   <image source="../img/defTile.png" width="360" height="280"/>
   <terraintypes>
@@ -21,38 +21,38 @@
   <tile id="79" terrain="0,,0,0"/>
   <tile id="80" terrain=",0,0,0"/>
  </tileset>
- <layer name="bg" width="110" height="20">
+ <layer name="bg" width="125" height="20">
   <data encoding="base64" compression="zlib">
-   eJztWFEOwjAI7Sn8mEeYO4DJ1BvM9f6Xsf0gIUgtneA6w0veh0gq8IBuhuDgcCU8J46Jk9L5+Dz6W47tcN2Oid51Ox2At8SLAeeGGCx127u+VoQctdlSs950s+hj7VmAHJ+JgwKXDTWz1I3uk5nYuL1g0ceas5Djj4Y160E3uk+obQ3v2mn2scUs0Pih/zKk9x71j+FYunHaacaiAToL3N02EV/J7FL/3KuPINPMcuZXdPbI2HKcC7JDH/aqG8SY44d9gGcR+5b2Rckfn197vsSagdYauKP4aj1HfddCDgC6Z34ByXxxnyW7rTafnJYWmgEk2k3IdxD41/Ip3R01myQXOjdQL2vdSsQxaIPLl8sdADlInxNa7o5PNozW5wrIkdNRolutRpK67Q3IqVYzemeWZjEKbS1n1+Y9fvl9y7ukFVr/C5LWzNkn935fc26jw+FwOBz/iBetpKYA
+   eJztmM0NwjAMhXMARuAAIwADIPGzAdD9lyE5WDLGJXZj01L8Se9ASNPGL7arphRwHIm2Wbusg9H6eD16r2AcwvP/Y86er39A56y9g06KZ/D0fEhMWhjbT028raWJ95w898gf6xyE+NyzNkiLrKVAK3LdLU3Lc1rHTmSMq0cteOSPZQ6WvXdozIIhOebpOa1jdOyR3n1vAfJHmjNc3tSu1cxfpVc/6N7h3BekfZ7O79K0PZfEswXLfVhAc5Dr5QcyV1Iz6Pxyzq9J5rdnrXmgtUHeTNVzyOkSD+jjuA/jubTPc30bz8fr197jsd9wTiy4oOfj5Am3f4DWxm8gyWvut6Qe1+oCdw48/Aasfed6AtcHJLWRi0Vfr6yN1ShxoPkKsfb2vE/4GeYAVxO5+qjplZ/GMNp3MDgP3BmQeM6dp5rm5DVQizd9v+irAZ1wTLN2rc50jf9rvhV4of3GaMGQWhcaXy1oa11oGgqCIAiC4L95AmCWmek=
   </data>
  </layer>
- <layer name="tile" width="110" height="20">
+ <layer name="tile" width="125" height="20">
   <data encoding="base64" compression="zlib">
-   eJztlosNgzAMRN3vAtARKsEE7L9ZqahU19j5qIYk4p50AkLimFwwEAGNh6HW5jga8K1NavfNGguV8w0Kq5t1i6gTYzzxeo7xo1L3Y308ecd7Jswt+3jnwOcbDckcS+/3XHkiPbHWak/fUt+tLXLxYC/fJqrLN942iraWfdPyzX1Pr7R8ty6zelqvSck6SbTeP7xva77Je/J6UMbw9lDsmLhvWyBjW75puddGrm+ad/w6FDumSYnhTaxOWv1z6kxpQj4M4qjlf5p1pu9/Pj+XutNSS2tD+tPTb82X9T/1WxNr86S1feeB5Zk839K3f9f96L5BtlLqzt6xAQAAAABq4QXdZj8o
+   eJztlVEShSAIRV1Ebw+1/w328z6MUFEwUe+ZYUorIU5jIQCOXyJmywHkwPl+rOw8lRcxznnv+kf3cLawxIPz6x+p+3tfL91jSWt9PWu4GkLr3HtYUur3qBpq+qFx7o3dnUuf3cE51/fa/SGeP8jYw94O57wzOj6ZZ+L53NotPbNCk0NT/wrOOe/xOLe2F+dfEDv/8j215Bye5Ajn73w07xGe/zj6vyv1QDpnyWzf7Eio89g3Pe/pXOsMzuXU7O27h2S/87g2vn8AAAAAgHW4AXgaR8c=
   </data>
  </layer>
- <layer name="js" width="110" height="20">
+ <layer name="js" width="125" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt1KENAAAMAkFc99+4tgsgmtwl79AkAAAA0DGnxh7gOz8JAADAFwvKWwBV
+   eJzt1CEKAAAIBEGb//+x1WpQEGZg2+WLAAAAAJjL1sYegHu+HQAAAPiuAJ3SAFU=
   </data>
  </layer>
- <layer name="nail" width="110" height="20">
+ <layer name="nail" width="125" height="20">
   <data encoding="base64" compression="zlib">
-   eJztyaERAAAIAzHWYP9FsQgEqiq5e9NWAQAAAABATq++2/UDAAA5A8wDAS0=
+   eJztyaERAAAIAzHWYP9FkSAQKFRy96aNAAAAAAAA4FuOrtv2AwAA0Aq9AQEt
   </data>
  </layer>
- <layer name="eo" width="110" height="20">
+ <layer name="eo" width="125" height="20">
   <data encoding="base64" compression="zlib">
-   eJztzDENAAAIA7Dd+BeMhT0kHK2AJgAAAAAAwIV5/gEAQGsB+HAAFQ==
+   eJztzEEJAAAIBLB72z+wKQ5EtgBLAAAAAAAAoGeOfwAAwB8LHf8AFQ==
   </data>
  </layer>
- <objectgroup name="tip" width="110" height="20"/>
- <objectgroup name="bonus" width="110" height="20" visible="0">
+ <objectgroup name="tip" width="125" height="20"/>
+ <objectgroup name="bonus" width="125" height="20" visible="0">
   <object name="life" x="498" y="118"/>
  </objectgroup>
- <objectgroup name="misc" width="110" height="20">
+ <objectgroup name="misc" width="125" height="20">
   <object name="spawn" x="100" y="180" width="40" height="40"/>
-  <object name="end" x="2080" y="240" width="40" height="40"/>
+  <object name="end" x="2360" y="240" width="40" height="40"/>
   <object type="cube" x="760" y="220" width="40" height="40"/>
   <object name="nail" type="sign" x="340" y="140" width="180" height="20">
    <properties>
@@ -61,12 +61,12 @@
   </object>
   <object name="jump" type="sign" x="40" y="140" width="240" height="20">
    <properties>
-    <property name="text" value="arrow keys to move, Z to jump"/>
+    <property name="text" value="arrow keys to move, z to jump"/>
    </properties>
   </object>
   <object name="knock" type="sign" x="940" y="100" width="220" height="20">
    <properties>
-    <property name="text" value="Jump to knock bullets down"/>
+    <property name="text" value="Hold Down to jump down"/>
    </properties>
   </object>
   <object name="shoot" type="sign" x="580" y="140" width="160" height="20">
@@ -78,13 +78,24 @@
   <object name="bee2" type="posBee" x="1580" y="80" width="40" height="40"/>
   <object name="bee1" type="posBee" x="1800" y="80" width="40" height="40"/>
   <object name="warn" x="1580" y="180" width="120" height="100"/>
-  <object name="hp" type="hp" x="1920" y="260" width="20" height="20"/>
+  <object name="hp" type="hp" x="2100" y="260" width="20" height="20"/>
   <object name="fightArea" x="1520" y="0" width="380" height="280"/>
-  <object name="border" type="border" x="20" y="0" width="2160" height="400" visible="0"/>
+  <object name="border" type="border" x="20" y="0" width="2420" height="400"/>
   <object name="cam1" type="cam" x="1440" y="0" width="540" height="400"/>
+  <object name="com1" type="com" x="160" y="180" width="20" height="40"/>
+  <object name="pick" type="sign" x="2020" y="140" width="180" height="20">
+   <properties>
+    <property name="text" value="Pick up to repair"/>
+   </properties>
+  </object>
+  <object name="exit" type="sign" x="2300" y="200" width="120" height="20">
+   <properties>
+    <property name="text" value="Exit Ahead"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="army" width="110" height="20"/>
- <objectgroup name="enemy" width="110" height="20">
+ <objectgroup name="army" width="125" height="20" visible="0"/>
+ <objectgroup name="enemy" width="125" height="20" visible="0">
   <object name="mine" type="mine" x="280" y="220" width="20" height="20"/>
  </objectgroup>
 </map>

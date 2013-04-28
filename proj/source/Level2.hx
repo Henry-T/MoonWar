@@ -296,7 +296,7 @@ class Level2 extends Level
 		
 		// collision for this level
 		FlxG.collide(tileUp,bot);
-		tileBreak.overlaps(breakers);
+		//tileBreak.overlaps(breakers);
 		FlxG.overlap(boss1, bullets, function(b:FlxObject, bul:FlxObject){b.hurt(1);bul.kill();});	// bullet
 		FlxG.collide(tile, ducks, duckHitTile);							// duck
 		FlxG.collide(tileUp, ducks);		

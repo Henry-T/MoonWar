@@ -21,8 +21,9 @@ public function make(o:TmxObject)
 	height = o.height;
 	text = o.custom.resolve("text");
 	
-	graphic = new FlxText(x, y, 250);
+	graphic = new FlxText(x + 5, y + 5, Math.round(width));
 	graphic.text = text;
+	graphic.setFormat("assets/fnt/pixelex.ttf", 8, 0xff000000, "center");
 	shown = true;
 }
 

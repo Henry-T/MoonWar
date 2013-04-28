@@ -39,6 +39,7 @@ class LineMgr extends FlxSprite
 		lineBg.scrollFactor.make(0, 0);
 
 		line = new FlxText(100, 80, 400, ""); 
+		line.setFormat("assets/fnt/pixelex.ttf", 8, 0xff000000);
 		line.visible = false;
 		line.scrollFactor.make(0, 0);
 
@@ -83,7 +84,7 @@ class LineMgr extends FlxSprite
 
 	override public function draw(){
 		if(curLineId <= lineCnt-1){
-			var newWidth = 120 + Math.round(line.text.length * 5);
+			var newWidth = 120 + Math.round(line.text.length * 6);
 			if(newWidth < 180) newWidth = 180;
 			lineBg.setSize(newWidth, 30);
 			lineBg.draw();
