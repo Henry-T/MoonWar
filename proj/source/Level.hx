@@ -133,6 +133,8 @@ class Level extends MWState
 	public var hbR:FlxSprite;
 	public var hbBg:FlxSprite;
 	public var hbH:FlxSprite;
+	public var baseHPBg:FlxSprite;
+	public var baseHPBar:FlxSprite;
 
 	// gui
 	public var btnGNormal:BitmapData;
@@ -267,6 +269,15 @@ class Level extends MWState
 		hbR = new FlxSprite(430, 370, "assets/img/hbR.png"); hbR.scrollFactor = new FlxPoint(0, 0); hbR.visible = false;
 		hbBg = new FlxSprite(120, 370, "assets/img/hbBg.png"); hbBg.origin = new FlxPoint(0, 0); hbBg.scale = new FlxPoint(31, 1); hbBg.scrollFactor = new FlxPoint(0, 0); hbBg.visible = false;
 		hbH = new FlxSprite(120, 370, "assets/img/hbH.png"); hbH.origin = new FlxPoint(0, 0);  hbH.scrollFactor = new FlxPoint(0, 0); hbH.visible = false;
+
+		baseHPBg = new FlxSprite(FlxG.width/2 - 2, 80, "assets/img/baseHPBg.png");
+		baseHPBg.scrollFactor.make(0, 0);
+		baseHPBg.visible = false;
+
+		baseHPBar = new FlxSprite(FlxG.width/2 - 1, 81);
+		baseHPBar.makeGraphic(30, 6, 0xff02da88);
+		baseHPBar.origin.make(0,0);
+		baseHPBar.visible = false;
 		
 		// gui
 		btnGNormal = new SliceShape(0,0, 90, 18, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
@@ -555,6 +566,9 @@ class Level extends MWState
 		add(hbR);
 		add(hbBg);
 		add(hbH);
+
+		add(baseHPBar);
+		add(baseHPBg);
 
 		add(endMask);
 		add(endBg);

@@ -39,8 +39,7 @@ class Level2 extends Level
 	public static var camMoveTime:Float = 1*75;
 
 	// Surface Base
-	public var sbLife:Float;
-	public var tSBHeal:FlxText;
+	public static var BaseMaxLife:Int = 100;
 
 	public var posBeeAry:Array<FlxPoint>;
 	public var posGrdAry:Array<FlxPoint>;
@@ -112,7 +111,7 @@ class Level2 extends Level
 		sBase = new FlxSprite(13 * 20, 20 * 5 + 10, "assets/img/sBase.png");
 		sBase.offset = new FlxPoint(121, 42);
 		sBase.width = 60; sBase.height = 75;
-		sBase.health = 100;
+		sBase.health = BaseMaxLife;
 		
 		boss1 = new Boss1(bossX + xExtend, bossY/* + bossBury*/, this); 	// final pos 10, 230
 		
@@ -153,8 +152,6 @@ class Level2 extends Level
 		eExplo.addAnimation("expl", [10,0,1,2,3,4,5,6,7,8,9,10], 10, true);
 		eExplo.scale = new FlxPoint(1.5, 1.5);
 		
-		tSBHeal = new FlxText(10, 100, 100);
-
 		// datas
 		var fd:TmxObjectGroup = tmx.getObjectGroup("misc");
 		for (td in fd.objects) {
@@ -177,7 +174,6 @@ class Level2 extends Level
 		// Addings
 		add(breakers);
 		AddAll();
-		add(tSBHeal);
 		
 		// initial
 		bot.On = false;
@@ -243,6 +239,8 @@ class Level2 extends Level
 						bot.On = true;
 						boss1.switchState(1);
 						ShowBossHP(true);
+						baseHPBg.visible = true;
+						baseHPBar.visible = true;
 					});
 				});
 			}
@@ -317,7 +315,8 @@ class Level2 extends Level
 		// misc
 		eExplo.x = boss1.x + 30;
 		eExplo.y = boss1.y + 30;
-		tSBHeal.text = Std.string(sBase.health);
+
+		baseHPBar.scale.x = sBase.health/BaseMaxLife;
 		
 		smokeEmt2.x = boss1.x;
 		smokeEmt2.y = 360 - 5;
