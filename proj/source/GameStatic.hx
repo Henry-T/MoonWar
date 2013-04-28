@@ -163,6 +163,7 @@ class GameStatic
 		return "No Description";
 	}
 
+	#if flash
 	public static function Clone(src:Dynamic):Dynamic
 	{
 		var myBA:ByteArray = new ByteArray();
@@ -170,4 +171,5 @@ class GameStatic
 		myBA.position = 0;
 		return(myBA.readObject());
 	}
+	#end
 }

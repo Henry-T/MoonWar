@@ -31,8 +31,8 @@ class BombExplosion extends FlxSprite
 		var tempFrameAry:Array<Int> = [0,1,2,3,4,5,6,7];
 		for (i in 0 ... 8)
 		{
-			bigSprite.addAnimation(Std.string(i), GameStatic.Clone(tempFrameAry), 20, false);
-			smallSprite.addAnimation(Std.string(i), GameStatic.Clone(tempFrameAry), 20, false);
+			bigSprite.addAnimation(Std.string(i), tempFrameAry.slice(0), 20, false);
+			smallSprite.addAnimation(Std.string(i), tempFrameAry.slice(0), 20, false);
 			for (j in 0...tempFrameAry.length) 
 				tempFrameAry[j] += 8;
 		}
