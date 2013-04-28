@@ -90,7 +90,7 @@ class FlxTilemap extends FlxObject
 	/**
 	 * Internal collection of tile objects, one for each type of tile in the map (NOTE one for every single tile in the whole map).
 	 */
-	private var _tileObjects:Array<FlxTile>;
+	public var _tileObjects:Array<FlxTile>;
 	
 	#if !FLX_NO_DEBUG
 	#if flash
@@ -253,7 +253,6 @@ class FlxTilemap extends FlxObject
 			var columns:Array<String>;
 			var rows:Array<String> = MapData.split("\n");
 			heightInTiles = rows.length;
-			widthInTiles = 0;
 			var row:Int = 0;
 			var column:Int;
 			while (row < heightInTiles)
@@ -414,8 +413,8 @@ class FlxTilemap extends FlxObject
 		Buffer.fill();
 	#else
 		#if !js
-		_helperPoint.x = Math.floor((x - Math.floor(Camera.scroll.x) * scrollFactor.x) * 5) / 5 + 0.1; //copied from getScreenXY()
-		_helperPoint.y = Math.floor((y - Math.floor(Camera.scroll.y) * scrollFactor.y) * 5) / 5 + 0.1;
+		_helperPoint.x = Math.floor((x - Camera.scroll.x * scrollFactor.x) * 5) / 5; //copied from getScreenXY()
+		_helperPoint.y = Math.floor((y - Camera.scroll.y * scrollFactor.y) * 5) / 5;
 		#else
 		_helperPoint.x = x - Camera.scroll.x * scrollFactor.x; //copied from getScreenXY()
 		_helperPoint.y = y - Camera.scroll.y * scrollFactor.y;
@@ -1962,7 +1961,7 @@ class FlxTilemap extends FlxObject
 		}
 		_rects[Index] = (new Rectangle(rx, ry, _tileWidth, _tileHeight));
 		#else
-		_rectIDs[Index] = _framesData.frames[_data[Index] - _startingIndex].tileID;
+		_rectIDs[Index] = _framesData.frameIDs[_data[Index] - _startingIndex];
 		#end
 	}
 	
@@ -1975,7 +1974,7 @@ class FlxTilemap extends FlxObject
 	#if !flash
 		if (_node != null && _tileWidth >= 1 && _tileHeight >= 1)
 		{
-			_framesData = _node.getSpriteSheetFrames(_tileWidth, _tileHeight, new Point(0, 0), 0, 0, 0, 0, 1, 1);
+			_framesData = _node.addSpriteFramesData(_tileWidth, _tileHeight, new Point(0, 0), 0, 0, 0, 0, 1, 1);
 			
 			_rectIDs = new Array<Int>();
 			FlxU.SetArrayLength(_rectIDs, totalTiles);

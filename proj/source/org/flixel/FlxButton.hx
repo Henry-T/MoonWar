@@ -29,7 +29,7 @@ class FlxButton extends FlxTypedButton<FlxText>
 		super(X, Y, Label, OnClick);
 		if(Label != null)
 		{
-			label = new FlxText(0, 0, 80, Label);
+			label = new FlxText(0, 0, /*80*/200, Label);
 			label.setFormat(null, 8, 0x333333, "center");
 			labelOffset = new FlxPoint( -1, 3);
 		}
