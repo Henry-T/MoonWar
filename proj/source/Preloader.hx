@@ -59,25 +59,25 @@ class Preloader extends NMEPreloader
 		//moon.x = 550 - span - moon.width / 2; moon.y = 400 - yToBottom - moon.height / 2;
 		troopAry = new Array<Bitmap>();
 		boss = new Bitmap(new BDboss(32, 32, true, 0x00000000)); boss.x = spanBoss - boss.width / 2; boss.y = 400 - yToBottom - boss.height / 2;
-		text = new TextField(); text.text = "0"; text.x = 50; text.y = 400 - yToBottom; text.textColor = 0xffffffff;
+		text = new TextField(); text.text = "0"; text.x = 50 - 10; text.y = 400 - yToBottom - 5; text.textColor = 0xffffffff;
 		text.mouseEnabled = false;
 
 		s = new Sprite();
-		s.graphics.beginFill(0x997700,1);
+		s.graphics.beginFill(0x2f3148,1);
 		s.graphics.drawRoundRect(0,  0, 70, 30, 10, 10);
-		s.graphics.beginFill(0xff9900, 1);
+		s.graphics.beginFill(0x0f1019, 1);
 		s.graphics.drawRoundRect(0, 10, 70, 30, 10, 10);
 		s.graphics.endFill();
 		s1 = new Sprite();
-		s1.graphics.beginFill(0x997700,1);
+		s1.graphics.beginFill(0x2f3148,1);
 		s1.graphics.drawRoundRect(0,  0, 70, 30, 10, 10);
-		s1.graphics.beginFill(0xcc9900, 1);
+		s1.graphics.beginFill(0x0f1019, 1);
 		s1.graphics.drawRoundRect(0, 10, 70, 30, 10, 10);
 		s1.graphics.endFill();
 		s2 = new Sprite();
-		s2.graphics.beginFill(0x552200,1);
+		s2.graphics.beginFill(0x2f3148,1);
 		s2.graphics.drawRoundRect(0,  0, 70, 30, 10, 10);
-		s2.graphics.beginFill(0x885500, 1);
+		s2.graphics.beginFill(0x0f1019, 1);
 		s2.graphics.drawRoundRect(0, 10, 70, 30, 10, 10);
 		s2.graphics.endFill();
 		sDis = new Sprite();
@@ -90,16 +90,16 @@ class Preloader extends NMEPreloader
 		btnStart = new SimpleButton(sDis, s1, s2, s1); btnStart.x = 550 - 50 - btnStart.width/2; btnStart.y = 400 - yToBottom - btnStart.height/2; btnStart.visible = true;
 		btnStart.enabled = false;
 		
-		btnTxt = new TextField(); btnTxt.text="WAIT"; btnTxt.x = 550 - 50 - btnTxt.width/2; btnTxt.y = 400 - yToBottom;
+		btnTxt = new TextField(); btnTxt.text="WAIT"; btnTxt.x = 550 - 50 - btnTxt.width/2 + 30; btnTxt.y = 400 - yToBottom - 5;
 		btnTxt.textColor = 0xffffffff;
 		btnTxt.mouseEnabled = false;
 
 		txtBg = new Sprite(); //txtBg.width = 90; txtBg.height = 50;
-		txtBg.graphics.beginFill(0x111111, 1.0);
-		txtBg.graphics.drawRoundRect (0,  0, 70, 30, 10, 10);
-		txtBg.graphics.beginFill(0x666666, 1.0);
+		txtBg.graphics.beginFill(0x2f3148, 1.0);
+		//txtBg.graphics.drawRoundRect (0,  0, 70, 30, 10, 10);
+		txtBg.graphics.beginFill(0x0f1019, 1.0);
 		txtBg.graphics.drawRoundRect (0, 10, 70, 30, 10, 10);
-		txtBg.x = 50 - txtBg.width/2; txtBg.y = 400 - 50 - txtBg.height / 2;
+		txtBg.x = 50 - txtBg.width/2; txtBg.y = 400 - 50 - txtBg.height / 2 - 10;
 
 		addChildAt (boss, 0);
 		addChildAt (moon, 0);
@@ -120,9 +120,9 @@ class Preloader extends NMEPreloader
 		loadedTimeStamp = Timer.stamp();
 		loaded = true;
 		btnTxt.text = "START";
-		btnTxt.x = 550 - 50 - btnTxt.width/2; btnTxt.y = 400 - yToBottom - btnTxt.height/2;
+		//btnTxt.x = 550 - 50 - btnTxt.width/2; btnTxt.y = 400 - yToBottom - btnTxt.height/2;
 		btnStart.enabled = true;
-		btnStart.upState = s;
+		//btnStart.upState = s;
 		//dispatchEvent (new Event (Event.COMPLETE));
 	}
 	
@@ -142,7 +142,7 @@ class Preloader extends NMEPreloader
 		}
 		
 		// troop movement
-		for (tp in troopAry) 
+		for (tp in troopAry)
 		{
 			tp.x += 200 * deltaTime;
 			if (tp.x > moon.x + moon.width/2 && this.contains(tp))
@@ -163,7 +163,7 @@ class Preloader extends NMEPreloader
 		{
 			percentLoaded == 1;
 		}
-		text.text = Std.string(percentLoaded * 100);
+		text.text = Std.string(Math.round(percentLoaded * 100));
 		
 		for (i in 0 ... mileStones.length-2)
 		{
