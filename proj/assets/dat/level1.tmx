@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="125" height="20" tilewidth="20" tileheight="20" backgroundcolor="#424242">
+<map version="1.0" orientation="orthogonal" width="125" height="20" tilewidth="20" tileheight="20" backgroundcolor="#0b0b0b">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
   <image source="../img/defTile.png" width="360" height="280"/>
   <terraintypes>
@@ -28,7 +28,7 @@
  </layer>
  <layer name="tile" width="125" height="20">
   <data encoding="base64" compression="zlib">
-   eJztlVEShSAIRV1Ebw+1/w328z6MUFEwUe+ZYUorIU5jIQCOXyJmywHkwPl+rOw8lRcxznnv+kf3cLawxIPz6x+p+3tfL91jSWt9PWu4GkLr3HtYUur3qBpq+qFx7o3dnUuf3cE51/fa/SGeP8jYw94O57wzOj6ZZ+L53NotPbNCk0NT/wrOOe/xOLe2F+dfEDv/8j215Bye5Ajn73w07xGe/zj6vyv1QDpnyWzf7Eio89g3Pe/pXOsMzuXU7O27h2S/87g2vn8AAAAAgHW4AXgaR8c=
+   eJztlQEOgyAMRTmE3kHvf8FlyZawhkGRstbxfvKioEDbj7inlHZQYynvXADPAc8Bz1fFUt65PDlfeD1vvWOpq/HNjOG8gPeemY2lWvX2iqH3G41QSwut7rl27Aqel+LtzS/v30Q7wtmO52XPZPsojMn7a3N71mpkjUh5WKjX85Lvebs2dxTPf6G77omah4e44vn39d5s6fMfJ/93rRpo+yx1tz3rqZrf8n6m56Oe4bleo2fcSmjOu4hzAwAAAMD/8ABxJJMq
   </data>
  </layer>
  <layer name="js" width="125" height="20">

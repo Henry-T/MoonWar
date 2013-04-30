@@ -26,24 +26,24 @@
  </tileset>
  <layer name="bgFar" width="215" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt08EJACAMALFu4Szuv5h/QQpqESGBG+EiAAAAAAAAAAAA3mtJwB5vQQ1vQY3VQ96CM94C4Ed9CrjDW1DDW1Aje2sAHiYGcQ==
+   eJzt2EEKwjAQhtG5hWfwCB4qRaT3x02EEJCCnaEY3oOfbrP5CE2LiNYH5Ln3aQtyaQtqaAtqtGl76AwyjPfWq3+3S08Eaxjb2sKbIWQZ2/r09bz0RLCG+X/LvQUAsI7bwYDfaAtqaAtqfGtIW3COtgD4R49pQA5tQQ1tQY2jtt413BU1
   </data>
  </layer>
  <layer name="bg" width="215" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2EsKwjAURuFMnSuCj07FLSi4AB878AWOW0TcP95BSkOg0EHSS67ng4NQHITAT9HaOVf7AKSz9bEtIC22BeTBtoA86qivY2dACuF76+M/G9UTATaE22oc/xkCqYTbavf1Vj0RYEP8e4v3FgAAgB0HadHTRJpG33/6z9dI5wMsWmofACjQ3NdaSTtpL639s75tnTKeCyhdvK2jdJYurttO37ZuGc8FlC7e1lW6Sw/Xbecw9qGAP7ShwVmhfY8WmklVcKeVf6Z9rlKzQvseLcS20maF9j1aiG2lzQrte7TQkG39AEnWeA4=
+   eJzt07sKwkAQRuFt7RXBS1rfQSEP4OUNvIG179/6FyuRhYUUSYYZzweHwJJiGJiUAAAAAAAAAAAAAD/elQAAAOBfq1aVZmpe/P/M39dE8wERra0HABxa5r42aq8Oapvfard1GnEuwLvyto7qrC6pu53abd1GnAvwrrytq7qrR+pup516KOAP7ah3UVjvMUIL1fzstMlv1nN5LQrrPUaI2xq2KKz3GCFua9iisN5jhPrc1gca/WvY
   </data>
  </layer>
  <layer name="tile" width="215" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2DEOwiAAhlEOYa/gITyN1dmV8xcSScpAFC0mmPeSb2oHlj8NDQEAAAAAAADm8WgE1JbOLo2AWt7L6VlrT/vn2TW1pmLqlrr/9MQwh7KdV/bbKuLxx4G/Ub5Nn7xnW/A924IxbAvGKPets6S36v0HDwAAwBgb67Ep9A==
+   eJzt2MkJgDAARUGL0BYswmpcerB+IxiIB3GNoMzAO+khl4/EogAAAAAAAADgb6qTNRsBa/NeyqWtPaXPZ22oC42hPjS8emL4hridPem2ovH548BvxG/TlfdsC+6zLcjDtiCPeN+qJR3q7D94AAAA8pgAAuMnZg==
   </data>
  </layer>
  <objectgroup name="enemy" width="215" height="20"/>
  <objectgroup name="misc" width="215" height="20">
   <object name="botPos1" x="2" y="262" width="52" height="39"/>
   <object name="botPos2" x="172" y="260" width="52" height="44"/>
-  <object name="botPos3" x="297" y="260" width="53" height="46"/>
+  <object name="botPos3" x="297" y="260" width="60" height="40"/>
   <object name="tPos2" x="3820" y="260" width="180" height="40"/>
   <object name="tPos" x="230" y="267" width="175" height="36"/>
   <object name="end" x="4160" y="360" width="40" height="40"/>
