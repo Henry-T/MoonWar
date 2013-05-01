@@ -153,7 +153,7 @@ class Preloader extends NMEPreloader
 		
 		// auto start 3 seconds after loaded!
 		//if (loaded && (Timer.stamp() - loadedTimeStamp) > 3)
-		//	dispatchEvent (new Event (Event.COMPLETE));
+			dispatchEvent (new Event (Event.COMPLETE));
 	}
 	
 	public override function onUpdate(bytesLoaded:Int, bytesTotal:Int)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="144" height="50" tilewidth="20" tileheight="20" backgroundcolor="#2a2a2a">
+<map version="1.0" orientation="orthogonal" width="250" height="50" tilewidth="20" tileheight="20" backgroundcolor="#2a2a2a">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
   <image source="../img/defTile.png" width="360" height="280"/>
   <terraintypes>
@@ -21,151 +21,288 @@
   <tile id="79" terrain="0,,0,0"/>
   <tile id="80" terrain=",0,0,0"/>
  </tileset>
- <layer name="bgFar" width="144" height="50">
+ <layer name="bgFar" width="250" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt1skNwkAQRUHHARIJABmwZMCSfzL4ijFm0PcKVVJL3KDHT4yr6tXmzWf+1zdN6Icm/ZDQDwn9kNAPCf2Q0A8J/ZDQD2PRD03+f0joh7Hoh4R+SOiHhH5I6IeEfkjoh4R+SOiHhH5I6IfEnPs51rOb0RyGXXeRpu6nq5F7PdsZzX6gM1iyMfpJG7nWsxp4LgXfe+77YH5AH/18umfSRsZ4buuW33T7sJd7rZ9+2s5+jo10Kd3Bvfasj35OVdkdMXUjXUp3WNpeQ5v6/Zll0w8J/ZDQDwn9kNAPCf2Q0A8AAJTz/kxCPyT0Q0I/JPRDQj8k9ENCP5R6AKWAMt4=
+   eJzt2MFNw0AQQNGtA6Q0AHQQhQ6A/quBY+IkknNA9v68J43k41y+PNoxbjvc+Qb269FudQ7z0Tn06Rz6dA59Ooc+nUOfzqFP59Cnc2BJ5zAf/3Po0zmwpHPo0zn06Rz6dA59Ooc+nUOfzqFP59Cnc+jTOfTpHPp0zizeV8xxs+32TefM4m3FfGy23b7pnFl8jeuuv//m5Ww+N9tu33TOLF7Hdec/wz2/hs6Zxa3O186z3/M6ZxancXmjPzLPfs/rHPp0Dn06hz6dQ5/OoU/n0Kdz6NM5AAAAAPw/73DQp3Po0zn06Rz6dA59Ooc+nUOfzqHjF7esGhU=
   </data>
  </layer>
- <layer name="bg" width="144" height="50">
+ <layer name="light" width="250" height="50">
   <data encoding="base64" compression="zlib">
-   eJztnMtu2zAQRbnsDziLPr4g9T5o03iftmmy7+P//6IkaqJjZoaipOEMJd8DXCCgbVkWTzjU8xBCuDvncE6J1L5n8m++23FuhByYtGwf+POf9Hu/xHx0yH247BduPe6V1y8tD/7okX7vu5hbhzyHS4e49UjveVH8zmOAP5pQf37EvDXKU3jtEF2P/Pqtchv80YX6czT83ofw2iG6HuVYpNUGf3Tx8idROvTC/F2rY0va4I8u1J+0nWvzzsyS+Sz9PIU6ZBH4o0vr/JmOTUvm27WxrVwe5j/boXX+fCKfeai876lYVjnH4eg118H8pz/a9aucZ9C+fGaWFYKtP3QdpOOKXOAPT6/6lf3JYxWtKeVYZOlPSz0tgT8yveoXrRPZI+rQsbK8k1FbK/BHpnf9khySapk372M+xXyO+XBugz8yvetXzaGpebUHjzHfYr7HfD23wR8Zq/pVOlTum02dM9Vuk/Iz5nfMn5hfpB3+8FjWrzLSOGYxf54b+MNjXb+4cYg7p9rr/AX80cWjfs0dj0YI/OHpVb9qy5r67IiBPzxW57+2HvjD06t+7S3wh6dX/dpb4A8P6pe+PzRvhOTXWvYr5r7fOqhfffzJrnj3r5U/reekUb/a/fHuW2t/pPdQWupXiXf/e/jj3a9lv/Ui16NT43dK9YvWrjV4u7I1f0YgrUftOs4W6Ln1NXi7Yu1Pmg9MXQ85Olru59q2Bm9XJH+WbJeW8/5pzmh979So0LnRUrxdkfxZQh6Tp+7tnXM95B7J/2d0/8uaEf1JpP8pjC91uH0ya+DPduHus7BmJH/ovGfv8xvN5+ugfv1jzf0eo9DqRa9jxtaM5A93DfYoeHsBf6ZZc7/iUrbiBfyZpoc/U37M9YJ71sRWMwJz/eHuNcwsnf9onJuWjjWVrmg/GxD+1P0pj7dz9xrWaD0WvdSPOa569/c1+lP2v3SvYc0NjWdMau3Leff5tfnD1aR8vqt2Td2o+/HefX5t/rQ+a2or10F79zn8uQT+XLc/NeDP2Bmd1uvHtoR3n8OfS+AP/JGY688Wtqf3Oo4SC+DPfmMB/NlvLPgL3QFXww==
+   eJztwQENAAAAwqD3T20PBxQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABPBsNQAAE=
   </data>
  </layer>
- <layer name="tile" width="144" height="50">
+ <layer name="bg" width="250" height="50">
   <data encoding="base64" compression="zlib">
-   eJztmYFtgzAUBX87A4wQVZkgM3Sbqkr3b1BAQS4FG2w/29xJT6pI0hje9ZukvfnzcZL0J08q1L3iT55cncRC3Sv+5Mn3mPsjPxYPda8qf3KzNA965/FUx4Z82cuf++GzeaHu9Sz+mJXhz6fhT63+mOn8GdyZz6BYqHs9mz+2sJac9z9DuP857s9aXEK72mLpuSmPTbOIz1/lzZ+9/uTev1Kh7rUVf7oxPr8/tz/zdW2l21i7i7pXlT+x96/OyZpHiv3Ll9C/LXWvrc0fX4dygj91+PP2yPuYuUM1gT9+/qTYvy72vOe4WJlzyAf80c2fmz1nz83K3cu2wB+dP1tZm3Upj/H5K74/sfevvVl6j9jH9q7JB3WvrcyflhKCulf8KS8hqHtV+RNy/Xxfpz7HWAlBvVaVP7HAn3MEf+r2R72ns3/hj+oecQ38accJ/MGfEuLi+zp17wp/Qq9RDTNhi1jviz//X4vaHVkj5nrw5+91aMGRNWKeV6v+hP7PtSU/ctKqPyE948d+8Ad/9rA0l9W940994A/+HAF/zudMqu8m1L3jzzFSeYE/Yde9NOi6bH/c739ywawoM1M3aui8zkzd5YCZ0V6mXo+i3F/wR+8PHZO9/oSCPwR/SCn+qM+BlO9P7/yMPwR/CP4Q/CG1xhf8IUv5Bepuu60=
+   eJztncluHCEURVn6B9qLDF/g9D5K7PY+dhx7n+H//yIgNfIzhpoaeECdI13JomtyqU/Xg5qMMeZg8/WcwzkhqXYAbeT3d8RcJ3KIJLZvfLtcJp5Db9zZfFHIrXnrTmw7bjNvn1sensMe+Whzo5Bn89b12Ha4aV4yrvNo8Bz2iffrl82HSnky712X2+E/v8nchuewV7xfx4rrPJn3rsvtCI/tudrwHPaKhueO0PWXyN9T9fuWNjyHveI9dz5MjV95toyLyfkl0vUawXPYK0vG4Y4rp5+af2799M8B8rNkHO5eTH+amO4pWFbYB59af+6+OP1zgFdy1u1hP1g69xxZljF1PZfbkLp+JhYHnkPPlKjbvef+2C9r6fDYXtPzJf2IEDyHEShRt8v62PsuXT9OLO++UttS8BxGoGTdnnI9VcNr88nmm813m8/nNjyHEShZt0+5Pjc+p8EPm0ebnzYP5zY8hxGoUbeHrodj8XP3ruRuS+W3zV+bfzZ/RLsDz6FnatXtYVJ1QY1xuLVx4Dn0TM26PXZcj93bUuq6VzyHvVK7bl97fG8hDjyHnilRt08ta27eFuPAc+iZGte39x4HnkPPlKjbR4sDz6FnStTto8WB59Az1O35PZe5iu51gLpQt5fz/MrgObTB2udGUbev8/w6Mh1AbWLPYIjdfx1OP+eFRNtTLc9j+w9AA1+Hu9p8yXcyVbfLmv0StJ3GcxiV8DlKW5D3ol2CttN4DqOy9hrV1PfX1/SXoO30lOdb9s3dhfsDoDVk330r2k5Peb6F08b5AFrDj8HL8fbatOo5wCjExuBrg+cAZYk917U2rXkurzMA0Cbn+8Wp21+R5x8BtCl1DVttWvOc4zm0REk3atKa5znOPQDkAs/xHManpB+t/ibE2OJ57L0OHvrn0BLajvfkeXgNYOy9DgAtou14T56H5yZS73UIA6CNtuM9eR57H2PqefQyANpoO96T5+H9aCFznwNooe04ngOUR9vxVjyfA8+hZ7Qd78nzJc+ZAGgRbcfxHKA82o6P6nlv/x+MjbbjvfxG4Dn0jLaneA5QHm1Pe/D8P0vj6XM=
   </data>
  </layer>
- <layer name="js" width="144" height="50">
+ <layer name="tile" width="250" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt1TENADAMwLB+4894fxEsky0FQ2YAAAAA/nZWAFDgXwAU+RcARf4FQJF/AVDkXwAU+RcAAAAAAAAAAAAAAAAAL7oMTgDF
+   eJztnG1u2zAQRPWvFwjPUOTWPGqRNiloWiR3qR3uUpoBHmDL0vJDejLhxD6O40iHPL8JCUJ6OMhwrgmJwWeFZeg5IWHIJYdh6DmJyurU7X9W/UBu+yYnek4ehkfK9uk5IXi88tM+PScEj2ecxpwTPSfkP3WuHt+rt2LbF/y8nTwRq8zU/tpn9bodGXpOomKVomb+Zlj/6/WVnn8c8nn5GPT9LPSc7Egd4XG54rRWXW/FtlY/Wn3Thp6TqFilqJlPMG1rNpo+zPSXnpOoWKWomRtslZn+0nOyI3WEx+UOp3UjZqaf9JxExSpFzTzAtF1UZvpIz0lUrFLUzAKa/UBu4+fthLxTZ0VbyG1Xxz8KPSdRsYr3OCLMTc/zJ8T7fEXDK8i+eM9phPNEz2Nf/9b5GU/9v9Te47x6nUuP8/5tLCu0oef0PKrniNrefkb0HLW2iOQNPafnO6JNz/P6WtAwilWdq/HyHF13tL6Ver7qfsd1Oz1H5q6ej6KdZ8kazeJ1vp+v9xy5bo+yXlb0JSeD3/hI4P+98vL8aui5n+fI7OY5ql3Jfr3nrbqt+tpxrjofV99DpMd5++nleW+ekKHn/nVR+84ENf/0vD8f9FzWj9RYz7e21+1a546eW9b29jOi5wYOXAadqO/nrbZHfRr1WzvO3utn286+Y1FvG43L+nq5s+fa77+cbUd+rk7PsZ5b9GF232i5s+eac9K6tun5Czkt/LydntuFnr/Pg9VayaJuJM9R7fZeHx3fq9uqrx3n6vNhldb4vP2M6Dky9Jzv56tCz9/ngZ6L3+dyEqzjW/t53T9W7Bst9PxlHnKqfjcHmd09t2oXVbdzf9Lez05f721r1ZAci8bbz4iea693xHmxzK8CbZ+tE6Euat+Z0PNlnr8x850S6fdTvPyqo7hG/t4HDdp7uZ9a506ee7sUmXLepJH+/VySu3qOahdVt1VfO85V54Oe4z33SCDPswRAu1veP1Ch1/Qc3A967li3rO/tzk6U8xY59Hw8zivraxTS/kv7WW73dmcnWvO5KxY5q+XRjyvtPwFvd3ZiNt7neAXo8T5pLhF4u7MTs/E+x1KHroyv93x1irFl8u/vjN7u7MRsvD1Gex4t9Jyer/I8VY8jg45je95+RcHdnZ3QXmvl48jcLfScntNzev5A3N3ZCe21Vj4mxBNvd3ZCk1Q95lwTsgd/AJmNYjY=
   </data>
  </layer>
- <layer name="po" width="144" height="50">
+ <layer name="nail" width="250" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt0rEJAAAIA0HHcP9JbRxAEBu5g29SJwIAAAAAAAAAAJjI7nLjL/8BAAAAAAAAAAAAAAAAAAAAAABgqwCTkgHh
+   eJzt2LEJACAMBMCs4f6LuoBBFAmKd/BdIF+kSgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDb2iAr81WyfVmfWc/q/txpdP+rqeqxMwsAAAAAAJVO/N1vCgAAf+uHXwqN
   </data>
  </layer>
- <objectgroup name="misc" width="144" height="50">
-  <object name="door2" x="120" y="780" width="40" height="40"/>
-  <object name="door1" x="2780" y="260" width="40" height="40"/>
-  <object name="comOut" type="com" x="80" y="780" width="20" height="40">
+ <layer name="js" width="250" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt10sKgCAUQFFnraD9b7VBCBEkZb+nngNOw4G+rikBAAAAAAAAQErTbgEAAPHodgAAiE+3AwBAfLodAADi0+0A39nP3O3snU8uMxug7GrfttLDrewToAelbq/5BkCv7sw63Q4AQPbEO/zpfbDqtduhN+4dAF/Q7XHpdmiDewcAY9Pt1Dh6izsTAADv0O2MxvkFAID4dDtwlxkC//M/BwAAAAAAIFsABFAEoA==
+  </data>
+ </layer>
+ <layer name="po" width="250" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt06ERAAAIAzHGYP9JMawANcndm/pWAQAAAAAAAAAAAAAAAAAA8K23yw3I8nMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIGkA9PoB4Q==
+  </data>
+ </layer>
+ <layer name="eo" width="250" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt3aENAAAIBLHX7D8wGockoR3gVrgEAAAAAAAApjraAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+81gCAAAAAAAAAAAAAAAAAACAvQbsfgAp
+  </data>
+ </layer>
+ <objectgroup name="misc" width="250" height="50" visible="0">
+  <object name="door2" x="140" y="780" width="40" height="40"/>
+  <object name="door1" x="4900" y="260" width="40" height="40"/>
+  <object name="comOut" type="com" x="100" y="780" width="20" height="40">
    <properties>
     <property name="on" value="0"/>
    </properties>
   </object>
-  <object name="start" x="2780" y="80" width="40" height="40"/>
-  <object name="end" x="120" y="940" width="40" height="40"/>
-  <object name="comIn" type="com" x="2840" y="260" width="20" height="40">
+  <object name="start" x="4900" y="80" width="40" height="40"/>
+  <object name="end" x="140" y="940" width="40" height="40"/>
+  <object name="comIn" type="com" x="4960" y="260" width="20" height="40">
    <properties>
     <property name="on" value="1"/>
    </properties>
   </object>
-  <object name="border" type="border" x="20" y="40" width="2860" height="920"/>
+  <object name="border" type="border" x="40" y="40" width="4960" height="920" visible="0"/>
+  <object name="hp" type="hp" x="3900" y="660" width="20" height="20"/>
+  <object name="lift" type="lift" x="3040" y="560" width="40" height="240">
+   <properties>
+    <property name="speed" value="50"/>
+    <property name="start" value="0"/>
+    <property name="w" value="2"/>
+   </properties>
+  </object>
+  <object name="lift" type="lift" x="3440" y="460" width="40" height="120">
+   <properties>
+    <property name="speed" value="50"/>
+    <property name="start" value="0"/>
+    <property name="w" value="2"/>
+   </properties>
+  </object>
+  <object name="lift" type="lift" x="2160" y="440" width="400" height="20">
+   <properties>
+    <property name="speed" value="50"/>
+    <property name="start" value="0"/>
+    <property name="w" value="4"/>
+   </properties>
+  </object>
+  <object name="lift" type="lift" x="2340" y="680" width="60" height="120">
+   <properties>
+    <property name="speed" value="50"/>
+    <property name="start" value="1"/>
+    <property name="w" value="3"/>
+   </properties>
+  </object>
+  <object name="lift" type="lift" x="1800" y="900" width="220" height="20">
+   <properties>
+    <property name="speed" value="50"/>
+    <property name="start" value="0"/>
+    <property name="w" value="4"/>
+   </properties>
+  </object>
+  <object name="lift" type="lift" x="1600" y="920" width="220" height="20">
+   <properties>
+    <property name="speed" value="50"/>
+    <property name="start" value="1"/>
+    <property name="w" value="4"/>
+   </properties>
+  </object>
+  <object name="lift" type="lift" x="1380" y="920" width="220" height="20">
+   <properties>
+    <property name="speed" value="50"/>
+    <property name="start" value="1"/>
+    <property name="w" value="4"/>
+   </properties>
+  </object>
+  <object name="lift" type="lift" x="1260" y="680" width="160" height="20">
+   <properties>
+    <property name="speed" value="50"/>
+    <property name="start" value="0"/>
+    <property name="w" value="2"/>
+   </properties>
+  </object>
+  <object name="lift" type="lift" x="1100" y="540" width="160" height="20">
+   <properties>
+    <property name="speed" value="50"/>
+    <property name="start" value="0"/>
+    <property name="w" value="2"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="enemy" width="144" height="50">
-  <object type="gpUp" x="1300" y="520" width="60" height="40"/>
-  <object type="gpMid" x="1040" y="580" width="60" height="60"/>
-  <object type="bg" x="260" y="680" width="60" height="40">
-   <properties>
-    <property name="face" value="right"/>
-   </properties>
-  </object>
-  <object type="gpMid" x="640" y="620" width="60" height="60"/>
-  <object type="gpDown" x="580" y="740" width="60" height="40"/>
-  <object type="gpDown" x="420" y="760" width="60" height="40"/>
-  <object type="gpDown" x="740" y="720" width="60" height="40"/>
-  <object type="gpDown" x="940" y="700" width="60" height="40"/>
-  <object type="gpDown" x="1140" y="680" width="60" height="40"/>
-  <object type="gpDown" x="1840" y="100" width="60" height="40"/>
-  <object type="bg" x="1440" y="640" width="60" height="40">
-   <properties>
-    <property name="face" value="right"/>
-   </properties>
-  </object>
-  <object name="laser" type="laser" x="2540" y="140" width="40" height="200">
+ <objectgroup name="enemy" width="250" height="50" visible="0">
+  <object type="guard" x="3960" y="100" width="40" height="40"/>
+  <object name="laser" type="laser" x="4660" y="140" width="40" height="200">
    <properties>
     <property name="offTime" value="1"/>
     <property name="onTime" value="1"/>
     <property name="start" value="0"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="2440" y="140" width="40" height="200">
+  <object name="laser" type="laser" x="4560" y="140" width="40" height="200">
    <properties>
     <property name="offTime" value="1"/>
     <property name="onTime" value="1"/>
     <property name="start" value="1"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="2340" y="140" width="40" height="200">
+  <object name="laser" type="laser" x="4460" y="140" width="40" height="200">
    <properties>
     <property name="offTime" value="1"/>
     <property name="onTime" value="1"/>
     <property name="start" value="0"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="2240" y="140" width="40" height="200">
+  <object name="laser" type="laser" x="4360" y="140" width="40" height="200">
    <properties>
     <property name="offTime" value="1"/>
     <property name="onTime" value="1"/>
     <property name="start" value="1"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="2140" y="140" width="40" height="200">
+  <object name="laser" type="laser" x="4260" y="140" width="40" height="200">
    <properties>
     <property name="offTime" value="1"/>
     <property name="onTime" value="1"/>
     <property name="start" value="0"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="1460" y="160" width="360" height="40">
+  <object name="laser" type="laser" x="3580" y="160" width="360" height="40">
    <properties>
     <property name="offTime" value="2.4"/>
     <property name="onTime" value="1.6"/>
     <property name="start" value="-12"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="1460" y="220" width="360" height="40">
+  <object name="laser" type="laser" x="3580" y="220" width="360" height="40">
    <properties>
     <property name="offTime" value="2.4"/>
     <property name="onTime" value="1.6"/>
     <property name="start" value="-9.6"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="1460" y="280" width="360" height="40">
+  <object name="laser" type="laser" x="3580" y="280" width="360" height="40">
    <properties>
     <property name="offTime" value="2.4"/>
     <property name="onTime" value="1.6"/>
     <property name="start" value="-7.2"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="1460" y="340" width="360" height="40">
+  <object name="laser" type="laser" x="3580" y="340" width="360" height="40">
    <properties>
     <property name="offTime" value="2.4"/>
     <property name="onTime" value="1.6"/>
     <property name="start" value="-4.8"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="1460" y="400" width="360" height="40">
+  <object name="laser" type="laser" x="3580" y="400" width="360" height="40">
    <properties>
     <property name="offTime" value="2.4"/>
     <property name="onTime" value="1.6"/>
     <property name="start" value="-2.4"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="1460" y="460" width="360" height="40">
+  <object name="laser" type="laser" x="3580" y="460" width="360" height="40">
    <properties>
     <property name="offTime" value="2.4"/>
     <property name="onTime" value="1.6"/>
     <property name="start" value="0"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="1460" y="220" width="360" height="40">
+  <object name="laser" type="laser" x="3580" y="220" width="360" height="40">
    <properties>
     <property name="offTime" value="2.4"/>
     <property name="onTime" value="1.6"/>
     <property name="start" value="-9.6"/>
    </properties>
   </object>
+  <object type="ac" x="3560" y="580" width="40" height="40">
+   <properties>
+    <property name="hang" value="up"/>
+   </properties>
+  </object>
+  <object type="ac" x="3240" y="380" width="40" height="40">
+   <properties>
+    <property name="hang" value="up"/>
+   </properties>
+  </object>
+  <object type="ac" x="2160" y="660" width="40" height="40">
+   <properties>
+    <property name="hang" value="left"/>
+   </properties>
+  </object>
+  <object type="ac" x="2520" y="660" width="40" height="40">
+   <properties>
+    <property name="hang" value="right"/>
+   </properties>
+  </object>
+  <object type="ac" x="1900" y="800" width="40" height="40">
+   <properties>
+    <property name="hang" value="down"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="340" y="440" width="1220" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="-12"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="340" y="580" width="1220" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="-7.2"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="340" y="720" width="1220" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="-2.4"/>
+   </properties>
+  </object>
+  <object type="guard" x="3720" y="640" width="40" height="40">
+   <properties>
+    <property name="hang" value="up"/>
+   </properties>
+  </object>
+  <object type="bg" x="2820" y="580" width="60" height="40">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object type="bg" x="2720" y="580" width="60" height="40">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="2600" y="460" width="400" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="-12"/>
+   </properties>
+  </object>
+  <object name="laser" type="laser" x="2600" y="700" width="400" height="40">
+   <properties>
+    <property name="offTime" value="2.4"/>
+    <property name="onTime" value="1.6"/>
+    <property name="start" value="-12"/>
+   </properties>
+  </object>
+  <object name="hp" type="hp" x="2360" y="620" width="20" height="20"/>
  </objectgroup>
 </map>

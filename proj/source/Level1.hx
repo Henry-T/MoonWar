@@ -12,7 +12,6 @@ class Level1 extends Level
 	public var fightArea : FlxObject;
 	public var beePosAry : Array<FlxPoint>;
 	public var guardPosAry : Array<FlxPoint>;
-	public var hpPos : FlxPoint;
 	public var theGuard : FlxSprite;
 	public var inFight : Bool;
 	public var fightOver : Bool;
@@ -62,10 +61,6 @@ class Level1 extends Level
 			else if(td.name == "fightArea")
 			{
 				fightArea = new FlxObject(td.x, td.y, td.width, td.height);
-			}
-			else if(td.name == "hp")
-			{
-				hpPos = new FlxPoint(td.x, td.y);
 			}
 			else if(td.name == "cam1"){
 				camPos1 = new FlxPoint(td.x, td.y);
@@ -149,8 +144,6 @@ class Level1 extends Level
 				inFight = false;
 				fightOver = true;
 				FlxG.camera.follow(bot, 0 ,null, 5);
-				var rpr : Repair = new Repair(hpPos.x, hpPos.y);
-				hps.add(rpr);
 			}
 		}
 

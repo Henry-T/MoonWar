@@ -95,7 +95,7 @@
   </object>
  </objectgroup>
  <objectgroup name="army" width="125" height="20" visible="0"/>
- <objectgroup name="enemy" width="125" height="20" visible="0">
+ <objectgroup name="enemy" width="125" height="20">
   <object name="mine" type="mine" x="280" y="220" width="20" height="20"/>
  </objectgroup>
 </map>

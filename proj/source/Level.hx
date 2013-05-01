@@ -395,6 +395,10 @@ class Level extends MWState
 					//FlxG.camera.setBounds(200, 200, 100, 100);
 					//FlxG.camera.bounds.make(o.x, o.y, o.width, o.height);
 				}
+				else if(o.type == "hp"){
+					var hp:Repair = new Repair(o.x, o.y);
+					hps.add(hp);
+				}
 			}
 		}
 		

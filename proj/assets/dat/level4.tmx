@@ -41,7 +41,7 @@
  </layer>
  <layer name="tile" width="230" height="32">
   <data encoding="base64" compression="zlib">
-   eJztmWtuwyAQhH2I+Axp73/B/qqELAy7y8DwmJE+NY1tYGcZO1Hu67ruhKduMQUesdd6Gt8O1PrPrjkn9ppm8eFN7LXOClr/447I5Sx4fDkBj3rtQ+u8M3gwQiNyaV1D7r0ZPZtRyqVyqVzOp5Nz+WvA60Frja29mCGXtbqkupRLbC6R645ep1z61XIPRBwrfb4YkcseROcpZU+57J/L3nsuuj4WqPWsoFK9afae5+RymRsn1bdxnVH/c8dW+H7J3nOeOUbnsqWOFWS9D0XP6aXo2DPsH7Q31sxEj3lzaRmrJOWyLEsuWeqZy4/xvNNzmf4/Opc9+7OCSp54x2mZ3+t5S+Y+g9a6KrV6Ld5EfLScg84lK8vIewnCn17+jhA7LzPn8ulT6Riq38hcjt57zFw+50Pkmil2XlJ+HLTmMurT9fJ3xlyOlqUPnwzsfWddt7c3kbFOo+ZVze+392pj5sZoWb9FkWs8Y+dep/PuCkrsOgSuHx6h91FubHR9K4CSZa4ev4meTqSXrFzehtfeeXfaW54eeM/bxaNVWC2XqOfD6bmM+MSu7yR6fM7zSLns38sW7ebRKvTopUesuU/LZc3n2nW7eLQKyuU+e07Py31QLvfZc4jP92/+7OLRKrR8j0RSUu28yD7ccc/pebkP7Dx6c9kyTmlMdh/QvURpN49WgZ3HWWD3YYVesusTY2GJXTcaPS8FEpbYdaNRLgUSlth1o1EuBRKW2HWjUS4FEpbYdaNRLgUSlth1o1EuBRKW2HWjYeXyD8KfTLQ=
+   eJztmWtuwyAQhHOI+Axp73/B/opkWRR2l4GBZUb6pKjBC/sY21Gv1+t13XjqEkJU+QzgucdT7JxLYp9J7Ala37gzfLkKnroIzlw+tfv5vfqea6QvrWco/W3Fmq0o5kzKl3jJlzl0si9/DXhr0JtTby9W8GUrL6ktpC+9tc/oS+S5o9fJl3713AMR39XeLxjPSwTRmDXvyZfjfcmYOcv5WKDOE8l7tmr53r33XFPyZSlObS/vOaP1L323w+9Lti89e8z2ZU8ekWtny3ofiq4ZpWjsFeYHXRurZ6LfeX1piVWTfFmXxZcsjfTl27juVF9G8kf7ctd7KEq1mnjj9OzvrXOP596TziriHkLFaann2h4h90XUZ1R9Z4g9tyv4ZWSdUPvU1kVjoMX05XO/0X0aLbY/7vw4ON2XlhizZanHuwB77qzn9vYmEkvMwdInb5yWItd4Ypc+3/fNCkrsPASuHx6h56gUG53fDqBk2WvE/0RPJ9JLli8vw2fvvplmy9MD77osNdqF3XyJej6c7stIndj5ncSI9zyP5MvxvexRthrtwoheesTa+zRfturcui5LjXZBvswzc3pe5kG+zDNziPf7/+qTpUa70PM7EklNrXWROcw4c3pe5oHtR68ve+LUYrL7gO4lStlqtAtsP64Cuw879JKdn5gLS+y80eh5KZCwxM4bjXwpkLDEzhuNfCmQsMTOG418KZCwxM4bjXwpkLDEzhuNfCmQsMTOGw3Ll3/Wz1Nx
   </data>
  </layer>
  <layer name="po" width="230" height="32">
@@ -56,12 +56,12 @@
  </layer>
  <layer name="js" width="230" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt2LEJADAMAzBv+f/jLj2gU0mCBL7Ai3ECAAAAAAAAsEvdsFtF1wAAzGPHAgAAAPT28t34dwAA6MaOBQAAAAAAAAAAAAB+OQM3AHE=
+   eJzt2MkJACAMAEF/9t+xJagYj+AM+DYIwpJSAAAAAP5WF87qnQAA9PX6K6LPsjnZr1nfNuvczPnx/wPADZE70Z39qgvIQscCAAAAvG1kd2O/AwDAa3QsAAAAAAAAAAAAAHBKA4OkAgA=
   </data>
  </layer>
  <layer name="nail" width="230" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt2jEKwDAIBVCv4f0v2iXQDpIhaaW074GT4PY1QyIAAAAAAKBPjrqzBwAAQK8sarcH8EZ2FgAAnLyLAfij6/1zCwEAAAAAnuOfMfSp8raSu9kcWQYAAAAAAAD4tgPV/gUu
+   eJzt2qsNACAMBUDWYP9FMQgEQfBpCNwlVU3qXosgJQAAAAAAiJNr7ewBAAAQK3dqtQdwMzsLAAC8iwH4U3v/3EIAAAAAgHP8M4Y4vbzN5G40R5YBAAAAAAAA3lYAdRgE/A==
   </data>
  </layer>
  <layer name="cover" width="230" height="32">
@@ -69,7 +69,7 @@
    eJzt0wEJACAQBMELYQWxf0M7iC8vzMBG2AQAAAAAAAAAAHhtHQbUGfEldDPjS+jGl/APXwIAAAAAAAAAAAAAAAAAAAC3bVSiCao=
   </data>
  </layer>
- <objectgroup name="misc" width="230" height="32">
+ <objectgroup name="misc" width="230" height="32" visible="0">
   <object name="door1" x="100" y="180" width="40" height="40"/>
   <object name="door2" x="4220" y="440" width="40" height="40"/>
   <object name="comOut" type="com" x="4380" y="440" width="20" height="40">
@@ -91,13 +91,16 @@
     <property name="w" value="3"/>
    </properties>
   </object>
-  <object name="lift" type="lift" x="2280" y="220" width="60" height="220">
+  <object name="lift" type="lift" x="2280" y="240" width="60" height="200">
    <properties>
     <property name="speed" value="50"/>
     <property name="w" value="3"/>
    </properties>
   </object>
   <object name="start" x="100" y="-20" width="40" height="40"/>
+  <object type="gpMid" x="2200" y="140" width="60" height="60"/>
+  <object name="hp" type="hp" x="1980" y="420" width="20" height="20"/>
+  <object name="hp" type="hp" x="3160" y="180" width="20" height="20"/>
  </objectgroup>
  <objectgroup name="enemy" width="230" height="32">
   <object type="bg" x="500" y="180" width="60" height="40"/>
