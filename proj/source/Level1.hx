@@ -74,7 +74,6 @@ class Level1 extends Level
 		
 		// Initial
 		GameStatic.CurLvl = 1;
-		//tile.follow();
 		bot.x = 50; bot.y = 150; bot.On = false;
 		FlxG.camera.follow(bot);
 		inFight = false;

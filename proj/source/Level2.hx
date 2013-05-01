@@ -184,7 +184,6 @@ class Level2 extends Level
 		FlxG.flash(0xff000000, 2);
 		FlxG.camera.scroll = posCam1;
 		roam = true;
-		tileCover.visible = false;
 
 		TweenCamera(posCam2.x, posCam2.y, 3, true, function(){
 			roam = false;

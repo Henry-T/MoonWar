@@ -115,7 +115,7 @@ class Level4 extends Level
 	override public function update():Void
 	{
 		if(!coverOpen)
-			FlxG.collide(bot, tileCover);
+			FlxG.collide(bot, tileCoverD);
 
 		// Lift Broken Dialog
 		if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey) && !breakShown)
@@ -125,7 +125,7 @@ class Level4 extends Level
 			timer1.start(2, 1, function(t:FlxTimer){
 				lineMgr.Start(lines2, function(){
 					coverOpen = true;
-					tileCover.visible = false;
+					tileCoverD.visible = false;
 					bot.On = true;
 				});
 			});

@@ -49,12 +49,14 @@ class Level extends MWState
 	public var tmx:TmxMap;
 	public var EmptyTile:FlxTilemap;
 	public var tileCover:FlxTilemap;	// cover everything
+	public var tileCoverD:FlxTilemap;	// used only in level4
 	public var tileBreak:FlxTilemap;	// logic tile : can be break (logic)
 	public var tileUp:FlxTilemap;		// logic tile : can jump throuth
 	public var tile:FlxTilemap;			// tile for anything
 	public var tileEO:FlxTilemap;		// tile for enemy collide only
 	public var tilePO:FlxTilemap;		// tile for player only
 	public var tileJS:FlxTilemap;		// tiles can jump through
+	public var tileLight:FlxTilemap;	// light line
 	public var tileBg:FlxTilemap;		// justBg
 	public var tileBgFar:FlxTilemap;	// bg under all!
 	public var tileNail:FlxTilemap;		// nail trap for bot!
@@ -341,12 +343,14 @@ class Level extends MWState
 		// try load tile layers
 		tileBgFar = GetTile("bgFar", FlxObject.NONE);
 		tileBg = GetTile("bg", FlxObject.NONE);
+		tileLight = GetTile("light", FlxObject.NONE);
 		tile = GetTile("tile", FlxObject.ANY);
 		tileEO = GetTile("eo", FlxObject.ANY);
 		tileJS = GetTile("js", FlxObject.UP);
 		tilePO = GetTile("po", FlxObject.ANY);
 		tileNail = GetTile("nail", FlxObject.ANY);
 		tileCover = GetTile("cover", FlxObject.ANY);
+		tileCoverD = GetTile("coverD", FlxObject.ANY);
 
 		// camera
 		camScrollXTween = new VarTween(function(){camXTweenDone=true;},0);
@@ -362,13 +366,13 @@ class Level extends MWState
 			{
 				if (o.name == "start")
 				{
-				start = new FlxSprite(o.x, o.y);
-				start.width = o.width; start.height = o.height;
+					start = new FlxSprite(o.x, o.y);
+					start.width = o.width; start.height = o.height;
 				}
 				else if (o.name == "end")
 				{
-				end = new FlxSprite(o.x, o.y);
-				end.width = o.width; end.height = o.height;
+					end = new FlxSprite(o.x, o.y);
+					end.width = o.width; end.height = o.height;
 				}
 				else if (o.type == "lift")
 				{
@@ -410,70 +414,70 @@ class Level extends MWState
 			{
 				if (o.type == "bg")
 				{
-				var bg:BigGun = cast(bigGuns.recycle(BigGun),BigGun);
-				bg.reset(o.x, o.y);
-				bg.facing = FlxObject.LEFT;
-				if (o.custom!=null && o.custom.face != null)
-				{
-					if (o.custom.face == "right")
-					bg.facing = FlxObject.RIGHT;
-					else
+					var bg:BigGun = cast(bigGuns.recycle(BigGun),BigGun);
+					bg.reset(o.x, o.y);
 					bg.facing = FlxObject.LEFT;
-				}
+					if (o.custom!=null && o.custom.face != null)
+					{
+						if (o.custom.face == "right")
+						bg.facing = FlxObject.RIGHT;
+						else
+						bg.facing = FlxObject.LEFT;
+					}
 				}
 				else if (o.type == "gpMid")
 				{
-				var gpMid:GPMid = cast(gpMids.recycle(GPMid) , GPMid);
-				gpMid.reset(o.x, o.y);
+					var gpMid:GPMid = cast(gpMids.recycle(GPMid) , GPMid);
+					gpMid.reset(o.x, o.y);
 				}
 				else if (o.type == "gpUp")
 				{
-				var gpUp:GPUp = cast(gpUps.recycle(GPUp) , GPUp); 
-				gpUp.reset(o.x, o.y);
+					var gpUp:GPUp = cast(gpUps.recycle(GPUp) , GPUp); 
+					gpUp.reset(o.x, o.y);
 				}
 				else if (o.type == "gpDown")
 				{
-				var gpDown:GPDown = cast(gpDowns.recycle(GPDown) , GPDown);
-				gpDown.reset(o.x, o.y);
+					var gpDown:GPDown = cast(gpDowns.recycle(GPDown) , GPDown);
+					gpDown.reset(o.x, o.y);
 				}
 				else if (o.type == "guard")
 				{
-				var guard:Guard = cast(guards.recycle(Guard) , Guard);
-				guard.reset(o.x, o.y);
+					var guard:Guard = cast(guards.recycle(Guard) , Guard);
+					guard.reset(o.x, o.y);
 				}
 				else if (o.type == "bWalk")
 				{
-				var bWalk:BWalk = cast(bWalks.recycle(BWalk) , BWalk);
-				bWalk.reset(o.x, o.y);
+					var bWalk:BWalk = cast(bWalks.recycle(BWalk) , BWalk);
+					bWalk.make(o);
 				}
 				else if (o.type == "birth")
 				{
-				var birth:Birth = cast(births.recycle(Birth) , Birth);
-				birth.reset(o.x, o.y);
-				birth.width = o.width;
-				birth.height = o.height;
-				birth.count = Std.parseInt(o.custom.count);
-				birth.gid = Std.parseInt(o.custom.gid);
-				birth.span = Std.parseFloat(o.custom.span);
-				birth.type = o.custom.type;
+					var birth:Birth = cast(births.recycle(Birth) , Birth);
+					birth.reset(o.x, o.y);
+					birth.width = o.width;
+					birth.height = o.height;
+					birth.count = Std.parseInt(o.custom.count);
+					birth.gid = Std.parseInt(o.custom.gid);
+					birth.span = Std.parseFloat(o.custom.span);
+					birth.type = o.custom.type;
 				}
 				else if (o.type == "bTrigger")
 				{
-				var bt:BTrigger = cast(bTriggers.recycle(BTrigger) , BTrigger);
-				bt.reset(o.x, o.y);
-				bt.width = o.width;
-				bt.height = o.height;
-				bt.gid = Std.parseInt(o.custom.gid);
+					var bt:BTrigger = cast(bTriggers.recycle(BTrigger) , BTrigger);
+					bt.reset(o.x, o.y);
+					bt.width = o.width;
+					bt.height = o.height;
+					bt.gid = Std.parseInt(o.custom.gid);
 				}
 				else if (o.type == "laser")
 				{
-				var l:Laser = cast(lasers.recycle(Laser) , Laser);
-				l.make(o);
+					var l:Laser = cast(lasers.recycle(Laser) , Laser);
+					l.make(o);
 				}
 				else if (o.type == "ac")
 				{
-				var a:ACatch = cast(aCatchs.recycle(ACatch) , ACatch);
-				a.make(o);
+					var a:ACatch = cast(aCatchs.recycle(ACatch) , ACatch);
+					a.make(o);
 				}
 				else if (o.type == "mine")
 				{
@@ -482,7 +486,6 @@ class Level extends MWState
 				}
 			}
 		}
-
 		camXTweenDone = false;
 		camYTweenDone = false;
 		camTweening = false;
@@ -499,6 +502,11 @@ class Level extends MWState
 		add(bInLift);
 		add(bInLift2);
 		add(tileBg);
+		add(tileLight);
+
+		add(tips);
+		add(cubes);
+		
 		add(tile);
 		add(tileEO);	tileEO.visible = false;
 		add(tileUp);
@@ -508,7 +516,6 @@ class Level extends MWState
 		add(tileJS);
 		add(tileLand);
 		add(tileLand2);
-		add(tips);
 		add(lifts);
 		add(tileJS);
 		add(tileNail);
@@ -526,7 +533,6 @@ class Level extends MWState
 		add(missles);
 		add(bouncers);
 		
-		add(cubes);
 		add(ducks);
 		add(lasers);
 		add(guards);
@@ -549,6 +555,7 @@ class Level extends MWState
 		add(bot);
 		
 		add(tileCover);
+		add(tileCoverD);
 
 		add(boomPar);
 		
@@ -614,9 +621,10 @@ class Level extends MWState
 		FlxG.overlap(lasers, bot, function(l:FlxObject, b:FlxObject){if(cast(l, Laser).NowOn)b.hurt(20);});
 
 		FlxG.collide(guards, tileJS);
+		FlxG.collide(bWalks, tileJS);
 
 		// hp repair for bot
-		FlxG.overlap(hps, bot, function(h:FlxObject, b:FlxObject){bot.health += 10; h.kill();});
+		FlxG.overlap(hps, bot, function(h:FlxObject, b:FlxObject){bot.health = Bot.maxHealth; h.kill();});
 
 		// tile that collides enemy only
 		FlxG.collide(tileEO,guards);
@@ -627,7 +635,7 @@ class Level extends MWState
 			{
 				cast(c, Com).ToggleOn();
 			}
-		} );
+		});
 		
 		// zball hurt bot
 		if(zball!=null)
@@ -681,9 +689,9 @@ class Level extends MWState
 		FlxG.overlap(bullets, ducks, function(bul:FlxObject, duck:FlxObject){bul.kill();duck.hurt(1);});
 		
 		if(jsCntr==0)
-		FlxG.collide(tileJS, bot);
+			FlxG.collide(tileJS, bot);
 		else
-		jsCntr--;
+			jsCntr--;
 		
 		// Bullet Hits
 		FlxG.collide(bullets, tile, function(bul:FlxObject, tile:FlxObject){bul.kill();	});
@@ -696,6 +704,7 @@ class Level extends MWState
 		FlxG.overlap(bullets, aCatchs, function(b:FlxObject, ac:FlxObject){b.kill(); ac.hurt(1);});
 		
 		FlxG.collide(bot, tile);
+		FlxG.collide(bot, tileCover);
 		
 		// active fixed enemy
 		var camRectEx:FlxRect = new FlxRect(FlxG.camera.scroll.x - 50, FlxG.camera.scroll.y - 25, FlxG.width + 100, FlxG.height + 50);
@@ -754,7 +763,7 @@ class Level extends MWState
 		var layer:TmxLayer = tmx.getLayer(name);
 		if (layer == null)
 		{
-		return EmptyTile;
+			return EmptyTile;
 		}
 		var ts:TmxTileSet = tmx.getTileSet('defTile');	// force tiled use the name defTile
 		var mapCsv:String = layer.toCsv(ts);
@@ -766,17 +775,17 @@ class Level extends MWState
 	{
 		if (show)
 		{
-		hbL.visible = true;
-		hbR.visible = true;
-		hbBg.visible = true;
-		hbH.visible = true;
+			hbL.visible = true;
+			hbR.visible = true;
+			hbBg.visible = true;
+			hbH.visible = true;
 		}
 		else
 		{		
-		hbL.visible = false;
-		hbR.visible = false;
-		hbBg.visible = false;
-		hbH.visible = false;
+			hbL.visible = false;
+			hbR.visible = false;
+			hbBg.visible = false;
+			hbH.visible = false;
 		}
 	}
 

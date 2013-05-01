@@ -141,7 +141,6 @@ class Level8 extends Level
 			bot.EnableG(true);
 			bot.On = true;
 			door1Up.Unlock();
-			//tileCover.visible = false;
 		}
 		
 		if (door1Up.open && downing)

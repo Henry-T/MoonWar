@@ -69,6 +69,6 @@
     <!--<set name="FLX_NO_KEYBOARD" if="mobile" />-->
     <!--<set name="FLX_NO_TOUCH" if="desktop" />-->
     <!--<set name="FLX_NO_JOYSTICK" />-->
-    <set name="SWF_VERSION" value="11.1" />
+    <!--set name="SWF_VERSION" value="11.1" /-->
     <app preloader="Preloader"/>
 </project>

@@ -1,11 +1,16 @@
 package ;
 import org.flixel.FlxG;
+import org.flixel.FlxU;
 import org.flixel.FlxSprite;
 import org.flixel.FlxObject;
+import org.flixel.FlxRect;
+import org.flixel.tmx.TmxObject;
 
 class BWalk extends Enemy 
 {
-	public var walking:Bool;
+	public var inAction:Bool;
+	public var dirRight:Bool;
+	public var sense:Float;
 
 	public function new(X:Float=0, Y:Float=0, SimpleGraphic:Dynamic=null) 
 	{
@@ -19,35 +24,60 @@ class BWalk extends Enemy
 	override public function reset(X:Float, Y:Float):Void 
 	{
 		super.reset(X, Y);
-		walking = false;
-		acceleration.y = 500;
+		acceleration.y = 5000;
 		health = 8;
+		inAction = false;
 	}
 
+	public function make(o:TmxObject){
+		reset(o.x, o.y);
+		var d:String = o.custom.resolve("dir");
+		dirRight = (d!="left");
+		sense = Std.parseFloat(o.custom.resolve("sense"));
+		senseRect = new FlxRect(o.x, o.y, o.width + sense, o.height);
+		if(!dirRight)
+			senseRect.x -= sense;
+	}
+
+	private var senseRect:FlxRect;
 	override public function update():Void 
 	{
-		if (!walking && isTouching(FlxObject.FLOOR))
-		{
-			var botX:Float = cast(FlxG.state , Level).bot.getMidpoint().x;
-			var midX:Float = getMidpoint().x;
-			if(Math.abs(midX - botX) < 3)
-				velocity.x = 0;
-			else if(midX > botX)
-				velocity.x = -40;
-			else 
-				velocity.x = 40;
+		if(!inAction){
+			var bot:Bot = cast(FlxG.state, Level).bot;
+			var botRect:FlxRect = new FlxRect(bot.x, bot.y, bot.width, bot.height);
+			if(senseRect.overlaps(botRect)){
+				inAction = true;
+			}
 		}
-		
-		if (walking && isTouching(FlxObject.LEFT))
-			velocity.x = 40;
-		if (walking && isTouching(FlxObject.RIGHT))
-			velocity.x = -40;
-		
+
+		// won't move in air
+		if(!isTouching(FlxObject.FLOOR)){
+			velocity.x = 0;
+		}
+
+		// killed when hit wall
+		if(isTouching(FlxObject.LEFT) || isTouching(FlxObject.RIGHT)){
+			kill();
+		}
+
+		// sync facing with speed
 		if (velocity.x > 0)
 			facing = FlxObject.RIGHT;
 		else 
 			facing = FlxObject.LEFT;
 		
+		if (isTouching(FlxObject.FLOOR) && inAction && velocity.x == 0)
+		{
+			var botX:Float = cast(FlxG.state, Level).bot.getMidpoint().x;
+			var midX:Float = getMidpoint().x;
+			if(Math.abs(midX - botX) < 3)
+				velocity.x = 0;
+			else if(midX > botX)
+				velocity.x = -60;
+			else 
+				velocity.x = 60;
+		}
+
 		super.update();
 	}
 }

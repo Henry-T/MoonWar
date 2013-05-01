@@ -152,7 +152,8 @@ class Preloader extends NMEPreloader
 		}
 		
 		// auto start 3 seconds after loaded!
-		//if (loaded && (Timer.stamp() - loadedTimeStamp) > 3)
+		// change to 3 when finished
+		if (loaded && (Timer.stamp() - loadedTimeStamp) > 1)
 			dispatchEvent (new Event (Event.COMPLETE));
 	}
 	

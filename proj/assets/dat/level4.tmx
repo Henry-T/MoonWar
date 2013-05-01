@@ -31,22 +31,22 @@
  </layer>
  <layer name="bg" width="230" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt3EsKwjAUhtEOXYPoCnQBoqBzHzvwsf9deKGdZVRIuWk4B/55Jh+UQjIMyzs1ttYdKo/1OU4D2rGZBrRjOw1oh+9YaI9/A9Ae37EAMN8udo5dYvvkswCje+wZe8UeyWcBRu/YN/aLfZLPAgAAGa6x2zQAAAAAAJbX85sfsFa6hHmy38DSJT2ofd8juztd0oPa9z2yu9MlPah93yO7O61DKbsRXUIpuxFdQim7EV1CKbsRXUIpuxFdQim7EV1CKbsRXULpD8W0n6s=
+   eJzt3DsKwkAUhtEUKq5BdAW6AFHQ3scOfOx/F15IKqcKJNxJOAf+fpoPQmCmacZ3rGy12w88pufQDajHuhtQj003oB6+Y6E+/g1AfXzHAkB/29gpdo7tks8CtG6xR+wZuyefBWi9Yp/YN/ZOPgsAjGkRW/5tlXoioBaX2LUbAAAAAADjm/ObHzBVuoR+st/A0iVzMPR9j+zudMkcDH3fI7s7XTIHQ9/3yO5O61DKbkSXUMpuRJdQym5El1DKbkSXUMpuRJdQym5El1DKbkSXUPoBNmOfyQ==
   </data>
  </layer>
- <layer name="light" width="230" height="32" visible="0">
+ <layer name="light" width="230" height="32">
   <data encoding="base64" compression="zlib">
-   eJztnElyGzEMRXuZE2RhHyHRPgsNN1Cs+18mZlWjgiAACZBgi7b/q2J5UHOQGp/4ZNPeNgDAqvxMKtH2zgNjvgyMs/T7Pbm8vpcfCeX3e3lJKve9zVPnZwyey7eksrGvnrbftn6dvg6M0xOnvboc1dUt8Bm0oDFBlx+TnnmYx3lPLMo2vHohSJeRvqnPGXE6QwOjngC6/FrIXNVz36/bmF5oDFSnFsNno04mMzQw4o1Pk8YEjoPupRdNl6QLrxfl11N70tdGNFaL4ZNRpzau6Fp4hgZo7qJ1YsQb3CaNCRyPV5s81/EY8GqrlMf2VyORtaKlMW19J/c9PLq0xsLzcilSp5kakHPDY2+79dmeRV2ql6XLX6KA9endh5G6tHICeV2KTa5r6l/GoPxdbe6QeZjGcd+/L3PPZe/3uv/M62fqste/noy60OXXQM7n3It6vRZfU3JdWjHUymMRXVp7w/x98DoeD5CZm6Qf8frY2/b/ut0zpt79JfAcLF8r5+Ry3ykevPv8/HoeS1Z9Gavyeo8urTYohov+rDzsfb5IebXn+aylj5qPld7Vmisu7FrL70YLOA6516DFgryP3jXlzKLFrmddRtq5bv8+u9F0SX62UMsxVr9Sp9Y6MsO7yvvzUL6OnmcAx5N1fmX1wvOrlretXN7z+ZBXLtBaVbtOaqTmY6Xf6C2Z5xnAPEbvNe2XjMZLpL8eXfbmetKU5z3elf64JmUbt02fA0Z8ieapR84tYH0JPETnkV4d1/JtbWxWf9wbW2R4F22co+0CkE2G94v4v9a+VcZYax5F68dq17v/CwCoQ+tV71mm2l6x9SwWzy8BaMP1QV7Ze5apdR10CVZExqC3PGOMBU++9DwnLkCXYFU+mi61fNnyrdbrXJervFcAIqyiSy1ftnyr9Tp0CUA/XB/yGWfJfy3fKl+n/MnP70GXAMTQdBl5rirR2oAuAYjBNSL//rTnXJ08G419HwDiaLqsndWTtM4YQpcAxNF0OetMv+wPugRAp+ZjM/4GALoEII6my8z/YwJdAhDnCF1iPxaAGNAlAOsBXQKwHtAlAOsBXX5O/gDmgwS9
+   eJzt3FFSwjAQgOGcQ48gvPuAegOV+19GOpBxWWy7GzYkqf83s+PIYGtJNtmEQkoAevN2ip0IbeeMw+WY+ufS86P+97nI7jlXTS8qvk7xFBSfl2PuH3Y1iPCcbvvFXMj+UttHhWP22jd1LkVee27fXq8df8vttjRGR4257wvnuLdfWo5dI9drs9YEc7UIeTkmS7vRtu146hkd+9S+7bzjSq9rjUeztNs0F40412xJrlk8a8+pzVrnpXdcYew/a91usDmmczt9J9u+W/49/11U+76qWGNZJ7E/dcuSl3lfFe2U1K415qHSvFw7P/PDNdaXY7DWsVPtKvfArPNQ6f7SGvKyDHk5BlnHRtL1rjfW6L6j8/8w87z/Lr8eS+uW6DUK/Dy50BPdv47pum/Jx+ljvzz7Zbxm7cg6diTsx5axvtc/6vvyWyHnnZF4+hd9DKOR8w6APsh5BwAAAFii722xBoB6yEtgXOQlAAAAAGDLSj6XBaCuiM9pAYhluU8cAAAAAICJvM+I78gB+lArL+WxuBcY8CEvt+kH/Xxc4Q==
   </data>
  </layer>
  <layer name="tile" width="230" height="32">
   <data encoding="base64" compression="zlib">
-   eJztmWtuwyAQhHOI+Axp73/B/opkWRR2l4GBZUb6pKjBC/sY21Gv1+t13XjqEkJU+QzgucdT7JxLYp9J7Ala37gzfLkKnroIzlw+tfv5vfqea6QvrWco/W3Fmq0o5kzKl3jJlzl0si9/DXhr0JtTby9W8GUrL6ktpC+9tc/oS+S5o9fJl3713AMR39XeLxjPSwTRmDXvyZfjfcmYOcv5WKDOE8l7tmr53r33XFPyZSlObS/vOaP1L323w+9Lti89e8z2ZU8ekWtny3ofiq4ZpWjsFeYHXRurZ6LfeX1piVWTfFmXxZcsjfTl27juVF9G8kf7ctd7KEq1mnjj9OzvrXOP596TziriHkLFaann2h4h90XUZ1R9Z4g9tyv4ZWSdUPvU1kVjoMX05XO/0X0aLbY/7vw4ON2XlhizZanHuwB77qzn9vYmEkvMwdInb5yWItd4Ypc+3/fNCkrsPASuHx6h56gUG53fDqBk2WvE/0RPJ9JLli8vw2fvvplmy9MD77osNdqF3XyJej6c7stIndj5ncSI9zyP5MvxvexRthrtwoheesTa+zRfturcui5LjXZBvswzc3pe5kG+zDNziPf7/+qTpUa70PM7EklNrXWROcw4c3pe5oHtR68ve+LUYrL7gO4lStlqtAtsP64Cuw879JKdn5gLS+y80eh5KZCwxM4bjXwpkLDEzhuNfCmQsMTOG418KZCwxM4bjXwpkLDEzhuNfCmQsMTOGw3Ll3/Wz1Nx
+   eJztnFuOwzAIRbuIVl3CzN/sf3fzFcmyMOFxjbED0pVGTYJj4PjRpPN5vV6fRr19Ov0EqW9XIpSfKEXFMnPO0DE5JY/fRlm45MYJ6p64+7s+fw98RdrTuexrLULv5m+0RXAZHaM7aeKC9DnTnsQlyjLlr7eZeZT2mTovc8wy2lO4/KIC1vjLWGMZuLzmutbaebbs3tq6PZlL9Hx5remoYx6/VvU+VnJJWXGps5ZLyd5hNWcoLqV7e+q8iDWZ1XdWLrOvYz1jIOIYt+7XaDVvGh533F+eyGW/vvWsC9BGteX9jks611F7opO4jMopN8ah/HrH7ZVcUvtLzbwhrV2vce1pvg/2ytu3zGxq6thrM3xSbVivs4zdmrlBeg8oa+9R257kmEbamuNy0cfcartweYIhuZQ8o9U8m5TeA8p24FISvy+hUVytzJ/GJeJ6b7saJkbHufXXV3BOVs18p4Gqo1F7XP1J95Ij362h+rNa2v5Ja9NSwxJD+Yk0KyvR71NJ7ueOS0vNS8+XcCmxUZ9Ws+jh0jPWWBmdwXekefKD5vJXodE4cWmUW+pzaV1461ZiO3A5em59x50lliM2ve/aaq/l5vKRWXwh8q3JgySO3lxp60HaLopLT92sZnEll3dsWri0sI0ySVsILlfVB6IvM+5/9BsGD5dZxP3+SMolKt/X/WjGAw+bKJvNZYmvH837215ekL40/rjzqLigYouqZWtMKNOeV/wVl2h/3Hsm1B5/R0XMl6v7+CSNuERxktXafp9Qc8XlWbLMlyfY07i84/XuuhNitJN2m+dQduI6lvsfO944FZfx+Xwyl6fUXD//e3NK7U9W9/FJQnzvItUfI8tzFs6f1tfqPKDyOGO+PGWtv5u4evW8q6K5bsbzT037q3OAymFxeabu2LTws8PvFFbHfUbekOPbCTEqlaLVs4Sydixe3cdSaTfN4vKkNUWpFK3islTKp+KyVMqn4rJUyqfislTKp5Vc/gOq0twF
   </data>
  </layer>
  <layer name="po" width="230" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt0zEKADAIBEHr/DX/b9MGLINEZAZs5ZqNAAAAAAAAAF7t6zr8AXQJANRbvwcAiS6hH10CAAAAAAAAAAAAAAAAAAAAwBwHOoIFOw==
+   eJztwYEAAAAAw6D5U5/gBlUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwDdzAAAB
   </data>
  </layer>
  <layer name="eo" width="230" height="32">
@@ -56,20 +56,25 @@
  </layer>
  <layer name="js" width="230" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt2MkJACAMAEF/9t+xJagYj+AM+DYIwpJSAAAAAP5WF87qnQAA9PX6K6LPsjnZr1nfNuvczPnx/wPADZE70Z39qgvIQscCAAAAvG1kd2O/AwDAa3QsAAAAAAAAAAAAAHBKA4OkAgA=
+   eJzt1qENADAMA8Gw7r9xd7BK3NxJwTH8GQAAAIDdTngvfgIAQCJt2KRBW9u1dTcAwK+0KwAAAAAAAAAAAAAAAAAAAAAAAPS7nYUBXw==
   </data>
  </layer>
  <layer name="nail" width="230" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt2qsNACAMBUDWYP9FMQgEQfBpCNwlVU3qXosgJQAAAAAAiJNr7ewBAAAQK3dqtQdwMzsLAAC8iwH4U3v/3EIAAAAAgHP8M4Y4vbzN5G40R5YBAAAAAAAA3lYAdRgE/A==
+   eJztyaENADAIAEHWYP9FMZV1EIK4S159BAAAAAAA7MnX5AMAAGBXfuo+AAAAAAAAAAAAAAAAAAAAAAAAAG4rapsCDg==
   </data>
  </layer>
  <layer name="cover" width="230" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt0wEJACAQBMELYQWxf0M7iC8vzMBG2AQAAAAAAAAAAHhtHQbUGfEldDPjS+jGl/APXwIAAAAAAAAAAAAAAAAAAAC3bVSiCao=
+   eJzt20tygkAUBVAWkZHZQnQF+ewgJvvfjDJJ9YAojTRc4ZyqHoH40Hexqq3XdZnO13WoWN/rlEm42j7Sc7cdK89/bVIF/C+551rUdp7wmuTPiG1K7rnk2qCl5N5Prg1aSu795NqgpeTeT64NWtL7kEcu5/O2wHpf7G5Y071cfnTTe4j51f73ynO6l0u/p1nkkt7ndb2sXQR/5BLyyCXkkUvII5fbM+d3+tPZj90Ke3vr8qxlSL+3d2sW8FSsobnAcg5xzPHyesgl05Q5GsrwV3HumOPl9YaeA3sjl5BHLiGPXEIeuYQ8cgl55JIWHpk5Mscml4xXk6XfGd93jz26x3uGdHIJeeQS8sgl5JFLyCOXkEcuIc/SubwAtFAh5w==
   </data>
  </layer>
- <objectgroup name="misc" width="230" height="32" visible="0">
+ <layer name="coverD" width="230" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt0wEJAAAIBLEvYf+qhhBBcIOLcAkAAAAAAAAAAAAA3FKDgB2+BAAAAAAAAAAAAAAAAAAAAIDfGkEbAnc=
+  </data>
+ </layer>
+ <objectgroup name="misc" width="230" height="32">
   <object name="door1" x="100" y="180" width="40" height="40"/>
   <object name="door2" x="4220" y="440" width="40" height="40"/>
   <object name="comOut" type="com" x="4380" y="440" width="20" height="40">
@@ -77,34 +82,30 @@
     <property name="on" value="0"/>
    </properties>
   </object>
-  <object name="breakCenter" x="4139" y="468" width="60" height="52"/>
-  <object name="bossEnd" x="4120" y="360" width="100" height="120"/>
-  <object name="hmPos1" x="100" y="520" width="80" height="100"/>
-  <object name="hmPos2" x="3860" y="380" width="80" height="100"/>
-  <object name="hmPos3" x="4140" y="380" width="80" height="100"/>
   <object name="end" x="4520" y="220" width="40" height="42"/>
-  <object type="border" x="20" y="0" width="4560" height="500"/>
-  <object x="2400" y="540" width="540" height="400"/>
+  <object type="border" x="20" y="0" width="4560" height="500" visible="0"/>
+  <object x="2260" y="-340" width="540" height="400"/>
   <object name="lift" type="lift" x="1760" y="120" width="60" height="320">
    <properties>
     <property name="speed" value="50"/>
     <property name="w" value="3"/>
    </properties>
   </object>
-  <object name="lift" type="lift" x="2280" y="240" width="60" height="200">
+  <object name="lift" type="lift" x="2880" y="220" width="60" height="180">
    <properties>
     <property name="speed" value="50"/>
     <property name="w" value="3"/>
    </properties>
   </object>
   <object name="start" x="100" y="-20" width="40" height="40"/>
-  <object type="gpMid" x="2200" y="140" width="60" height="60"/>
   <object name="hp" type="hp" x="1980" y="420" width="20" height="20"/>
   <object name="hp" type="hp" x="3160" y="180" width="20" height="20"/>
+  <object type="cube" x="4380" y="220" width="40" height="40"/>
+  <object type="cube" x="4420" y="220" width="40" height="40"/>
+  <object type="cube" x="4460" y="220" width="40" height="40"/>
  </objectgroup>
  <objectgroup name="enemy" width="230" height="32">
   <object type="bg" x="500" y="180" width="60" height="40"/>
-  <object type="guard" x="3260" y="220" width="40" height="40"/>
   <object type="gpDown" x="3580" y="220" width="60" height="40"/>
   <object type="bg" x="3800" y="40" width="60" height="40"/>
   <object type="bg" x="3880" y="160" width="60" height="40">
@@ -126,32 +127,45 @@
    </properties>
   </object>
   <object type="guard" x="540" y="100" width="40" height="40"/>
-  <object type="bTrigger" x="3100" y="220" width="140" height="40">
-   <properties>
-    <property name="gid" value="0"/>
-   </properties>
-  </object>
-  <object type="birth" x="3320" y="140" width="60" height="40">
-   <properties>
-    <property name="count" value="3"/>
-    <property name="gid" value="0"/>
-    <property name="span" value="1.5"/>
-    <property name="type" value="bWalk"/>
-   </properties>
-  </object>
-  <object type="birth" x="2960" y="140" width="60" height="40">
-   <properties>
-    <property name="count" value="3"/>
-    <property name="gid" value="0"/>
-    <property name="span" value="1.5"/>
-    <property name="type" value="bWalk"/>
-   </properties>
-  </object>
   <object type="guard" x="1280" y="80" width="40" height="40"/>
   <object type="guard" x="1380" y="80" width="40" height="40"/>
   <object type="guard" x="1480" y="80" width="40" height="40"/>
   <object type="bg" x="1980" y="160" width="60" height="40"/>
   <object type="bg" x="1940" y="240" width="60" height="40"/>
   <object type="bg" x="1900" y="320" width="60" height="40"/>
+  <object type="bg" x="2880" y="400" width="60" height="40"/>
+  <object type="birth" x="2280" y="320" width="60" height="40">
+   <properties>
+    <property name="count" value="1"/>
+    <property name="gid" value="0"/>
+    <property name="span" value="0.1"/>
+    <property name="type" value="bWalk"/>
+   </properties>
+  </object>
+  <object type="bTrigger" x="2240" y="400" width="140" height="40">
+   <properties>
+    <property name="gid" value="0"/>
+   </properties>
+  </object>
+  <object type="bTrigger" x="2640" y="400" width="140" height="40">
+   <properties>
+    <property name="gid" value="1"/>
+   </properties>
+  </object>
+  <object type="birth" x="2680" y="320" width="60" height="40">
+   <properties>
+    <property name="count" value="1"/>
+    <property name="gid" value="1"/>
+    <property name="span" value="0.1"/>
+    <property name="type" value="bWalk"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="tips" width="230" height="32">
+  <object name="Spare Way" type="sign" x="4380" y="220" width="120" height="20">
+   <properties>
+    <property name="text" value="Spare Way"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

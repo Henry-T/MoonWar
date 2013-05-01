@@ -17,6 +17,9 @@ class Level6 extends Level
 
 	public var downing2:Bool;
 
+	public var camFixOn:Bool;
+	public var camFixPos:FlxPoint;
+
 	public function new()
 	{
 		super();
@@ -58,6 +61,9 @@ class Level6 extends Level
 				if(to.name == "comOut")
 					com.onTig = function() { door2Down.Unlock(); };
 			}
+			else if(to.name == "camFix"){
+				camFixPos = new FlxPoint(to.x, to.y);
+			}
 		}
 		
 		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift_l.png"); 
@@ -75,11 +81,22 @@ class Level6 extends Level
 		downing2 = false;
 		FlxG.flash(0xff000000, 2);
 		ResUtil.playGame2();
+		camFixOn = false;
 	}
 
 	override public function update():Void 
 	{
 		super.update();
+
+		if(bot.x < camFixPos.x)
+			camFixOn = true;
+		else 
+			camFixOn = false;
+
+		if(camFixOn){
+			if(FlxG.camera.scroll.y < camFixPos.y)
+				FlxG.camera.scroll.y = camFixPos.y;
+		}
 		
 		// Start
 		if (downing && bInLift.y > door1Up.y /*bot.velocity.y==0*/)
