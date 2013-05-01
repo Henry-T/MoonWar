@@ -118,7 +118,7 @@ class Level4 extends Level
 			FlxG.collide(bot, tileCoverD);
 
 		// Lift Broken Dialog
-		if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey) && !breakShown)
+		if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey) && !breakShown && bot.On)
 		{
 			breakShown = true;
 			bot.On = false;
@@ -132,7 +132,7 @@ class Level4 extends Level
 		}
 
 		// Start
-		if (downing && bInLift.y > door1Up.y)
+		if (downing && bInLift.y > door1Up.y - 20)
 		{
 			bInLift.velocity.y = 0;
 			door1Up.Unlock();

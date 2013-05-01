@@ -135,7 +135,7 @@ class Level8 extends Level
 		}
 		
 		// lift
-		if (downing && bInLift.y > door1Up.y)
+		if (downing && bInLift.y > door1Up.y - 20)
 		{
 			bInLift.velocity.y = 0;
 			bot.EnableG(true);

@@ -36,7 +36,7 @@ class BigGun extends Enemy
 			if(ShotTimer >= ColdDown)
 			{
 				var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
-				bgb.reset(getMidpoint().x, getMidpoint().y);
+				bgb.reset(getMidpoint().x + (facing==FlxObject.RIGHT?20:-20), getMidpoint().y-13);
 				bgb.velocity = new FlxPoint(facing==FlxObject.LEFT?-200:200, 0);
 				ShotTimer -= ColdDown;
 			}

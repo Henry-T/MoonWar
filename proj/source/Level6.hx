@@ -13,8 +13,6 @@ class Level6 extends Level
 	public var botPos1:FlxPoint;
 
 	public var downing:Bool;
-	public var botColOn:Bool;
-
 	public var downing2:Bool;
 
 	public var camFixOn:Bool;
@@ -72,13 +70,13 @@ class Level6 extends Level
 		
 		// initial scene
 		FlxG.camera.follow(bot);
-		tile.follow();
 		bot.On = false;
 		bot.facing = FlxObject.LEFT;
+
 		bInLift.velocity.y = 30;
 		downing = true;
-		botColOn = false;
 		downing2 = false;
+
 		FlxG.flash(0xff000000, 2);
 		ResUtil.playGame2();
 		camFixOn = false;
@@ -99,7 +97,7 @@ class Level6 extends Level
 		}
 		
 		// Start
-		if (downing && bInLift.y > door1Up.y /*bot.velocity.y==0*/)
+		if (downing && bInLift.y > door1Up.y - 20 /*bot.velocity.y==0*/)
 		{
 			bInLift.velocity.y = 0;
 			bot.EnableG(true);
@@ -117,17 +115,17 @@ class Level6 extends Level
 		}
 		
 		// End
-		if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey))
+		if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey) && bot.On)
 		{
-			if((bot.x > door2Down.x + 5) && (bot.y + bot.width < door2Down.x + door2Down.width - 5)){
+			if((bot.x > door2Down.x + 5) && (bot.x + bot.width < door2Down.x + door2Down.width - 5)){
 				door2Up.Colse(bot);
 				bot.On = false;
 			}
 		}
 		if (!downing2 && door2Up.locked)
 		{
-			bInLift2.velocity.y = 30;
 			downing2 = true;
+			bInLift2.velocity.y = 30;
 		}
 		if (!isEnd && bInLift2.y > end.y){
 			EndLevel(true);

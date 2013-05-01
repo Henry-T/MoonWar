@@ -604,6 +604,9 @@ class Level extends MWState
 
 	override public function update():Void 
 	{
+		if(tileCoverD != null)
+			FlxG.overlap(bullets, tileCoverD, function(b:FlxObject, t:FlxObject){b.kill();});
+
 		// check camera tween
 		if(camTweening && camXTweenDone && camYTweenDone){
 			camTweening = false;
@@ -657,7 +660,7 @@ class Level extends MWState
 		
 		FlxG.overlap(bTriggers, bot, function(bt:FlxObject, b:FlxObject) { cast(bt,BTrigger).TryTrigger(); } );
 		FlxG.overlap(bWalks, bot, function(bw:FlxObject, b:FlxObject) { bw.kill(); bot.hurt(30); } );
-		FlxG.overlap(guards, bot, function(g:FlxObject, b:FlxObject) { g.kill(); bot.hurt(10); } );
+		FlxG.overlap(guards, bot, function(g:FlxObject, b:FlxObject) { bot.hurt(10); } );
 		
 		FlxG.overlap(bWalks, bWalks, function(b1:FlxObject, b2:FlxObject) { b1.kill(); b2.kill(); } );
 		

@@ -13,6 +13,8 @@ class Level5 extends Level
 
 	public var comRect:FlxRect;
 	public var doorPos:FlxPoint;
+	
+	public var downing2:Bool;
 
 	public function new()
 	{
@@ -57,12 +59,10 @@ class Level5 extends Level
 		
 		// initial
 		FlxG.flash(0xff000000, 2);
-		tile.follow();
-		FlxG.camera.bounds.x += 80;
-		FlxG.camera.bounds.width -= 80;
 		FlxG.camera.follow(bot);
 		ResUtil.playGame2();
 		bot.facing = FlxObject.RIGHT;
+		botRighting = true;
 	}
 
 	override public function update():Void 
@@ -81,16 +81,16 @@ class Level5 extends Level
 		}
 		
 		// End of Level
-		if (FlxG.overlap(bot, door2Down) && door2Down.open && FlxG.keys.justPressed(bot.actionKey))
+		if (FlxG.overlap(bot, door2Down) && door2Down.open && FlxG.keys.justPressed(bot.actionKey) && bot.On)
 		{
-			if((bot.x > door2Down.x + 5) && (bot.y + bot.width < door2Down.x + door2Down.width - 5)){
+			if((bot.x > door2Down.x + 5) && (bot.x + bot.width < door2Down.x + door2Down.width - 5)){
 				door2Up.Colse(bot);
 				bot.On = false;
 			}
 		}
-		if (door2Up.locked)
+		if (!downing2 && door2Up.locked)
 		{
-			bInLift2.visible = true;
+			downing2 = true;
 			bInLift2.velocity.y = 30;
 			bot.active = false;
 		}

@@ -108,7 +108,7 @@ class Level2 extends Level
 		tileBreak 	= GetTile("break", FlxObject.ANY); 
 		tileBreak.setTileProperties(0, FlxObject.ANY , onBreak, null, tileBreak._tileObjects.length);	// set all breakable to handle collision
 		
-		sBase = new FlxSprite(13 * 20, 20 * 5 + 10, "assets/img/sBase.png");
+		sBase = new FlxSprite(13 * 20, 20 * 5 + 6, "assets/img/sBase.png");
 		sBase.offset = new FlxPoint(121, 42);
 		sBase.width = 60; sBase.height = 75;
 		sBase.health = BaseMaxLife;

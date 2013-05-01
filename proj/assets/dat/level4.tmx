@@ -83,7 +83,7 @@
    </properties>
   </object>
   <object name="end" x="4520" y="220" width="40" height="42"/>
-  <object type="border" x="20" y="0" width="4560" height="500" visible="0"/>
+  <object type="border" x="20" y="0" width="4560" height="500"/>
   <object x="2260" y="-340" width="540" height="400"/>
   <object name="lift" type="lift" x="1760" y="120" width="60" height="320">
    <properties>

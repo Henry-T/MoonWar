@@ -315,9 +315,9 @@ class Level3 extends Level
 		}
 
 		// End Level
-		if (FlxG.overlap(bot, door2Down) && door2Down.open && FlxG.keys.justPressed(bot.actionKey))
+		if (FlxG.overlap(bot, door2Down) && door2Down.open && FlxG.keys.justPressed(bot.actionKey) && bot.On)
 		{
-			if((bot.x > door2Down.x + 5) && (bot.y + bot.width < door2Down.x + door2Down.width - 5)){
+			if((bot.x > door2Down.x + 5) && (bot.x + bot.width < door2Down.x + door2Down.width - 5)){
 				door2Up.Colse(bot);
 				bot.On = false;
 			}

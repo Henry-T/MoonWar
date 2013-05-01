@@ -19,8 +19,6 @@ class Bot extends FlxSprite
 	private var _aim:Int;
 	private var _bullets:FlxGroup;
 
-	public var shooting:Bool;
-
 	public var On:Bool;
 
 	// vehicle
@@ -61,8 +59,8 @@ class Bot extends FlxSprite
 	public var immuTimer:FlxTimer;
 
 	// shoot gun
-	public static var shootCold:Float = 200;
-	public static var lastShootTime:Float = 0;
+	public static var shootCold:Float = 0.200;
+	public static var shootTimer:Float = 0;
 
 	// energy
 	public static var chargeEnergy:Float = 100;
@@ -137,7 +135,6 @@ class Bot extends FlxSprite
 		this.play("idle");
 		
 		_bullets = Bullets;
-		shooting = false;
 		
 		actionKey = "SPACE";
 		moveLeftKey = "LEFT";
@@ -294,15 +291,19 @@ class Bot extends FlxSprite
 		}
 		
 		//SHOOTING
-		if(On && FlxG.keys.justPressed("X"))
-		{
-			getMidpoint(_point);
-			cast(_bullets.recycle(Bullet),Bullet).shoot(_point,_aim);
-			shooting = true;
+
+		// forbid more than one bullet in one frame
+		shootTimer += FlxG.elapsed;
+		while(shootTimer >= shootCold * 2){
+			shootTimer -= shootCold;
 		}
-		else
-		{
-			shooting = false;
+
+		if(On && FlxG.keys.X){
+			if(shootTimer > shootCold){
+				getMidpoint(_point);
+				cast(_bullets.recycle(Bullet),Bullet).shoot(_point,_aim);
+				shootTimer -= shootCold;
+			}
 		}
 
 		super.update();

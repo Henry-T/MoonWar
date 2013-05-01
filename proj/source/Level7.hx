@@ -89,9 +89,7 @@ class Level7 extends Level
 		}
 			
 		// tile
-		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift_r.png");
-		tile.follow();
-		
+		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift_r.png");		
 		
 		AddAll();
 		add(warnObj);
@@ -100,9 +98,11 @@ class Level7 extends Level
 		warned = false;
 		bot.On = false;
 		bot.facing = FlxObject.RIGHT;
+
 		bInLift.velocity.y = 30;
 		downing = true;
 		downing2 = false;
+
 		FlxG.flash(0xff000000, 2);
 		FlxG.camera.follow(bot);
 		ResUtil.playGame2();
@@ -132,7 +132,7 @@ class Level7 extends Level
 		}
 
 		// Start
-		if (downing && bInLift.y > door1Up.y)
+		if (downing && bInLift.y > door1Up.y - 20)
 		{
 			bInLift.velocity.y = 0;
 			door1Up.Unlock();
@@ -144,17 +144,17 @@ class Level7 extends Level
 		}
 		
 		// End
-		if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey))
+		if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey) && bot.On)
 		{
-			if((bot.x > door2Down.x + 5) && (bot.y + bot.width < door2Down.x + door2Down.width - 5)){
+			if((bot.x > door2Down.x + 5) && (bot.x + bot.width < door2Down.x + door2Down.width - 5)){
 				door2Up.Colse(bot);
 				bot.On = false;
 			}
 		}
 		if (!downing2 && door2Up.locked)
 		{
-			bInLift2.velocity.y = 30;
 			downing2 = true;
+			bInLift2.velocity.y = 30;
 		}
 		if (!isEnd && bInLift2.y > end.y)
 		{
