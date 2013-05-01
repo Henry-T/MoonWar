@@ -143,9 +143,6 @@ class Level3 extends Level
 		dm.DuckSpawnCold = 1000;
 		dms.add(dm);
 		
-		// tiles
-		tile.follow();
-		
 		spawnUps = new FlxGroup(); 
 		// add(spawnUps);
 		bigGuns = new FlxGroup(); 

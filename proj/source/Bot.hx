@@ -98,6 +98,17 @@ class Bot extends FlxSprite
 	// 
 	public static inline var g:Float = 350;
 
+	public static var aimSustainTimeout:Float = 0.050;
+	public var keyUpTimerLeft:Float;
+	public var keyUpTimerRight:Float;
+	public var keyUpTimerUp:Float;
+	public var keyUpTimerDown:Float;
+	public var keyLeftSustain:Bool;
+	public var keyRightSustain:Bool;
+	public var keyUpSustain:Bool;
+	public var keyDownSustain:Bool;
+
+
 	public function new(X:Float, Y:Float, Bullets:FlxGroup)
 	{
 		super(X, Y, null);
@@ -145,6 +156,15 @@ class Bot extends FlxSprite
 		shootKey = "X";
 		
 		health = maxHealth;
+
+		keyUpTimerLeft	= 0;
+		keyUpTimerRight	= 0;
+		keyUpTimerUp	= 0;
+		keyUpTimerDown	= 0;
+		keyLeftSustain	= false;
+		keyRightSustain	= false;
+		keyUpSustain	= false;
+		keyDownSustain	= false;
 	}
 
 	override public function update():Void
@@ -234,26 +254,57 @@ class Bot extends FlxSprite
 			//}
 		}
 
-		if(FlxG.keys.UP && On)inUP = true;
-		if(FlxG.keys.LEFT && On)inLEFT = true;
-		if(FlxG.keys.DOWN && On)inDOWN = true;
-		if(FlxG.keys.RIGHT && On)inRIGHT = true;
+		if(FlxG.keys.UP && On)		inUP = true;
+		if(FlxG.keys.LEFT && On)	inLEFT = true;
+		if(FlxG.keys.DOWN && On)	inDOWN = true;
+		if(FlxG.keys.RIGHT && On)	inRIGHT = true;
 
+		// Sustain Aiming
+		keyUpTimerUp 	+= FlxG.elapsed;
+		keyUpTimerDown 	+= FlxG.elapsed;
+		keyUpTimerLeft 	+= FlxG.elapsed;
+		keyUpTimerRight += FlxG.elapsed;
+
+		if(!FlxG.keys.UP && !FlxG.keys.LEFT && !FlxG.keys.DOWN && !FlxG.keys.RIGHT){
+			if(!keyUpSustain && keyUpTimerUp < aimSustainTimeout)
+				keyUpSustain = true;
+			if(!keyDownSustain && keyUpTimerDown < aimSustainTimeout)
+				keyDownSustain = true;
+			if(!keyLeftSustain && keyUpTimerLeft < aimSustainTimeout)
+				keyLeftSustain = true;
+			if(!keyRightSustain && keyUpTimerRight < aimSustainTimeout)
+				keyRightSustain = true;
+		}
+		else{
+			keyUpSustain = false;
+			keyDownSustain = false;
+			keyLeftSustain = false;
+			keyRightSustain = false;
+		}
+
+		if(FlxG.keys.justReleased("UP"))
+			keyUpTimerUp = 0;
+		if(FlxG.keys.justReleased("DOWN"))
+			keyUpTimerDown = 0;
+		if(FlxG.keys.justReleased("LEFT"))
+			keyUpTimerLeft = 0;
+		if(FlxG.keys.justReleased("RIGHT"))
+			keyUpTimerRight = 0;
 
 		//AIMING
-		if(inUP && inRIGHT) {
+		if((inUP||keyUpSustain) && (inRIGHT||keyRightSustain)) {
 			_aim = FlxObject.UP|FlxObject.RIGHT;
 			gunHand.play("upfront");
 		}
-		else if(inUP && FlxG.keys.LEFT){
+		else if((inUP||keyUpSustain) && (inLEFT||keyLeftSustain)){
 			_aim = FlxObject.UP|FlxObject.LEFT;
 			gunHand.play("upfront");
 		}
-		else if(inDOWN && inRIGHT) {
+		else if((inDOWN||keyDownSustain) && (inRIGHT||keyRightSustain)) {
 			_aim = FlxObject.DOWN|FlxObject.RIGHT;
 			gunHand.play("downfront");
 		}
-		else if(inDOWN && inLEFT){
+		else if((inDOWN||keyDownSustain) && (inLEFT||keyLeftSustain)){
 			_aim = FlxObject.DOWN|FlxObject.LEFT;
 			gunHand.play("downfront");
 		}

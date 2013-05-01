@@ -20,17 +20,21 @@ class LevelTest extends Level{
 		bot.x = this.start.x;
 		bot.y = this.end.y;
 
+		// Test : VarTween
 		//var camTween:VarTween = new VarTween(null, FlxTween.PERSIST);
 		//camTween.tween(FlxG.camera.scroll, "x", 100, 2, Ease.quartInOut);
 		//this.addTween(camTween);
-		TweenCamera(100, 0, 1, true, function(){
-			TweenCamera(100, 100, 1, true, function(){
-				TweenCamera(0, 100, 1, true, function(){
-					TweenCamera(0, 0, 1, true, null);
-				});
-			});
-		});
 
+		// Test : Camera Tween
+		// TweenCamera(100, 0, 1, true, function(){
+		// 	TweenCamera(100, 100, 1, true, function(){
+		// 		TweenCamera(0, 100, 1, true, function(){
+		// 			TweenCamera(0, 0, 1, true, null);
+		// 		});
+		// 	});
+		// });
+
+		// Test : Tips
 	}
 
 	public override function update(){

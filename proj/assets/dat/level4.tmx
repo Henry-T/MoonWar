@@ -103,6 +103,11 @@
   <object type="cube" x="4380" y="220" width="40" height="40"/>
   <object type="cube" x="4420" y="220" width="40" height="40"/>
   <object type="cube" x="4460" y="220" width="40" height="40"/>
+  <object name="Spare Way" type="sign" x="4380" y="220" width="120" height="20">
+   <properties>
+    <property name="text" value="Spare Way"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemy" width="230" height="32">
   <object type="bg" x="500" y="180" width="60" height="40"/>
@@ -158,13 +163,6 @@
     <property name="gid" value="1"/>
     <property name="span" value="0.1"/>
     <property name="type" value="bWalk"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup name="tips" width="230" height="32">
-  <object name="Spare Way" type="sign" x="4380" y="220" width="120" height="20">
-   <properties>
-    <property name="text" value="Spare Way"/>
    </properties>
   </object>
  </objectgroup>

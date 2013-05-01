@@ -44,4 +44,5 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="tip" width="20" height="20"/>
 </map>

@@ -51,7 +51,6 @@
    eJzt2csNgCAQRVGW1qAtaAfSgmj/zYg7FqPRQGYmck8y+5c8SPiEAACADzHPXDmrempYW6wDQB2d94fO+0Pn+IuUZxRmswwFE5N1AKiTOk/qKaBJ6vzLmSa2CgI1Uud7eP+GdejEREOeOrtba54yesfeBJ5Jd9ma4R7ch/Kfbwht1xB8Ks/EvOn2oez8OpN6/ps/Af1FEYI=
   </data>
  </layer>
- <objectgroup name="tip" width="125" height="20" visible="0"/>
  <objectgroup name="bonus" width="125" height="20" visible="0">
   <object name="life" x="498" y="118"/>
  </objectgroup>

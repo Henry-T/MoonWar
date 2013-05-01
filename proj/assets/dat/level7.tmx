@@ -169,6 +169,11 @@
     <property name="w" value="2"/>
    </properties>
   </object>
+  <object name="4 lock left to open the door" type="sign" x="920" y="840" width="200" height="20">
+   <properties>
+    <property name="text" value="4 lock left to open the door"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemy" width="120" height="74" visible="0">
   <object type="ac" x="380" y="600" width="20" height="40">
@@ -256,13 +261,6 @@
     <property name="offTime" value="2"/>
     <property name="onTime" value="2"/>
     <property name="start" value="0"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup name="tips" width="120" height="74">
-  <object name="4 lock left to open the door" type="sign" x="920" y="840" width="200" height="20">
-   <properties>
-    <property name="text" value="4 lock left to open the door"/>
    </properties>
   </object>
  </objectgroup>

@@ -46,7 +46,7 @@ class LineMgr extends FlxSprite
 		var h:FlxSprite;
 		h = new FlxSprite(headPos.x,headPos.y);
 		h.loadGraphic("assets/img/drHead.png",true, false, 88, 88);
-		h.addAnimation("default",[1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0], 10, true); h.play("default");
+		h.addAnimation("default",[1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1], 10, false); 
 		h.scrollFactor = new FlxPoint(0,0);
 		h.x = headBg.getMidpoint().x - h.width/2; h.y = headBg.getMidpoint().y - h.height/2;
 		heads.push(h);
@@ -72,6 +72,8 @@ class LineMgr extends FlxSprite
 		if(curLineId <= lineCnt-1){
 			line.text = lines[curLineId].text;
 			curHeadId = lines[curLineId].headId;
+			if(curHeadId == 0)
+				heads[0].play("default", true);
 			//lineBg.setSize(90 + Math.round(line.text.length * 4), 30);
 		}
 		else{

@@ -31,12 +31,12 @@
  </layer>
  <layer name="bg" width="215" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt07sKwkAQRuFt7RXBS1rfQSEP4OUNvIG179/6FyuRhYUUSYYZzweHwJJiGJiUAAAAAAAAAAAAAD/elQAAAOBfq1aVZmpe/P/M39dE8wERra0HABxa5r42aq8Oapvfard1GnEuwLvyto7qrC6pu53abd1GnAvwrrytq7qrR+pup516KOAP7ah3UVjvMUIL1fzstMlv1nN5LQrrPUaI2xq2KKz3GCFua9iisN5jhPrc1gca/WvY
+   eJzt00sKwkAQRdEeqDsQB2qm7kHBBfjZgT9w7P6n1qAlQdIQIUlRz3vgEmgIFAWVEgAAAAAAAAAAABDHqxAAAADimVjTH5p9/f/I3+cIswKqlt4DAMEsGn2srK21s9b5rXRbx+FGA0Jru62DdbLOqb6d0m1dhxsNCK3tti7Wzbqn+nb2I88F/KMNdU6F9x4VmltVY6dVfvOeK2oqvPeoELfVbyq896gQt9VvKrz3qFCX23oDBY1rZw==
   </data>
  </layer>
  <layer name="tile" width="215" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2MkJgDAARUGL0BYswmpcerB+IxiIB3GNoMzAO+khl4/EogAAAAAAAADgb6qTNRsBa/NeyqWtPaXPZ22oC42hPjS8emL4hridPem2ovH548BvxG/TlfdsC+6zLcjDtiCPeN+qJR3q7D94AAAA8pgAAuMnZg==
+   eJzt2MsJgDAQQMEUYVqwCKvx04P1G8GAF39ERWQG3kFQ2MtCYggAAAAAAAAA/EEsqNkICKFayvty5XnWprrUmOpTw3ujw6fF41dOfTeWDgI/U3ImXLNbUM5uwTPsFjwj/8uoJe12x30LAACA+0zIVSh9
   </data>
  </layer>
  <objectgroup name="enemy" width="215" height="20"/>
@@ -44,7 +44,7 @@
   <object name="botPos1" x="2" y="262" width="52" height="39"/>
   <object name="botPos2" x="172" y="260" width="52" height="44"/>
   <object name="botPos3" x="297" y="260" width="60" height="40"/>
-  <object name="tPos2" x="3820" y="260" width="180" height="40"/>
+  <object name="tPos2" x="3780" y="260" width="180" height="40"/>
   <object name="tPos" x="230" y="267" width="175" height="36"/>
   <object name="end" x="4160" y="360" width="40" height="40"/>
   <object name="battle" x="1920" y="0" width="100" height="300"/>
@@ -55,5 +55,11 @@
   </object>
   <object name="door2" x="4160" y="260" width="40" height="40"/>
   <object name="cam1" type="cam" x="3760" y="0" width="540" height="400"/>
+  <object name="SPACE to open Console and Enter Lift" type="sign" x="4020" y="200" width="260" height="20">
+   <properties>
+    <property name="text" value="SPACE to open Console and Enter Lift"/>
+   </properties>
+  </object>
+  <object type="border" x="0" y="0" width="4300" height="400"/>
  </objectgroup>
 </map>
