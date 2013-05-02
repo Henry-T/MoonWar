@@ -159,6 +159,7 @@
    </properties>
   </object>
   <object type="border" x="20" y="0" width="4960" height="500"/>
+  <object name="hp" type="hp" x="2000" y="140" width="20" height="20"/>
  </objectgroup>
  <objectgroup name="enemy" width="250" height="25">
   <object type="bg" x="840" y="60" width="60" height="40"/>
@@ -192,7 +193,6 @@
     <property name="hang" value="up"/>
    </properties>
   </object>
-  <object name="hp" type="hp" x="2000" y="140" width="20" height="20"/>
   <object type="birth" x="2160" y="100" width="60" height="40">
    <properties>
     <property name="count" value="3"/>

@@ -134,12 +134,11 @@ class Level8 extends Level
 			EndLevel(true);
 		}
 		
-		// lift
+		// Level Start
 		if (downing && bInLift.y > door1Up.y - 20)
 		{
 			bInLift.velocity.y = 0;
 			bot.EnableG(true);
-			bot.On = true;
 			door1Up.Unlock();
 		}
 		
@@ -157,7 +156,7 @@ class Level8 extends Level
 		}
 		if (righting)
 		{
-			bot.velocity.x = 100;
+			bot.velocity.x = bot.maxVelocity.x;
 			bot.On = false;
 			if (!FlxG.overlap(bot, trigger))
 			{

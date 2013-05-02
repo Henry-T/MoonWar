@@ -27,6 +27,7 @@ class Level3 extends Level
 	public var preWalking2:Bool;
 	public var battling:Bool;
 	public var battleEnd:Bool;
+	public var onBoard:Bool;
 
 	// trans
 
@@ -169,6 +170,8 @@ class Level3 extends Level
 		bot.y = botPos1.y;
 		bot.gunHand.play("down");
 
+		onBoard = false;
+
 		ResUtil.playGame1();
 		reached = false;
 
@@ -228,6 +231,7 @@ class Level3 extends Level
 					bot.velocity.y = -bot._jumpPower;
 					bot.play("jump_up", true); 
 					timer1.start(3, 1, preEnd);
+					onBoard = true;
 				}
 			}
 		case 1:	// fight
@@ -311,7 +315,7 @@ class Level3 extends Level
 			}
 		}
 
-		if(battling || !battleEnd){
+		if(onBoard){
 			// keep bot on transport
 			if (bot.x < t.x - bot.width / 2)
 				bot.x = t.x - bot.width / 2;
@@ -339,6 +343,7 @@ class Level3 extends Level
 			FlxG.camera.follow(null);
 			TweenCamera(posCam1.x, posCam1.y, 1,true, function(){
 				lineMgr.Start(lines2, function(){
+					onBoard = false;
 					bot.On = true;
 				});
 			});

@@ -621,7 +621,7 @@ class Level extends MWState
 			}
 		}
 
-		if(tileCoverD != null)
+		if(tileCoverD != null && tileCoverD.visible)
 			FlxG.collide(bullets, tileCoverD, function(b:FlxObject, t:FlxObject){b.kill();});
 
 		// check camera tween
@@ -659,7 +659,7 @@ class Level extends MWState
 		
 		// zball hurt bot
 		if(zball!=null)
-			FlxG.overlap(zball, bot, function(z:FlxObject, bot:FlxObject) { bot.hurt(20); } );
+			FlxG.overlap(zball, bot, function(z:FlxObject, bot:FlxObject) { bot.hurt(30); } );
 		
 		FlxG.overlap(bullets, cubes, function(b:FlxObject, c:FlxObject) { b.kill(); c.hurt(1); } );
 		FlxG.collide(cubes, bot);
@@ -667,8 +667,7 @@ class Level extends MWState
 		
 		FlxG.collide(lifts, bot);
 		
-		//FlxG.overlap(tileNail, bot, function(t:FlxObject, b:Bot) { b.hurt(5); } );
-		FlxG.collide(tileNail, bot, function(t:FlxObject, b:FlxObject) { b.hurt(5); b.velocity.y = -300; } );
+		FlxG.collide(tileNail, bot, function(t:FlxObject, b:FlxObject) { b.hurt(20); b.velocity.y = -300; } );
 		
 		FlxG.overlap(bullets, bWalks, function(b:FlxObject, bw:FlxObject) { b.kill(); bw.hurt(1); } );
 		FlxG.overlap(bullets, guards, function(b:FlxObject, g:FlxObject) { b.kill(); g.hurt(1); } );
@@ -677,7 +676,7 @@ class Level extends MWState
 		
 		FlxG.overlap(bTriggers, bot, function(bt:FlxObject, b:FlxObject) { cast(bt,BTrigger).TryTrigger(); } );
 		FlxG.overlap(bWalks, bot, function(bw:FlxObject, b:FlxObject) { bw.kill(); bot.hurt(30); } );
-		FlxG.overlap(guards, bot, function(g:FlxObject, b:FlxObject) { bot.hurt(10); } );
+		FlxG.overlap(guards, bot, function(g:FlxObject, b:FlxObject) { bot.hurt(20); } );
 		
 		FlxG.overlap(bWalks, bWalks, function(b1:FlxObject, b2:FlxObject) { b1.kill(); b2.kill(); } );
 		
@@ -686,7 +685,7 @@ class Level extends MWState
 		
 		
 		// BGB on bot
-		FlxG.overlap(bot, bigGunBuls, function(bot:FlxObject, bgb:FlxObject):Void {bot.hurt(5);bgb.kill();});
+		FlxG.overlap(bot, bigGunBuls, function(bot:FlxObject, bgb:FlxObject):Void {bot.hurt(20);bgb.kill();});
 		
 		// Bullet Killing!
 		for(bul in bullets.members) {
@@ -705,7 +704,7 @@ class Level extends MWState
 		if (!cast(bcr,FlxSprite).onScreen())
 			bcr.kill(); }
 			
-		FlxG.overlap(bot, ducks, function(bot:FlxObject, d:FlxObject) {bot.hurt(10);d.kill();});
+		FlxG.overlap(bot, ducks, function(bot:FlxObject, d:FlxObject) {bot.hurt(20);d.kill();});
 		FlxG.overlap(bullets, ducks, function(bul:FlxObject, duck:FlxObject){bul.kill();duck.hurt(1);});
 		
 		if(jsCntr==0)
@@ -831,7 +830,6 @@ class Level extends MWState
 
 		if(isWin && GameStatic.ProcLvl < GameStatic.CurLvl)
 			GameStatic.ProcLvl = GameStatic.CurLvl;
-
 
 		endMask.visible = true;
 		endMask.alpha = 0;

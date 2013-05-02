@@ -210,6 +210,8 @@ class Level2 extends Level
 		roam = true;
 		boss1.play("air");
 		ShowSkip(true, initForGame);
+		smokeEmt1.on = false;
+		smokeEmt2.on = false;
 
 		TweenCamera(posCam2.x, posCam2.y, 3, true, function(){
 			roam = false;
@@ -412,7 +414,7 @@ class Level2 extends Level
 		FlxG.overlap(boss1, bullets, function(b:FlxObject, bul:FlxObject){b.hurt(1);bul.kill();});	// bullet
 		FlxG.collide(tile, ducks, duckHitTile);							// duck
 		FlxG.collide(tileUp, ducks);		
-		FlxG.overlap(sBase, ducks, function(b:FlxObject, d:FlxObject) { if (boss1.health > 0) { b.hurt(10); } d.kill(); } );
+		FlxG.overlap(sBase, ducks, function(b:FlxObject, d:FlxObject) { if (boss1.health > 0) { b.hurt(5); } d.kill(); } );
 		
 		// tile breaker follows boss
 		brGP.x = boss1.x + 40;
@@ -431,6 +433,11 @@ class Level2 extends Level
 		eExplo.y = boss1.y + 30;
 
 		baseHPBar.scale.x = sBase.health/BaseMaxLife;
+
+		// End of Game for sbase destoried
+		if(sBase.health <= 0){
+			EndLevel(false);
+		}
 		
 		smokeEmt2.x = boss1.x;
 		smokeEmt2.y = 360 - 5;
@@ -454,6 +461,8 @@ class Level2 extends Level
 		case STpostTalk:	// used in Boss1.hx
 			ShowBossHP(false);
 			bot.On = false;
+			baseHPBar.visible = false;
+			baseHPBg.visible = false;
 			lineMgr.Start(lines4, function(){boss1.switchState(8); lvlState = 4;});
 		case 5:				// used in Boss1.hx
 			EndLevel(true);
