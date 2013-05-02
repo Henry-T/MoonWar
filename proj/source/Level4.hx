@@ -30,6 +30,8 @@ class Level4 extends Level
 	public var downing : Bool;
 	public var downing2: Bool;
 
+	public var coverOpen:Bool;
+	
 	public function new()
 	{
 		super();
@@ -92,26 +94,22 @@ class Level4 extends Level
 		
 		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift_r.png");
 
-		tileLand = GetTile("land", FlxObject.ANY); 
-		tileLand2 = GetTile("land2", FlxObject.ANY); 
-		
-		boss2 = new Boss2(100, 800);
 		AddAll();
 		
 		// initial
 		FlxG.camera.follow(bot);
 		ResUtil.playGame2();
 		breakShown = false;
+
 		bot.On = false;
 		bot.facing = FlxObject.RIGHT;
+
 		bInLift.velocity.y = 30;
 		downing = true;
 		downing2 = false;
 		FlxG.flash(0xff000000, 2);
 	}
 
-
-	public var coverOpen:Bool;
 	override public function update():Void
 	{
 		if(!coverOpen)

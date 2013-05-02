@@ -168,7 +168,7 @@ class Level3 extends Level
 		bot.x = botPos1.x;
 		bot.y = botPos1.y;
 		bot.gunHand.play("down");
-		
+
 		ResUtil.playGame1();
 		reached = false;
 
@@ -182,9 +182,6 @@ class Level3 extends Level
 		lvlState = s;
 		switch(lvlState)
 		{
-			case 0:
-			bot.On = false;
-			
 			case 1:
 			t.active = true;
 		}

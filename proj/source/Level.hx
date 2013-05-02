@@ -60,8 +60,6 @@ class Level extends MWState
 	public var tileBg:FlxTilemap;		// justBg
 	public var tileBgFar:FlxTilemap;	// bg under all!
 	public var tileNail:FlxTilemap;		// nail trap for bot!
-	public var tileLand:FlxTilemap;		// breakable land1 for level4
-	public var tileLand2:FlxTilemap;	// breakable land2 for level4
 
 	// Dialog
 	public var lines1:Array<Line>;
@@ -98,7 +96,6 @@ class Level extends MWState
 	public var lifts:FlxGroup;
 	public var mines:FlxGroup;
 	public var boss1:Boss1;
-	public var boss2:Boss2;
 	public var boss3:Boss3;
 	public var sBase:FlxSprite;
 	public var cubes:FlxGroup;
@@ -514,8 +511,6 @@ class Level extends MWState
 		add(tileNail);
 		add(tilePO);
 		add(tileJS);
-		add(tileLand);
-		add(tileLand2);
 		add(lifts);
 		add(tileJS);
 		add(tileNail);
@@ -544,7 +539,6 @@ class Level extends MWState
 		add(gpDowns);
 		add(aCatchs);
 		add(boss1);
-		add(boss2);
 		add(boss3);
 		add(Bees);
 		add(mines);
@@ -605,7 +599,7 @@ class Level extends MWState
 	override public function update():Void 
 	{
 		if(tileCoverD != null)
-			FlxG.overlap(bullets, tileCoverD, function(b:FlxObject, t:FlxObject){b.kill();});
+			FlxG.collide(bullets, tileCoverD, function(b:FlxObject, t:FlxObject){b.kill();});
 
 		// check camera tween
 		if(camTweening && camXTweenDone && camYTweenDone){

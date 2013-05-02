@@ -165,6 +165,8 @@ class Bot extends FlxSprite
 		keyRightSustain	= false;
 		keyUpSustain	= false;
 		keyDownSustain	= false;
+
+		facing = FlxObject.RIGHT;
 	}
 
 	override public function update():Void
@@ -210,8 +212,6 @@ class Bot extends FlxSprite
 			var lvl:Level = cast(FlxG.state , Level);
 			if (lvl.boss1 != null)
 				lvl.boss1.hurt(99999);
-			if (lvl.boss2 != null)
-				lvl.boss2.hurt(99999);
 			if (lvl.boss3 != null)
 				lvl.boss3.hurt(99999);
 		}
@@ -294,7 +294,6 @@ class Bot extends FlxSprite
 		//AIMING
 		if((inUP||keyUpSustain) && (inRIGHT||keyRightSustain)) {
 			_aim = FlxObject.UP|FlxObject.RIGHT;
-			trace("bad1 " + inUP + " " + inRIGHT + " " + keyUpSustain + " " + keyRightSustain);
 			gunHand.play("upfront");
 		}
 		else if((inUP||keyUpSustain) && (inLEFT||keyLeftSustain)){

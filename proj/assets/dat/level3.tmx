@@ -41,7 +41,7 @@
  </layer>
  <objectgroup name="enemy" width="215" height="20"/>
  <objectgroup name="misc" width="215" height="20">
-  <object name="botPos1" x="0" y="140" width="52" height="39"/>
+  <object name="botPos1" x="0" y="140" width="60" height="40"/>
   <object name="botPos2" x="172" y="260" width="52" height="44"/>
   <object name="botPos3" x="297" y="260" width="60" height="40"/>
   <object name="tPos2" x="3780" y="260" width="180" height="40"/>
