@@ -39,6 +39,11 @@ class Level3 extends Level
 
 	private var reached:Bool;
 
+	// repair box
+	public static var repairSpawnCD:Float = 3.0;
+	public var repairSpawning:Bool;
+	public var repairSpawnTime:Float;
+
 	public function new()
 	{
 		super();
@@ -160,8 +165,12 @@ class Level3 extends Level
 		switchState(0);
 		bgMetal.visible = false;
 		bot.On = false;
+		bot.gunHand.play("down");
 		ResUtil.playGame1();
 		reached = false;
+
+		repairSpawnTime = 0;
+		repairSpawning = false;
 		
 	}
 
@@ -243,6 +252,23 @@ class Level3 extends Level
 		FlxG.collide(bot, t);
 
 		super.update();
+
+		// spawn repair box on time schedule
+		// if(battling){
+		// 	if(repairSpawning){
+		// 		repairSpawnTime += FlxG.elapsed;
+		// 		if(repairSpawnTime > repairSpawnCD){
+		// 			repairSpawnTime = 0;
+		// 			repairSpawning = false;
+		// 			//spawnRepair();
+		// 		}
+		// 	}
+		// 	else {
+		// 		if(hps.countLiving() <= 0){	// NOTE countLiving() normally returns -1
+		// 			repairSpawning = true;
+		// 		}
+		// 	}
+		// }
 		
 		if (!battling && !battleEnd && t.x > battlePos.x)
 		{
@@ -263,6 +289,8 @@ class Level3 extends Level
 				{
 					var eg:EnemyGroup = cast(eGroups[egPointer] , EnemyGroup);
 					timer1.start(eg.timeSpan, 1, function(t:FlxTimer) { spawnBee(); } );
+					if(egPointer == 4 || egPointer == 7)
+						spawnRepair();
 					egPointer++;
 				}
 				else
@@ -274,6 +302,9 @@ class Level3 extends Level
 					t.velocity.x = 300;
 					battling = false;
 					battleEnd = true;
+					for (r in hps.members) {
+						if(r.alive) r.kill();
+					}
 				}
 			}
 		}
@@ -281,9 +312,9 @@ class Level3 extends Level
 		if(battling){
 			// keep bot on transport
 			if (bot.x < t.x - bot.width / 2)
-			bot.x = t.x - bot.width / 2;
+				bot.x = t.x - bot.width / 2;
 			if (bot.x > t.x + t.width - bot.width / 2)
-			bot.x = t.x + t.width - bot.width / 2;
+				bot.x = t.x + t.width - bot.width / 2;
 		}
 		
 		if(!bg1.onScreen() && bg1.x < FlxG.camera.scroll.x)
@@ -330,7 +361,6 @@ class Level3 extends Level
 			EndLevel(true);
 		}
 
-
 		FlxG.collide(bot, t);
 
 		updateTiny();
@@ -339,5 +369,11 @@ class Level3 extends Level
 	public function DrawGui():Void
 	{
 		//game.SpriteBatch.DrawString(game.debugFont, (((t.transLife))).toString(), new FlxPoint(), Color.White);
+	}
+
+	public function spawnRepair(){
+		var r:Repair = cast(hps.recycle(Repair), Repair);
+		r.reset(t.x + 15, t.y - 20);
+		r.Wait();
 	}
 }

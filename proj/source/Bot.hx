@@ -308,19 +308,19 @@ class Bot extends FlxSprite
 			_aim = FlxObject.DOWN|FlxObject.LEFT;
 			gunHand.play("downfront");
 		}
-		else if(inUP){
+		else if(inUP||keyUpSustain){
 			_aim = FlxObject.UP;
 			gunHand.play("up");
 		}
-		else if(inDOWN){
+		else if(inDOWN||keyDownSustain){
 			_aim = FlxObject.DOWN;
 			gunHand.play("down");
 		}
-		else if(inLEFT){
+		else if(inLEFT||keyLeftSustain){
 			_aim = FlxObject.LEFT;
 			gunHand.play("front");
 		}
-		else if(inRIGHT){
+		else if(inRIGHT||keyRightSustain){
 			_aim = FlxObject.RIGHT;
 			gunHand.play("front");
 		}

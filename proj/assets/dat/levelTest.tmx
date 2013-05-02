@@ -28,19 +28,44 @@
  </layer>
  <layer name="tile" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYKAuEKUBprbbRs0bNY9W5uFLu4PBfZSaR0reHIr+paTsGSr+pSYGABrYBw8=
+   eJxjYKAuEKUBprbbRs2jjXmkxh8x8sSIDTbzcPl9INxHzfjAZiYxaqkF6GEeJWXPUPEvNTEAATsIng==
   </data>
  </layer>
  <objectgroup name="misc" width="20" height="20">
   <object name="start" x="20" y="340" width="40" height="40"/>
-  <object name="end" x="340" y="340" width="40" height="40"/>
+  <object name="end" x="440" y="320" width="40" height="40"/>
+  <object name="lift" type="lift" x="40" y="100" width="80" height="260">
+   <properties>
+    <property name="speed" value="50"/>
+    <property name="w" value="4"/>
+   </properties>
+  </object>
+  <object name="lift" type="lift" x="280" y="100" width="80" height="260">
+   <properties>
+    <property name="speed" value="50"/>
+    <property name="w" value="4"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemy" width="20" height="20">
-  <object type="bg" x="260" y="160" width="60" height="40"/>
-  <object type="bg" x="180" y="220" width="60" height="40"/>
-  <object type="bg" x="80" y="280" width="60" height="40">
+  <object type="ac" x="180" y="160" width="40" height="20">
    <properties>
-    <property name="face" value="right"/>
+    <property name="hang" value="up"/>
+   </properties>
+  </object>
+  <object type="ac" x="180" y="220" width="40" height="20">
+   <properties>
+    <property name="hang" value="down"/>
+   </properties>
+  </object>
+  <object type="ac" x="160" y="180" width="20" height="40">
+   <properties>
+    <property name="hang" value="left"/>
+   </properties>
+  </object>
+  <object type="ac" x="220" y="180" width="20" height="40">
+   <properties>
+    <property name="hang" value="right"/>
    </properties>
   </object>
  </objectgroup>

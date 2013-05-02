@@ -119,6 +119,10 @@ class Level7 extends Level
 		
 		if (!lock1 || !lock2 || !lock3 || !lock4)
 			lastCom.SetOn(false);
+
+		// update lock statuc info
+		var lockCnt:Int = (lock1?0:1) + (lock2?0:1) + (lock3?0:1) + (lock4?0:1);
+		cast(tips.members[0], Tip1).graphic.text = lockCnt + " Lock Left to Open the Door";
 		
 		// warn
 		if(!warned){

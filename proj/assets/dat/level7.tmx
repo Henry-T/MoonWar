@@ -38,7 +38,7 @@
  </layer>
  <layer name="tile" width="120" height="74">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="js" width="120" height="74">
@@ -175,7 +175,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy" width="120" height="74" visible="0">
+ <objectgroup name="enemy" width="120" height="74">
   <object type="ac" x="380" y="600" width="20" height="40">
    <properties>
     <property name="hang" value="right"/>

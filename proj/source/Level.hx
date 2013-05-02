@@ -526,6 +526,7 @@ class Level extends MWState
 		add(sBase);
 		add(coms);
 
+		add(t);
 		add(hps);
 		
 		add(breakEmt);
@@ -550,7 +551,6 @@ class Level extends MWState
 		add(zball);
 		add(gate);
 		
-		add(t);
 		add(bullets);
 		add(bot);
 		
@@ -627,7 +627,7 @@ class Level extends MWState
 		FlxG.collide(bWalks, tileJS);
 
 		// hp repair for bot
-		FlxG.overlap(hps, bot, function(h:FlxObject, b:FlxObject){bot.health = Bot.maxHealth; h.kill();});
+		FlxG.overlap(hps, bot, function(h:FlxObject, b:FlxObject){if(!cast(h, Repair).waitOn){bot.health = Bot.maxHealth; h.kill();}});
 
 		// tile that collides enemy only
 		FlxG.collide(tileEO,guards);
