@@ -19,6 +19,7 @@ class LevelTest extends Level{
 		// initial 
 		bot.x = this.start.x;
 		bot.y = this.end.y;
+		bot.On = false;
 
 		// Test : VarTween
 		//var camTween:VarTween = new VarTween(null, FlxTween.PERSIST);

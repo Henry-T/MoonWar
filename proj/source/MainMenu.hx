@@ -76,7 +76,8 @@ class MainMenu extends GameScreen
 
 	public override function update(){
 		super.update();
-		if(FlxG.keys.T)
+		if(FlxG.keys.T){
 			FlxG.switchState(new LevelTest());
+		}
 	}
 }

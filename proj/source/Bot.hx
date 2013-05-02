@@ -157,10 +157,10 @@ class Bot extends FlxSprite
 		
 		health = maxHealth;
 
-		keyUpTimerLeft	= 0;
-		keyUpTimerRight	= 0;
-		keyUpTimerUp	= 0;
-		keyUpTimerDown	= 0;
+		keyUpTimerLeft	= aimSustainTimeout;	// fix hand aim on the FIRST frame
+		keyUpTimerRight	= aimSustainTimeout;
+		keyUpTimerUp	= aimSustainTimeout;
+		keyUpTimerDown	= aimSustainTimeout;
 		keyLeftSustain	= false;
 		keyRightSustain	= false;
 		keyUpSustain	= false;
@@ -169,11 +169,11 @@ class Bot extends FlxSprite
 
 	override public function update():Void
 	{
-		inLEFT = false;
+		inLEFT 	= false;
 		inRIGHT = false;
-		inUP = false;
-		inDOWN = false;
-		inJUMP = false;
+		inUP 	= false;
+		inDOWN 	= false;
+		inJUMP 	= false;
 		inSHOOT = false;
 
 	    var touches:Array<FlxTouch> = FlxG.touchManager.touches;
@@ -254,10 +254,10 @@ class Bot extends FlxSprite
 			//}
 		}
 
-		if(FlxG.keys.UP && On)		inUP = true;
-		if(FlxG.keys.LEFT && On)	inLEFT = true;
-		if(FlxG.keys.DOWN && On)	inDOWN = true;
-		if(FlxG.keys.RIGHT && On)	inRIGHT = true;
+		if(FlxG.keys.UP 	&& On)	inUP = true;
+		if(FlxG.keys.LEFT 	&& On)	inLEFT = true;
+		if(FlxG.keys.DOWN 	&& On)	inDOWN = true;
+		if(FlxG.keys.RIGHT 	&& On)	inRIGHT = true;
 
 		// Sustain Aiming
 		keyUpTimerUp 	+= FlxG.elapsed;
@@ -265,7 +265,7 @@ class Bot extends FlxSprite
 		keyUpTimerLeft 	+= FlxG.elapsed;
 		keyUpTimerRight += FlxG.elapsed;
 
-		if(!FlxG.keys.UP && !FlxG.keys.LEFT && !FlxG.keys.DOWN && !FlxG.keys.RIGHT){
+		if(On && !FlxG.keys.UP && !FlxG.keys.LEFT && !FlxG.keys.DOWN && !FlxG.keys.RIGHT){
 			if(!keyUpSustain && keyUpTimerUp < aimSustainTimeout)
 				keyUpSustain = true;
 			if(!keyDownSustain && keyUpTimerDown < aimSustainTimeout)
@@ -282,18 +282,19 @@ class Bot extends FlxSprite
 			keyRightSustain = false;
 		}
 
-		if(FlxG.keys.justReleased("UP"))
+		if(On && FlxG.keys.justReleased("UP"))
 			keyUpTimerUp = 0;
-		if(FlxG.keys.justReleased("DOWN"))
+		if(On && FlxG.keys.justReleased("DOWN"))
 			keyUpTimerDown = 0;
-		if(FlxG.keys.justReleased("LEFT"))
+		if(On && FlxG.keys.justReleased("LEFT"))
 			keyUpTimerLeft = 0;
-		if(FlxG.keys.justReleased("RIGHT"))
+		if(On && FlxG.keys.justReleased("RIGHT"))
 			keyUpTimerRight = 0;
 
 		//AIMING
 		if((inUP||keyUpSustain) && (inRIGHT||keyRightSustain)) {
 			_aim = FlxObject.UP|FlxObject.RIGHT;
+			trace("bad1 " + inUP + " " + inRIGHT + " " + keyUpSustain + " " + keyRightSustain);
 			gunHand.play("upfront");
 		}
 		else if((inUP||keyUpSustain) && (inLEFT||keyLeftSustain)){

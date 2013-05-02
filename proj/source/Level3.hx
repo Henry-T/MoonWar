@@ -155,8 +155,7 @@ class Level3 extends Level
 		
 		t = new Trans(220, 240, null);
 		t.active=false;
-		
-		bot.x = botPos1.x; botPos1.y = botPos1.y;
+
 		
 		AddAll();
 		
@@ -164,8 +163,12 @@ class Level3 extends Level
 		FlxG.camera.scroll.x = t.x + t.width / 2 -FlxG.width / 2;
 		switchState(0);
 		bgMetal.visible = false;
+
 		bot.On = false;
+		bot.x = botPos1.x;
+		bot.y = botPos1.y;
 		bot.gunHand.play("down");
+		
 		ResUtil.playGame1();
 		reached = false;
 
@@ -295,21 +298,23 @@ class Level3 extends Level
 				}
 				else
 				{
-					bot.On = false;
-					// start trans again!
-					bg1.velocity.x = 0;
-					bg2.velocity.x = 0;
-					t.velocity.x = 300;
-					battling = false;
 					battleEnd = true;
+					bot.On = false;
 					for (r in hps.members) {
 						if(r.alive) r.kill();
 					}
+					timer1.start(2.5, 1, function(tmr:FlxTimer){
+						// start trans again!
+						battling = false;
+						bg1.velocity.x = 0;
+						bg2.velocity.x = 0;
+						t.velocity.x = 300;
+					});
 				}
 			}
 		}
 
-		if(battling){
+		if(battling || !battleEnd){
 			// keep bot on transport
 			if (bot.x < t.x - bot.width / 2)
 				bot.x = t.x - bot.width / 2;
