@@ -64,6 +64,11 @@ class Boss1 extends Enemy
 	public var hurtBase:Bool;
 
 	public var bossFire:FlxSprite;
+	public var FireOn:Bool;
+
+	public var realPosInAir:FlxPoint;
+	public var floatTimer:Float;
+	public var floating:Bool;
 
 	public function new(x:Float, y:Float, game:Level2)
 	{
@@ -130,6 +135,8 @@ class Boss1 extends Enemy
 		bossFire.addAnimation("off", [3, 4, 5, 6, 7, 8, 9, 10], 15, false);
 		bossFire.offset.make(32, 0);
 		bossFire.play("idle");
+
+		FireOn = false;
 	}
 
 	override public function update():Void
@@ -163,7 +170,6 @@ class Boss1 extends Enemy
 		if (slash.finished)
 		hurtBase = false;
 		
-		
 		//timerPShot.update();
 		cR.x = x;
 		cR.y = y;
@@ -192,10 +198,30 @@ class Boss1 extends Enemy
 			}
 		}
 
+		// handle float
+		if(floating){
+			floatTimer += FlxG.elapsed;
+			var addY:Float = Math.sin(floatTimer * 3) * 8;
+			y = realPosInAir.y + addY;
+			x = realPosInAir.x;
+		}
+
 		bossFire.x = getMidpoint().x;
 		bossFire.y = getMidpoint().y + 20;
 		bossFire.updateAnimation();
+
 		super.update();
+	}
+
+	public function enableFloat(enable:Bool){
+		if(enable){
+			floating = true;
+			floatTimer = 0;
+			realPosInAir = new FlxPoint(x, y);
+		}
+		else {
+			floating = false;
+		}
 	}
 
 	override public function kill():Void 
@@ -206,9 +232,10 @@ class Boss1 extends Enemy
 
 	override public function draw():Void
 	{
-		// for debugging
-		bossFire.draw();
+		if(FireOn)
+			bossFire.draw();
 		super.draw();
+		// for debugging
 		collG.draw();
 
 		slash.draw();

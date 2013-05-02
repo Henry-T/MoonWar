@@ -223,7 +223,7 @@ class Bee extends Enemy
 			else 
 				facing = FlxObject.RIGHT;
 		}
-		
+
 		super.update();
 	}
 

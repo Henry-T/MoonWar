@@ -2,6 +2,7 @@ package;
 import org.flixel.FlxText;
 import org.flixel.FlxRect;
 import org.flixel.FlxG;
+import org.flixel.FlxU;
 import org.flixel.FlxTilemap;
 import org.flixel.FlxEmitter;
 import org.flixel.FlxSprite;
@@ -124,6 +125,7 @@ class Level extends MWState
 	public var smokeEmt1:FlxEmitter;
 	public var smokeEmt2:FlxEmitter;
 	public var eExplo:FlxSprite;
+	public var hugeExplos:FlxGroup;
 
 	// Huds
 	public var tips:FlxGroup;
@@ -146,10 +148,13 @@ class Level extends MWState
 	public var btnHelp:FlxButton;
 	public var lbMission:FlxText;
 	public var lbResult:FlxText;
+	public var toSkip:FlxSprite;
+	public var skipFun:Void->Void;
 
 	// Utility
 	public var timer1:FlxTimer;
 	public var timer2:FlxTimer;
+	public var timer3:FlxTimer;
 	public var gvTimer:FlxTimer;	// Game Over Time
 	public var jsCntr:Int;			// 
 
@@ -209,6 +214,7 @@ class Level extends MWState
 		
 		timer1 = new FlxTimer();
 		timer2 = new FlxTimer();
+		timer3 = new FlxTimer();
 		gvTimer = new FlxTimer();
 		
 		// Preload Tile Data
@@ -259,6 +265,7 @@ class Level extends MWState
 		birthRay.loadGraphic("assets/img/birthRay.png", true, false, 30, 10);
 		birthRay.scale = new FlxPoint(1, 42);
 		birthRay.addAnimation("birth", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 5, false);
+		hugeExplos = new FlxGroup();
 		
 		// Huds
 		tips = new FlxGroup();
@@ -336,6 +343,10 @@ class Level extends MWState
 		lbResult.scrollFactor.make(0,0);
 		lbResult.visible = false;
 
+		toSkip = new FlxSprite(0, 0, "assets/img/clickToSkip.png");
+		toSkip.scrollFactor.make(0, 0);
+		toSkip.visible = true;
+
 		// Dialogs
 		// try load tile layers
 		tileBgFar = GetTile("bgFar", FlxObject.NONE);
@@ -384,7 +395,7 @@ class Level extends MWState
 				else if (o.type == "cube")
 				{
 					var cube:Cube = cast(cubes.recycle(Cube),Cube);
-					cube.reset(o.x, o.y);
+					cube.make(o);
 				}
 				else if (o.type == "com")
 				{
@@ -562,6 +573,7 @@ class Level extends MWState
 		add(smokeEmt1);
 		add(smokeEmt2);
 		add(bombFlower);
+		add(hugeExplos);
 		
 		add(hpBar);
 		
@@ -584,6 +596,8 @@ class Level extends MWState
 		add(lbMission);
 		add(lbResult);
 
+		add(toSkip);
+
 		add(btnMute);
 		
 		#if android
@@ -598,6 +612,15 @@ class Level extends MWState
 
 	override public function update():Void 
 	{
+		// handle skip
+		if(toSkip.visible){
+			if(FlxG.mouse.justReleased() && toSkip.overlapsPoint(FlxG.mouse.getScreenPosition()))
+			{
+				toSkip.visible = false;
+				if(skipFun != null)skipFun();
+			}
+		}
+
 		if(tileCoverD != null)
 			FlxG.collide(bullets, tileCoverD, function(b:FlxObject, t:FlxObject){b.kill();});
 
@@ -792,6 +815,15 @@ class Level extends MWState
 		b.make(x, y, 0, false);
 	}
 
+	public function AddHugeExplo(x:Float, y:Float){
+		var h:FlxSprite = cast(hugeExplos.recycle(FlxSprite), FlxSprite);
+		h.reset(x, y);
+		h.loadGraphic("assets/img/hugeExplo.png", true, false, 128, 128);
+		h.addAnimation("def",[0,1,2,3,4,5,6,7,8,9,10], 8, false);
+		h.x = x - h.width/2; h.y = y - h.height/2;
+		h.play("def");
+	}
+
 	public function EndLevel(win:Bool=true){
 		this.isWin = win;
 		this.isEnd = true;
@@ -832,4 +864,9 @@ class Level extends MWState
 		camTweening = true;
 		onCamTweenDone = onDone;
 	} 
+
+	public function ShowSkip(show:Bool, call:Void->Void=null){
+		toSkip.visible = show;
+		skipFun = call;
+	}
 }

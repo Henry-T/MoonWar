@@ -68,6 +68,9 @@ class Level2 extends Level
 	public var fighting:Bool;
 	public var fightDone:Bool;
 
+	public var exploPos1:FlxPoint;
+	public var exploPos2:FlxPoint;
+
 	public function new()
 	{
 		super();
@@ -104,6 +107,7 @@ class Level2 extends Level
 		dashDone = false;
 	}
 
+	private var bShakeTween:LinearMotion;
 	override public function create():Void
 	{
 		super.create();
@@ -187,6 +191,10 @@ class Level2 extends Level
 				posCam3 = new FlxPoint(td.x, td.y);
 			else if(td.name == "landHeight")
 				landHeight = td.y;
+			else if(td.name == "explo1")
+				exploPos1 = new FlxPoint(td.x, td.y);
+			else if(td.name == "explo2")
+				exploPos2 = new FlxPoint(td.x, td.y);
 		}
 		
 		// Addings
@@ -201,14 +209,15 @@ class Level2 extends Level
 		FlxG.camera.scroll = posCam1;
 		roam = true;
 		boss1.play("air");
+		ShowSkip(true, initForGame);
 
 		TweenCamera(posCam2.x, posCam2.y, 3, true, function(){
 			roam = false;
 			roamDone = true;
 
 			// Create enemy
-			boss1.x = posBInSrc.x; boss1.y = posBInSrc.y;
-			var bMoveTween:QuadMotion = new QuadMotion(null, FlxTween.ONESHOT);
+			boss1.x = posBInSrc.x; boss1.y = posBInSrc.y;boss1.FireOn = true;
+			var bMoveTween:QuadMotion = new QuadMotion(function(){boss1.enableFloat(true);}, FlxTween.ONESHOT);
 			bMoveTween.setMotion(posBInSrc.x, posBInSrc.y, posBInCtrl.x, posBInCtrl.y, posBIn.x, posBIn.y, 4, Ease.sineOut);
 			bMoveTween.setObject(boss1);
 			addTween(bMoveTween);
@@ -233,10 +242,20 @@ class Level2 extends Level
 						for (b in Bees.members)b.kill();
 
 						// compare anim
+						AddHugeExplo(exploPos1.x, exploPos1.y);
+						for (c in cubes.members) {
+							var cb:Cube = cast(c, Cube);
+							if(cb.alive && cb.isBomb && cb.group == 0)
+								cb.kill();
+							else if(cb.alive && !cb.isBomb && cb.group == 0){
+								cb.angularVelocity = -90 + FlxG.random() * 180;
+								cb.acceleration.y = 200;
+								cb.velocity.x = -300 + FlxG.random() * 600;
+								cb.velocity.y = -100 + FlxG.random() * -300; 
+							}
+						}
 						FlxG.flash(0xffffffff, 0.1, function(){
-							var bShakeTween:LinearMotion = new LinearMotion(function(){
-
-							}, FlxTween.PINGPONG);
+							bShakeTween = new LinearMotion(null, FlxTween.PINGPONG);
 							bShakeTween.setMotion(boss1.x-3, boss1.y, boss1.x + 3, boss1.y, 0.1, Ease.cubeInOut);
 							bShakeTween.setObject(boss1);
 							addTween(bShakeTween);
@@ -244,10 +263,25 @@ class Level2 extends Level
 							timer2.start(1.0, 1, function(t:FlxTimer){
 								this.removeTween(bShakeTween);
 							});
-							FlxG.flash(0xffffffff, 0.2, null);
+							timer3.start(1.0, 1, function(t:FlxTimer){
+								AddHugeExplo(exploPos2.x, exploPos2.y);
+								for (c in cubes.members) {
+									var cb:Cube = cast(c, Cube);
+									if(cb.alive && cb.isBomb && cb.group == 1)
+										cb.kill();
+									else if(cb.alive && !cb.isBomb && cb.group == 1){
+										cb.angularVelocity = -90 + FlxG.random() * 180;
+										cb.acceleration.y = 200;
+										cb.velocity.x = -300 + FlxG.random() * 600;
+										cb.velocity.y = -100 + FlxG.random() * -300; 
+									}
+								}
+								FlxG.flash(0xffffffff, 0.2, null);
+							});
 						});
 
 						timer1.start(2.5, 1, function(t:FlxTimer){
+							boss1.enableFloat(false);
 							boss1.play("fall");
 							timer2.start(1.5, 1, function(t:FlxTimer){boss1.play("idle");});
 							boss1.bossFire.play("off");
@@ -298,8 +332,41 @@ class Level2 extends Level
 		});
 	}
 
+	// called when skip the level intro
+	public function initForGame(){
+		bShakeTween.cancel();
+		clearTweens();
+		FlxG.camera.scroll = posCam3;
+		timer1.stop();
+		timer2.stop();
+		timer3.stop();
+
+		bot.x = 152;
+		bot.y = 130;
+		bot.On = true;
+
+		boss1.reset(posBStart.x, posBStart.y);
+		boss1.switchState(1);
+		boss1.FireOn = false;
+		boss1.facing = FlxObject.LEFT;
+		boss1.play("idle");
+
+		ShowBossHP(true);
+		baseHPBg.visible = true;
+		baseHPBar.visible = true;
+
+		smokeEmt1.on = false;
+	}
+
 	override public function update():Void
 	{
+		// remove cubes when out of view range
+		for (c in cubes.members) {
+			var cube:Cube = cast(c, Cube);
+			if(cube.alive && cube.y > FlxG.camera.bounds.bottom)
+				cube.kill();
+		}
+
 		if(dashDone  && !fightDone){
 			if(Math.abs(FlxG.camera.scroll.x - posCam3.x) > 3){
 				FlxG.camera.scroll.x -= 5;

@@ -26,7 +26,7 @@ class LineMgr extends FlxSprite
 	public function new():Void{ 	
 		super(0,0,null);
 
-		isEnd = false;
+		isEnd = true;
 
 		heads = new Array<FlxSprite>();
 
@@ -83,6 +83,10 @@ class LineMgr extends FlxSprite
 		}
 	}
 
+	public function Skip(){
+		isEnd = true;
+	}
+
 	override public function update(){
 		if(!isEnd && FlxG.keys.justPressed("SPACE")){
 			Next();
@@ -94,7 +98,7 @@ class LineMgr extends FlxSprite
 	}
 
 	override public function draw(){
-		if(curLineId <= lineCnt-1){
+		if(!isEnd){
 			var newWidth = 120 + Math.round(line.text.length * 6);
 			if(newWidth < 180) newWidth = 180;
 			lineBg.setSize(newWidth, 30);
