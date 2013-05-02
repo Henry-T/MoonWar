@@ -13,6 +13,7 @@ import org.flixel.tweens.motion.QuadMotion;
 import org.flixel.tweens.motion.LinearMotion;
 import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
+import org.flixel.FlxCamera;
 
 class Level2 extends Level
 {
@@ -194,7 +195,6 @@ class Level2 extends Level
 		
 		// initial
 		bot.On = false;
-		tile.follow();
 		ResUtil.playGame1();
 		bgMetal.visible = false;
 		FlxG.flash(0xff000000, 2);
@@ -240,6 +240,7 @@ class Level2 extends Level
 							bShakeTween.setMotion(boss1.x-3, boss1.y, boss1.x + 3, boss1.y, 0.1, Ease.cubeInOut);
 							bShakeTween.setObject(boss1);
 							addTween(bShakeTween);
+							boss1.play("airShock");
 							timer2.start(1.0, 1, function(t:FlxTimer){
 								this.removeTween(bShakeTween);
 							});
@@ -247,13 +248,43 @@ class Level2 extends Level
 						});
 
 						timer1.start(2.5, 1, function(t:FlxTimer){
+							boss1.play("fall");
+							timer2.start(1.5, 1, function(t:FlxTimer){boss1.play("idle");});
 							boss1.bossFire.play("off");
 							var bLandTween:LinearMotion = new LinearMotion(function(){
 								timer1.start(0.5, 1, function(t:FlxTimer){
 									lineMgr.Start(lines2, function(){
 										dash = true;
-										boss1.velocity.x = -400;
+										boss1.play("walk");
 										smokeEmt1.on = true;
+										FlxG.camera.follow(boss1, FlxCamera.STYLE_LOCKON, null, 0.5);
+										var bDashTween:LinearMotion = new LinearMotion(function(){
+											dash = false;
+											dashDone = true;
+											boss1.velocity.x = 0;
+											boss1.play("idle");
+											smokeEmt1.on = false;
+
+											birthRay.x = 150;
+											birthRay.y = bot.y + bot.height - birthRay.height*birthRay.scale.y;
+											birthRay.play("birth");
+											bot.x = 152;
+											bot.y = 130;
+
+											FlxG.camera.follow(null);
+											TweenCamera(posCam3.x, posCam3.y, 2, true, function(){
+												lineMgr.Start(lines3, function(){
+													bot.On = true;
+													boss1.switchState(1);
+													ShowBossHP(true);
+													baseHPBg.visible = true;
+													baseHPBar.visible = true;
+												});
+											});
+										}, FlxTween.ONESHOT);
+										bDashTween.setMotion(boss1.x, boss1.y, posBStart.x, posBStart.y, 7, Ease.quadInOut);
+										bDashTween.setObject(boss1);
+										addTween(bDashTween);
 									});
 								});
 							}, FlxTween.ONESHOT);
@@ -269,41 +300,6 @@ class Level2 extends Level
 
 	override public function update():Void
 	{
-		// carry all guards on land
-		for (g in guards.members) {
-			if(g.alive && cast(g, FlxObject).y > landHeight)
-				cast(g, FlxObject).y = landHeight;
-		}
-
-		if(dash){
-			if(boss1.x < posBStart.x){
-				dash = false;
-				dashDone = true;
-				boss1.velocity.x = 0;
-				smokeEmt1.on = false;
-
-				birthRay.x = 150;
-				birthRay.y = bot.y + bot.height - birthRay.height*birthRay.scale.y;
-				birthRay.play("birth");
-				bot.x = 152;
-				bot.y = 130;
-
-				TweenCamera(posCam3.x, posCam3.y, 2, true, function(){
-					lineMgr.Start(lines3, function(){
-						bot.On = true;
-						boss1.switchState(1);
-						ShowBossHP(true);
-						baseHPBg.visible = true;
-						baseHPBar.visible = true;
-					});
-				});
-			}
-		}
-
-		// camera
-		if(dash){
-			FlxG.camera.scroll.x = boss1.x - FlxG.width/2;
-		}
 		if(dashDone  && !fightDone){
 			if(Math.abs(FlxG.camera.scroll.x - posCam3.x) > 3){
 				FlxG.camera.scroll.x -= 5;

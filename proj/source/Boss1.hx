@@ -94,8 +94,9 @@ class Boss1 extends Enemy
 		addAnimation("zIdle",[40],1,false);
 		addAnimation("zWalk",[41,42,43,44,45,46,47,48],20,true);
 		addAnimation("zEnd",[51],2,false);
-		addAnimation("fall",[52,53,54,55,56,57],2,false);
+		addAnimation("fall",[52,53,54,55,56,57],4,false);
 		addAnimation("airDeath",[58,59,60,60,62,63],2,false);
+		addAnimation("airShock", [57], 1, false);
 		
 		perShotCnt = 0;
 		
