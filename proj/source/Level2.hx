@@ -9,6 +9,10 @@ import org.flixel.FlxPoint;
 import org.flixel.system.FlxTile;
 import org.flixel.FlxTimer;
 import org.flixel.tmx.TmxObjectGroup;
+import org.flixel.tweens.motion.QuadMotion;
+import org.flixel.tweens.motion.LinearMotion;
+import org.flixel.tweens.FlxTween;
+import org.flixel.tweens.util.Ease;
 
 class Level2 extends Level
 {
@@ -43,8 +47,12 @@ class Level2 extends Level
 
 	public var posBeeAry:Array<FlxPoint>;
 	public var posGrdAry:Array<FlxPoint>;
+	public var posBInSrc:FlxPoint;
+	public var posBInCtrl:FlxPoint;
 	public var posBIn:FlxPoint;
+	public var posBInLand:FlxPoint;
 	public var posBStart:FlxPoint;
+	public var landHeight:Float;
 
 	public var posCam1:FlxPoint;
 	public var posCam2:FlxPoint;
@@ -113,7 +121,7 @@ class Level2 extends Level
 		sBase.width = 60; sBase.height = 75;
 		sBase.health = BaseMaxLife;
 		
-		boss1 = new Boss1(bossX + xExtend, bossY/* + bossBury*/, this); 	// final pos 10, 230
+		boss1 = new Boss1(bossX + xExtend, bossY + 300/* + bossBury*/, this); 	// final pos 10, 230
 		
 		smokeEmt1 = new FlxEmitter(550, 375);
 		smokeEmt1.x = xExtend - 100;			// x pos for preDash;
@@ -162,6 +170,12 @@ class Level2 extends Level
 				posGrdAry.push(new FlxPoint(td.x, td.y));
 			else if(td.name == "posBIn")
 				posBIn = new FlxPoint(td.x, td.y);
+			else if(td.name == "posBInSrc")
+				posBInSrc = new FlxPoint(td.x, td.y);
+			else if(td.name == "posBInCtrl")
+				posBInCtrl = new FlxPoint(td.x, td.y);
+			else if(td.name == "posBInLand")
+				posBInLand = new FlxPoint(td.x, td.y);
 			else if(td.name == "posBStart")
 				posBStart = new FlxPoint(td.x, td.y);
 			else if(td.name == "cam1")
@@ -170,6 +184,8 @@ class Level2 extends Level
 				posCam2 = new FlxPoint(td.x, td.y);
 			else if(td.name == "cam3")
 				posCam3 = new FlxPoint(td.x, td.y);
+			else if(td.name == "landHeight")
+				landHeight = td.y;
 		}
 		
 		// Addings
@@ -184,13 +200,19 @@ class Level2 extends Level
 		FlxG.flash(0xff000000, 2);
 		FlxG.camera.scroll = posCam1;
 		roam = true;
+		boss1.play("air");
 
 		TweenCamera(posCam2.x, posCam2.y, 3, true, function(){
 			roam = false;
 			roamDone = true;
 
 			// Create enemy
-			boss1.x = posBIn.x; boss1.y = posBIn.y;
+			boss1.x = posBInSrc.x; boss1.y = posBInSrc.y;
+			var bMoveTween:QuadMotion = new QuadMotion(null, FlxTween.ONESHOT);
+			bMoveTween.setMotion(posBInSrc.x, posBInSrc.y, posBInCtrl.x, posBInCtrl.y, posBIn.x, posBIn.y, 4, Ease.sineOut);
+			bMoveTween.setObject(boss1);
+			addTween(bMoveTween);
+
 			for (grdPos in posGrdAry) {
 				var grd:Guard = new Guard(grdPos.x + 200, grdPos.y);
 				grd.velocity.x = -100;
@@ -204,15 +226,40 @@ class Level2 extends Level
 				Bees.add(bee);
 			}
 
-			timer1.start(3, 1, function(t:FlxTimer){
+			timer1.start(4.5, 1, function(t:FlxTimer){
 				lineMgr.Start(lines1, function(){
-					for (grd in guards.members)grd.kill();
-					for (b in Bees.members)b.kill();
-					timer1.start(2, 1, function(t:FlxTimer){
-						lineMgr.Start(lines2, function(){
-							dash = true;
-							boss1.velocity.x = -400;
-							smokeEmt1.on = true;
+					timer1.start(0.8, 1,function(t:FlxTimer){
+						for (grd in guards.members)grd.kill();
+						for (b in Bees.members)b.kill();
+
+						// compare anim
+						FlxG.flash(0xffffffff, 0.1, function(){
+							var bShakeTween:LinearMotion = new LinearMotion(function(){
+
+							}, FlxTween.PINGPONG);
+							bShakeTween.setMotion(boss1.x-3, boss1.y, boss1.x + 3, boss1.y, 0.1, Ease.cubeInOut);
+							bShakeTween.setObject(boss1);
+							addTween(bShakeTween);
+							timer2.start(1.0, 1, function(t:FlxTimer){
+								this.removeTween(bShakeTween);
+							});
+							FlxG.flash(0xffffffff, 0.2, null);
+						});
+
+						timer1.start(2.5, 1, function(t:FlxTimer){
+							boss1.bossFire.play("off");
+							var bLandTween:LinearMotion = new LinearMotion(function(){
+								timer1.start(0.5, 1, function(t:FlxTimer){
+									lineMgr.Start(lines2, function(){
+										dash = true;
+										boss1.velocity.x = -400;
+										smokeEmt1.on = true;
+									});
+								});
+							}, FlxTween.ONESHOT);
+							bLandTween.setMotion(boss1.x, boss1.y, boss1.x, posBInLand.y, 1.5, Ease.cubeIn);
+							bLandTween.setObject(boss1);
+							addTween(bLandTween);
 						});
 					});
 				});
@@ -222,6 +269,12 @@ class Level2 extends Level
 
 	override public function update():Void
 	{
+		// carry all guards on land
+		for (g in guards.members) {
+			if(g.alive && cast(g, FlxObject).y > landHeight)
+				cast(g, FlxObject).y = landHeight;
+		}
+
 		if(dash){
 			if(boss1.x < posBStart.x){
 				dash = false;
@@ -261,14 +314,11 @@ class Level2 extends Level
 		}
 
 		// handle guards
-		if(guards.countLiving()==2){
-			if(cast(guards.members[0], Guard).x <= posGrdAry[0].x){
-				cast(guards.members[0], Guard).On = false;
-				cast(guards.members[0], Guard).velocity.x = 0;
-			}
-			if(cast(guards.members[1], Guard).x <= posGrdAry[1].x){
-				cast(guards.members[1],Guard).On = false;
-				cast(guards.members[1], Guard).velocity.x = 0;
+		for (i in 0...guards.length) {
+			var gd:Guard = cast(guards.members[i], Guard);
+			if(gd.x <= posGrdAry[i].x){
+				gd.On = false;
+				gd.velocity.x = 0;
 			}
 		}
 

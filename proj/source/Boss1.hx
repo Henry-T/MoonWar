@@ -63,6 +63,8 @@ class Boss1 extends Enemy
 
 	public var hurtBase:Bool;
 
+	public var bossFire:FlxSprite;
+
 	public function new(x:Float, y:Float, game:Level2)
 	{
 		super(x, y, null);
@@ -84,7 +86,7 @@ class Boss1 extends Enemy
 		addAnimation("jumping",[14],1,true);
 		addAnimation("slash",[15,16,1,18,19],10,false);
 		addAnimation("shot",[20,21,22,23,24,25,26],3,false);
-		addAnimation("air",[27,28],4,true);
+		addAnimation("air",[27],4,true);	// 27, 28
 		addAnimation("airShot",[29,30,31,32,33,34,35],3,false);
 		addAnimation("airDash",[36,37],2,false);
 		addAnimation("airDashEnd",[38],1,false);
@@ -98,7 +100,7 @@ class Boss1 extends Enemy
 		perShotCnt = 0;
 		
 		this.facing = FlxObject.LEFT;
-		this.play("walk");
+		//this.play("walk");
 		  
 		lastAppearLeft = false;
 		appearLL = 80;
@@ -120,6 +122,13 @@ class Boss1 extends Enemy
 		slash.addAnimation("slash", [0,1,2,3,4,5,6,7], 10, false);
 		
 		health = maxLife;
+
+		bossFire = new FlxSprite(-100, 0);
+		bossFire.loadGraphic("assets/img/fire2.png", true, false, 64, 64);
+		bossFire.addAnimation("idle", [0, 1, 2, 1, 0], 20, true);
+		bossFire.addAnimation("off", [3, 4, 5, 6, 7, 8, 9, 10], 15, false);
+		bossFire.offset.make(32, 0);
+		bossFire.play("idle");
 	}
 
 	override public function update():Void
@@ -132,7 +141,7 @@ class Boss1 extends Enemy
 			slash.x = this.x;
 			slash.y = this.y;
 		}
-		else{
+		else {
 			slash.x = this.x - 90;
 			slash.y = this.y;
 		}
@@ -147,8 +156,8 @@ class Boss1 extends Enemy
 		}
 		if (slash.frame == 4 && hurtBase==false)
 		{
-		game.sBase.hurt(10);
-		hurtBase = true;
+			game.sBase.hurt(10);
+			hurtBase = true;
 		}
 		if (slash.finished)
 		hurtBase = false;
@@ -181,6 +190,10 @@ class Boss1 extends Enemy
 				this.velocity.x = 10;
 			}
 		}
+
+		bossFire.x = getMidpoint().x;
+		bossFire.y = getMidpoint().y + 20;
+		bossFire.updateAnimation();
 		super.update();
 	}
 
@@ -193,9 +206,10 @@ class Boss1 extends Enemy
 	override public function draw():Void
 	{
 		// for debugging
+		bossFire.draw();
 		super.draw();
 		collG.draw();
-		
+
 		slash.draw();
 	}
 
