@@ -242,7 +242,7 @@ class Bot extends FlxSprite
 		if(On && !InVc && FlxG.keys.justPressed("Z") && !FlxG.keys.DOWN && isTouching(FlxObject.DOWN))
 		{
 			velocity.y = -_jumpPower;
-			FlxG.play("assets/snd/jump.mp3");
+			FlxG.play("assets/snd/jump2.mp3");
 		}
 		if (On && !InVc && FlxG.keys.justPressed("Z") && FlxG.keys.DOWN && (velocity.y == 0))
 		{

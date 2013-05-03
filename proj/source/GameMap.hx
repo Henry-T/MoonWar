@@ -73,19 +73,19 @@ class GameMap extends GameScreen
 
 
 		lvlBtns = new FlxGroup();
-		btnIntro = new FlxButton(50, 10, "INTRO", function() { SwitchLevel(0); FlxG.play("assets/snd/sel2.mp3");}); lvlBtns.add(btnIntro);
+		btnIntro = new FlxButton(50, 10, "INTRO", function() { SwitchLevel(0); FlxG.play("assets/snd/sel1.mp3");}); lvlBtns.add(btnIntro);
 		// btnIntro.label.setFormat(null, 8, 0xffffaa40);
 		btnIntro.label.shadow = 2;//= new FlxText();
 		
-		btnLvl1 = new FlxButton(50, 10 + 35 * 1, "LEVEL1", function() { SwitchLevel(1); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnLvl1);
-		btnLvl2 = new FlxButton(50, 10 + 35 * 2, "LEVEL2", function() { SwitchLevel(2); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnLvl2);
-		btnLvl3 = new FlxButton(50, 10 + 35 * 3, "LEVEL3", function() { SwitchLevel(3); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnLvl3);
-		btnLvl4 = new FlxButton(50, 10 + 35 * 4, "LEVEL4", function() { SwitchLevel(4); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnLvl4);
-		btnLvl5 = new FlxButton(50, 10 + 35 * 5, "LEVEL5", function() { SwitchLevel(5); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnLvl5);
-		btnLvl6 = new FlxButton(50, 10 + 35 * 6, "LEVEL6", function() { SwitchLevel(6); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnLvl6);
-		btnLvl7 = new FlxButton(50, 10 + 35 * 7, "LEVEL7", function() { SwitchLevel(7); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnLvl7);
-		btnLvl8 = new FlxButton(50, 10 + 35 * 8, "LEVEL8", function() { SwitchLevel(8); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnLvl8);
-		btnEnd = new FlxButton(50, 10 + 35 * 9, "END", function() { SwitchLevel(9); FlxG.play("assets/snd/sel2.mp3");} ); lvlBtns.add(btnEnd);
+		btnLvl1 = new FlxButton(50, 10 + 35 * 1, "LEVEL1", function() { SwitchLevel(1); FlxG.play("assets/snd/sel1.mp3");} ); lvlBtns.add(btnLvl1);
+		btnLvl2 = new FlxButton(50, 10 + 35 * 2, "LEVEL2", function() { SwitchLevel(2); FlxG.play("assets/snd/sel1.mp3");} ); lvlBtns.add(btnLvl2);
+		btnLvl3 = new FlxButton(50, 10 + 35 * 3, "LEVEL3", function() { SwitchLevel(3); FlxG.play("assets/snd/sel1.mp3");} ); lvlBtns.add(btnLvl3);
+		btnLvl4 = new FlxButton(50, 10 + 35 * 4, "LEVEL4", function() { SwitchLevel(4); FlxG.play("assets/snd/sel1.mp3");} ); lvlBtns.add(btnLvl4);
+		btnLvl5 = new FlxButton(50, 10 + 35 * 5, "LEVEL5", function() { SwitchLevel(5); FlxG.play("assets/snd/sel1.mp3");} ); lvlBtns.add(btnLvl5);
+		btnLvl6 = new FlxButton(50, 10 + 35 * 6, "LEVEL6", function() { SwitchLevel(6); FlxG.play("assets/snd/sel1.mp3");} ); lvlBtns.add(btnLvl6);
+		btnLvl7 = new FlxButton(50, 10 + 35 * 7, "LEVEL7", function() { SwitchLevel(7); FlxG.play("assets/snd/sel1.mp3");} ); lvlBtns.add(btnLvl7);
+		btnLvl8 = new FlxButton(50, 10 + 35 * 8, "LEVEL8", function() { SwitchLevel(8); FlxG.play("assets/snd/sel1.mp3");} ); lvlBtns.add(btnLvl8);
+		btnEnd = new FlxButton(50, 10 + 35 * 9, "END", function() { SwitchLevel(9); FlxG.play("assets/snd/sel1.mp3");} ); lvlBtns.add(btnEnd);
 
 		pic = new FlxSprite();
 
