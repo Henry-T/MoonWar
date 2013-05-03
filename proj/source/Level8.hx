@@ -7,6 +7,7 @@ import org.flixel.FlxObject;
 import org.flixel.FlxPoint;
 import org.flixel.FlxTimer;
 import org.flixel.tmx.TmxObjectGroup;
+import org.flixel.FlxCamera;
 
 class Level8 extends Level 
 {
@@ -101,6 +102,10 @@ class Level8 extends Level
 
 	override public function update():Void 
 	{
+		FlxG.overlap(missles, bullets, function(m:FlxObject, b:FlxObject){m.hurt(1); b.kill();});
+
+		FlxG.overlap(boss3Buls, bot, function(bul:FlxObject, b:FlxObject){bul.kill(); b.hurt(15);});
+
 		// gate
 		FlxG.collide(bot, gate);
 		FlxG.overlap(gate, missles, function(g:FlxObject, msl:FlxObject):Void { msl.kill(); } );
@@ -111,16 +116,16 @@ class Level8 extends Level
 		FlxG.collide(bigGunBuls, tile, function(bgb:FlxObject, tile:FlxObject) { bgb.kill(); } );
 		FlxG.collide(missles, tile, function(msl:FlxObject, tile:FlxObject):Void {msl.kill();});
 		
-		FlxG.overlap(bot, missles, function(bot:FlxObject, msl:FlxObject):Void { msl.kill(); } );
-		FlxG.overlap(bot, bouncers, function(bot:FlxObject, bcr:FlxObject):Void { bcr.kill();} );
-		FlxG.overlap(bot, bigGunBuls, function(bot:FlxObject, bgb:FlxObject):Void {bgb.kill();} );
+		FlxG.overlap(bot, missles, function(bot:FlxObject, msl:FlxObject):Void { msl.kill(); bot.hurt(30);} );
+		FlxG.overlap(bot, bouncers, function(bot:FlxObject, bcr:FlxObject):Void { bcr.kill(); bot.hurt(20);} );
+		FlxG.overlap(bot, bigGunBuls, function(bot:FlxObject, bgb:FlxObject):Void {bgb.kill(); bot.hurt(20);} );
 		
 		FlxG.collide(tile, boss3);		// Boss3 with Tile
 		
 		// bul on boss
 		FlxG.overlap(bullets, boss3, function(bul:FlxObject, boss3:FlxObject):Void { 
 			bul.kill();
-			boss3.hurt(100);
+			boss3.hurt(1);
 		});
 		
 		// boss life gui
@@ -153,19 +158,19 @@ class Level8 extends Level
 		{
 			triggered = true;
 			righting = true;
+			FlxG.camera.follow(null);
+			TweenCamera(camPos1.x, camPos1.y, 3.5, false, function(){
+				FlxG.camera.bounds.make(20*24, 20*1, 20*34, 20*21);
+			});
 		}
 		if (righting)
 		{
-			bot.velocity.x = bot.maxVelocity.x;
+			bot.velocity.x = 100;
 			bot.On = false;
 			if (!FlxG.overlap(bot, trigger))
 			{
 				righting = false;
 				bot.velocity.x = 0;
-				FlxG.camera.follow(null);
-				TweenCamera(camPos1.x, camPos1.y, 2, true, function(){
-					FlxG.camera.bounds.make(20*24, 20*1, 20*34, 20*21);
-				});
 				timer1.start(1, 1, function(t:FlxTimer):Void {
 					lineMgr.Start(lines1, function(){
 						gate.y += 100;
@@ -178,6 +183,7 @@ class Level8 extends Level
 						ResUtil.playGame1();
 						FlxG.camera.follow(bot, 0, null, 5);
 						bot.On = true;
+						FlxG.camera.follow(bot, FlxCamera.STYLE_LOCKON, 0.5);
 					});
 				});
 			}

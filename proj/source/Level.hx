@@ -107,6 +107,7 @@ class Level extends MWState
 	// Bullets
 	public var bullets:FlxGroup;	// Bullets of Bot
 	public var bigGunBuls:FlxGroup;	// Bullets of Bit Gun
+	public var boss3Buls:FlxGroup;	// Bullets of boss3 in level8
 	public var fgBuls:FlxGroup;		// Bullets of Fixed Gun
 	public var missles:FlxGroup;	// Missle of Rocket Launcher & BossLvl4
 	public var bouncers:FlxGroup;	// Bounce Bullets by BossLvl4
@@ -224,6 +225,7 @@ class Level extends MWState
 		// Bullets
 		bullets = new FlxGroup();
 		bigGunBuls = new FlxGroup();
+		boss3Buls = new FlxGroup();
 		bouncers = new FlxGroup();
 		fgBuls = new FlxGroup();
 		missles = new FlxGroup();
@@ -559,6 +561,8 @@ class Level extends MWState
 		add(bullets);
 		add(bot);
 		
+		add(boss3Buls);
+
 		add(tileCover);
 		add(tileCoverD);
 
@@ -697,12 +701,6 @@ class Level extends MWState
 		for (fgb in fgBuls.members) {
 		if (!cast(fgb,FlxSprite).onScreen())
 			fgb.kill(); }
-		for (msl in missles.members) {
-		if (!cast(msl,FlxSprite).onScreen())
-			msl.kill(); }
-		for (bcr in bouncers.members) {
-		if (!cast(bcr,FlxSprite).onScreen())
-			bcr.kill(); }
 			
 		FlxG.overlap(bot, ducks, function(bot:FlxObject, d:FlxObject) {bot.hurt(20);d.kill();});
 		FlxG.overlap(bullets, ducks, function(bul:FlxObject, duck:FlxObject){bul.kill();duck.hurt(1);});
