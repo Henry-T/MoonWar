@@ -14,6 +14,7 @@ class GameScreen extends MWState
 	override public function create():Void 
 	{
 		super.create();
-		FlxG.mouse.show("assets/img/cur.png");	
+		FlxG.mouse.show("assets/img/cur.png");
+		ResUtil.playTitle();
 	}
 }

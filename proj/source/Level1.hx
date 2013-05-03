@@ -31,8 +31,8 @@ class Level1 extends Level
 		];
 
 		lines2 = [
-		new Line(0, "Well, the war comes in advance."),
-		new Line(1, "I can use them to warm up.")
+			new Line(0, "Well, the war comes in advance."),
+			new Line(1, "I can use them to warm up.")
 		];
 
 		beePosAry = new Array<FlxPoint>();

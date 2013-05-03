@@ -105,7 +105,7 @@ class Level7 extends Level
 
 		FlxG.flash(0xff000000, 2);
 		FlxG.camera.follow(bot);
-		ResUtil.playGame2();
+		ResUtil.playGame1();
 		lock1 = false;
 		lock2 = false;
 		lock3 = false;

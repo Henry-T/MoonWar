@@ -125,6 +125,7 @@ class Boss3 extends Enemy
 		moveTween = new LinearMotion(null, FlxTween.ONESHOT);
 		moveTween.setObject(this);
 		lastBcrRight = false;
+		realKill = false;
 	}
 
 	override public function update():Void 
@@ -154,6 +155,38 @@ class Boss3 extends Enemy
 		if(FireOn)
 			bossFire.draw();
 		super.draw();
+	}
+
+	private var realKill:Bool;
+	override public function kill(){
+		if(!realKill){
+			// kill all bullets of boss3
+			game.bouncers.kill();
+			game.missles.kill();
+			game.boss3Buls.kill();
+
+			// clear tween
+			moveTween.cancel();
+			moveTween = new LinearMotion(null, FlxTween.PINGPONG);
+			moveTween.setMotion(x-3, y, x + 3, y, 0.6, Ease.cubeInOut);
+			moveTween.setObject(this);
+			game.addTween(moveTween);
+
+			// schedule explosion
+			timer1.start(0.7, 7, function(t:FlxTimer){
+				game.AddExp(x + FlxG.random() * width, y + FlxG.random() * height);
+				game.AddExp(x + FlxG.random() * width, y + FlxG.random() * height);
+				timer1.start(0.1, 1, function(t:FlxTimer){
+					timer1.start(0.5, 2, function(t:FlxTimer){FlxG.flash(0xffffffff, 0.3);});
+					timer2.start(1, 1, function(t:FlxTimer){realKill = true;kill();});
+				});
+			});
+			timer3.start(2.2, 2, function(t:FlxTimer){
+				game.AddHugeExplo(x + FlxG.random() * width, y + FlxG.random() * height);
+			});
+		}
+		else 
+			super.kill();
 	}
 
 	public function ChangeState(name:String):Void

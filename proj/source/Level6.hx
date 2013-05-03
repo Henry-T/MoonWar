@@ -78,7 +78,7 @@ class Level6 extends Level
 		downing2 = false;
 
 		FlxG.flash(0xff000000, 2);
-		ResUtil.playGame2();
+		ResUtil.playGame1();
 		camFixOn = false;
 	}
 

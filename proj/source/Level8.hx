@@ -8,6 +8,9 @@ import org.flixel.FlxPoint;
 import org.flixel.FlxTimer;
 import org.flixel.tmx.TmxObjectGroup;
 import org.flixel.FlxCamera;
+import org.flixel.tweens.FlxTween;
+import org.flixel.tweens.util.Ease;
+import org.flixel.tweens.motion.LinearMotion;
 
 class Level8 extends Level 
 {
@@ -33,6 +36,13 @@ class Level8 extends Level
 			new Line(0,"Dr.Cube:It's too bad, RageMetal take control of the energy."), 
 			new Line(2,"Finally, I will bring you ... doom!"), 
 			new Line(1,"Then I have to bury you here now.")
+		];
+
+		lines2 = [
+			new Line(1, "RageMetal is terminated.."),
+			new Line(0, "Yes, that is a tough one."),
+			new Line(0, "We are in peace now."),
+			new Line(1, "Let's hope nothing like this happen again."),
 		];
 	}
 
@@ -64,10 +74,11 @@ class Level8 extends Level
 				bossPos = new FlxPoint(o.x, o.y);
 			else if (o.name == "gate")
 			{
-				gate = new FlxSprite(o.x, o.y);
+				var gate:FlxSprite = new FlxSprite(o.x, o.y);
 				gate.makeGraphic(o.width, o.height, 0xffaaaaaa);
 				gate.immovable = true;
 				gate.y -= 100;
+				gates.add(gate);
 			}
 			else if(o.name == "cam1"){
 				camPos1 = new FlxPoint(o.x, o.y);
@@ -96,10 +107,11 @@ class Level8 extends Level
 		triggered = false;
 		FlxG.camera.follow(bot);
 		FlxG.flash(0xff000000, 2);
-		ResUtil.playGame2();
-		gate.visible = false;
+		ResUtil.playGame1();
+		endTalkHappened = false;
 	}
 
+	private var endTalkHappened:Bool;
 	override public function update():Void 
 	{
 		FlxG.overlap(missles, bullets, function(m:FlxObject, b:FlxObject){m.hurt(1); b.kill();});
@@ -107,10 +119,10 @@ class Level8 extends Level
 		FlxG.overlap(boss3Buls, bot, function(bul:FlxObject, b:FlxObject){bul.kill(); b.hurt(15);});
 
 		// gate
-		FlxG.collide(bot, gate);
-		FlxG.overlap(gate, missles, function(g:FlxObject, msl:FlxObject):Void { msl.kill(); } );
-		FlxG.overlap(gate, bouncers, function(g:FlxObject, bcr:FlxObject):Void { cast(bcr,Bouncer).bounceCount--; } );
-		FlxG.overlap(gate, bigGunBuls, function(g:FlxObject, bgb:FlxObject):Void { bgb.kill(); } );
+		FlxG.collide(bot, gates);
+		FlxG.overlap(gates, missles, function(g:FlxObject, msl:FlxObject):Void { msl.kill(); } );
+		FlxG.overlap(gates, bouncers, function(g:FlxObject, bcr:FlxObject):Void { cast(bcr,Bouncer).bounceCount--; } );
+		FlxG.overlap(gates, bigGunBuls, function(g:FlxObject, bgb:FlxObject):Void { bgb.kill(); } );
 		
 		FlxG.collide(bouncers, tile, function(bcr:FlxObject, tile:FlxObject) { cast(bcr,Bouncer).bounceCount--; } );
 		FlxG.collide(bigGunBuls, tile, function(bgb:FlxObject, tile:FlxObject) { bgb.kill(); } );
@@ -134,9 +146,14 @@ class Level8 extends Level
 			hbH.scale = new FlxPoint(v, 1);
 		
 		// boss killed
-		if (!isEnd && !boss3.alive){
-			if (GameStatic.ProcLvl < 9) GameStatic.ProcLvl = 9;	// increase to Ending
-			EndLevel(true);
+		if (!isEnd && !boss3.alive && !endTalkHappened){
+			endTalkHappened = true;
+			timer1.start(0.5, 1, function(t:FlxTimer){
+				lineMgr.Start(lines2, function(){
+					if (GameStatic.ProcLvl < 9) GameStatic.ProcLvl = 9;	// increase to Ending
+					EndLevel(true);
+				});
+			});
 		}
 		
 		// Level Start
@@ -162,6 +179,12 @@ class Level8 extends Level
 			TweenCamera(camPos1.x, camPos1.y, 3.5, false, function(){
 				FlxG.camera.bounds.make(20*24, 20*1, 20*34, 20*21);
 			});
+
+			var gate:FlxSprite = cast(gates.members[0], FlxSprite);
+			var gateTween:LinearMotion = new LinearMotion(null, FlxTween.ONESHOT);
+			gateTween.setObject(gate);
+			gateTween.setMotion(gate.x, gate.y, gate.x, gate.y + 100, 2, Ease.quadInOut);
+			addTween(gateTween);
 		}
 		if (righting)
 		{
@@ -173,8 +196,8 @@ class Level8 extends Level
 				bot.velocity.x = 0;
 				timer1.start(1, 1, function(t:FlxTimer):Void {
 					lineMgr.Start(lines1, function(){
-						gate.y += 100;
-						gate.visible = true;
+						//cast(gates.members[0], FlxSprite).y  += 100;
+						gates.members[0].visible = true;
 						boss3.ChangeState("launching");
 						hbL.visible = true;
 						hbR.visible = true;

@@ -1,16 +1,29 @@
 package ;
+import nme.display.BitmapData;
 import org.flixel.FlxButton;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
+import org.flixel.FlxTimer;
+import org.flixel.tweens.FlxTween;
+import org.flixel.tweens.util.Ease;
+import org.flixel.tweens.motion.LinearMotion;
+import org.flixel.tweens.misc.VarTween;
 
 class EndScreen extends GameScreen 
 {
-	public var id:Float;
-	public var maxId:Float;
-	public var img1:FlxSprite;
-	public var img2:FlxSprite;
-	public var lastBtn:FlxButton;
-	public var nextBtn:FlxButton;
+	public var txtTheEnd:FlxSprite;
+	public var txtThanks:FlxSprite;
+	public var bg:FlxSprite;
+	public var btnBack:FlxButton;
+
+	public var bottomPnl:SliceShape;
+
+	public var btnGBigNormal:BitmapData;
+	public var btnGBigOver:BitmapData;
+
+	public var timer1:FlxTimer;
+	public var timer2:FlxTimer;
+	public var timer3:FlxTimer;
 
 	public function new() 
 	{
@@ -20,73 +33,67 @@ class EndScreen extends GameScreen
 	override public function create():Void
 	{
 		super.create();
+
+		timer1 = new FlxTimer();
+		timer2 = new FlxTimer();
+		timer3 = new FlxTimer();
 		
-		id = 0;
-		maxId = 1;
-		img1 = new FlxSprite();
-		img1.loadGraphic("assets/img/intro1.png");
-		img2 = new FlxSprite();
-		img2.loadGraphic("assets/img/intro2.png");
-		img2.visible = false;
-		lastBtn = new FlxButton(0, FlxG.height - 25, "Last", onLast);
-		nextBtn = new FlxButton(FlxG.width - 100, FlxG.height - 25, "Next", onNext);
-		
-		add(img1);
-		add(img2);
-		add(lastBtn);
-		add(nextBtn);
-		
+		btnGBigNormal = new SliceShape(0,0, 200, 25, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGBigOver = new SliceShape(0,0, 200, 25, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
+
+		bg = new FlxSprite("assets/img/bgStar.png");
+		txtTheEnd = new FlxSprite("assets/img/theEnd.png");
+		txtTheEnd.x = FlxG.width * 0.5 - txtTheEnd.width * 0.5;
+		txtTheEnd.y = FlxG.height * 0.1;
+
+		txtThanks = new FlxSprite("assets/img/thanks.png");
+		txtThanks.x = FlxG.width * 0.5 - txtThanks.width * 0.5;
+		txtThanks.y = FlxG.height * 0.4;
+
+		bottomPnl = new SliceShape(0, 350, 560, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
+
+		btnBack = new FlxButton(0, 0, "BACK TO MENU", function() { FlxG.switchState(new MainMenu()); } );
+		btnBack.loadGraphic(btnGBigNormal);
+		btnBack.onOver = function(){btnBack.loadGraphic(btnGBigOver);};
+		btnBack.onOut = function(){btnBack.loadGraphic(btnGBigNormal);};
+		btnBack.x = FlxG.width * 0.5 - btnBack.width/2;
+		btnBack.y = FlxG.height * 0.90;
+		btnBack.label.setFormat("assets/fnt/pixelex.ttf", 16, 0xffffff, "center");
+
+		add(bg);
+		add(txtTheEnd);
+		add(txtThanks);
+		add(bottomPnl);
+		add(btnBack);
+
 		// initial
-		ResUtil.playEnd();
-	}
+		ResUtil.playTitle();
+		txtTheEnd.y -= 100;
+		txtThanks.alpha = 0;
+		bottomPnl.alpha = 0;
+		btnBack.alpha = 0;
 
-	public function onLast():Void
-	{
-		if(id > 0)
-		{
-		id --;
-		refreshImg();
-		}
-		else
-		{
-		FlxG.switchState(new MainMenu());
-		}
-	}
+		var tween1:LinearMotion = new LinearMotion(null, FlxTween.ONESHOT);
+		tween1.setObject(txtTheEnd);
+		tween1.setMotion(txtTheEnd.x, txtTheEnd.y, txtTheEnd.x, txtTheEnd.y + 100, 1.5, Ease.bounceOut);
+		addTween(tween1);
 
-	public function onNext():Void
-	{
-		if(id < maxId)
-		{
-		id++;
-		refreshImg();
-		}
-		else
-		{
-		FlxG.switchState(new MainMenu());
-		}
-	}
+		timer1.start(1.5, 1, function(t:FlxTimer){
+			var tween2:VarTween = new VarTween(null, FlxTween.ONESHOT);
+			tween2.tween(txtThanks, "alpha", 1, 1, Ease.quadOut);
+			addTween(tween2);
+		});
 
-	public function refreshImg():Void
-	{
-		if(id == 0)
-		{
-		img1.visible = true;
-		img2.visible = false;
-		}
-		else if(id == 1)
-		{
-		img1.visible = false;
-		img2.visible = true;
-		}
-		
-		if(id == 0)
-		lastBtn.label.text = "Last";
-		else
-		lastBtn.label.text = "Last";
-		
-		if(id == maxId)
-		nextBtn.label.text = "Menu";
-		else
-		nextBtn.label.text = "Next";
+		timer2.start(1.5, 1, function(t:FlxTimer){
+			var tween3:VarTween = new VarTween(null, FlxTween.ONESHOT);
+			tween3.tween(bottomPnl, "alpha", 1, 1.5, Ease.quadOut);
+			addTween(tween3);
+		});
+
+		timer3.start(2, 1, function(t:FlxTimer){
+			var tween4:VarTween = new VarTween(null, FlxTween.ONESHOT);
+			tween4.tween(btnBack, "alpha", 1, 1.5, Ease.quadOut);
+			addTween(tween4);
+		});
 	}
 }

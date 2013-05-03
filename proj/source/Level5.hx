@@ -60,7 +60,7 @@ class Level5 extends Level
 		// initial
 		FlxG.flash(0xff000000, 2);
 		FlxG.camera.follow(bot);
-		ResUtil.playGame2();
+		ResUtil.playGame1();
 		bot.facing = FlxObject.RIGHT;
 		botRighting = true;
 	}

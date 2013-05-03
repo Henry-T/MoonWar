@@ -98,7 +98,7 @@ class Level4 extends Level
 		
 		// initial
 		FlxG.camera.follow(bot);
-		ResUtil.playGame2();
+		ResUtil.playGame1();
 		breakShown = false;
 
 		bot.On = false;

@@ -133,6 +133,7 @@ class GameMap extends GameScreen
 		add(btnMute);
 
 		// init
+		ResUtil.playTitle();
 		for (b in lvlBtns.members) {
 			//cast(b, FlxButton).label.color = 0xff0041c8;
 			cast(b, FlxButton).label.color = 0xffffffff;

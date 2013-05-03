@@ -46,7 +46,7 @@ class MainMenu extends GameScreen
 		btnMap.onOver = function(){btnMap.loadGraphic(btnGOver); FlxG.play("assets/snd/sel1.mp3");};
 		btnMap.onOut = function(){btnMap.loadGraphic(btnGNormal);};
 		
-		btnClearData = new FlxButton(100, 290, "ABOUT", function() { GameStatic.ClearSavedData(); } );
+		btnClearData = new FlxButton(100, 290, "ABOUT", function() { FlxG.switchState(new AboutScreen()); } );
 		btnClearData.loadGraphic(btnGNormal); btnClearData.x = FlxG.width / 2 - btnClearData.width / 2;
 		btnClearData.label.setFormat("assets/fnt/pixelex.ttf", 24, 0xffffff, "center");
 		btnClearData.onOver = function(){btnClearData.loadGraphic(btnGOver); FlxG.play("assets/snd/sel1.mp3");};

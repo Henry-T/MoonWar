@@ -209,7 +209,7 @@ class Level2 extends Level
 		FlxG.camera.scroll = posCam1;
 		roam = true;
 		boss1.play("air");
-		ShowSkip(true, initForGame);
+		//ShowSkip(true, initForGame);
 		smokeEmt1.on = false;
 		smokeEmt2.on = false;
 

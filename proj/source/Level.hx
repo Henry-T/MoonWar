@@ -102,7 +102,7 @@ class Level extends MWState
 	public var cubes:FlxGroup;
 	public var zball:FlxSprite;		// zBall in level7
 	public var coms:FlxGroup;
-	public var gate:FlxSprite;
+	public var gates:FlxGroup;
 
 	// Bullets
 	public var bullets:FlxGroup;	// Bullets of Bot
@@ -248,6 +248,7 @@ class Level extends MWState
 		mines = new FlxGroup();
 		cubes = new FlxGroup();
 		coms = new FlxGroup();
+		gates = new FlxGroup();
 
 		// items
 		hps = new FlxGroup();
@@ -347,7 +348,7 @@ class Level extends MWState
 
 		toSkip = new FlxSprite(0, 0, "assets/img/clickToSkip.png");
 		toSkip.scrollFactor.make(0, 0);
-		toSkip.visible = true;
+		toSkip.visible = false;
 
 		// Dialogs
 		// try load tile layers
@@ -499,6 +500,8 @@ class Level extends MWState
 		camXTweenDone = false;
 		camYTweenDone = false;
 		camTweening = false;
+
+		ResUtil.playGame1();
 	}
 
 	public function AddAll():Void
@@ -516,6 +519,8 @@ class Level extends MWState
 
 		add(tips);
 		add(cubes);
+
+		add(gates);
 		
 		add(tile);
 		add(tileEO);	tileEO.visible = false;
@@ -556,7 +561,6 @@ class Level extends MWState
 		add(Bees);
 		add(mines);
 		add(zball);
-		add(gate);
 		
 		add(bullets);
 		add(bot);
