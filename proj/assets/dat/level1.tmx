@@ -60,7 +60,7 @@
   <object type="cube" x="760" y="220" width="40" height="40"/>
   <object name="nail" type="sign" x="340" y="140" width="180" height="20">
    <properties>
-    <property name="text" value="be ware of the nails"/>
+    <property name="text" value="beware of the nails"/>
    </properties>
   </object>
   <object name="jump" type="sign" x="40" y="140" width="240" height="20">
@@ -70,7 +70,7 @@
   </object>
   <object name="knock" type="sign" x="940" y="100" width="220" height="20">
    <properties>
-    <property name="text" value="Hold Down to jump down"/>
+    <property name="text" value="Hold Down and Press z to Jump Down"/>
    </properties>
   </object>
   <object name="shoot" type="sign" x="580" y="140" width="160" height="20">

@@ -213,6 +213,8 @@ class Level2 extends Level
 		smokeEmt1.on = false;
 		smokeEmt2.on = false;
 
+		ShowSceneName("Moon Surface Base");
+
 		TweenCamera(posCam2.x, posCam2.y, 3, true, function(){
 			roam = false;
 			roamDone = true;

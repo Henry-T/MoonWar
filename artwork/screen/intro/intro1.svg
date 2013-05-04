@@ -15,8 +15,8 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="intro2.svg"
-   inkscape:export-filename="/home/henry/gproj/MoonWarHx/artwork/export/intro2.png"
+   sodipodi:docname="intro1.svg"
+   inkscape:export-filename="/home/henry/gproj/MoonWarHx/proj/assets/img/intro1.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -104,17 +104,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="316.94991"
-     inkscape:cy="214.34135"
+     inkscape:cx="350.46382"
+     inkscape:cy="173.06295"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer6"
      showgrid="false"
      inkscape:snap-page="true"
-     inkscape:window-width="637"
-     inkscape:window-height="387"
-     inkscape:window-x="583"
-     inkscape:window-y="256"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1301"
+     inkscape:window-height="744"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -473,7 +473,7 @@
        style="fill:#620e00;fill-opacity:0.87815121;stroke:#ffffff;stroke-width:3.10281038;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <text
        xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e6834d;fill-opacity:1;stroke:none;font-family:Sans;stroke-opacity:1"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e6834d;fill-opacity:1;stroke:none;font-family:Sans"
        x="101.50606"
        y="74.534607"
        id="text3983"
@@ -481,7 +481,7 @@
          sodipodi:role="line"
          id="tspan3985"
          x="101.50606"
-         y="74.534607">ALEAM  - ALEAM - ALEAM - ALEAM -</tspan></text>
+         y="74.534607">ALARM  - ALARM - ALARM - ALARM -</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e6834d;fill-opacity:1;stroke:none;display:inline;font-family:Sans"
@@ -492,7 +492,7 @@
          sodipodi:role="line"
          id="tspan3985-8"
          x="102.69629"
-         y="310.29004">ALEAM  - ALEAM - ALEAM - ALEAM -</tspan></text>
+         y="310.29004">ALARM  - ALARM - ALARM - ALARM -</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"

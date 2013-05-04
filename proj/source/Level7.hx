@@ -111,6 +111,7 @@ class Level7 extends Level
 		lock3 = false;
 		lock4 = false;
 		
+		ShowSceneName("GATE OF MOON CORE");
 	}
 
 	override public function update():Void 
@@ -145,6 +146,7 @@ class Level7 extends Level
 		{
 			downing = false;
 			bot.On = true;
+			hpBar.visible = true;
 		}
 		
 		// End

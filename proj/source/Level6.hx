@@ -80,6 +80,7 @@ class Level6 extends Level
 		FlxG.flash(0xff000000, 2);
 		ResUtil.playGame1();
 		camFixOn = false;
+		ShowSceneName("LASER PATH");
 	}
 
 	override public function update():Void 
@@ -110,6 +111,7 @@ class Level6 extends Level
 			timer1.start(0.5, 1, function(t:FlxTimer){
 				lineMgr.Start(lines1, function(){
 					bot.On = true;
+					hpBar.visible = true;
 				});
 			});
 		}

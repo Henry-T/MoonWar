@@ -1,6 +1,7 @@
 package;
 import org.flixel.FlxButton;
 import org.flixel.FlxG;
+import org.flixel.FlxText;
 import org.flixel.FlxSprite;
 import nme.display.BitmapData;
 import mochi.as3.MochiAd;
@@ -16,6 +17,8 @@ class MainMenu extends GameScreen
 
 	public var btnGNormal:BitmapData;
 	public var btnGOver:BitmapData;
+
+	public var txtCreator:FlxText;
 
 	public function new()
 	{
@@ -46,16 +49,21 @@ class MainMenu extends GameScreen
 		btnMap.onOver = function(){btnMap.loadGraphic(btnGOver); FlxG.play("assets/snd/sel1.mp3");};
 		btnMap.onOut = function(){btnMap.loadGraphic(btnGNormal);};
 		
-		btnClearData = new FlxButton(100, 290, "ABOUT", function() { FlxG.switchState(new AboutScreen()); } );
+		btnClearData = new FlxButton(100, 290, "HELP", function() { FlxG.switchState(new HelpScreen()); } );
 		btnClearData.loadGraphic(btnGNormal); btnClearData.x = FlxG.width / 2 - btnClearData.width / 2;
 		btnClearData.label.setFormat("assets/fnt/pixelex.ttf", 24, 0xffffff, "center");
 		btnClearData.onOver = function(){btnClearData.loadGraphic(btnGOver); FlxG.play("assets/snd/sel1.mp3");};
 		btnClearData.onOut = function(){btnClearData.loadGraphic(btnGNormal);};
+
+		txtCreator = new FlxText(0, FlxG.height-15, FlxG.width, "Created By Lolofinil\t\tMusic By www.nosoapradio.us");
+		txtCreator.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffffff, "center");
+		txtCreator.scrollFactor.make(0, 0);
 		
 		add(startBtn);
 		add(btnMap);
 		add(btnClearData);
 		add(btnMute);
+		add(txtCreator);
 
 		// testing 
 		ss = new SliceShape(0,0, 200, 200,"assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
@@ -76,8 +84,10 @@ class MainMenu extends GameScreen
 
 	public override function update(){
 		super.update();
+		#if debug
 		if(FlxG.keys.T){
 			FlxG.switchState(new LevelTest());
 		}
+		#end
 	}
 }

@@ -7,8 +7,10 @@ class MWGame extends FlxGame
 {
 	public function new()
 	{
+		#if debug
 		FlxG.debug = true;
 		FlxG.visualDebug = true;
+		#end
 		
 		super(550,400,MainMenu,1);
 		//super(550,400,IntroScreen,1);

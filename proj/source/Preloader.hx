@@ -45,6 +45,8 @@ class Preloader extends NMEPreloader
 	private var s1:Sprite;
 	private var s2:Sprite;
 	private var sDis:Sprite;
+	
+	private var isForbid:Bool;
 
 	public function new()
 	{
@@ -110,8 +112,28 @@ class Preloader extends NMEPreloader
 		addChild(btnTxt);
 		
 		Lib.current.addEventListener(Event.ENTER_FRAME, update);
-		btnStart.addEventListener(MouseEvent.MOUSE_DOWN, function(_) { this.dispatchEvent (new Event (Event.COMPLETE)); } );
+		btnStart.addEventListener(MouseEvent.MOUSE_DOWN, function(_) { if(isForbid)dispatchEvent(new Event (Event.COMPLETE)); } );
 		
+		isForbid = false;
+		
+		// check for site locking
+		if(loaderInfo != null){
+			var allowed_site:String = "flashgamelicense.com";
+			var domain:String = this.loaderInfo.url.split("/")[2];
+			if (domain.indexOf(allowed_site) == (domain.length - allowed_site.length))
+				isForbid = false;
+			else
+				isForbid = true;
+		}
+		else
+			isForbid = false;
+		
+		#if debug
+		isForbid = true;
+		#end
+
+		// HACK
+		isForbid = true;
 	}
 
 	public override function onLoaded()
@@ -128,6 +150,7 @@ class Preloader extends NMEPreloader
 	
 	public function update(_)
 	{
+		
 		var deltaTime:Float = 0;
 		
 		if (lastTimeStamp == 0)
@@ -153,8 +176,10 @@ class Preloader extends NMEPreloader
 		
 		// auto start 3 seconds after loaded!
 		// change to 3 when finished
-		if (loaded && (Timer.stamp() - loadedTimeStamp) > 1)
+		#if debug
+		if (loaded && (Timer.stamp() - loadedTimeStamp) > 3)
 			dispatchEvent (new Event (Event.COMPLETE));
+		#end
 	}
 	
 	public override function onUpdate(bytesLoaded:Int, bytesTotal:Int)
@@ -182,8 +207,8 @@ class Preloader extends NMEPreloader
 				trop.x = boss.x + 4;
 				trop.y = boss.y + 4;
 				
-				addChild(trop);
-				troopAry.push(trop);
+				//addChild(trop);
+				//troopAry.push(trop);
 			}
 		}
 		percentLoaded = lastPercent;

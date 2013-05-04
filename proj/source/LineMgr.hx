@@ -11,6 +11,9 @@ class LineMgr extends FlxSprite
 	public var line:FlxText;
 	public var headBg:SliceShape;
 	public var lineBg:SliceShape;
+	
+	public var pressSpace:FlxText;
+	public var roleName:FlxText;
 
 	public var finishCall:Void->Void;
 
@@ -34,7 +37,7 @@ class LineMgr extends FlxSprite
 		headBg.visible = false;
 		headBg.scrollFactor.make(0, 0);
 
-		lineBg = new SliceShape(10, 70, 350, 30, "assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
+		lineBg = new SliceShape(10, 70, 350, 40, "assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
 		lineBg.visible = false;
 		lineBg.scrollFactor.make(0, 0);
 
@@ -56,6 +59,16 @@ class LineMgr extends FlxSprite
 		h = new FlxSprite(headPos.x,headPos.y,"assets/img/rmHead.png");h.scrollFactor = new FlxPoint(0,0);
 		h.x = headBg.getMidpoint().x - h.width/2; h.y = headBg.getMidpoint().y - h.height/2;
 		heads.push(h);
+		
+		pressSpace = new FlxText(100, 94, 80,"PRESS SPACE");
+		pressSpace.setFormat("assets/fnt/pixelex.ttf", 8, 0xffffffff);
+		pressSpace.visible = false;
+		pressSpace.scrollFactor.make(0, 0);
+
+		roleName = new FlxText(0, headBg.y + headBg.height - 13, 90, "");
+		roleName.setFormat("assets/fnt/pixelex.ttf", 8, 0xff000000, "center");
+		roleName.visible = false;
+		roleName.scrollFactor.make(0, 0);
 	}
 
 	public function Start(lines:Array<Line>, finCall:Void->Void=null):Void{
@@ -101,11 +114,23 @@ class LineMgr extends FlxSprite
 		if(!isEnd){
 			var newWidth = 120 + Math.round(line.text.length * 6);
 			if(newWidth < 180) newWidth = 180;
-			lineBg.setSize(newWidth, 30);
+			lineBg.setSize(newWidth, 40);
+			pressSpace.x = lineBg.x + lineBg.width - 3 - pressSpace.width;
+			switch(curHeadId){
+				case 0:
+					roleName.text = "Dr.Cube";
+				case 1:
+					roleName.text = "CubeBot";
+				case 2:
+					roleName.text = "RageMetal";
+			}
+			
 			lineBg.draw();
 			headBg.draw();
 			line.draw();
 			heads[curHeadId].draw();
+			pressSpace.draw();
+			roleName.draw();
 		}
 		super.draw();
 	}

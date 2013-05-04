@@ -85,7 +85,7 @@ class Level1 extends Level
 				hpBar.visible = true;
 			});
 		});
-		hpBar.visible = false;
+		ShowSceneName("Moon Laboratory");
 	}
 
 	override public function update():Void

@@ -205,6 +205,7 @@ class Bot extends FlxSprite
 	    }
 
 		// hack
+		#if debug
 		if (FlxG.keys.Q)
 			hurt(99999);
 		if (FlxG.keys.W)
@@ -226,6 +227,7 @@ class Bot extends FlxSprite
 		{
 			cast(FlxG.state, Level).EndLevel();
 		}
+		#end
 
 		//MOVEMENT
 		acceleration.x = 0;

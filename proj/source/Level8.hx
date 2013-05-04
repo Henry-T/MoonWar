@@ -109,6 +109,7 @@ class Level8 extends Level
 		FlxG.flash(0xff000000, 2);
 		ResUtil.playGame1();
 		endTalkHappened = false;
+		ShowSceneName("MOON CORE");
 	}
 
 	private var endTalkHappened:Bool;
@@ -168,6 +169,7 @@ class Level8 extends Level
 		{
 			downing = false;
 			bot.On = true;
+			hpBar.visible = true;
 		}
 		
 		// trigger

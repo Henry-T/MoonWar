@@ -108,6 +108,7 @@ class Level4 extends Level
 		downing = true;
 		downing2 = false;
 		FlxG.flash(0xff000000, 2);
+		ShowSceneName("MAIN CHANNEL");
 	}
 
 	override public function update():Void
@@ -141,6 +142,7 @@ class Level4 extends Level
 			timer1.start(1, 1, function(t:FlxTimer){
 				lineMgr.Start(lines1, function(){
 					bot.On = true;
+					hpBar.visible = true;
 				});
 			});
 		}

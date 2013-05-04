@@ -151,11 +151,14 @@ class Level extends MWState
 	public var lbResult:FlxText;
 	public var toSkip:FlxSprite;
 	public var skipFun:Void->Void;
+	public var btnShowHelp:FlxButton;
+	public var sceneName:FlxText;
 
 	// Utility
 	public var timer1:FlxTimer;
 	public var timer2:FlxTimer;
 	public var timer3:FlxTimer;
+	public var timerSceneName:FlxTimer;
 	public var gvTimer:FlxTimer;	// Game Over Time
 	public var jsCntr:Int;			// 
 
@@ -216,6 +219,7 @@ class Level extends MWState
 		timer1 = new FlxTimer();
 		timer2 = new FlxTimer();
 		timer3 = new FlxTimer();
+		timerSceneName = new FlxTimer();
 		gvTimer = new FlxTimer();
 		
 		// Preload Tile Data
@@ -272,7 +276,7 @@ class Level extends MWState
 		
 		// Huds
 		tips = new FlxGroup();
-		hpBar = new HPBar();
+		hpBar = new HPBar(); hpBar.visible = false;
 		
 		hbL = new FlxSprite(100, 370, "assets/img/hbL.png"); hbL.scrollFactor = new FlxPoint(0, 0); hbL.visible = false;
 		hbR = new FlxSprite(430, 370, "assets/img/hbR.png"); hbR.scrollFactor = new FlxPoint(0, 0); hbR.visible = false;
@@ -308,7 +312,7 @@ class Level extends MWState
 		btnAgain.scrollFactor.make(0, 0);
 		btnAgain.visible = false;
 
-		btnMap = new FlxButton(275, 350, "Map", function() { FlxG.switchState(new GameMap()); } );
+		btnMap = new FlxButton(275, 350, "Levels", function() { FlxG.switchState(new GameMap()); } );
 		btnMap.loadGraphic(btnGNormal);
 		btnMap.x = FlxG.width/2 - btnAgain.width/2;
 		btnMap.y = FlxG.height/2 + 100;
@@ -339,7 +343,7 @@ class Level extends MWState
 		lbMission.scrollFactor.make(0,0);
 		lbMission.visible = false;
 
-		lbResult = new FlxText(0, 0, 200, "ACCOPLISHED", 18);
+		lbResult = new FlxText(0, 0, 200, "ACCOMPLISHED", 18);
 		lbResult.setFormat("assets/fnt/pixelex.ttf", 18, 0xffffffff, "center");
 		lbResult.x = FlxG.width*0.5 - lbMission.width/2;
 		lbResult.y = FlxG.height*0.5 - 90;
@@ -349,6 +353,16 @@ class Level extends MWState
 		toSkip = new FlxSprite(0, 0, "assets/img/clickToSkip.png");
 		toSkip.scrollFactor.make(0, 0);
 		toSkip.visible = false;
+
+		sceneName = new FlxText(0, 10, FlxG.width, "SceneName", 22);
+		sceneName.setFormat("assets/fnt/pixelex.ttf", 22, 0xffffffff, "center");
+		sceneName.scrollFactor.make(0,0);
+		sceneName.alpha = 0;
+
+		btnShowHelp = new FlxButton(FlxG.width - 44, 4, "", function() { FlxG.mute = !FlxG.mute; } );
+		btnMute.scrollFactor.make(0,0);
+		btnMute.onOver = function(){btnMute.loadGraphic("assets/img/showHelp_act.png");};
+		btnMute.onOut = function(){btnMute.loadGraphic("assets/img/showHelp.png");};
 
 		// Dialogs
 		// try load tile layers
@@ -605,6 +619,7 @@ class Level extends MWState
 		add(lbResult);
 
 		add(toSkip);
+		add(sceneName);
 
 		add(btnMute);
 		
@@ -868,5 +883,24 @@ class Level extends MWState
 	public function ShowSkip(show:Bool, call:Void->Void=null){
 		toSkip.visible = show;
 		skipFun = call;
+	}
+
+	public function ShowHelp(show:Bool){
+
+
+	}
+
+	public function ShowSceneName(name:String){
+		sceneName.text = name;
+		var twn:VarTween = new VarTween(null, FlxTween.ONESHOT);
+		twn.tween(sceneName, "alpha", 1, 2, Ease.quartOut);
+		twn.complete = function(){
+			timerSceneName.start(2, 1, function(t:FlxTimer){
+				var twn2:VarTween = new VarTween(null, FlxTween.ONESHOT);
+				twn2.tween(sceneName, "alpha", 0, 2, Ease.quartOut);
+				addTween(twn2);
+			});
+		};
+		addTween(twn);
 	}
 }
