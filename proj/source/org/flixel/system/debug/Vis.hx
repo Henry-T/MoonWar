@@ -11,6 +11,8 @@ import org.flixel.FlxAssets;
 import org.flixel.FlxG;
 
 /**
+ *  调试开关，只有一个开关包围盒的按钮。
+ * 
  * This control panel has all the visual debugger toggles in it, in the debugger overlay.
  * Currently there is only one toggle that flips on all the visual debug settings.
  * This panel is heavily based on the VCR panel.

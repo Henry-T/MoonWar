@@ -9,6 +9,8 @@ import org.flixel.FlxGame;
 import nme.events.TouchEvent;
 
 /**
+ * 多点触管理类
+ * 
  * ...
  * @author Zaphod
  */

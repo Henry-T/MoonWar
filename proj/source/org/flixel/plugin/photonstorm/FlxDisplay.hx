@@ -23,7 +23,9 @@ import org.flixel.FlxAssets;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 
-
+/**
+ * 一些图片和屏幕特效处理函数
+ */
 class FlxDisplay 
 {
 	

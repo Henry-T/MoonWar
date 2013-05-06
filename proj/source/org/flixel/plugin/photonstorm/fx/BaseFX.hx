@@ -18,6 +18,9 @@ import nme.display.BitmapInt32;
 import org.flixel.FlxSprite;
 import nme.display.BitmapData;
 
+/**
+ * 特效类的基类。
+ */
 class BaseFX 
 {
 	/**

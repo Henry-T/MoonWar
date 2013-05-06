@@ -7,6 +7,7 @@ import nme.events.JoystickEvent;
 import org.flixel.system.input.FlxJoystick;
 
 /**
+ * 提供对多游戏杆的管理
  * ...
  * @author Zaphod
  */

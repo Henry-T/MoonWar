@@ -21,6 +21,8 @@ import org.flixel.FlxRect;
 import org.flixel.FlxU;
 
 /**
+ * 常用数学函数
+ * 
  * Adds a set of fast Math functions and extends a few commonly used ones
  */
 class FlxMath

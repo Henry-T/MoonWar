@@ -18,6 +18,8 @@ import org.flixel.plugin.photonstorm.fx.BaseFX;
 import org.flixel.plugin.photonstorm.fx.StarfieldFX;
 
 /**
+ * Flixel Power Tools中所有特效的访问入口。
+ * 
  * FlxSpecialFX is a single point of access to all of the FX Plugins available in the Flixel Power Tools
  */
 class FlxSpecialFX extends FlxBasic

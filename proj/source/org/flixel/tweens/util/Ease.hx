@@ -3,6 +3,8 @@ package org.flixel.tweens.util;
 typedef EaseFunction = Float -> Float;
 
 /**
+ * 补间常用的缓动函数
+ * 
  * Static class with useful easer functions that can be used by Tweens.
  */
 class Ease 

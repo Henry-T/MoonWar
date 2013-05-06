@@ -19,6 +19,8 @@ import flash.system.Security;
 import org.flixel.FlxG;
 
 /**
+ * 快速访问Kongregate的API
+ * 
  *  Allows for easy access to the Kongregate API
  * 
  *  Todo: Add in the functions for Chat Integration - you can still use them via the FlxKongregate.api object.

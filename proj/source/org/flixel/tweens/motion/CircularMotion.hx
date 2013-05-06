@@ -4,6 +4,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 椭圆运动类
+ * 
  * Determines a circular motion.
  */
 class CircularMotion extends Motion

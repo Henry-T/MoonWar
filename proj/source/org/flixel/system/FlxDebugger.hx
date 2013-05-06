@@ -22,6 +22,9 @@ import org.flixel.system.debug.Vis;
 import org.flixel.system.debug.Watch;
 
 /**
+ * 调试器覆盖层容器。
+ * 虽然调试功能由各个挂件实现，但这个类实例化挂件并管理它们的布局和对齐。
+ * 
  * Container for the new debugger overlay.
  * Most of the functionality is in the debug folder widgets,
  * but this class instantiates the widgets and handles their basic formatting and arrangement.

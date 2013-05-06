@@ -3,6 +3,9 @@ package org.flixel;
 import org.flixel.system.layer.Atlas;
 
 /**
+ * 用于更新和绘制一组FlxBasic的组织类
+ * 注意：虽然FlxGroup扩展了FlxBasic，它并不会自动将自己加入全局碰撞树，而是仅仅加入它的成员。
+ *
  * This is an organizational class that can update and render a bunch of <code>FlxBasic</code>s.
  * NOTE: Although <code>FlxGroup</code> extends <code>FlxBasic</code>, it will not automatically
  * add itself to the global collisions quad tree, it will only add its members.
@@ -89,11 +92,6 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic
 	}
 	
 	/**
-	 * Just making sure we don't increment the active objects count.
-	 */
-	override public function preUpdate():Void { }
-	
-	/**
 	 * Automatically goes through and calls update on everything you added.
 	 */
 	override public function update():Void
@@ -105,15 +103,12 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic
 			basic = members[i++];
 			if ((basic != null) && basic.exists && basic.active)
 			{
-				basic.preUpdate();
 				basic.update();
 				
 				if (basic.hasTween) 
 				{
 					basic.updateTweens();
 				}
-				
-				basic.postUpdate();
 			}
 		}
 		
@@ -139,6 +134,22 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic
 			}
 		}
 	}
+	
+	#if !FLX_NO_DEBUG
+	override public function drawDebug():Void 
+	{
+		var basic:T;
+		var i:Int = 0;
+		while (i < length)
+		{
+			basic = members[i++];
+			if ((basic != null) && basic.exists && basic.visible)
+			{
+				basic.drawDebug();
+			}
+		}
+	}
+	#end
 	
 	/**
 	 * @private

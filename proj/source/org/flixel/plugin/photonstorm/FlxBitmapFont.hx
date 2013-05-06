@@ -23,6 +23,9 @@ import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.system.layer.DrawStackItem;
 
+/**
+ * 像素字体类。
+ */
 class FlxBitmapFont extends FlxSprite
 {
 	/**
@@ -447,14 +450,6 @@ class FlxBitmapFont extends FlxSprite
 			}
 			
 			drawItem.position = currIndex;
-			
-			#if !FLX_NO_DEBUG
-			FlxBasic._VISIBLECOUNT++;
-			if (FlxG.visualDebug && !ignoreDrawDebug)
-			{
-				drawDebug(camera);
-			}
-			#end
 		}
 	}
 	#end

@@ -23,6 +23,8 @@ import org.flixel.FlxSprite;
 import org.flixel.plugin.photonstorm.baseTypes.MouseSpring;
 
 /**
+ * 提供鼠标事件扩展的FlxSprite，支持点击、拖拽、丢弃、鼠标弹簧、重力等。
+ * 
  * An enhanced FlxSprite that is capable of receiving mouse clicks, being dragged and thrown, mouse springs, gravity and other useful things
  */
 class FlxExtendedSprite extends FlxSprite

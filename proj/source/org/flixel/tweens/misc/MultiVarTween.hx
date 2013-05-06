@@ -5,6 +5,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 同时对一个对象的多个数字属性进行补间。
+ * 
  * Tweens multiple numeric public properties of an Object simultaneously.
  */
 class MultiVarTween extends FlxTween

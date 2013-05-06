@@ -28,6 +28,8 @@ import org.flixel.system.replay.FrameRecord;
 import org.flixel.system.replay.MouseRecord;
 
 /**
+ * 调试界面挂件，包含了录制、停止、播放和步进按钮
+ * 
  * This class contains the record, stop, play, and step 1 frame buttons seen on the top edge of the debugger overlay.
  */
 class VCR extends Sprite

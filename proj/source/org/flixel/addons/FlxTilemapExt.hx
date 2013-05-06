@@ -7,6 +7,8 @@ import org.flixel.FlxU;
 import org.flixel.system.FlxTile;
 
 /**
+ * ??
+ * 
  * extended <code>FlxTilemap</code> class that provides collision detection against slopes
  * Based on the original by Dirk Bunk.
  * @author Peter Christiansen

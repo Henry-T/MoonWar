@@ -114,7 +114,7 @@ class Preloader extends NMEPreloader
 		Lib.current.addEventListener(Event.ENTER_FRAME, update);
 		btnStart.addEventListener(MouseEvent.MOUSE_DOWN, function(_) { if(isForbid)dispatchEvent(new Event (Event.COMPLETE)); } );
 		
-		isForbid = false;
+		//isForbid = false;
 		
 		// check for site locking
 		if(loaderInfo != null){
@@ -129,11 +129,11 @@ class Preloader extends NMEPreloader
 			isForbid = false;
 		
 		#if debug
-		isForbid = true;
+		//isForbid = true;
 		#end
 
 		// HACK
-		isForbid = true;
+		//isForbid = true;
 	}
 
 	public override function onLoaded()
@@ -177,7 +177,7 @@ class Preloader extends NMEPreloader
 		// auto start 3 seconds after loaded!
 		// change to 3 when finished
 		#if debug
-		if (loaded && (Timer.stamp() - loadedTimeStamp) > 3)
+		if (loaded && (Timer.stamp() - loadedTimeStamp) > 0.5)
 			dispatchEvent (new Event (Event.COMPLETE));
 		#end
 	}

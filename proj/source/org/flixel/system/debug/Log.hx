@@ -10,6 +10,8 @@ import org.flixel.FlxAssets;
 import org.flixel.system.FlxWindow;
 
 /**
+ * 调试界面的简单trace窗口
+ * 
  * A simple trace output window for use in the debugger overlay.
  */
 class Log extends FlxWindow

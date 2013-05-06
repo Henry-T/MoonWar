@@ -119,7 +119,7 @@ class Level2 extends Level
 		// Load Tiles
 		tileUp 		= GetTile("tileUp", FlxObject.UP); 
 		tileBreak 	= GetTile("break", FlxObject.ANY); 
-		tileBreak.setTileProperties(0, FlxObject.ANY , onBreak, null, tileBreak._tileObjects.length);	// set all breakable to handle collision
+		//tileBreak.setTileProperties(0, FlxObject.ANY , onBreak, null, tileBreak._tileObjects.length);	// set all breakable to handle collision
 		
 		sBase = new FlxSprite(13 * 20, 20 * 5 + 6, "assets/img/sBase.png");
 		sBase.offset = new FlxPoint(121, 42);
@@ -317,6 +317,7 @@ class Level2 extends Level
 													ShowBossHP(true);
 													baseHPBg.visible = true;
 													baseHPBar.visible = true;
+													hpBar.visible = true;
 												});
 											});
 										}, FlxTween.ONESHOT);

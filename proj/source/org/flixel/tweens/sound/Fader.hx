@@ -5,6 +5,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 全局音量淡化类
+ * 
  * Global volume fader.
  */
 class Fader extends FlxTween

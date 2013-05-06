@@ -13,6 +13,8 @@ import org.flixel.FlxObject;
 import org.flixel.FlxRect;
 
 /**
+* 创建九宫格风格的拉伸sprite
+* 
 * Creates a 9-grid style sprite that stretches
 * @author David Grace
 */
@@ -292,12 +294,6 @@ class FlxGridSprite extends FlxObject
 			#end
 			
 			FlxBasic._VISIBLECOUNT++;
-			#if !FLX_NO_DEBUG
-			if (FlxG.visualDebug && !ignoreDrawDebug)
-			{
-				drawDebug(camera);
-			}
-			#end
 		}
 	}
    

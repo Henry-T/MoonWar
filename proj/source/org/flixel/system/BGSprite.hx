@@ -10,6 +10,8 @@ import org.flixel.system.layer.TileSheetData;
 import org.flixel.FlxG;
 
 /**
+ * 这个类只有FlxSubState中用到，不清楚有什么用。
+ * 
  * The main "game object" class, the sprite is a <code>FlxObject</code>
  * with a bunch of graphics options and abilities, like animation and stamping.
  */

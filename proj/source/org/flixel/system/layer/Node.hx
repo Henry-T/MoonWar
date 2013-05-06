@@ -5,8 +5,11 @@ import nme.geom.Point;
 import nme.geom.Rectangle;
 
 import org.flixel.system.layer.TileSheetData;
+import org.flixel.system.layer.frames.FlxSpriteFrames;
 
 /**
+ * 图冊节点存储BitmapData以及它在Atlas上的位置。
+ * 
  * Atlas Node holds BitmapData and it's position on Atlas
  * @author Zaphod
  */

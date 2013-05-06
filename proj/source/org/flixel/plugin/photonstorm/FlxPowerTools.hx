@@ -10,6 +10,9 @@
 
 package org.flixel.plugin.photonstorm;
 
+/**
+ * Flixel Power Tools的信息
+ */
 class FlxPowerTools 
 {
 	

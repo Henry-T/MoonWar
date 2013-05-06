@@ -4,6 +4,9 @@ import haxe.FastList;
 import org.flixel.FlxObject;
 
 /**
+ * 微型链表类。
+ * 为对时间要求苛刻和高重复性的任务做优化。
+ * 
  * A miniature linked list class.
  * Useful for optimizing time-critical or highly repetitive tasks!
  * See <code>FlxQuadTree</code> for how to use it, IF YOU DARE.

@@ -18,6 +18,9 @@ import nme.display.BitmapInt32;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 
+/**
+ * 创建网格和棋盘格FlxSprite对象。
+ */
 class FlxGridOverlay 
 {
 	public function new() { }

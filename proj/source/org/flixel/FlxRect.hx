@@ -3,6 +3,8 @@ package org.flixel;
 import nme.geom.Rectangle;
 
 /**
+ * 存储一个矩形。
+ * 
  * Stores a rectangle.
  */
 class FlxRect

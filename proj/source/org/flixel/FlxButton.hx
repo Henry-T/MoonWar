@@ -29,7 +29,7 @@ class FlxButton extends FlxTypedButton<FlxText>
 		super(X, Y, Label, OnClick);
 		if(Label != null)
 		{
-			label = new FlxText(0, 0, /*80*/200, Label);
+			label = new FlxText(0, 0, 80, Label);
 			label.setFormat(null, 8, 0x333333, "center");
 			labelOffset = new FlxPoint( -1, 3);
 		}
@@ -50,6 +50,7 @@ class FlxButton extends FlxTypedButton<FlxText>
 }
 
 /**
+ * 简单按钮类，点击鼠标时调用给定函数。
  * A simple button class that calls a function when clicked by the mouse.
  */
 class FlxTypedButton<T:FlxSprite> extends FlxSprite
@@ -193,14 +194,10 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite
 	}
 	
 	/**
-	 * Since button uses its own mouse handler for thread reasons,
-	 * we run a little pre-check here to make sure that we only add
-	 * the mouse handler when it is actually safe to do so.
+	 * Called by the game loop automatically, handles mouseover and click detection.
 	 */
-	override public function preUpdate():Void
+	override public function update():Void
 	{
-		super.preUpdate();
-		
 		if (!_initialized)
 		{
 			if (FlxG.stage != null)
@@ -214,13 +211,8 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite
 				_initialized = true;
 			}
 		}
-	}
-	
-	/**
-	 * Called by the game loop automatically, handles mouseover and click detection.
-	 */
-	override public function update():Void
-	{
+		super.update();
+		
 		updateButton(); //Basic button logic
 
 		//Default button appearance is to simply update
@@ -376,6 +368,17 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite
 			label.draw();
 		}
 	}
+	
+#if !FLX_NO_DEBUG
+	override public function drawDebug():Void 
+	{
+		super.drawDebug();
+		if (label != null)
+		{
+			label.drawDebug();
+		}
+	}
+#end
 	
 	// TODO: Return from Sound -> Class<Sound>
 	/**

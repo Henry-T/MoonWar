@@ -5,6 +5,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 定义二次曲线运动
+ * 
  * Determines motion along a quadratic curve.
  */
 class QuadMotion extends Motion

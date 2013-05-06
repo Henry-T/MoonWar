@@ -27,18 +27,6 @@ import nme.Assets;
 
 class Level extends MWState
 {
-	// button for phone
-	public var btnUp:FlxSprite;
-	public var btnDown:FlxSprite;
-	public var btnLeft:FlxSprite;
-	public var btnRight:FlxSprite;
-	public var btnUpLeft:FlxSprite;
-	public var btnDownLeft:FlxSprite;
-	public var btnUpRight:FlxSprite;
-	public var btnDownRight:FlxSprite;
-	public var btnShoot:FlxSprite;
-	public var btnJump:FlxSprite;
-
 	// bg
 	public var bgStar:FlxSprite;
 	public var bgMetal:FlxSprite;
@@ -181,6 +169,9 @@ class Level extends MWState
 	private var camTweening:Bool;
 	private var onCamTweenDone:Void->Void;
 
+	// Input
+	public var input:Input;
+
 	public function new()
 	{
 		super();
@@ -192,18 +183,12 @@ class Level extends MWState
 		super.create();
 		this.bgColor = 0xff000000;
 
+		input = new Input();
+
 		bgStar = new FlxSprite(0, 0, "assets/img/bgStar.png");	bgStar.scrollFactor = new FlxPoint(0, 0);
 		bgMetal = new FlxSprite(0, 0, "assets/img/metal.png");	bgMetal.scrollFactor = new FlxPoint(0, 0);
 
 		lineMgr = new LineMgr();
-
-		btnUp = new FlxSprite(100, FlxG.height - 150); btnUp.makeGraphic(70, 40, 0x44ffffff); btnUp.scrollFactor.make(0,0);
-		btnDown = new FlxSprite(100, FlxG.height - 50); btnDown.makeGraphic(70, 40, 0x44ffffff); btnDown.scrollFactor.make(0,0);
-		btnLeft = new FlxSprite(10, FlxG.height - 100); btnLeft.makeGraphic(70, 40, 0x44ffffff); btnLeft.scrollFactor.make(0,0);
-		btnRight = new FlxSprite(180, FlxG.height - 100); btnRight.makeGraphic(70, 40, 0x44ffffff); btnRight.scrollFactor.make(0,0);
-		
-		btnJump = new FlxSprite(FlxG.width - 100, FlxG.height - 120); btnJump.makeGraphic(60, 60, 0x44ffffff); btnJump.scrollFactor.make(0,0);
-		btnShoot = new FlxSprite(FlxG.width - 200, FlxG.height - 120); btnShoot.makeGraphic(60, 60, 0x44ffffff); btnShoot.scrollFactor.make(0,0);
 
 		EmptyTile = new FlxTilemap();
 		var eD:Array<Int> = [0,0,0,0];
@@ -360,9 +345,9 @@ class Level extends MWState
 		sceneName.alpha = 0;
 
 		btnShowHelp = new FlxButton(FlxG.width - 44, 4, "", function() { FlxG.mute = !FlxG.mute; } );
-		btnMute.scrollFactor.make(0,0);
-		btnMute.onOver = function(){btnMute.loadGraphic("assets/img/showHelp_act.png");};
-		btnMute.onOut = function(){btnMute.loadGraphic("assets/img/showHelp.png");};
+		btnShowHelp.scrollFactor.make(0,0);
+		btnShowHelp.onOver = function(){btnMute.loadGraphic("assets/img/showHelp_act.png");};
+		btnShowHelp.onOut = function(){btnMute.loadGraphic("assets/img/showHelp.png");};
 
 		// Dialogs
 		// try load tile layers
@@ -622,15 +607,8 @@ class Level extends MWState
 		add(sceneName);
 
 		add(btnMute);
-		
-		#if android
-		add(btnUp);
-		add(btnDown);
-		add(btnLeft);
-		add(btnRight);
-		add(btnJump);
-		add(btnShoot);
-		#end
+
+		add(input);
 	}
 
 	override public function update():Void 

@@ -7,6 +7,9 @@ import org.flixel.FlxButton;
 import org.flixel.FlxTypedGroup;
 
 /**
+ * 包含四个方向键和四个功能键的虚拟手柄。
+ * 可以方便地定制回调和布局。
+ * 
  * A gamepad which contains 4 directional buttons and 4 action buttons.
  * It's easy to set the callbacks and to customize the layout.
  * 

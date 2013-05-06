@@ -9,6 +9,8 @@ import org.flixel.FlxSprite;
 import org.flixel.system.layer.DrawStackItem;
 
 /**
+ * 
+ * 
  * ...
  * @author Zaphod
  */
@@ -252,12 +254,6 @@ class FlxSkewedSprite extends FlxSprite
 #end
 
 			FlxBasic._VISIBLECOUNT++;
-			#if !FLX_NO_DEBUG
-			if (FlxG.visualDebug && !ignoreDrawDebug)
-			{
-				drawDebug(camera);
-			}
-			#end
 		}
 	}
 	

@@ -7,6 +7,10 @@ import org.flixel.system.layer.DrawStackItem;
 import org.flixel.system.layer.TileSheetData;
 
 /**
+ * 基本State对象。
+ * 通常游戏中会有菜单State和游戏State。
+ * 目的是实现一个漂亮的FlxGroup，但实际上它不够漂亮。
+ *
  * This is the basic game "state" object - e.g. in a simple game
  * you might have a menu state and a play state.
  * It is for all intents and purpose a fancy FlxGroup.
@@ -98,6 +102,21 @@ class FlxState extends FlxGroup
 			_subState.draw();
 		}
 	}
+	
+#if !FLX_NO_DEBUG
+	override public function drawDebug():Void
+	{
+		if (persistantDraw || _subState == null)
+		{
+			super.drawDebug();
+		}
+		
+		if (_subState != null)
+		{
+			_subState.drawDebug();
+		}
+	}
+#end
 	
 	public function tryUpdate():Void
 	{
@@ -201,7 +220,7 @@ class FlxState extends FlxGroup
 	public function createAtlas(atlasName:String, atlasWidth:Int, atlasHeight:Int):Atlas
 	{
 		var key:String = Atlas.getUniqueKey(atlasName);
-		return new Atlas(key, atlasWidth, atlasHeight);
+		return Atlas.getAtlas(key, null, false, atlasWidth, atlasHeight);
 	}
 	
 	/**
@@ -233,15 +252,4 @@ class FlxState extends FlxGroup
 	{
 		
 	}
-	
-	/**
-	 * This function is inlined because it never gets called on FlxState objects.
-	 * Put your code in the update() function.
-	 */
-	override public inline function preUpdate():Void {}
-	/**
-	 * This function is inlined because it never gets called on FlxState objects.
-	 * Put your code in the update() function.
-	 */
-	override public inline function postUpdate():Void {}
 }

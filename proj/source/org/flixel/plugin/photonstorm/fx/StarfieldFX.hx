@@ -24,6 +24,8 @@ import org.flixel.plugin.photonstorm.FlxGradient;
 import org.flixel.system.layer.DrawStackItem;
 
 /**
+ * 在你的游戏里面产生2D或3D的星空效果。
+ * 
  * Creates a 2D or 3D Star Field effect on an FlxSprite for use in your game.
  */
 class StarfieldFX extends BaseFX
@@ -627,13 +629,6 @@ class StarSprite extends FlxSprite
 			drawItem.position = currIndex;
 
 			FlxBasic._VISIBLECOUNT++;
-			
-			#if !FLX_NO_DEBUG
-			if (FlxG.visualDebug && !ignoreDrawDebug)
-			{
-				drawDebug(camera);
-			}
-			#end
 		}
 	}
 	

@@ -9,6 +9,9 @@ import flash.events.NetStatusEvent;
 #end
 
 /**
+ * 让游戏保存机制更加自动化和简化的类。
+ * 大体上是对flash SharedObject的包装，但是处理和很多麻烦的存储请求操作等。
+ * 
  * A class to help automate and simplify save game functionality.
  * Basicaly a wrapper for the Flash SharedObject thing, but
  * handles some annoying storage request stuff too.

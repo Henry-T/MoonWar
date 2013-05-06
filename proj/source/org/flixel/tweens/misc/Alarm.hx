@@ -3,6 +3,8 @@
 import org.flixel.tweens.FlxTween;
 
 /**
+ * 简单报警器，为时间事件提供支持。
+ * 
  * A simple alarm, useful for timed events, etc.
  */
 class Alarm extends FlxTween

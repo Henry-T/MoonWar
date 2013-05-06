@@ -1,6 +1,8 @@
 package org.flixel.system.input;
 
 /**
+ * 输入映射
+ * 
  * ...
  * @author Zaphod
  */

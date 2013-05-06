@@ -6,10 +6,15 @@ import nape.phys.BodyType;
 import nape.phys.Material;
 import nape.shape.Circle;
 import nape.shape.Polygon;
+import org.flixel.FlxBasic;
 import org.flixel.FlxCamera;
 import org.flixel.FlxSprite;
 
 /**
+ * FlxPhysSprite是一个具有物理体的FlxSprite
+ * 在模拟过程中，Sprite的位置和旋转会跟随物理体。
+ * 重载createPhysObjects方法来创建你自己的物理体（默认情况下是一个球）。
+ * 
  * FlxPhysSprite consists of an FlxSprite with a physics body.
  * During the simulation, the sprite follows the physics body position and rotation.
  * 
@@ -63,13 +68,15 @@ class FlxPhysSprite extends FlxSprite
 	/**
 	 * Override core physics velocity etc
 	 */
-	override public function postUpdate():Void
+	override public function update():Void
 	{
+		super.update();
+		
 		if (moves)
 		{
 			updatePhysObjects();
 		}
-		updateAnimation();
+		
 	}
 
 	/**
@@ -97,9 +104,9 @@ class FlxPhysSprite extends FlxSprite
 		if (this.body != null) 
 			destroyPhysObjects();
 		
-		body.space = FlxPhysState.space;
 		body.position.x = x;
 		body.position.y = y;
+		body.space = FlxPhysState.space;
 		this.body = body;
 		setBodyMaterial();
 	}
@@ -210,8 +217,12 @@ class FlxPhysSprite extends FlxSprite
 		_angularDrag 	= angularDrag;
 	}
 	
-	// Hide debug outline on physics sprites (they already show outlined)
+	// Hide debug outline on physics sprites if the physics debug shapes are turned on
 	#if !FLX_NO_DEBUG
-	override public function drawDebug(Camera:FlxCamera = null):Void { }
+	override public function drawDebug(Camera:FlxCamera = null):Void
+	{
+		if (FlxPhysState.debug == null)
+			super.drawDebug(Camera);
+	}
 	#end
 }

@@ -2,11 +2,15 @@ package org.flixel.addons;
 
 import nme.display.BitmapInt32;
 import nme.geom.ColorTransform;
+import org.flixel.FlxBasic;
 import org.flixel.FlxG;
+import org.flixel.FlxObject;
 import org.flixel.FlxSprite;
 import org.flixel.FlxU;
 
 /**
+ * 功能有限的类似“显示物体容器”之类的东西。只可以包含其他的NestedSprite
+ * 
  * Some sort of DisplayObjectContainer but very limited.
  * It can contain only other NestedSprites.
  * @author Zaphod
@@ -190,9 +194,27 @@ class NestedSprite extends FlxSprite
 		return _children.length; 
 	}
 	
-	override public function preUpdate():Void 
+	public function preUpdate():Void 
 	{
-		super.preUpdate();
+		FlxBasic._ACTIVECOUNT++;
+		
+		if (_flickerTimer > 0)
+		{
+			_flickerTimer -= FlxG.elapsed;
+			if(_flickerTimer <= 0)
+			{
+				_flickerTimer = 0;
+				_flicker = false;
+			}
+		}
+		
+		last.x = x;
+		last.y = y;
+		
+		if ((path != null) && (pathSpeed != 0) && (path.nodes[_pathNodeIndex] != null))
+		{
+			updatePathMotion();
+		}
 		
 		for (child in _children)
 		{
@@ -202,17 +224,24 @@ class NestedSprite extends FlxSprite
 	
 	override public function update():Void 
 	{
-		super.update();
-		
+		preUpdate();
 		for (child in _children)
 		{
 			child.update();
 		}
+		postUpdate();
 	}
 	
-	override public function postUpdate():Void 
+	public function postUpdate():Void 
 	{
-		super.postUpdate();
+		if (moves)
+		{
+			updateMotion();
+		}
+		
+		wasTouching = touching;
+		touching = FlxObject.NONE;
+		updateAnimation();
 		
 		//
 		
@@ -287,6 +316,18 @@ class NestedSprite extends FlxSprite
 			child.draw();
 		}
 	}
+	
+	#if !FLX_NO_DEBUG
+	override public function drawDebug():Void 
+	{
+		super.drawDebug();
+		
+		for (child in _children)
+		{
+			child.drawDebug();
+		}
+	}
+	#end
 	
 	override private function set_alpha(Alpha:Float):Float
 	{

@@ -4,6 +4,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 对颜色rgb分量和alpha的补间。
+ * 
  * Tweens a color's red, green, and blue properties
  * independently. Can also tween an alpha value.
  */

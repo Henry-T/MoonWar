@@ -1,6 +1,7 @@
 package org.flixel.system.replay;
 
 /**
+ * 码值对?
  * ...
  * @author Zaphod
  */

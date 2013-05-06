@@ -21,6 +21,8 @@ import org.flixel.FlxG;
 
 
 /**
+ * FlxColor提供一系列颜色计算和协调方法。可以用于填充渐变图或常用的颜色切换转换
+ * 
  * <code>FlxColor</code> is a set of fast color manipulation and color harmony methods.<br />
  * Can be used for creating gradient maps or general color translation / conversion.
  */

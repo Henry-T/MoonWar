@@ -29,6 +29,8 @@ import nme.display.SpreadMethod;
 import nme.display.InterpolationMethod;
 
 /**
+ * 渐变填充创建和渲染的实用方法。
+ * 
  * Adds a set of color gradient creation / rendering functions
  */
 class FlxGradient

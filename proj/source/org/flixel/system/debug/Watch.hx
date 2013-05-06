@@ -8,6 +8,8 @@ import org.flixel.FlxU;
 import org.flixel.system.FlxWindow;
 
 /**
+ * Visual Studio风格的watch窗口，在调试界面显示。快速实时跟踪和编辑公共变量的值。
+ * 
  * A Visual Studio-style "watch" window, for use in the debugger overlay.
  * Track the values of any public variable in real-time, and/or edit their values on the fly.
  */

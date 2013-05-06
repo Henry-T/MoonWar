@@ -28,6 +28,10 @@ import org.flixel.FlxSprite;
 import org.flixel.FlxU;
 
 /**
+ * 实用控制类，使得对FlxSprite的键盘控制更加方便。
+ * 在应用了重力、跳跃和滑行之后很难确定要修改哪个参数。
+ * 另外还提供了一些有用的方法。
+ * 
  * Makes controlling an FlxSprite with the keyboard a LOT easier and quicker to set-up!<br>
  * Sometimes it's hard to know what values to set, especially if you want gravity, jumping, sliding, etc.<br>
  * This class helps sort that - and adds some cool extra functionality too :)

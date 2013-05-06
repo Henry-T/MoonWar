@@ -3,6 +3,9 @@ package org.flixel.plugin.photonstorm.baseTypes;
 import org.flixel.FlxG;
 import org.flixel.plugin.photonstorm.FlxExtendedSprite;
 
+/**
+ * 鼠标弹簧??
+ */
 class MouseSpring 
 {
 	public var sprite:FlxExtendedSprite;

@@ -4,6 +4,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 对一个对象的一个数字属性进行补间。
+ * 
  * Tweens a numeric public property of an Object.
  */
 class VarTween extends FlxTween

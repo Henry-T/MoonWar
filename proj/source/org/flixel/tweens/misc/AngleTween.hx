@@ -5,6 +5,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 从一个角度到另一个角度的补间。
+ * 
  * Tweens from one angle to another.
  */
 class AngleTween extends FlxTween

@@ -7,6 +7,11 @@ import org.flixel.FlxRect;
 import org.flixel.FlxTypedGroup;
 
 /**
+ * 一个相对通用的用于交叠检测的四叉树类。
+ * FlxQuadTree中也为单、双链表操作做了配置。
+ * 你可以将对象添加到A列表或B列表。
+ * 当你需要覆盖检查的时候，可以比对一个列表内的对象，或者比较两个列表。做不同事情的时候很方便！
+ * 
  * A fairly generic quad tree structure for rapid overlap checks.
  * FlxQuadTree is also configured for single or dual list operation.
  * You can add items either to its A list or its B list.

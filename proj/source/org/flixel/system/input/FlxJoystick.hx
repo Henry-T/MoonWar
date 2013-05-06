@@ -3,6 +3,9 @@ package org.flixel.system.input;
 import org.flixel.FlxU;
 import org.flixel.FlxPoint;
 
+/**
+ * 外接游戏杆类
+ */
 class FlxJoystick 
 {
 	

@@ -7,6 +7,10 @@ import nme.geom.Rectangle;
 import org.flixel.system.layer.DrawStackItem;
 
 /**
+ * 基础“环境对象”类
+ * 用于创建简单的墙壁和地面。
+ * 可以使用随机填充快速添加细节。 
+ * 
  * This is a basic "environment object" class, used to create simple walls and floors.
  * It can be filled with a random selection of tiles to quickly add detail.
  */
@@ -308,13 +312,6 @@ class FlxTileblock extends FlxSprite
 			}
 			
 			FlxBasic._VISIBLECOUNT++;
-			
-			#if !FLX_NO_DEBUG
-			if (FlxG.visualDebug && !ignoreDrawDebug)
-			{
-				drawDebug(camera);
-			}
-			#end
 		}
 	}
 	

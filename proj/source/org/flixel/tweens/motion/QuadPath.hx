@@ -5,6 +5,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 定义一系列连续点构成的二次曲线路径运动。
+ * 
  * A series of points which will determine a path from the
  * beginning point to the end poing using quadratic curves.
  */

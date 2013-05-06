@@ -1,6 +1,8 @@
 package org.flixel.system;
 
 /**
+ * 动画帧信息辅助类。
+ *
  * Just a helper structure for the FlxSprite animation system.
  */
 class FlxAnim

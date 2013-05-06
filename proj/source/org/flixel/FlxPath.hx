@@ -7,6 +7,11 @@ import org.flixel.plugin.DebugPathDisplay;
 #end
 
 /**
+ * 简单的路径数据容器。
+ * 简单来说是让FlxObject跟随的一组点。提供了可视的调试代码。
+ * FlxTilemap.findPath()返回值这种路径对象。
+ * 你也可以定制自己的路径，使用下面的add()函数或者创建一个点的数组。
+ * 
  * This is a simple path data container.  Basically a list of points that
  * a <code>FlxObject</code> can follow.  Also has code for drawing debug visuals.
  * <code>FlxTilemap.findPath()</code> returns a path object, but you can

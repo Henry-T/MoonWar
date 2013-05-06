@@ -1,6 +1,8 @@
 package org.flixel.system.replay;
 
 /**
+ * 录像辅助类
+ * 
  * A helper class for the frame records, part of the replay/demo/recording system.
  */
 class MouseRecord

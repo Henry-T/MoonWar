@@ -9,6 +9,9 @@ import nme.Lib;
 import nme.net.URLRequest;
 import org.flixel.FlxPoint;
 
+/**
+* Flixel 辅助类
+*/
 class FlxU 
 {
 	public function new() { }

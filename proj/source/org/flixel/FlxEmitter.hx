@@ -11,6 +11,11 @@ class FlxEmitter extends FlxTypedEmitter<FlxParticle>
 }
 
 /**
+ * 轻量级粒子发生器。
+ * 可用于制作一次性爆炸或者降雨火焰等持续性效果。
+ * FlxEmitter没有做任何优化，它只按照给定的时间间隔发射FlxParticle，并设定粒子是的位置和速度。
+ * 这是基于FlxGroup回收机制的便捷实现。
+ *
  * <code>FlxEmitter</code> is a lightweight particle emitter.
  * It can be used for one-time explosions or for
  * continuous fx like rain and fire.  <code>FlxEmitter</code>
@@ -80,6 +85,17 @@ class FlxTypedEmitter<T:FlxParticle> extends FlxTypedGroup<FlxParticle>
 	 * Set lifespan to 'zero' for particles to live forever.
 	 */
 	public var lifespan:Float;
+	/**
+	 * If this is set to true, particles will slowly fade away by 
+	 * decreasing their alpha value based on their lifespan.
+	 */
+	public var fadingAway:Bool = false;
+	/**
+	 * If this is set to true, particles will slowly decrease in scale 
+	 * based on their lifespan.
+	 * WARNING: This severely impacts performance.
+	 */
+	public var decreasingSize:Bool = false;
 	/**
 	 * How much each particle should bounce.  1 = full bounce, 0 = no bounce.
 	 */
@@ -342,8 +358,10 @@ class FlxTypedEmitter<T:FlxParticle> extends FlxTypedGroup<FlxParticle>
 	public function emitParticle():Void
 	{
 		var particle:FlxParticle = recycle(cast _particleClass);
-		particle.lifespan = lifespan;
+		particle.lifespan = particle.maxLifespan = lifespan;
 		particle.elasticity = bounce;
+		particle.decreasingSize = decreasingSize;
+		particle.fadingAway = fadingAway;
 		particle.reset(x - (Std.int(particle.width) >> 1) + FlxG.random() * width, y - (Std.int(particle.height) >> 1) + FlxG.random() * height);
 		particle.visible = true;
 		

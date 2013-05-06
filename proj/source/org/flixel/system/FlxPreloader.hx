@@ -27,6 +27,8 @@ import org.flixel.system.preloaderHelpers.PxTextField;
 import org.flixel.FlxG;
 
 /**
+ * 8bit风格preloader
+ * 
  * This class handles the 8-bit style preloader.
  */
 class FlxPreloader extends NMEPreloader

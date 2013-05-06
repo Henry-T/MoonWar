@@ -163,7 +163,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1054,7 +1054,9 @@
        id="use3112"
        transform="translate(318.57143,218.57143)"
        width="744.09003"
-       height="1052.3622" />
+       height="1052.3622"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <use
        x="0"
        y="0"
@@ -1062,7 +1064,9 @@
        id="use3114"
        transform="translate(-320,202.85714)"
        width="744.09003"
-       height="1052.3622" />
+       height="1052.3622"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <use
        x="0"
        y="0"

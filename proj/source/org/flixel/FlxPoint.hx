@@ -7,6 +7,8 @@ package org.flixel;
 import nme.geom.Point;
 
 /**
+ * 存储2D浮点坐标
+ *
  * Stores a 2D floating point coordinate.
  */
 class FlxPoint 

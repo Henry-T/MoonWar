@@ -5,6 +5,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 定义依次经过一系列点的线性运动。
+ * 
  * Determines linear motion along a set of points.
  */
 class LinearPath extends Motion

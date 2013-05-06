@@ -17,10 +17,16 @@ package org.flixel.plugin.photonstorm;
 import nme.display.Sprite;
 import nme.events.Event;
 import nme.events.EventDispatcher;
+import nme.Lib;
 import org.flixel.FlxG;
 import org.flixel.FlxU;
 
 /**
+ * 实用的定时器，可以在一定时间之后触发事件。
+ * 调用getTimer只会占用较少的系统资源，避免直接使用flash事件。
+ * 考虑了游戏中的暂停状态。
+ * 如果游戏暂停了，它在游戏继续时对时间做相应的调整。
+ * 
  * A useful timer that can be used to trigger events after certain amounts of time are up.<br />
  * Uses getTimer so is low on resources and avoids using Flash events.<br />
  * Also takes into consideration the Pause state of your game.<br />
@@ -143,7 +149,7 @@ class FlxDelay extends Sprite
 			pausedTimerRunning = true;
 		}
 		
-		if (isRunning == true && pausedTimerRunning == false && FlxU.getTicks()) > expires)
+		if (isRunning == true && pausedTimerRunning == false && FlxU.getTicks() > expires)
 		{
 			stop();
 		}

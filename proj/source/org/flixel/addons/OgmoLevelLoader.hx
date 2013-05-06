@@ -7,6 +7,9 @@ import org.flixel.FlxG;
 import org.flixel.FlxPoint;
 import org.flixel.FlxTilemap;
 
+/**
+ * Ogmo关卡文件加载类
+ */
 class OgmoLevelLoader
 {
 	// Helper variables to read level data

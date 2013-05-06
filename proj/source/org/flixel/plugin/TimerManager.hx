@@ -5,6 +5,8 @@ import org.flixel.FlxTimer;
 import org.flixel.FlxU;
 
 /**
+ * 追踪更新计时器对象的简单管理类。
+ * 
  * A simple manager for tracking and updating game timer objects.
  */
 class TimerManager extends FlxBasic

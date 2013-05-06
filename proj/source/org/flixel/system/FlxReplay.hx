@@ -7,6 +7,9 @@ import org.flixel.system.replay.FrameRecord;
 import org.flixel.system.replay.MouseRecord;
 
 /**
+ * 此对象录制并回放游戏录像，也处理录像文件的存取。
+ * 游戏会话录制的核心是一系列键盘和鼠标操作，但是因为Flixel是非常有序的，我么可以通过它们获得相当高的准确度。
+ * 
  * The replay object both records and replays game recordings,
  * as well as handle saving and loading replays to and from files.
  * Gameplay recordings are essentially a list of keyboard and mouse inputs,

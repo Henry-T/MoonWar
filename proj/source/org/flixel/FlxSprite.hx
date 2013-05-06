@@ -13,6 +13,7 @@ import nme.geom.Matrix;
 import nme.geom.Point;
 import nme.geom.Rectangle;
 import org.flixel.system.layer.DrawStackItem;
+import org.flixel.system.layer.frames.FlxFrame;
 import org.flixel.system.layer.Node;
 
 #if !flash
@@ -23,6 +24,9 @@ import org.flixel.FlxG;
 import org.flixel.system.FlxAnim;
 
 /**
+ * 主要游戏对象。
+ * sprite是一个FlxObject，它具有很多图像上的选项和功能，比如动画和图章。
+ *
  * The main "game object" class, the sprite is a <code>FlxObject</code>
  * with a bunch of graphics options and abilities, like animation and stamping.
  */
@@ -624,13 +628,9 @@ class FlxSprite extends FlxObject
 		#end
 	}
 	
-	/**
-	 * Automatically called after update() by the game loop,
-	 * this function just calls updateAnimation().
-	 */
-	override public function postUpdate():Void
+	override public function update():Void 
 	{
-		super.postUpdate();
+		super.update();
 		updateAnimation();
 	}
 	
@@ -774,7 +774,7 @@ class FlxSprite extends FlxObject
 			currDrawData[currIndex++] = _point.y - y2;
 			
 			currDrawData[currIndex++] = _flxFrame.tileID;
-
+			
 			if ((_flipped != 0) && (facing == FlxObject.LEFT))
 			{
 				currDrawData[currIndex++] = -csx;
@@ -815,12 +815,6 @@ class FlxSprite extends FlxObject
 			drawItem.position = currIndex;
 #end
 			FlxBasic._VISIBLECOUNT++;
-			#if !FLX_NO_DEBUG
-			if (FlxG.visualDebug && !ignoreDrawDebug)
-			{
-				drawDebug(camera);
-			}
-			#end
 		}
 	}
 	
@@ -909,6 +903,32 @@ class FlxSprite extends FlxObject
 		gfx.lineTo(EndX, EndY);
 		
 		//Cache line to bitmap
+		_pixels.draw(FlxG.flashGfxSprite);
+		dirty = true;
+		
+		#if !flash
+		_calculatedPixelsIndex = -1;
+		#end
+		
+		updateAtlasInfo(true);
+	}
+	
+	/**
+	 * This function draws a circle on this sprite at position X,Y
+	 * with the specified color.
+	 * @param   X           X coordinate of the circle's center
+	 * @param   Y           Y coordinate of the circle's center
+	 * @param   Radius      Radius of the circle
+	 * @param   Color       Color of the circle
+	 */
+	public function drawCircle(X:Float, Y:Float, Radius:Float, Color:Int):Void
+	{
+		var gfx:Graphics = FlxG.flashGfx;
+		gfx.clear();
+		gfx.beginFill(Color, 1);
+		gfx.drawCircle(X, Y, Radius);
+		gfx.endFill();
+
 		_pixels.draw(FlxG.flashGfxSprite);
 		dirty = true;
 		

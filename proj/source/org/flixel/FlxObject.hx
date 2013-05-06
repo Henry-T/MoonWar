@@ -7,6 +7,11 @@ import nme.geom.Point;
 import org.flixel.FlxBasic;
 
 /**
+ * 大多数显示对象的基类（FlxSprite、FlxText等）。
+ * 定义了游戏对象的基本属性
+ * 经典的闪烁效果等
+ * 以及基本信息、尺寸、滚动和物理运动。
+ * 
  * This is the base class for most of the display objects (<code>FlxSprite</code>, <code>FlxText</code>, etc).
  * It includes some basic attributes about game objects, including retro-style flickering,
  * basic state information, sizes, scrolling, and basic physics and motion.
@@ -348,17 +353,11 @@ class FlxObject extends FlxBasic
 		super.destroy();
 	}
 	
-	/**
-	 * Pre-update is called right before <code>update()</code> on each object in the game loop.
-	 * In <code>FlxObject</code> it controls the flicker timer,
-	 * tracking the last coordinates for collision purposes,
-	 * and checking if the object is moving along a path or not.
-	 */
-	override public function preUpdate():Void
+	override public function update():Void 
 	{
 		FlxBasic._ACTIVECOUNT++;
 		
-		if(_flickerTimer > 0)
+		if (_flickerTimer > 0)
 		{
 			_flickerTimer -= FlxG.elapsed;
 			if(_flickerTimer <= 0)
@@ -375,15 +374,7 @@ class FlxObject extends FlxBasic
 		{
 			updatePathMotion();
 		}
-	}
-	
-	/**
-	 * Post-update is called right after <code>update()</code> on each object in the game loop.
-	 * In <code>FlxObject</code> this function handles integrating the objects motion
-	 * based on the velocity and acceleration settings, and tracking/clearing the <code>touching</code> flags.
-	 */
-	override public function postUpdate():Void
-	{
+		
 		if (moves)
 		{
 			updateMotion();
@@ -443,14 +434,6 @@ class FlxObject extends FlxBasic
 				continue;
 			}
 			FlxBasic._VISIBLECOUNT++;
-			
-			#if !FLX_NO_DEBUG
-			if (FlxG.visualDebug && !ignoreDrawDebug)
-			{
-				drawDebug(camera);
-			}
-			#end
-			
 		}
 	}
 	
@@ -461,11 +444,16 @@ class FlxObject extends FlxBasic
 	 * 
 	 * @param	Camera	Which camera to draw the debug visuals to.
 	 */
-	override public function drawDebug(Camera:FlxCamera = null):Void
+	override public function drawDebugOnCamera(Camera:FlxCamera = null):Void
 	{
 		if (Camera == null)
 		{
 			Camera = FlxG.camera;
+		}
+		
+		if (!onScreenObject(Camera) || !Camera.visible || !Camera.exists)
+		{
+			return;
 		}
 
 		//get bounding box coordinates
@@ -765,7 +753,7 @@ class FlxObject extends FlxBasic
 				angularAcceleration = 0;
 				angle = pathAngle;
 			}
-		}			
+		}
 	}
 	
 	/**
@@ -792,6 +780,7 @@ class FlxObject extends FlxBasic
 				if (basic != null && basic.exists && overlaps(basic, InScreenSpace, Camera))
 				{
 					results = true;
+					break;
 				}
 			}
 			return results;
@@ -847,6 +836,7 @@ class FlxObject extends FlxBasic
 				if (basic != null && basic.exists && overlapsAt(X, Y, basic, InScreenSpace, Camera))
 				{
 					results = true;
+					break;
 				}
 			}
 			return results;

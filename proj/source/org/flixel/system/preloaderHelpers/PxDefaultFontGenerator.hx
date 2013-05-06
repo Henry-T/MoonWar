@@ -4,6 +4,8 @@ import nme.display.BitmapData;
 import org.flixel.system.preloaderHelpers.PxBitmapFont;
 
 /**
+ * 创建一个默认字体，这是Pixelizer初始化时自动做的事情。
+ * 
  * Creates a default font. This is done automatically when intializing Pixelizer.
  * @author Johan Peitz
  */

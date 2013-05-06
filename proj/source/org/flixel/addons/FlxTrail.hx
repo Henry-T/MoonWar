@@ -5,6 +5,9 @@ import org.flixel.FlxPoint;
 import org.flixel.FlxSprite;
 
 /**
+ * 没什么漂亮东西，只是一个为FlxSprite加上一个轨迹效果。
+ * 比如为你的游戏角色加上轨迹特效。
+ * 
  * Nothing too fancy, just a handy little class to attach a trail effect to a FlxSprite.
  * Inspired by the way "Buck" from the inofficial #flixel IRC channel 
  * creates a trail effect for the character in his game.
@@ -34,6 +37,10 @@ class FlxTrail extends FlxTypedGroup<FlxSprite>
 	 *  Whether to check for angle changes or not.
 	 */
 	public var rotationsEnabled:Bool = true;
+	/**
+	 * Determines whether trailsprites are solid or not. False by default.
+	 */
+	public var solid(default, set_solid):Bool = false;
 	/**
 	 *  Counts the frames passed.
 	 */
@@ -67,13 +74,13 @@ class FlxTrail extends FlxTypedGroup<FlxSprite>
 	 * Creates a new <code>FlxTrail</code> effect for a specific FlxSprite.
 	 * 
 	 * @param	Sprite		The FlxSprite the trail is attached to.
-	 * @param	Image		The image to ues for the trailsprites.
+	 * @param	Image		The image to ues for the trailsprites. Optional, uses the sprite's graphic if null.
 	 * @param	Length		The amount of trailsprites to create. 
 	 * @param	Delay		How often to update the trail. 0 updates every frame.
 	 * @param	Alpha		The alpha value for the very first trailsprite.
 	 * @param	Diff		How much lower the alpha of the next trailsprite is.
 	 */
-	override public function new(Sprite:FlxSprite, Image:Dynamic, Length:Int = 10, Delay:Int = 3, Alpha:Float = 0.4, Diff:Float = 0.05):Void
+	override public function new(Sprite:FlxSprite, Image:Dynamic = null, Length:Int = 10, Delay:Int = 3, Alpha:Float = 0.4, Diff:Float = 0.05):Void
 	{
 		super();
 
@@ -89,13 +96,13 @@ class FlxTrail extends FlxTypedGroup<FlxSprite>
 
 		// Create the initial trailsprites
 		increaseLength(Length);
-	}		
+	}
 
 	/**
 	 * Updates positions and other values according to the delay that has been set.
 	 * 
 	 */
-	override public function postUpdate():Void
+	override public function update():Void
 	{
 		// Count the frames
 		counter++;
@@ -159,14 +166,19 @@ class FlxTrail extends FlxTypedGroup<FlxSprite>
 		// Create the trail sprites
 		for (i in 0...amount)
 		{
-			var trailSprite:FlxSprite = new FlxSprite(0, 0, image);
+			var trailSprite:FlxSprite = new FlxSprite(0, 0);
+			
+			if (image == null) trailSprite.pixels = sprite.pixels;
+			else trailSprite.loadGraphic(image);
+			
 			trailSprite.exists = false;
 			add(trailSprite);
 			trailSprite.alpha = transp;
 			transp -= difference;
+			trailSprite.solid = solid;
 
 			if (trailSprite.alpha <= 0) trailSprite.kill();
-		}	
+		}
 	}
 
 	/**
@@ -196,5 +208,15 @@ class FlxTrail extends FlxTypedGroup<FlxSprite>
 		rotationsEnabled = Angle;
 		xEnabled = X;
 		yEnabled = Y;
+	}
+	
+	private function set_solid(value:Bool):Bool
+	{
+		for (i in 0...trailLength)
+		{
+			members[i].solid = value; 
+		}
+		solid = value;
+		return value;
 	}
 }

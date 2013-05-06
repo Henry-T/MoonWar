@@ -7,7 +7,6 @@ import org.flixel.FlxPoint;
 import org.flixel.FlxTimer;
 import org.flixel.FlxObject;
 import org.flixel.system.input.FlxTouch;
-import Level;
 import org.flixel.FlxU;
 
 class Bot extends FlxSprite
@@ -20,6 +19,7 @@ class Bot extends FlxSprite
 	private var _bullets:FlxGroup;
 
 	public var On:Bool;
+	public var lvl:Level;
 
 	// vehicle
 	public static var InVc:Bool = false;
@@ -167,50 +167,18 @@ class Bot extends FlxSprite
 		keyDownSustain	= false;
 
 		facing = FlxObject.RIGHT;
+
+		lvl = cast(FlxG.state, Level);
 	}
 
 	override public function update():Void
 	{
-		inLEFT 	= false;
-		inRIGHT = false;
-		inUP 	= false;
-		inDOWN 	= false;
-		inJUMP 	= false;
-		inSHOOT = false;
-
-	    var touches:Array<FlxTouch> = FlxG.touchManager.touches;
-	    var touch:FlxTouch;
-	 
-	    for(touch in touches)
-	    {
-	        if (touch.pressed())
-	        {
-	            var px:Int = touch.screenX;
-	            var py:Int = touch.screenY;
-	            var worldX:Float = touch.getWorldPosition().x;
-	            var worldY:Float = touch.getWorldPosition().y;
-
-	            trace("screen: " + px + "-" + py);
-	            trace(" world: " + Std.int(worldX) + "-" + Std.int(worldY));
-	            var lvl:Level = cast(FlxG.state, Level);
-	            var r:FlxRect = lvl.btnRight._rect;
-	            if(r.left < px && px < r.right && r.top < px && px < r.bottom)
-	           		inRIGHT = true;
-	        }
-
-	        if(touch.justPressed())
-	        {
-
-	        }
-	    }
-
 		// hack
 		#if debug
 		if (FlxG.keys.Q)
 			hurt(99999);
 		if (FlxG.keys.W)
 		{
-			var lvl:Level = cast(FlxG.state , Level);
 			if (lvl.boss1 != null)
 				lvl.boss1.hurt(99999);
 			if (lvl.boss3 != null)
@@ -229,19 +197,27 @@ class Bot extends FlxSprite
 		}
 		#end
 
+		// Cleanup
+		inLEFT 	= false;
+		inRIGHT = false;
+		inUP 	= false;
+		inDOWN 	= false;
+		inJUMP 	= false;
+		inSHOOT = false;
+
 		//MOVEMENT
 		acceleration.x = 0;
-		if(On && !InVc && FlxG.keys.LEFT)
+		if(On && !InVc && lvl.input.Left)
 		{
 			facing = FlxObject.LEFT;
 			acceleration.x -= drag.x;
 		}
-		else if(On && !InVc && FlxG.keys.RIGHT)
+		else if(On && !InVc && lvl.input.Right)
 		{
 			facing = FlxObject.RIGHT;
 			acceleration.x += drag.x;
 		}
-		if(On && !InVc && FlxG.keys.justPressed("Z") && !FlxG.keys.DOWN && isTouching(FlxObject.DOWN))
+		if(On && !InVc && lvl.input.JustDown_Jump && !lvl.input.Down && isTouching(FlxObject.DOWN))
 		{
 			velocity.y = -_jumpPower;
 			FlxG.play("assets/snd/jump2.mp3");
@@ -256,10 +232,11 @@ class Bot extends FlxSprite
 			//}
 		}
 
-		if(FlxG.keys.UP 	&& On)	inUP = true;
-		if(FlxG.keys.LEFT 	&& On)	inLEFT = true;
-		if(FlxG.keys.DOWN 	&& On)	inDOWN = true;
-		if(FlxG.keys.RIGHT 	&& On)	inRIGHT = true;
+	    // Input from keyboard
+		if(lvl.input.Up 	&& On)	inUP = true;
+		if(lvl.input.Left 	&& On)	inLEFT = true;
+		if(lvl.input.Down 	&& On)	inDOWN = true;
+		if(lvl.input.Right 	&& On)	inRIGHT = true;
 
 		// Sustain Aiming
 		keyUpTimerUp 	+= FlxG.elapsed;
@@ -267,7 +244,7 @@ class Bot extends FlxSprite
 		keyUpTimerLeft 	+= FlxG.elapsed;
 		keyUpTimerRight += FlxG.elapsed;
 
-		if(On && !FlxG.keys.UP && !FlxG.keys.LEFT && !FlxG.keys.DOWN && !FlxG.keys.RIGHT){
+		if(On && !lvl.input.Up && !lvl.input.Left && !lvl.input.Down && !lvl.input.Right){
 			if(!keyUpSustain && keyUpTimerUp < aimSustainTimeout)
 				keyUpSustain = true;
 			if(!keyDownSustain && keyUpTimerDown < aimSustainTimeout)
@@ -284,13 +261,13 @@ class Bot extends FlxSprite
 			keyRightSustain = false;
 		}
 
-		if(On && FlxG.keys.justReleased("UP"))
+		if(On && lvl.input.JustUp_Up)
 			keyUpTimerUp = 0;
-		if(On && FlxG.keys.justReleased("DOWN"))
+		if(On && lvl.input.JustUp_Down)
 			keyUpTimerDown = 0;
-		if(On && FlxG.keys.justReleased("LEFT"))
+		if(On && lvl.input.JustUp_Left)
 			keyUpTimerLeft = 0;
-		if(On && FlxG.keys.justReleased("RIGHT"))
+		if(On && lvl.input.JustUp_Right)
 			keyUpTimerRight = 0;
 
 		//AIMING
@@ -326,6 +303,9 @@ class Bot extends FlxSprite
 			_aim = FlxObject.RIGHT;
 			gunHand.play("front");
 		}
+		else {
+			_aim = FlxObject.RIGHT;
+		}
 		
 		//ANIMATION
 		if(velocity.y != 0)
@@ -351,7 +331,7 @@ class Bot extends FlxSprite
 			shootTimer -= shootCold;
 		}
 
-		if(On && FlxG.keys.X){
+		if(On && lvl.input.Shoot){
 			if(shootTimer > shootCold){
 				getMidpoint(_point);
 				cast(_bullets.recycle(Bullet),Bullet).shoot(_point,_aim);

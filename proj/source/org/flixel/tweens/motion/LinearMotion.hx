@@ -4,6 +4,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 定义从一个点到另一个点的线性运动。
+ * 
  * Determines motion along a line, from one point to another.
  */
 class LinearMotion extends Motion

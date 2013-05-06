@@ -5,6 +5,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 运动补间基类
+ * 
  * Base class for motion Tweens.
  */
 class Motion extends FlxTween

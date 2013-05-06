@@ -18,7 +18,9 @@ import org.flixel.FlxBasic;
 import org.flixel.FlxG;
 import org.flixel.FlxPoint;
 import org.flixel.FlxRect;
-
+/**
+ * 鼠标点选类，将FlxSprite列表后，返回点到的结果。
+ */
 class FlxMouseControl extends FlxBasic
 {
 	/**
@@ -160,16 +162,8 @@ class FlxMouseControl extends FlxBasic
 		}
 		else
 		{
-			//	No target, but is the mouse down?
-			
-			if (FlxG.mouse.justPressed())
-			{
-				clickStack = [];
-			}
-			
 			//	If you are wondering how the brand new array can have anything in it by now, it's because FlxExtendedSprite
 			//	adds itself to the clickStack
-			
 			if (FlxG.mouse.pressed() && clickStack.length > 0)
 			{
 				assignClickedSprite();

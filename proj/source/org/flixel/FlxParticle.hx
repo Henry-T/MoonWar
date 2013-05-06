@@ -1,6 +1,10 @@
 package org.flixel;
 	
 /**
+ * 粒子类是对FlxSprite扩展，加入了游戏中常用的扩展行为。
+ * 可以像你对FlxSprite做扩展一样去派生此类。
+ * FlxEmitter曾经管理sprite，而现在管理的是FlxParticle及其派生类。
+ * 
  * This is a simple particle class that extends the default behavior
  * of <code>FlxSprite</code> to have slightly more specialized behavior
  * common to many game scenarios.  You can override and extend this class
@@ -26,6 +30,24 @@ class FlxParticle extends FlxSprite
 	public var friction:Float;
 	
 	/**
+	 * If this is set to true, particles will slowly fade away by 
+	 * decreasing their alpha value based on their lifespan.
+	 */
+	public var fadingAway:Bool = false;
+	
+	/**
+	 * If this is set to true, particles will slowly decrease in scale 
+	 * based on their lifespan.
+	 * WARNING: This severely impacts performance.
+	 */
+	public var decreasingSize:Bool = false;
+	
+	/**
+	 * Helper variable for fading and sizeDecreasing effects.
+	 */
+	public var maxLifespan:Float;
+	
+	/**
 	 * Instantiate a new particle.  Like <code>FlxSprite</code>, all meaningful creation
 	 * happens during <code>loadGraphic()</code> or <code>makeGraphic()</code> or whatever.
 	 */
@@ -34,6 +56,7 @@ class FlxParticle extends FlxSprite
 		super();
 		lifespan = 0;
 		friction = 500;
+		exists = false;
 	}
 	
 	/**
@@ -42,53 +65,95 @@ class FlxParticle extends FlxSprite
 	 */
 	override public function update():Void
 	{
-		//lifespan behavior
-		if (lifespan <= 0)
+		FlxBasic._ACTIVECOUNT++;
+		
+		if (_flickerTimer > 0)
 		{
-			return;
-		}
-		lifespan -= FlxG.elapsed;
-		if (lifespan <= 0)
-		{
-			kill();
+			_flickerTimer -= FlxG.elapsed;
+			if(_flickerTimer <= 0)
+			{
+				_flickerTimer = 0;
+				_flicker = false;
+			}
 		}
 		
-		//simpler bounce/spin behavior for now
-		if (touching != 0)
+		last.x = x;
+		last.y = y;
+		
+		if ((path != null) && (pathSpeed != 0) && (path.nodes[_pathNodeIndex] != null))
 		{
-			if (angularVelocity != 0)
-			{
-				angularVelocity = -angularVelocity;
-			}
+			updatePathMotion();
 		}
-		if(acceleration.y > 0) //special behavior for particles with gravity
+		
+		//lifespan behavior
+		if (lifespan > 0)
 		{
-			//if (touching & FlxObject.FLOOR)
-			if ((touching & FlxObject.FLOOR) != 0)
+			lifespan -= FlxG.elapsed;
+			if (lifespan <= 0)
 			{
-				drag.x = friction;
-				
-				//if(!(wasTouching & FlxObject.FLOOR))
-				if((wasTouching & FlxObject.FLOOR) == 0)
+				kill();
+			}
+			
+			// Fading away
+			if (fadingAway)
+			{
+				alpha -= (FlxG.elapsed / maxLifespan);
+			}
+			
+			// Decreasing size
+			if (decreasingSize) 
+			{
+				scale.x = scale.y -= (FlxG.elapsed / maxLifespan);
+			}
+		
+			//simpler bounce/spin behavior for now
+			if (touching != 0)
+			{
+				if (angularVelocity != 0)
 				{
-					if (velocity.y < -elasticity * 10)
-					{
-						if (angularVelocity != 0)
-						{
-							angularVelocity *= -elasticity;
-						}
-					}
-					else
-					{
-						velocity.y = 0;
-						angularVelocity = 0;
-					}
+					angularVelocity = -angularVelocity;
 				}
 			}
-			else
+			if (acceleration.y > 0) //special behavior for particles with gravity
 			{
-				drag.x = 0;
+				if ((touching & FlxObject.FLOOR) != 0)
+				{
+					drag.x = friction;
+					
+					if ((wasTouching & FlxObject.FLOOR) == 0)
+					{
+						if (velocity.y < -elasticity * 10)
+						{
+							if (angularVelocity != 0)
+							{
+								angularVelocity *= -elasticity;
+							}
+						}
+						else
+						{
+							velocity.y = 0;
+							angularVelocity = 0;
+						}
+					}
+				}
+				else
+				{
+					drag.x = 0;
+				}
 			}
+		}
+		
+		if (exists && alive)
+		{
+			if (moves)
+			{
+				updateMotion();
+			}
+			
+			wasTouching = touching;
+			touching = FlxObject.NONE;
+			
+			updateAnimation();
 		}
 	}
 	

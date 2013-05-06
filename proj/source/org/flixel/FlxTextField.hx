@@ -18,6 +18,10 @@ import org.flixel.FlxText;
 import org.flixel.system.layer.Atlas;
 
 /**
+ * 派生自FlxText，在cpp目标平台中产生更好的渲染效果。
+ * 不支持多摄像机。
+ * 显示在所有对象之上。
+ * 
  * Extends <code>FlxText</code> for better support rendering text on cpp target.
  * Doesn't have multicamera support.
  * Displays over all other objects.
@@ -402,12 +406,6 @@ class FlxTextField extends FlxText
 		#end
 		
 		FlxBasic._VISIBLECOUNT++;
-		#if !FLX_NO_DEBUG
-		if (FlxG.visualDebug && !ignoreDrawDebug)
-		{
-			drawDebug(_camera);
-		}
-		#end
 	}
 	
 	/**

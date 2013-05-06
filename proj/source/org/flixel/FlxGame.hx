@@ -1,5 +1,6 @@
 package org.flixel;
 
+import nme.Lib;
 import nme.Assets;
 import nme.display.Bitmap;
 import nme.display.BitmapData;
@@ -12,12 +13,10 @@ import nme.media.Sound;
 import nme.text.TextField;
 import nme.text.TextFormat;
 import nme.text.TextFormatAlign;
-import nme.Lib;
 import org.flixel.plugin.pxText.PxBitmapFont;
 import org.flixel.system.layer.Atlas;
 import org.flixel.system.layer.TileSheetData;
 import org.flixel.system.input.FlxInputs;
-import nme.geom.Matrix;
 
 #if flash
 import flash.text.AntiAliasType;
@@ -32,6 +31,10 @@ import org.flixel.system.FlxDebugger;
 #end
 
 /**
+ * 所有flixel游戏的核心，处理游戏循环等。
+ * 你不用太关心这个冗长的类！
+ * 它通常只被用作创建游戏对象，而你随后的需要可以通过FlxG和FlxState得到满足。
+ * 
  * FlxGame is the heart of all flixel games, and contains a bunch of basic game loops and things.
  * It is a long and sloppy file that you shouldn't have to worry about too much!
  * It is basically only used to create your game object in the first place,
@@ -445,71 +448,15 @@ class FlxGame extends Sprite
 		}
 		#end
 		
-		//handle state switching requests
-		if (_state != _requestedState)
-		{
-			switchState();
-		}
-		
 		//finally actually step through the game physics
 		FlxBasic._ACTIVECOUNT = 0;
 		
-		#if !FLX_NO_RECORD
-		if(_replaying)
-		{
-			_replay.playNextFrame();
-			if(_replayTimer > 0)
-			{
-				_replayTimer -= _step;
-				if(_replayTimer <= 0)
-				{
-					if(_replayCallback != null)
-					{
-						_replayCallback();
-						_replayCallback = null;
-					}
-					else
-					{
-						FlxG.stopReplay();
-					}
-				}
-			}
-			if(_replaying && _replay.finished)
-			{
-				FlxG.stopReplay();
-				if(_replayCallback != null)
-				{
-					_replayCallback();
-					_replayCallback = null;
-				}
-			}
-			#if !FLX_NO_DEBUG
-				_debugger.vcr.updateRuntime(_step);
-			#end
-		}
-		else
-		{
-		#end
-	
-		FlxG.updateInputs();
-		
-		#if !FLX_NO_RECORD
-		}
-		if(_recording)
-		{
-			_replay.recordFrame();
-			#if !FLX_NO_DEBUG
-			_debugger.vcr.updateRuntime(_step);
-			#end
-		}
-		#end
-		
+		#if (cpp && thread)
+		threadSync.push(true);
+		#else
 		update();
-		
-		#if !FLX_NO_MOUSE
-		//todo test why is this needed can it be put in FlxMouse
-		FlxG.mouse.wheel = 0;
 		#end
+		
 		#if !FLX_NO_DEBUG
 		if (_debuggerUp)
 		{
@@ -517,7 +464,18 @@ class FlxGame extends Sprite
 		}
 		#end
 	}
-
+	
+	#if (cpp && thread)
+	// push 'true' into this array to trigger an update. push 'false' to terminate update thread.
+	public var threadSync:cpp.vm.Deque<Bool>;
+	
+	private function threadedUpdate():Void 
+	{
+		while (threadSync.pop(true))
+			update();
+	}
+	#end
+	
 	/**
 	 * This function just updates the soundtray object.
 	 */
@@ -557,16 +515,21 @@ class FlxGame extends Sprite
 	 * May be called multiple times per "frame" or draw call.
 	 */
 	private function update():Void
-	{			
+	{
+		if (_state != _requestedState)
+			switchState();
+		
 		#if !FLX_NO_DEBUG
 		if (_debuggerUp)
 			_mark = Lib.getTimer(); // getTimer is expensive, only do it if necessary
 		#end
-
+		
 		FlxG.elapsed = FlxG.timeScale * _stepSeconds;
 		FlxG.updateSounds();
 		FlxG.updatePlugins();
-		_state.tryUpdate();
+		
+		updateInput();
+		updateState();
 		
 		if (FlxG.tweener.active && FlxG.tweener.hasTween) 
 		{
@@ -578,6 +541,69 @@ class FlxGame extends Sprite
 		#if !FLX_NO_DEBUG
 		if (_debuggerUp)
 			_debugger.perf.flixelUpdate(Lib.getTimer() - _mark);
+		#end
+	}
+	
+	private function updateState():Void
+	{
+		_state.tryUpdate();
+	}
+	
+	private function updateInput():Void
+	{
+		#if !FLX_NO_RECORD
+		if(_replaying)
+		{
+			_replay.playNextFrame();
+			if(_replayTimer > 0)
+			{
+				_replayTimer -= _step;
+				if(_replayTimer <= 0)
+				{
+					if(_replayCallback != null)
+					{
+						_replayCallback();
+						_replayCallback = null;
+					}
+					else
+					{
+						FlxG.stopReplay();
+					}
+				}
+			}
+			if(_replaying && _replay.finished)
+			{
+				FlxG.stopReplay();
+				if(_replayCallback != null)
+				{
+					_replayCallback();
+					_replayCallback = null;
+				}
+			}
+			#if !FLX_NO_DEBUG
+				_debugger.vcr.updateRuntime(_step);
+			#end
+		}
+		else
+		{
+		#end
+		
+		FlxInputs.updateInputs();
+		
+		#if !FLX_NO_RECORD
+		}
+		if(_recording)
+		{
+			_replay.recordFrame();
+			#if !FLX_NO_DEBUG
+			_debugger.vcr.updateRuntime(_step);
+			#end
+		}
+		#end
+		
+		#if !FLX_NO_MOUSE
+		//todo test why is this needed can it be put in FlxMouse
+		FlxG.mouse.wheel = 0;
 		#end
 	}
 	
@@ -598,6 +624,13 @@ class FlxGame extends Sprite
 		FlxG.lockCameras();
 		_state.draw();
 		
+		#if !FLX_NO_DEBUG
+		if (FlxG.visualDebug)
+		{
+			_state.drawDebug();
+		}
+		#end
+		
 		#if !flash
 		FlxG.renderCameras();
 		
@@ -610,6 +643,12 @@ class FlxGame extends Sprite
 		#end
 		
 		FlxG.drawPlugins();
+		#if !FLX_NO_DEBUG
+		if (FlxG.visualDebug)
+		{
+			FlxG.drawDebugPlugins();
+		}
+		#end
 		FlxG.unlockCameras();
 		#if !FLX_NO_DEBUG
 		if (_debuggerUp)
@@ -673,6 +712,11 @@ class FlxGame extends Sprite
 			switchState();
 			_requestedReset = false;
 		}
+		
+		#if (cpp && thread)
+		threadSync = new cpp.vm.Deque();
+		cpp.vm.Thread.create(threadedUpdate);
+		#end
 		
 		//Finally, set up an event for the actual game loop stuff.
 		Lib.current.stage.addEventListener(Event.ENTER_FRAME, onEnterFrame);
@@ -752,7 +796,7 @@ class FlxGame extends Sprite
 	/**
 	 * Sets up the darkened overlay with the big white "play" button that appears when a flixel game loses focus.
 	 */
-	public function createFocusScreen():Void
+	private function createFocusScreen():Void
 	{
 		var gfx:Graphics = _focus.graphics;
 		var screenWidth:Int = Std.int(FlxG.width * FlxCamera.defaultZoom);
@@ -768,53 +812,36 @@ class FlxGame extends Sprite
 		gfx.endFill();
 		
 		//draw white arrow
-		// var halfWidth:Int = Std.int(screenWidth / 2);
-		// var halfHeight:Int = Std.int(screenHeight / 2);
-		// var helper:Int = Std.int(FlxU.min(halfWidth, halfHeight) / 3);
-		// gfx.moveTo(halfWidth - helper, halfHeight - helper);
-		// gfx.beginFill(0xffffff, 0.65);
-		// gfx.lineTo(halfWidth + helper, halfHeight);
-		// gfx.lineTo(halfWidth - helper, halfHeight + helper);
-		// gfx.lineTo(halfWidth - helper, halfHeight - helper);
-		// gfx.endFill();
-		
-		// var logo:Sprite = new Sprite();
-		// FlxAssets.drawLogo(logo.graphics);
-		// logo.scaleX = helper / 1000;
-		// if (logo.scaleX < 0.2)
-		// {
-		// 	logo.scaleX = 0.2;
-		// }
-		// logo.scaleY = logo.scaleX;
-		// logo.x = logo.y = 5;
-		// logo.alpha = 0.35;
-		// _focus.addChild(logo);
-
-		// draw PAUSED text
-		//var text:TextField = new TextField();
-		//text.text = "hello world";
-		//_focus.addChild(text);
-		
-		var bmp:BitmapData = FlxAssets.getBitmapData("assets/img/paused.png");
-		var pos : FlxPoint = new FlxPoint(FlxG.width/2-bmp.width/2,FlxG.height/2-bmp.height/2);
-		var matrix:Matrix = new Matrix();
-		matrix.tx = pos.x;
-		matrix.ty = pos.y;
-
-		gfx.beginBitmapFill(bmp, matrix);
-		gfx.drawRect(pos.x, pos.y, bmp.width, bmp.height);
+		var halfWidth:Int = Std.int(screenWidth / 2);
+		var halfHeight:Int = Std.int(screenHeight / 2);
+		var helper:Int = Std.int(FlxU.min(halfWidth, halfHeight) / 3);
+		gfx.moveTo(halfWidth - helper, halfHeight - helper);
+		gfx.beginFill(0xffffff, 0.65);
+		gfx.lineTo(halfWidth + helper, halfHeight);
+		gfx.lineTo(halfWidth - helper, halfHeight + helper);
+		gfx.lineTo(halfWidth - helper, halfHeight - helper);
 		gfx.endFill();
+		
+		var logo:Sprite = new Sprite();
+		FlxAssets.drawLogo(logo.graphics);
+		logo.scaleX = helper / 1000;
+		if (logo.scaleX < 0.2)
+		{
+			logo.scaleX = 0.2;
+		}
+		logo.scaleY = logo.scaleX;
+		logo.x = logo.y = 5;
+		logo.alpha = 0.35;
+		_focus.addChild(logo);
 		
 		addChild(_focus);
 	}
 
 	#if !FLX_NO_DEBUG
-	public var debugger(getDebugger, null):FlxDebugger;
-	
-	public function getDebugger():FlxDebugger
+	public var debugger(get_debugger, null):FlxDebugger;
+	public function get_debugger():FlxDebugger
 	{
 		return _debugger;
 	}
 	#end
-	
 }

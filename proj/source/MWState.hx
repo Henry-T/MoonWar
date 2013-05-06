@@ -3,6 +3,8 @@ package;
 import org.flixel.FlxState;
 import org.flixel.FlxButton;
 import org.flixel.FlxG;
+import org.flixel.system.input.FlxAnalog;
+import org.flixel.system.input.FlxGamePad;
 
 class MWState extends FlxState
 {
@@ -28,5 +30,6 @@ class MWState extends FlxState
 			btnMute.loadGraphic("assets/img/mute_dis.png");
 		else
 			btnMute.loadGraphic("assets/img/mute.png");
+
 	}
 }

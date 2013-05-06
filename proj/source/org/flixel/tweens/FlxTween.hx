@@ -17,6 +17,9 @@ typedef FriendTween = {
 	private var _next:FriendTween;
 }
 
+/**
+ * FlxTween类
+ */
 class FlxTween
 {
 	/**

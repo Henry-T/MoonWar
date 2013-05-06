@@ -101,7 +101,7 @@ class LineMgr extends FlxSprite
 	}
 
 	override public function update(){
-		if(!isEnd && FlxG.keys.justPressed("SPACE")){
+		if(!isEnd && cast(FlxG.state, Level).input.JustDown_Action){
 			Next();
 		}
 		for (hd in heads)

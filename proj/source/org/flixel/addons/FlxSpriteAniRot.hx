@@ -1,4 +1,6 @@
 /**
+ * 从一个未旋转的图片中创建一个旋转动画图片。注意！原始图片只能有一样动画帧。
+ * 
  * FlxSpriteAniRot
  * 
  * Creating animated and rotated sprite from an un-rotated animated image. 

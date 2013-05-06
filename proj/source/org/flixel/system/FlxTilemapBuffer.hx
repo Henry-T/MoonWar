@@ -9,6 +9,9 @@ import org.flixel.FlxG;
 import org.flixel.FlxU;
 
 /**
+ * 辅助对象，让tilemap在多摄像机绘制中保持高效率。
+ * 除非你要做些疯狂的事情，否则不用理会这个类。
+ * 
  * A helper object to keep tilemap drawing performance decent across the new multi-camera system.
  * Pretty much don't even have to think about this class unless you are doing some crazy hacking.
  */

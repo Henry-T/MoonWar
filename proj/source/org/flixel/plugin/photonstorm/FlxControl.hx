@@ -18,6 +18,9 @@ import org.flixel.FlxBasic;
 import org.flixel.FlxSprite;
 import org.flixel.FlxU;
 
+/**
+ * FlxControlHandler的管理类
+ */
 class FlxControl extends FlxBasic
 {
 	//	Quick references
@@ -159,7 +162,8 @@ class FlxControl extends FlxBasic
 	/**
 	 * Runs update on all currently active FlxControlHandlers
 	 */
-	override public function draw():Void
+	//override public function draw():Void
+	override public function update():Void
 	{
 		for (handler in members)
 		{

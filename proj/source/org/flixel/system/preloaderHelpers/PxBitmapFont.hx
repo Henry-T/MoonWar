@@ -13,6 +13,8 @@ import nme.display.Tilesheet;
 #end
 
 /**
+ * 存储一个位图字体的信息和位图字形
+ * 
  * Holds information and bitmap glpyhs for a bitmap font.
  * @author Johan Peitz
  */

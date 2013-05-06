@@ -24,6 +24,9 @@ import org.flixel.plugin.photonstorm.FlxMath;
 import org.flixel.plugin.photonstorm.FlxVelocity;
 import org.flixel.plugin.photonstorm.FlxWeapon;
 
+/**
+ * 带有各种实用方法的子弹类
+ */
 class Bullet extends FlxSprite
 {
 	private var weapon:FlxWeapon;
@@ -271,6 +274,8 @@ class Bullet extends FlxSprite
 		{
 			kill();
 		}
+		
+		super.update();
 	}
 	
 }

@@ -3,6 +3,10 @@ package org.flixel;
 import org.flixel.plugin.TimerManager;
 
 /**
+ * 简单定时器，通过新的插件系统实现
+ * 可以通过回调或者对finished的访问来使用。 
+ * 不应要加入到state或group中，由timer manager管理调用update()，而不是由用户去做
+ *
  * A simple timer class, leveraging the new plugins system.
  * Can be used with callbacks or by polling the <code>finished</code> flag.
  * Not intended to be added to a game state or group; the timer manager

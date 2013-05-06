@@ -13,6 +13,10 @@ class FlxEmitterExt extends FlxTypedEmitterExt<FlxParticle>
 }
 
 /**
+ * 圆形粒子发射器。
+ * 另外提供了setMotion方法对粒子运动进行控制。
+ * 受FlashPunk中Chevy Ray Johnston启发。
+ * 
  * Extended FlxEmitter that emits particles in a circle (instead of a square).
  * It also provides a new function setMotion to control particle behavior even more.
  * This was inspired by the way Chevy Ray Johnston implemented his particle emitter in Flashpunk.
@@ -98,7 +102,9 @@ class FlxTypedEmitterExt<T:FlxParticle> extends FlxTypedEmitter<T:FlxParticle>
 			
 		particle.velocity.x = Math.cos(a) * d;
 		particle.velocity.y = Math.sin(a) * d;
-		particle.lifespan = lifespan + FlxG.random() * lifespanRange;
+		particle.lifespan = particle.maxLifespan = lifespan + FlxG.random() * lifespanRange;
+		particle.decreasingSize = decreasingSize;
+		particle.fadingAway = fadingAway;
 	}
 	
 	/**

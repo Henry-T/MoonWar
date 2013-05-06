@@ -28,6 +28,8 @@ import org.flixel.FlxSprite;
 import org.flixel.system.layer.DrawStackItem;
 
 /**
+ * 用快速简便的方式为UI、Sprite边界等创建颜色条。可用来表示加载条、进度条或者生命条。
+ * 
  * FlxBar is a quick and easy way to create a graphical bar which can
  * be used as part of your UI/HUD, or positioned next to a sprite. It could represent
  * a loader, progress or health bar.
@@ -1045,6 +1047,8 @@ class FlxBar extends FlxSprite
 				y = parent.y + positionOffset.y;
 			}
 		}
+		
+		super.update();
 	}
 	
 	public var percent(get_percent, set_percent):Float;
@@ -1261,13 +1265,6 @@ class FlxBar extends FlxSprite
 			drawItem.position = currIndex;
 			
 			FlxBasic._VISIBLECOUNT++;
-			
-			#if !FLX_NO_DEBUG
-			if (FlxG.visualDebug && !ignoreDrawDebug)
-			{
-				drawDebug(camera);
-			}
-			#end
 		}
 	}
 	

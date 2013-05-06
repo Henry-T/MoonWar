@@ -8,6 +8,8 @@ import nme.media.SoundTransform;
 import nme.net.URLRequest;
 
 /**
+ * 全局声音对象，处理流、音乐和音效。
+ * 
  * This is the universal flixel sound object, used for streaming, music, and sound effects.
  */
 class FlxSound extends FlxBasic

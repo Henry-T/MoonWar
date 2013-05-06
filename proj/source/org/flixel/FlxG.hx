@@ -44,6 +44,10 @@ import org.flixel.system.input.FlxJoystickManager;
 #end
 
 /**
+ * 提供各种声音、输入、信息、摄像机等操作的全局辅助类。
+ * 数学和颜色等方面的辅助操作在FlxU里面。
+ * FlxG只负责同flixel直接相关的部分。
+ * 
  * This is a global helper class full of useful functions for audio,
  * input, basic info, and the camera system among other things.
  * Utilities for maths and color and things can be found in <code>FlxU</code>.
@@ -87,7 +91,7 @@ class FlxG
 	 * Assign a minor version to your library.
 	 * Appears after the decimal in the console.
 	 */
-	static public inline var LIBRARY_MINOR_VERSION:String = "09";
+	static public inline var LIBRARY_MINOR_VERSION:String = "10-dev";
 	
 	#if !FLX_NO_DEBUG
 	/**
@@ -1468,7 +1472,7 @@ class FlxG
 	 * @param	ProcessCallback	A function with two <code>FlxObject</code> parameters - e.g. <code>myOverlapFunction(Object1:FlxObject,Object2:FlxObject)</code> - that is called if those two objects overlap.  If a ProcessCallback is provided, then NotifyCallback will only be called if ProcessCallback returns true for those objects!
 	 * @return	Whether any overlaps were detected.
 	 */
-	inline static public function overlap(ObjectOrGroup1:FlxBasic = null, ObjectOrGroup2:FlxBasic = null, NotifyCallback:FlxObject->FlxObject->Void = null, ProcessCallback:FlxObject->FlxObject->Bool = null):Bool
+	inline static public function overlap(ObjectOrGroup1:FlxBasic = null, ObjectOrGroup2:FlxBasic = null, NotifyCallback:Dynamic->Dynamic->Void = null, ProcessCallback:Dynamic->Dynamic->Bool = null):Bool
 	{
 		if (ObjectOrGroup1 == null)
 		{
@@ -1499,7 +1503,7 @@ class FlxG
 	 * @param	NotifyCallback	A function with two <code>FlxObject</code> parameters - e.g. <code>myOverlapFunction(Object1:FlxObject,Object2:FlxObject)</code> - that is called if those two objects overlap.
 	 * @return	Whether any objects were successfully collided/separated.
 	 */
-	inline static public function collide(ObjectOrGroup1:FlxBasic = null, ObjectOrGroup2:FlxBasic = null, NotifyCallback:FlxObject->FlxObject->Void = null):Bool
+	inline static public function collide(ObjectOrGroup1:FlxBasic = null, ObjectOrGroup2:FlxBasic = null, NotifyCallback:Dynamic->Dynamic->Void = null):Bool
 	{
 		return FlxG.overlap(ObjectOrGroup1, ObjectOrGroup2, NotifyCallback, FlxObject.separate);
 	}
@@ -1677,14 +1681,6 @@ class FlxG
 	}
 	
 	/**
-	 * Called by the game object to update all the inputs enabled in FlxInputs
-	 */
-	inline static public function updateInputs():Void
-	{
-		FlxInputs.updateInputs();
-	}
-	
-	/**
 	 * Called by the game object to lock all the camera buffers and clear them for the next draw pass.
 	 */
 	inline static public function lockCameras():Void
@@ -1840,6 +1836,25 @@ class FlxG
 			}
 		}
 	}
+	
+#if !FLX_NO_DEBUG
+	inline static public function drawDebugPlugins():Void
+	{
+		var plugin:FlxBasic;
+		var pluginList:Array<FlxBasic> = FlxG.plugins;
+		var i:Int = 0;
+		var l:Int = pluginList.length;
+		while(i < l)
+		{
+			plugin = pluginList[i++];
+			if (plugin.exists && plugin.visible && !plugin.ignoreDrawDebug)
+			{
+				plugin.drawDebug();
+			}
+		}
+	}
+#end
+	
 	/**
 	 * Tweens numeric public properties of an Object. Shorthand for creating a MultiVarTween tween, starting it and adding it to a Tweener.
 	 * @param	object		The object containing the properties to tween.

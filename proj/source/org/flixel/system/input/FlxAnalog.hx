@@ -10,6 +10,7 @@ import flash.geom.Rectangle;
 import org.flixel.system.input.FlxTouch;
 
 /**
+ * 虚拟游戏杆
  * 
  * @author Ka Wing Chin
  */
@@ -95,10 +96,10 @@ class FlxAnalog extends FlxTypedGroup<FlxSprite>
 		_direction = 0;
 		_amount = 0;
 		acceleration = new FlxPoint();
-		
+		#if !FLX_NO_TOUCH
 		_tempTouches = [];
 		_point = new FlxPoint();
-		
+		#end
 		createBase();
 		createThumb();
 		createZone();
@@ -171,9 +172,10 @@ class FlxAnalog extends FlxTypedGroup<FlxSprite>
 		_stick = null;
 		_base = null;
 		_pad = null;
-		
+		#if !FLX_NO_TOUCH
 		_currentTouch = null;
 		_tempTouches = null;
+		#end
 		_point = null;
 	}
 	
@@ -360,7 +362,8 @@ class FlxAnalog extends FlxTypedGroup<FlxSprite>
 	public function justPressed():Bool
 	{
 		#if !FLX_NO_TOUCH
-		return _currentTouch.justPressed() && status == PRESSED;
+		if(_currentTouch!=null)
+			return _currentTouch.justPressed() && status == PRESSED;
 		#end
 		#if !FLX_NO_MOUSE
 		return FlxG.mouse.justPressed() && status == PRESSED;
@@ -373,7 +376,8 @@ class FlxAnalog extends FlxTypedGroup<FlxSprite>
 	public function justReleased():Bool
 	{
 		#if !FLX_NO_TOUCH
-		return _currentTouch.justReleased() && status == HIGHLIGHT;
+		if(_currentTouch!=null)
+			return _currentTouch.justReleased() && status == HIGHLIGHT;
 		#end
 		#if !FLX_NO_MOUSE
 		return FlxG.mouse.justReleased() && status == HIGHLIGHT;

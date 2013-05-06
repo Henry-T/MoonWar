@@ -4,6 +4,10 @@ import org.flixel.FlxBasic;
 import org.flixel.FlxG;
 
 /**
+ * 任务管理器按照指定的顺序执行任务（函数调用）。
+ * 允许你快速简单地执行任何行动，例如改变游戏菜单中按钮的样子。
+ * 任务管理器在你添加一个任务的时候开始，在所有任务执行完之后结束。
+ * 
  * The Task Manager is used to perform tasks (call methods) in specified order.
  * Allows you to quickly and easily program any action, such as the appearance of the buttons in the game menus.
  * Task Manager is started automatically when you add at least one task, and stops when all tasks are done.

@@ -17,6 +17,8 @@ import org.flixel.FlxAssets;
 import org.flixel.FlxU;
 
 /**
+ * 一个通用的，基于flash的窗口类，在FlxDebugger中使用
+ * 
  * A generic, Flash-based window class, created for use in <code>FlxDebugger</code>.
  */
 class FlxWindow extends Sprite

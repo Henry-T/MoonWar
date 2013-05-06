@@ -8,6 +8,9 @@ package org.flixel.addons;
 import org.flixel.FlxPoint;
 import org.flixel.FlxTilemap; 
 
+/*
+ * FlxTilemap的派生类，提供射线同tile之间的碰撞检测支持。
+ */
 class BTNTilemap extends FlxTilemap
 {
 

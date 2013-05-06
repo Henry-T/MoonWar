@@ -1,6 +1,8 @@
 package org.flixel.addons;
 
 /**
+ * 此类使用cellula automata算法生成迷人的洞穴
+ * 
  * This class uses the cellular automata algorithm
  * to generate very sexy caves.
  * (Coded by Eddie Lee, October 16, 2010)

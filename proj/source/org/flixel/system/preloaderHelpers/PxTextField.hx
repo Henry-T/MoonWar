@@ -7,6 +7,8 @@ import org.flixel.system.preloaderHelpers.PxBitmapFont;
 import org.flixel.plugin.pxText.PxTextAlign;
 
 /**
+ * 绘制一个文本区
+ * 
  * Renders a text field.
  * @author Johan Peitz
  */

@@ -1,6 +1,8 @@
 package org.flixel.system.replay;
 
 /**
+ * 回放系统辅助类。表示每游戏循环中一帧或一步里的输入。
+ * 
  * Helper class for the new replay system.  Represents all the game inputs for one "frame" or "step" of the game loop.
  */
 class FrameRecord

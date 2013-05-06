@@ -4,6 +4,9 @@ import org.flixel.FlxObject;
 import org.flixel.FlxTilemap;
 
 /**
+ * 为FlxTilemap提供的简单辅助对象，用以扩展碰撞可能性和控制。
+ * 你可以使用FlxTilemap.setTileProperties()来修改碰撞属性、回调以及类似单方向碰撞的过滤。
+ * 
  * A simple helper object for <code>FlxTilemap</code> that helps expand collision opportunities and control.
  * You can use <code>FlxTilemap.setTileProperties()</code> to alter the collision properties and
  * callback functions and filters for this object to do things like one-way tiles or whatever.

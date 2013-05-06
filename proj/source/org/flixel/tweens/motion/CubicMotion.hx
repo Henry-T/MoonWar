@@ -4,6 +4,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 定义三次曲线补间运动
+ * 
  * Determines motion along a cubic curve.
  */
 class CubicMotion extends Motion

@@ -14,6 +14,10 @@ import org.flixel.system.layer.DrawStackItem;
 import org.flixel.system.layer.TileSheetData;
 
 /**
+ * 用于在flashplayer中显示游戏图像。
+ * 自动创建的默认摄像机同flashplayer一样大。
+ * 你可以使用FlxG的辅助方法自己添加摄像机甚至替换主摄像机。
+ *
  * The camera class is used to display the game's visuals in the Flash player.
  * By default one camera is created automatically, that is the same size as the Flash player.
  * You can add more cameras or even replace the main camera using utilities in <code>FlxG</code>.

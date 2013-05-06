@@ -18,6 +18,9 @@ import org.flixel.FlxU;
 import org.flixel.system.replay.MouseRecord;
 
 /**
+ * 这个类包含并记录游戏中的鼠标光标。
+ * 自动处理视察滚动等。
+ * 
  * This class helps contain and track the mouse pointer in your game.
  * Automatically accounts for parallax scrolling, etc.
  */

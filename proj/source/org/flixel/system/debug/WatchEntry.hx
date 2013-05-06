@@ -11,6 +11,8 @@ import org.flixel.FlxAssets;
 import org.flixel.FlxU;
 
 /**
+ * 调试界面watch窗口的支持类。快速处理游戏变量的显示和通知。
+ * 
  * Helper class for the debugger overlay's Watch window.
  * Handles the display and modification of game variables on the fly.
  */

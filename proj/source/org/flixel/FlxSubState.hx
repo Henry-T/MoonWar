@@ -8,6 +8,12 @@ import org.flixel.system.layer.DrawStackItem;
 import org.flixel.system.layer.TileSheetData;
 
 /**
+ * 基本State对象。
+ * 通常游戏中会有菜单State和游戏State。
+ * 目的是实现一个漂亮的FlxGroup，但实际上它不够漂亮。
+ * 
+ * FlxSubState似乎可以自动保持和还原此State的父State
+ * 
  * This is the basic game "state" object - e.g. in a simple game
  * you might have a menu state and a play state.
  * It is for all intents and purpose a fancy FlxGroup.

@@ -4,6 +4,8 @@ import org.flixel.FlxCamera;
 import org.flixel.FlxG;
 
 /**
+ * 跟踪缩放摄像机
+ * 
  * ZoomCamera: A FlxCamera that centers its zoom on the target that it follows 
  * Flixel version: 2.5+
  * 

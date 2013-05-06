@@ -11,6 +11,8 @@ import org.flixel.FlxObject;
 import org.flixel.system.layer.DrawStackItem;
 
 /**
+ * 用于显示无限循环滚动背景
+ * 
  * Used for showing infinitely scrolling backgrounds.
  * @author Chevy Ray
  */

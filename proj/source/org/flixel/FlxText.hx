@@ -12,6 +12,10 @@ import nme.text.TextFormatAlign;
 import org.flixel.system.layer.Atlas;
 
 /**
+ * 派生自FlxSprite，支持文本绘制。
+ * 可像FlxSprite一样着色、褪色、旋转、缩放。据我所知还无法做动画。
+ * 只要文本是单行，就可以做到像素完美的居中。
+ * 
  * Extends <code>FlxSprite</code> to support rendering text.
  * Can tint, fade, rotate and scale just like a sprite.
  * Doesn't really animate though, as far as I know.
@@ -175,11 +179,6 @@ class FlxText extends FlxSprite
 		_shadow = ShadowColor;
 		_useShadow = UseShadow;
 		_regen = true;
-		#if flash
-		calcFrame();
-		#else
-		calcFrame(true);
-		#end
 		return this;
 	}
 	
@@ -208,11 +207,6 @@ class FlxText extends FlxSprite
 		if(_textField.text != ot)
 		{
 			_regen = true;
-			#if flash
-			calcFrame();
-			#else
-			calcFrame(true);
-			#end
 		}
 		return _textField.text;
 	}
@@ -241,11 +235,6 @@ class FlxText extends FlxSprite
 		_textField.defaultTextFormat = _format;
 		_textField.setTextFormat(_format);
 		_regen = true;
-		#if flash
-		calcFrame();
-		#else
-		calcFrame(true);
-		#end
 		return Size;
 	}
 	
@@ -285,16 +274,12 @@ class FlxText extends FlxSprite
 		#if neko
 		_format.color = Color.rgb;
 		#else
+		Color &= 0x00ffffff;
 		_format.color = Color;
 		#end
 		_textField.defaultTextFormat = _format;
 		_textField.setTextFormat(_format);
 		_regen = true;
-		#if flash
-		calcFrame();
-		#else
-		calcFrame(true);
-		#end
 		return Color;
 	}
 	
@@ -322,11 +307,6 @@ class FlxText extends FlxSprite
 		_textField.defaultTextFormat = _format;
 		_textField.setTextFormat(_format);
 		_regen = true;
-		#if flash
-		calcFrame();
-		#else
-		calcFrame(true);
-		#end
 		return Font;
 	}
 	
@@ -353,11 +333,7 @@ class FlxText extends FlxSprite
 		_format.align = convertTextAlignmentFromString(Alignment);
 		_textField.defaultTextFormat = _format;
 		_textField.setTextFormat(_format);
-		#if flash
-		calcFrame();
-		#else
-		calcFrame(true);
-		#end
+		dirty = true;
 		return Alignment;
 	}
 	
@@ -388,11 +364,7 @@ class FlxText extends FlxSprite
 		}
 		
 		_shadow = Color;
-		#if flash
-		calcFrame();
-		#else
-		calcFrame(true);
-		#end
+		dirty = true;
 		return Color;
 	}
 	
@@ -411,11 +383,7 @@ class FlxText extends FlxSprite
 		if (value != _useShadow)
 		{
 			_useShadow = value;
-			#if flash
-			calcFrame();
-			#else
-			calcFrame(true);
-			#end
+			dirty = true;
 		}
 		return _useShadow;
 	}
@@ -655,5 +623,19 @@ class FlxText extends FlxSprite
 			_flxFrame = _framesData.frames[0];
 		}
 	#end
+	}
+	
+	override public function draw():Void 
+	{
+		if (_regen)		//rarely
+		{
+			#if !flash
+			calcFrame(true);
+			#else
+			calcFrame();
+			#end
+		}
+		
+		super.draw();
 	}
 }

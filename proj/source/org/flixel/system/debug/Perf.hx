@@ -16,6 +16,8 @@ import org.flixel.FlxG;
 import org.flixel.system.FlxWindow;
 
 /**
+ * 调试界面的简单性能挂件
+ * 
  * A simple performance monitor widget, for use in the debugger overlay.
  */
 class Perf extends FlxWindow

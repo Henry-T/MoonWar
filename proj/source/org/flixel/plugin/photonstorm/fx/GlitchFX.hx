@@ -24,6 +24,8 @@ import org.flixel.plugin.photonstorm.FlxColor;
 import org.flixel.system.layer.TileSheetData;
 
 /**
+ * 在一个FlxSprite上面创建静态、雪花或屏幕故障风格的特效
+ * 
  * Creates a static / glitch / monitor-corruption style effect on an FlxSprite
  * 
  * TODO:
@@ -475,13 +477,6 @@ class GlitchSprite extends FlxSprite
 			_imageTileSheetData.positionData[camera.ID] = currIndex;
 			
 			FlxBasic._VISIBLECOUNT++;
-			
-			#if !FLX_NO_DEBUG
-			if (FlxG.visualDebug && !ignoreDrawDebug)
-			{
-				drawDebug(camera);
-			}
-			#end
 		} 
 	}
 	

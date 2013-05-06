@@ -20,6 +20,8 @@ typedef SpriteReg = {
 	var onMouseOut:FlxSprite->Void;
 }
 /**
+* 为普通的FlxSprite提供鼠标事件
+* 
 * Provides mouse event detection for normal FlxSprites.
 * @author TiagoLr (~~~ ProG4mr ~~~)
 */

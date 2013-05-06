@@ -16,6 +16,12 @@ import nme.errors.Error;
 import nme.utils.ByteArray;
 import org.flixel.FlxG;
 
+/**
+ * 实用方法。
+ * 
+ * ! copyObject只能在目标平台是flash的情况下使用
+ * 
+ */
 class FlxCoreUtils 
 {
 	

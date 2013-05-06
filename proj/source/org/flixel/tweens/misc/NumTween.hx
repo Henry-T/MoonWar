@@ -4,6 +4,8 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 
 /**
+ * 补间一个浮点数字。
+ * 
  * Tweens a numeric value.
  */
 class NumTween extends FlxTween

@@ -34,6 +34,9 @@ import org.flixel.plugin.photonstorm.baseTypes.Bullet;
 import org.flixel.plugin.photonstorm.FlxVelocity;
 
 /**
+ * 一种武器之能够发射一种子弹，但可以用createBulletPattern一次发射多颗子弹（如果需要可以朝不同的方向）
+ * 玩家也可以同时发射多个武器。
+ * 
  * A Weapon can only fire 1 type of bullet. But it can fire many of them at once (in different directions if needed) via createBulletPattern
  * A Player could fire multiple Weapons at the same time however, if you need to layer them up
  * 
