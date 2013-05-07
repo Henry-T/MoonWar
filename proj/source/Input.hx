@@ -6,6 +6,8 @@ import org.flixel.system.input.FlxGamePad;
 import org.flixel.FlxGroup;
 import org.flixel.FlxButton;
 
+
+// Wrap up for all input situations and give a handy access to input for this game
 class Input extends FlxGroup {
 	public var analog:FlxAnalog;
 	public var gamePad:FlxGamePad;

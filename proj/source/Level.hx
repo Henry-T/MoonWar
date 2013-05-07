@@ -615,7 +615,11 @@ class Level extends MWState
 	{
 		// handle skip
 		if(toSkip.visible){
-			if(FlxG.mouse.justReleased() && toSkip.overlapsPoint(FlxG.mouse.getScreenPosition()))
+			var toSkipTriggered = false;
+			#if !FLX_NO_MOUSE
+			toSkipTriggered = FlxG.mouse.justReleased() && toSkip.overlapsPoint(FlxG.mouse.getScreenPosition());
+			#end
+			if(toSkipTriggered)
 			{
 				toSkip.visible = false;
 				if(skipFun != null)skipFun();
@@ -845,7 +849,9 @@ class Level extends MWState
 				btnHelp.visible = true;
 				lbResult.text = "FAILED";
 			}
+			#if !FLX_NO_MOUSE
 			FlxG.mouse.show(); 
+			#end
 		});
 	}
 
