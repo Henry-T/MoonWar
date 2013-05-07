@@ -111,9 +111,9 @@ class Input extends FlxGroup {
 			Up = true;
 		if(FlxG.keys.DOWN || (AnalogPressed&&(AnalogAngle>30&&AnalogAngle<120)))
 			Down = true;
-		if(FlxG.keys.X || gamePad.buttonB.status == FlxButton.PRESSED)
+		if(FlxG.keys.Z || gamePad.buttonB.status == FlxButton.PRESSED)
 			Jump = true;	// NOTE FlxButton.PRESSED meas just pressed
-		if(FlxG.keys.Z || gamePad.buttonA.status == FlxButton.PRESSED)
+		if(FlxG.keys.X || gamePad.buttonA.status == FlxButton.PRESSED)
 			Shoot = true;
 		if(FlxG.keys.SPACE || gamePad.buttonA.status == FlxButton.PRESSED)
 			Action = true;
@@ -126,11 +126,11 @@ class Input extends FlxGroup {
 			JustDown_Up = true;
 		if(FlxG.keys.justPressed("DOWN") || (AnalogJustPressed&&(AnalogAngle>30&&AnalogAngle<120)))
 			JustDown_Down = true;
-		if(FlxG.keys.justPressed("X") || 
+		if(FlxG.keys.justPressed("Z") || 
 			(gamePad.buttonB.status == FlxButton.PRESSED&&
 				(lastBtnBStatus==FlxButton.NORMAL||lastBtnBStatus==FlxButton.HIGHLIGHT)))
 			JustDown_Jump = true;
-		if(FlxG.keys.justPressed("Z") || 
+		if(FlxG.keys.justPressed("X") || 
 			(gamePad.buttonA.status == FlxButton.PRESSED&&
 			(lastBtnAStatus==FlxButton.NORMAL||lastBtnAStatus==FlxButton.HIGHLIGHT)))
 			JustDown_Shoot = true;
@@ -148,11 +148,11 @@ class Input extends FlxGroup {
 			JustUp_Up = true;
 		if(FlxG.keys.justReleased("DOWN") || (AnalogJustReleased&&(AnalogAngle>30&&AnalogAngle<120)))
 			JustUp_Down = true;
-		if(FlxG.keys.justPressed("X") ||
+		if(FlxG.keys.justPressed("Z") ||
 			(lastBtnBStatus == FlxButton.PRESSED&&
 			(gamePad.buttonA.status==FlxButton.NORMAL||gamePad.buttonA.status==FlxButton.HIGHLIGHT)))
 			JustUp_Jump = true;
-		if(FlxG.keys.justPressed("Z") ||
+		if(FlxG.keys.justPressed("X") ||
 			(lastBtnAStatus == FlxButton.PRESSED&&
 			(gamePad.buttonA.status==FlxButton.NORMAL||gamePad.buttonA.status==FlxButton.HIGHLIGHT)))
 			JustUp_Shoot = true;
