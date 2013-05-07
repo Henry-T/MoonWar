@@ -43,14 +43,14 @@ class Bullet extends FlxSprite
 		super.kill();
 		if(onScreen())
 		{
-			FlxG.play("assets/snd/hit2.mp3");
+			FlxG.play("hit2");
 			play("poof");
 		}
 	}
 
 	public function shoot(Location:FlxPoint, Aim:Int):Void
 	{
-		FlxG.play("assets/snd/shoot1.mp3");
+		FlxG.play("shoot1");
 		super.reset(Location.x-width/2,Location.y-height/2);
 		solid = true;
 		switch(Aim)

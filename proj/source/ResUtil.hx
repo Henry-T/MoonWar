@@ -7,11 +7,11 @@ class ResUtil
 {
 	public static function playTitle() : Void
 	{
-		FlxG.playMusic("assets/snd/DST-MrMagic.mp3");
+		FlxG.playMusic("title");
 	}
 
 	public static function playGame1() : Void
 	{
-		FlxG.playMusic("assets/snd/DST-Assembly2.mp3");
+		FlxG.playMusic("game");
 	}
 }

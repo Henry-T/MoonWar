@@ -220,7 +220,7 @@ class Bot extends FlxSprite
 		if(On && !InVc && lvl.input.JustDown_Jump && !lvl.input.Down && isTouching(FlxObject.DOWN))
 		{
 			velocity.y = -_jumpPower;
-			FlxG.play("assets/snd/jump2.mp3");
+			FlxG.play("jump2");
 		}
 		if (On && !InVc && lvl.input.JustDown_Jump && lvl.input.Down && (velocity.y == 0))
 		{
