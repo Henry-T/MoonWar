@@ -6,7 +6,7 @@
 	<window width="550" height="400" fps="30" orientation="portrait" resizable="false" if="web" />
 	<window width="550" height="400" fps="30" orientation="landscape" fullscreen="false" unless="web" />
  	
-	<set name="FLX_NO_DEBUG" />
+	<!--set name="FLX_NO_DEBUG" /-->
 	<set name="BUILD_DIR" value="export" />
 	
 	<!--<setenv name="no_console" value="1" />-->
@@ -66,9 +66,10 @@
     <!--<set name="FLX_NO_RECORD" />-->
 	
 	<!--Optimise inputs, be careful you will get null errors if you don't use conditionals in your game-->
-    <!--<set name="FLX_NO_MOUSE" if="mobile" />-->
+    <set name="FLX_NO_MOUSE" if="mobile" />
     <!--<set name="FLX_NO_KEYBOARD" if="mobile" />-->
-    <!--<set name="FLX_NO_TOUCH" if="desktop" />-->
+    <set name="FLX_NO_TOUCH" if="desktop" />
+    <set name="FLX_NO_TOUCH" if="web" />
     <!--<set name="FLX_NO_JOYSTICK" />-->
     <!--set name="SWF_VERSION" value="11.1" /-->
     <app preloader="Preloader"/>
