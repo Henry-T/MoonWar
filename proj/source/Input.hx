@@ -60,6 +60,7 @@ class Input extends FlxGroup {
 
 	public override function update(){
 		super.update();
+		
 		// Input from Analog Pad
 		//if(On){
 		    // var lvl:Level = cast(FlxG.state, Level);
@@ -140,7 +141,6 @@ class Input extends FlxGroup {
 			(gamePad.buttonA.status == FlxButton.PRESSED&&
 			(lastBtnAStatus==FlxButton.NORMAL||lastBtnAStatus==FlxButton.HIGHLIGHT)))
 			JustDown_Action = true;
-
 
 		if(FlxG.keys.justReleased("LEFT") || (AnalogJustReleased&&(AnalogAngle<-120||AnalogAngle>120)))
 			JustUp_Left = true;

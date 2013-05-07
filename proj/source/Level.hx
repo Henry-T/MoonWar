@@ -656,7 +656,7 @@ class Level extends MWState
 
 		// computer trigger
 		FlxG.overlap(coms, bot, function(c:FlxObject, b:FlxObject) { 
-			if (FlxG.keys.justPressed(bot.actionKey))
+			if (input.JustDown_Action)
 			{
 				cast(c, Com).ToggleOn();
 			}

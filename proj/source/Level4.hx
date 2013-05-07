@@ -117,7 +117,7 @@ class Level4 extends Level
 			FlxG.collide(bot, tileCoverD);
 
 		// Lift Broken Dialog
-		if (FlxG.overlap(door2Up, bot) && door2Down.open && FlxG.keys.justPressed(bot.actionKey) && !breakShown && bot.On)
+		if (FlxG.overlap(door2Up, bot) && door2Down.open && input.JustDown_Action && !breakShown && bot.On)
 		{
 			breakShown = true;
 			bot.On = false;
