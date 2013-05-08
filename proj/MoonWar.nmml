@@ -3,8 +3,9 @@
 	<meta title="Moon War" description="Cubebot fight back RageMetal with Dr.Cube." package="com.lolofinil.moonwar" version="1.0.0" company="lolofinil" />
 	<app title="MoonWar" file="MoonWar" main="Main" version="0.0.1" path="export" company="Lolofinil"/>
 	
-	<window width="550" height="400" fps="30" orientation="portrait" resizable="false" if="web" />
-	<window width="0" height="0" fps="30" orientation="landscape" fullscreen="true" unless="web" />
+	<window width="480" height="320" fps="30" orientation="portrait" resizable="false" if="web" />
+	<window width="0" height="0" fps="30" orientation="landscape" fullscreen="true" if="mobile" />
+	<window width="550" height="400" fps="30" orientation="landscape" fullscreen="false" if="linux" />
  	
 	<classpath name="source" />
 	
@@ -13,6 +14,20 @@
 	<assets path="assets" include="*.tmx" />
 	<assets path="assets" include="*.tsx" />
 	<assets path="assets" include="*.xml" />
+
+
+	<assets path="assets" if="linux" >
+		<sound path="snd/birth1.mp3" id="birth1" />
+		<sound path="snd/explo1.mp3" id="explo1" />
+		<sound path="snd/hit1.mp3" id="hit1" />
+		<sound path="snd/hit2.mp3" id="hit2" />
+		<sound path="snd/jump2.mp3" id="jump2" />
+		<sound path="snd/sel1.mp3" id="sel1" />
+		<sound path="snd/shoot.mp3" id="shoot" />
+		<sound path="snd/shoot1.mp3" id="shoot1" />
+		<music path="snd/DST-Assembly2.mp3" id="game" />
+		<music path="snd/DST-MrMagic.mp3" id="title" />
+	</assets>
 
 	<assets path="assets" if="android" >
 		<sound path="snd/birth1.wav" id="birth1" />
@@ -52,7 +67,7 @@
 	<!--Optimise Flags of Flixel-->
     <!--<set name="FLX_NO_DEBUG" />-->
     <set name="FLX_NO_RECORD" />
-    <set name="FLX_NO_MOUSE" if="mobile" />
+    <set name="FLX_NO_MOUSE" if="android" />
     <set name="FLX_NO_KEYBOARD" if="mobile" />
     <set name="FLX_NO_TOUCH" if="desktop" />
     <set name="FLX_NO_TOUCH" if="web" />
