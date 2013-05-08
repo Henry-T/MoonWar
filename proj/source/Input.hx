@@ -9,8 +9,8 @@ import org.flixel.FlxButton;
 
 // Wrap up for all input situations and give a handy access to input for this game
 class Input extends FlxGroup {
-	public var analog:FlxAnalog;
-	public var gamePad:FlxGamePad;
+	public var analog:MyAnalog;
+	public var gamePad:MyGamePad;
 
 	// access key down state
 	public var Left:Bool;
@@ -44,8 +44,8 @@ class Input extends FlxGroup {
 
 	public function new(){
 		super();
-		analog = new FlxAnalog(50, FlxG.height - 50);
-		gamePad = new FlxGamePad(FlxGamePad.NONE, FlxGamePad.A_B);
+		analog = new MyAnalog(GameStatic.screenDensity==1?50:90, FlxG.height - (GameStatic.screenDensity==1?50:90));
+		gamePad = new MyGamePad();
 		analog.visible = true;
 		analog.visible = true;
 

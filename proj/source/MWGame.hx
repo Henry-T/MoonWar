@@ -29,7 +29,7 @@ class MWGame extends FlxGame
 		
 		//super(550,400,TestBed);
 
-		
+		GameStatic.Initial();
 		GameStatic.Load();
 		#if debug
 		GameStatic.ProcLvl = 9;

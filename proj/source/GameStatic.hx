@@ -2,9 +2,10 @@ package ;
 import nme.utils.ByteArray;
 import org.flixel.FlxState;
 import org.flixel.FlxSave;
-
 import org.flixel.FlxSave;
 import org.flixel.FlxState;
+import nme.system.Capabilities;
+
 class GameStatic 
 {
 	// save to player profile for state changing and session changing
@@ -25,6 +26,20 @@ class GameStatic
 	public static function setCurLvl(val:Int):Int { Save.data.CurLvl = val; return val; }
 	public static function getCurLvl():Int { return Save.data.CurLvl; }
 
+	public static var screenDensity : Float;
+
+	public static function Initial(){
+
+		// Get Screen Density
+		var dpi = Capabilities.screenDPI;
+		if (dpi < 100)
+			screenDensity = 1;
+		else if (dpi < 200)
+			screenDensity = 1.5;
+		else
+			screenDensity = 2;
+		screenDensity = 2;
+	}
 
 	public static function Load():Void
 	{
