@@ -37,8 +37,8 @@ class Main extends Sprite
 
 		//MochiServices.connect("2d8d1d2659355cf2", root);
 		//MochiAd.showPreGameAd({clip:root, id:"2d8d1d2659355cf2", res:"550x400"});
-		var demo:FlxGame = new ProjectClass();
-		addChild(demo);
+		var game:FlxGame = new MWGame();
+		addChild(game);
 		
 		#if (cpp || neko)
 		Lib.current.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUP);

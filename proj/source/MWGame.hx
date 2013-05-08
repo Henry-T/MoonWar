@@ -1,12 +1,20 @@
 package;
-import org.flixel.FlxG;
-import org.flixel.FlxGame;
 
+import nme.Lib;
+import org.flixel.FlxGame;
+import org.flixel.FlxG;
+	
 class MWGame extends FlxGame
-{
+{	
 	public function new()
 	{
-		super(550,400,MainMenu,1);
+		var stageWidth:Int = Lib.current.stage.stageWidth;
+		var stageHeight:Int = Lib.current.stage.stageHeight;
+		var ratioX:Float = 1;//stageWidth / 800;//640
+		var ratioY:Float = 1;//stageHeight / 480;//480
+		var ratio:Float = Math.min(ratioX, ratioY);
+
+		super(Math.ceil(stageWidth / ratio), Math.ceil(stageHeight / ratio), MainMenu, ratio, 30, 30);
 		//super(550,400,IntroScreen,1);
 		//super(550, 400,Tutorial,1);
 		//super(550, 400,Level2,1);
@@ -20,9 +28,14 @@ class MWGame extends FlxGame
 		//super(550, 400, GameOver, 1);
 		
 		//super(550,400,TestBed);
+
 		
+		GameStatic.Load();
+		#if debug
+		GameStatic.ProcLvl = 9;
+		#end
+
 		FlxG.framerate = 30;
 		FlxG.flashFramerate = 30;
-		GameStatic.Load();
 	}
 }
