@@ -16,7 +16,6 @@ class MainMenu extends GameScreen
 	public var startBtn:MyButton;
 	public var btnMap:MyButton;
 	public var btnClearData:MyButton;
-	public var ss:SliceShape;
 
 	public var btnGNormal:BitmapData;
 	public var btnGOver:BitmapData;
@@ -76,20 +75,6 @@ class MainMenu extends GameScreen
 		add(btnClearData);
 		add(btnMute);
 		add(txtCreator);
-
-		// testing 
-		ss = new SliceShape(0,0, 200, 200,"assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
-		//add(ss);
-		//ss.setSize(100, 100);
-
-		ss = new SliceShape(30, 80 ,100, 50, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3);
-		//add(ss);
-
-		ss = new SliceShape(0, 300, 550, 40, "assets/img/ui_barh_b.png", SliceShape.MODE_HERT, 1);
-		//add(ss);
-
-		ss = new SliceShape(500, 0, 30, 400, "assets/img/ui_barv_b.png", SliceShape.MODE_VERTICLE, 1);
-		//add(ss);
 
 		ResUtil.playTitle();	
 	}
