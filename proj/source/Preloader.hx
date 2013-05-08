@@ -48,6 +48,9 @@ class Preloader extends NMEPreloader
 	
 	private var isForbid:Bool;
 
+	private var stageWidth:Int;
+	private var stageHeight:Int;
+
 	public function new()
 	{
 		super();
@@ -55,10 +58,13 @@ class Preloader extends NMEPreloader
 		lastTimeStamp = 0;
 		loaded = false;
 		
+		stageWidth = Lib.current.stage.stageWidth;
+		stageHeight = Lib.current.stage.stageHeight;
+
 		background = new Bitmap(new BackgroundBD(550, 400));
 		moon = new Bitmap(new BDmoon(64, 64, true, 0x00000000)); moon.x = 550 - span - moon.width / 2; moon.y = 400 - yToBottom - moon.height / 2;
 		//moon = new Bitmap(Assets.getBitmapData("assets/img/miniMoon.png"));
-		//moon.x = 550 - span - moon.width / 2; moon.y = 400 - yToBottom - moon.height / 2;
+		//moon.x = FlxG.width - span - moon.width / 2; moon.y = FlxG.height - yToBottom - moon.height / 2;
 		troopAry = new Array<Bitmap>();
 		boss = new Bitmap(new BDboss(32, 32, true, 0x00000000)); boss.x = spanBoss - boss.width / 2; boss.y = 400 - yToBottom - boss.height / 2;
 		text = new TextField(); text.text = "0"; text.x = 50 - 10; text.y = 400 - yToBottom - 5; text.textColor = 0xffffffff;
@@ -89,10 +95,10 @@ class Preloader extends NMEPreloader
 		sDis.graphics.drawRoundRect(0, 10, 70, 30, 10, 10);
 		sDis.graphics.endFill();
 
-		btnStart = new SimpleButton(sDis, s1, s2, s1); btnStart.x = 550 - 50 - btnStart.width/2; btnStart.y = 400 - yToBottom - btnStart.height/2; btnStart.visible = true;
+		btnStart = new SimpleButton(sDis, s1, s2, s1); btnStart.x = stageWidth - 50 - btnStart.width/2; btnStart.y = stageHeight - yToBottom - btnStart.height/2; btnStart.visible = true;
 		btnStart.enabled = false;
 		
-		btnTxt = new TextField(); btnTxt.text="WAIT"; btnTxt.x = 550 - 50 - btnTxt.width/2 + 30; btnTxt.y = 400 - yToBottom - 5;
+		btnTxt = new TextField(); btnTxt.text="WAIT"; btnTxt.x = stageWidth - 50 - btnTxt.width/2 + 30; btnTxt.y = stageHeight - yToBottom - 5;
 		btnTxt.textColor = 0xffffffff;
 		btnTxt.mouseEnabled = false;
 
@@ -142,7 +148,7 @@ class Preloader extends NMEPreloader
 		loadedTimeStamp = Timer.stamp();
 		loaded = true;
 		btnTxt.text = "START";
-		//btnTxt.x = 550 - 50 - btnTxt.width/2; btnTxt.y = 400 - yToBottom - btnTxt.height/2;
+		//btnTxt.x = FlxG.width - 50 - btnTxt.width/2; btnTxt.y = FlxG.height - yToBottom - btnTxt.height/2;
 		btnStart.enabled = true;
 		//btnStart.upState = s;
 		//dispatchEvent (new Event (Event.COMPLETE));

@@ -24,8 +24,6 @@ class Level2 extends Level
 
 	public var lvlState : Int;	// 0-preDash 1-preTalk 2-fight 3-postTalk
 
-	public static var xExtend:Float = 550 * 4.5;
-
 	// tile breakers
 	public var breakers:FlxGroup;
 	public var brGP:FlxSprite;
@@ -126,10 +124,10 @@ class Level2 extends Level
 		sBase.width = 60; sBase.height = 75;
 		sBase.health = BaseMaxLife;
 		
-		boss1 = new Boss1(bossX + xExtend, bossY + 300/* + bossBury*/, this); 	// final pos 10, 230
+		boss1 = new Boss1(bossX, bossY + 300/* + bossBury*/, this); 	// final pos 10, 230
 		
 		smokeEmt1 = new FlxEmitter(550, 375);
-		smokeEmt1.x = xExtend - 100;			// x pos for preDash;
+		smokeEmt1.x = 0;			// x pos for preDash;
 		smokeEmt1.y = 265 + 100;
 		smokeEmt1.makeParticles("assets/img/smoke.png", 10, 5, true, 0);
 		smokeEmt1.start(false, 0.5, 0.03, 0);

@@ -170,7 +170,7 @@ class Bee extends Enemy
 				
 				case "Bomb":
 				logPos.x += (!flipMove?-1: 1) * speed * FlxG.elapsed;
-				logPos.y = FlxG.camera.scroll.y + 100 * Math.sin((logPos.x-FlxG.camera.scroll.x) * Math.PI / (550+60));
+				logPos.y = FlxG.camera.scroll.y + 100 * Math.sin((logPos.x-FlxG.camera.scroll.x) * Math.PI / (FlxG.width+60));
 				
 				if ((!flipMove && logPos.x < FinPos.x) || (flipMove && logPos.x > InitPos.x))
 				{

@@ -285,7 +285,7 @@ class Level extends MWState
 		endMask.makeGraphic(FlxG.width, FlxG.height, 0xff000000); endMask.scrollFactor.make(0,0);
 		endMask.alpha = 0.0;
 		endMask.visible = false;
-		endBg = new SliceShape(Math.round(550*0.5-150), Math.round(200-125), 300, 250,"assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
+		endBg = new SliceShape(Math.round(FlxG.width*0.5-150), Math.round(FlxG.height * 0.5-125), 300, 250,"assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
 		endBg.scrollFactor.make(0,0);
 		endBg.visible = false;
 

@@ -63,7 +63,7 @@ class GameMap extends GameScreen
 		bg = new FlxSprite(0,0,"assets/img/bgStar.png");
 
 		leftPnl = new SliceShape(30, 0, 135, 400, "assets/img/ui_barv_b.png", SliceShape.MODE_VERTICLE, 1);
-		bottomPnl = new SliceShape(0, 350, 550, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
+		bottomPnl = new SliceShape(0, FlxG.height - 50, FlxG.width, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
 
 		picBg = new FlxSprite(0,0,"assets/img/mapBg.png");
 		picBg.x = FlxG.width * 0.66 - picBg.width / 2;

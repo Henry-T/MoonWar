@@ -1,17 +1,11 @@
 package;
 import org.flixel.FlxG;
 import org.flixel.FlxGame;
-[SWF(width="550", height="400", backgroundColor="#000000")]
 
 class MWGame extends FlxGame
 {
 	public function new()
 	{
-		#if debug
-		FlxG.debug = true;
-		FlxG.visualDebug = true;
-		#end
-		
 		super(550,400,MainMenu,1);
 		//super(550,400,IntroScreen,1);
 		//super(550, 400,Tutorial,1);
