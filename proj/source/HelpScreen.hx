@@ -80,7 +80,7 @@ class HelpScreen extends MWState
 		mainPnl.x = FlxG.width*0.5 - mainPnl.width*0.5;
 		mainPnl.y = FlxG.height*0.4 - mainPnl.height*0.5;
 
-		bottomPnl = new SliceShape(0, 350, 560, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
+		bottomPnl = new SliceShape(-5, FlxG.height-50, FlxG.width + 10, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
 		btnGBigNormal = new SliceShape(0,0, 100, 25, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 		btnGBigOver = new SliceShape(0,0, 100, 25, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 		btnBack = new FlxButton(0, 0, "BACK", function() { FlxG.switchState(new MainMenu()); } );
