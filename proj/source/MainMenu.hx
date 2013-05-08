@@ -13,9 +13,9 @@ class MainMenu extends GameScreen
 	public var imgBoss:FlxSprite;
 	public var imgMoon:FlxSprite;
 	public var imgTitleTxt:FlxSprite;
-	public var startBtn:FlxButton;
-	public var btnMap:FlxButton;
-	public var btnClearData:FlxButton;
+	public var startBtn:MyButton;
+	public var btnMap:MyButton;
+	public var btnClearData:MyButton;
 	public var ss:SliceShape;
 
 	public var btnGNormal:BitmapData;
@@ -49,19 +49,19 @@ class MainMenu extends GameScreen
 		add(imgMoon);
 		add(imgTitleTxt);
 
-		startBtn = new FlxButton(100 ,190,"START",function(){FlxG.switchState(new IntroScreen());});
+		startBtn = new MyButton(100 ,190,"START",function(){FlxG.switchState(new IntroScreen());});
 		startBtn.loadGraphic(btnGNormal); startBtn.x = FlxG.width / 2 - startBtn.width / 2;
 		startBtn.label.setFormat("assets/fnt/pixelex.ttf", 24, 0xffffff, "center");
 		startBtn.onOver = function() { startBtn.loadGraphic(btnGOver); FlxG.play("sel1"); };
 		startBtn.onOut = function(){startBtn.loadGraphic(btnGNormal);};
 		
-		btnMap = new FlxButton(100, 240, "LEVEL", function():Void { FlxG.switchState(new GameMap()); } );
+		btnMap = new MyButton(100, 240, "LEVEL", function():Void { FlxG.switchState(new GameMap()); } );
 		btnMap.loadGraphic(btnGNormal); btnMap.x = FlxG.width / 2 - btnMap.width / 2;
 		btnMap.label.setFormat("assets/fnt/pixelex.ttf", 24, 0xffffff, "center");
 		btnMap.onOver = function(){btnMap.loadGraphic(btnGOver); FlxG.play("sel1");};
 		btnMap.onOut = function(){btnMap.loadGraphic(btnGNormal);};
 		
-		btnClearData = new FlxButton(100, 290, "HELP", function() { FlxG.switchState(new HelpScreen()); } );
+		btnClearData = new MyButton(100, 290, "HELP", function() { FlxG.switchState(new HelpScreen()); } );
 		btnClearData.loadGraphic(btnGNormal); btnClearData.x = FlxG.width / 2 - btnClearData.width / 2;
 		btnClearData.label.setFormat("assets/fnt/pixelex.ttf", 24, 0xffffff, "center");
 		btnClearData.onOver = function(){btnClearData.loadGraphic(btnGOver); FlxG.play("sel1");};
