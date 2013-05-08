@@ -157,12 +157,12 @@ class Input extends FlxGroup {
 			Left = true;
 		if(keyboardRightDown || (AnalogPressed&&(AnalogAngle<60&&AnalogAngle>-60)))
 			Right = true;
-		if(keyboardRightDown || (AnalogPressed&&(AnalogAngle<-30&&AnalogAngle>-120)))
+		if(keyboardUpDown || (AnalogPressed&&(AnalogAngle<-30&&AnalogAngle>-120)))
 			Up = true;
 		if(keyboardDownDown || (AnalogPressed&&(AnalogAngle>30&&AnalogAngle<120)))
 			Down = true;
 		if(keyboardZDown || gamePad.buttonB.status == FlxButton.PRESSED)
-			Jump = true;	// NOTE FlxButton.PRESSED meas just pressed
+			Jump = true;
 		if(keyboardXDown || gamePad.buttonA.status == FlxButton.PRESSED)
 			Shoot = true;
 		if(keyboardSpaceDown || gamePad.buttonA.status == FlxButton.PRESSED)
