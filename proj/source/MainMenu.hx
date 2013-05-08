@@ -10,6 +10,9 @@ import mochi.as3.MochiServices;
 class MainMenu extends GameScreen
 {
 	public var bgImage:FlxSprite;
+	public var imgBoss:FlxSprite;
+	public var imgMoon:FlxSprite;
+	public var imgTitleTxt:FlxSprite;
 	public var startBtn:FlxButton;
 	public var btnMap:FlxButton;
 	public var btnClearData:FlxButton;
@@ -29,13 +32,22 @@ class MainMenu extends GameScreen
 	{
 		super.create();
 
-		this.bgColor = 0xffff00ff;
+		this.bgColor = 0xff000000;
 
 		btnGNormal = new SliceShape(0, 0 ,150, 30, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone(); 
 		btnGOver =  new SliceShape(0, 0 , 150, 30, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone(); 
 
 		bgImage = new FlxSprite(0, 0, "assets/img/title.png");
-		this.add(bgImage);
+		imgBoss = new FlxSprite(0, 0,"assets/img/titleBoss.png");
+		imgBoss.x = FlxG.width * 0.5 - imgBoss.width * 0.5; imgBoss.y = 5;
+		imgMoon = new FlxSprite(0, 0,"assets/img/titleMoon.png");
+		imgMoon.x = FlxG.width * 0.5 - imgMoon.width * 0.5; imgMoon.y = FlxG.height - imgMoon.height + 5;
+		imgTitleTxt = new FlxSprite(0, 0,"assets/img/titleText.png");
+		imgTitleTxt.x = FlxG.width * 0.5 - imgTitleTxt.width * 0.5; imgTitleTxt.y = 5;
+		//add(bgImage);
+		add(imgBoss);
+		add(imgMoon);
+		add(imgTitleTxt);
 
 		startBtn = new FlxButton(100 ,190,"START",function(){FlxG.switchState(new IntroScreen());});
 		startBtn.loadGraphic(btnGNormal); startBtn.x = FlxG.width / 2 - startBtn.width / 2;
