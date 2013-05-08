@@ -28,6 +28,7 @@ class Bullet extends FlxSprite
 
 	override public function update():Void
 	{
+		super.update();
 		if(!alive)
 		{
 			if(finished)
