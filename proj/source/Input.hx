@@ -191,7 +191,7 @@ class Input extends FlxGroup {
 			Jump = true;
 		if(keyboardXDown || gamePad.buttonA.status == FlxButton.PRESSED)
 			Shoot = true;
-		if(keyboardSpaceDown || gamePad.buttonA.status == FlxButton.PRESSED)
+		if(keyboardXDown || gamePad.buttonA.status == FlxButton.PRESSED)
 			Action = true;
 
 		if(keyboardLeftJustDown || (AnalogJustPressed&&(AnalogAngle<-120||AnalogAngle>120)))
@@ -210,7 +210,7 @@ class Input extends FlxGroup {
 			(gamePad.buttonA.status == FlxButton.PRESSED&&
 			(lastBtnAStatus==FlxButton.NORMAL||lastBtnAStatus==FlxButton.HIGHLIGHT)))
 			JustDown_Shoot = true;
-		if(keyboardSpaceJustDown || 
+		if(keyboardXJustDown || 
 			(gamePad.buttonA.status == FlxButton.PRESSED&&
 			(lastBtnAStatus==FlxButton.NORMAL||lastBtnAStatus==FlxButton.HIGHLIGHT)))
 			JustDown_Action = true;
@@ -231,7 +231,7 @@ class Input extends FlxGroup {
 			(lastBtnAStatus == FlxButton.PRESSED&&
 			(gamePad.buttonA.status==FlxButton.NORMAL||gamePad.buttonA.status==FlxButton.HIGHLIGHT)))
 			JustUp_Shoot = true;
-		if(keyboardSpaceJustUp ||
+		if(keyboardXJustUp ||
 			(lastBtnAStatus == FlxButton.PRESSED&&
 			(gamePad.buttonA.status==FlxButton.NORMAL||gamePad.buttonA.status==FlxButton.HIGHLIGHT)))
 			JustUp_Action = true;

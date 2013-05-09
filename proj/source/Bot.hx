@@ -147,7 +147,7 @@ class Bot extends FlxSprite
 		
 		_bullets = Bullets;
 		
-		actionKey = "SPACE";
+		actionKey = "X";
 		moveLeftKey = "LEFT";
 		moveRightKey = "RIGHT";
 		moveDownKey = "DOWN";

@@ -60,7 +60,7 @@ class LineMgr extends FlxSprite
 		h.x = headBg.getMidpoint().x - h.width/2; h.y = headBg.getMidpoint().y - h.height/2;
 		heads.push(h);
 		
-		pressSpace = new FlxText(100, 94, 80,"PRESS SPACE");
+		pressSpace = new FlxText(100, 94, 80,"PRESS x");
 		pressSpace.setFormat("assets/fnt/pixelex.ttf", 8, 0xffffffff);
 		pressSpace.visible = false;
 		pressSpace.scrollFactor.make(0, 0);
