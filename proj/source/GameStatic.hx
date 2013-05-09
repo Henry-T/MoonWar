@@ -35,6 +35,13 @@ class GameStatic
 	public static var txtSize_menuButton:Int = 12;
 	public static var txtSize_mainButton:Int = 24;
 	public static var txtSize_dialog:Int = 8;
+	public static var button_itemWidth:Int = 100;
+	public static var button_itemHeight:Int = 18;
+	public static var button_menuWidth:Int = 100;
+	public static var button_menuHeight:Int = 25;
+	public static var button_mainWidth:Int = 150;
+	public static var button_mainHeight:Int = 30;
+
 
 	public static function Initial(){
 
@@ -178,4 +185,8 @@ class GameStatic
 		return(myBA.readObject());
 	}
 	#end
+
+	public static function ScreenValidation():Bool{
+		// TODO valid resolation and dpi with core gui layout
+	}
 }
