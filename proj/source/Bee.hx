@@ -103,7 +103,7 @@ class Bee extends Enemy
 			locked = true;
 			health = 6;
 			shotCnt = 1;
-			shotSpan = 1.5;//0.5;
+			shotSpan = 0.5;
 			shotCold = 5;
 			faceTarget = false;
 			speed = 200;
@@ -199,7 +199,7 @@ class Bee extends Enemy
 			}
 		}
 		
-		if (locked && mode == "Bomb")
+		if (locked && (shootAllTimer==null||shootAllTimer.finished||shootAllTimer.timeLeft==0) && mode == "Bomb")
 		{
 			shootAllTimer = TimerPool.Get().start(shotCold, 1, function(t:FlxTimer) {
 				locked = false;
