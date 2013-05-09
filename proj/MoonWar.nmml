@@ -5,7 +5,7 @@
 	
 	<window width="550" height="400" fps="30" orientation="portrait" resizable="false" if="web" />
 	<window width="0" height="0" fps="30" orientation="landscape" fullscreen="true" if="mobile" />
-	<window width="550" height="400" fps="30" orientation="landscape" fullscreen="false" if="linux" />
+	<window width="550" height="400" fps="30" orientation="landscape" fullscreen="false" if="desktop" />
  	
 	<classpath name="source" />
 	
@@ -16,7 +16,7 @@
 	<assets path="assets" include="*.xml" />
 
 
-	<assets path="assets" if="linux" >
+	<assets path="assets" if="desktop" >
 		<sound path="snd/birth1.wav" id="birth1" />
 		<sound path="snd/explo1.wav" id="explo1" />
 		<sound path="snd/hit1.wav" id="hit1" />
