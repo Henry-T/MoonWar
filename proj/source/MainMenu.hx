@@ -126,10 +126,13 @@ class MainMenu extends GameScreen
 		switch (selId) {
 		case 0:
 			selector.x = startBtn.x-2; selector.y = startBtn.y-2;
+			FlxG.play("sel1");
 		case 1:
 			selector.x = btnMap.x-2; selector.y = btnMap.y-2;
+			FlxG.play("sel1");
 		case 2:
 			selector.x = btnClearData.x-2; selector.y = btnClearData.y-2;
+			FlxG.play("sel1");
 		}
 
 	}
