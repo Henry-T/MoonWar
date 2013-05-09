@@ -9,6 +9,9 @@ import org.flixel.FlxTimer;
 // NOTE: Timers alloced will not get destoried until program closed
 //		I presume you won't query for a lot of timers at a time and just left them there after then.
 //		If this does happen, call Clear() to remove all idle timers.
+// LIMIT: This is only useful on one time timer which you won't try to stop when started. 
+//		If you need a muiti time timer or want to track it's status, more work is needed to clear up!
+//		
 class TimerPool {
 	private static var timers:Array<FlxTimer>;
 
