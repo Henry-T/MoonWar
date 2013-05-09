@@ -192,7 +192,7 @@ class Bot extends FlxSprite
 					bee.kill();
 			}
 		}
-		if(FlxG.keys.P)
+		if(FlxG.keys.O)
 		{
 			cast(FlxG.state, Level).EndLevel();
 		}
