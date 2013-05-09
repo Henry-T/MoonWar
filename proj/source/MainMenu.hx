@@ -119,7 +119,7 @@ class MainMenu extends GameScreen
 			ChangeSel(1);
 			FlxG.play("sel1");
 		}
-		else if(FlxG.keys.justPressed("ENTER")){
+		else if(FlxG.keys.justPressed("X")){
 			SelAction(selId);
 		}
 		#end
