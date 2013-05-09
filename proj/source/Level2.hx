@@ -237,9 +237,9 @@ class Level2 extends Level
 				Bees.add(bee);
 			}
 
-			timer1.start(4.5, 1, function(t:FlxTimer){
+			TimerPool.Get().start(4.5, 1, function(t:FlxTimer){
 				lineMgr.Start(lines1, function(){
-					timer1.start(0.8, 1,function(t:FlxTimer){
+					TimerPool.Get().start(0.8, 1,function(t:FlxTimer){
 						for (grd in guards.members)grd.kill();
 						for (b in Bees.members)b.kill();
 
@@ -262,10 +262,10 @@ class Level2 extends Level
 							bShakeTween.setObject(boss1);
 							addTween(bShakeTween);
 							boss1.play("airShock");
-							timer2.start(1.0, 1, function(t:FlxTimer){
+							TimerPool.Get().start(1.0, 1, function(t:FlxTimer){
 								this.removeTween(bShakeTween);
 							});
-							timer3.start(1.0, 1, function(t:FlxTimer){
+							TimerPool.Get().start(1.0, 1, function(t:FlxTimer){
 								AddHugeExplo(exploPos2.x, exploPos2.y);
 								for (c in cubes.members) {
 									var cb:Cube = cast(c, Cube);
@@ -282,13 +282,13 @@ class Level2 extends Level
 							});
 						});
 
-						timer1.start(2.5, 1, function(t:FlxTimer){
+						TimerPool.Get().start(2.5, 1, function(t:FlxTimer){
 							boss1.enableFloat(false);
 							boss1.play("fall");
-							timer2.start(1.5, 1, function(t:FlxTimer){boss1.play("idle");});
+							TimerPool.Get().start(1.5, 1, function(t:FlxTimer){boss1.play("idle");});
 							boss1.bossFire.play("off");
 							var bLandTween:LinearMotion = new LinearMotion(function(){
-								timer1.start(0.5, 1, function(t:FlxTimer){
+								TimerPool.Get().start(0.5, 1, function(t:FlxTimer){
 									lineMgr.Start(lines2, function(){
 										dash = true;
 										boss1.play("walk");
