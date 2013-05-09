@@ -39,6 +39,18 @@ class MWGame extends FlxGame
 		FlxG.framerate = 30;
 		FlxG.flashFramerate = 30;
 		nme.ui.Mouse.hide();
+
+		// preload all sound for android
+		#if android
+		FlxG.addSound("birth1");
+		FlxG.addSound("explo1");
+		FlxG.addSound("hit1");
+		FlxG.addSound("hit2");
+		FlxG.addSound("jump2");
+		FlxG.addSound("sel1");
+		FlxG.addSound("shoot");
+		FlxG.addSound("shoot1");
+		#end
 	}
 
 	private override function onFocus(FlashEvent:Event = null):Void{
