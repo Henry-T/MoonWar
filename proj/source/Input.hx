@@ -9,9 +9,7 @@ import org.flixel.FlxButton;
 
 // Wrap up for all input situations and give a handy access to input for this game
 class Input extends FlxGroup {
-	#if !FLX_NO_TOUCH
 	public var analog:MyAnalog;
-	#end
 	public var gamePad:MyGamePad;
 
 	// access key down state
@@ -46,33 +44,23 @@ class Input extends FlxGroup {
 
 	public function new(){
 		super();
-		#if !FLX_NO_TOUCH
 		analog = new MyAnalog(GameStatic.screenDensity==1?50:90, FlxG.height - (GameStatic.screenDensity==1?50:90));
 		add(analog);
-		#end
 		
 		gamePad = new MyGamePad();
 		add(gamePad);
 
 		gamePad.visible = false;
-		#if !FLX_NO_TOUCH
 		analog.visible = false;
-		#end
 		#if android
 		gamePad.visible = true;
-		#if !FLX_NO_TOUCH
 		analog.visible = true;
-		#end
 		#end
 	}
 
 	public function showControl(isShow:Bool){
-		#if !FLX_NO_TOUCH
-		#if !FLX_NO_MOUSE
 		analog.visible = isShow;
 		gamePad.visible = isShow;
-		#end
-		#end
 	}
 
 	public override function update(){
@@ -120,14 +108,10 @@ class Input extends FlxGroup {
 		AnalogJustReleased = false;
 
 		// Data from Input Source
-		#if !FLX_NO_TOUCH
-		#if !FLX_NO_MOUSE
 		AnalogAngle = analog.getAngle();
 		AnalogPressed = analog.pressed();
 		AnalogJustPressed = analog.justPressed();
 		AnalogJustReleased = analog.justReleased();
-		#end
-		#end
 
 		#if !FLX_NO_KEYBOARD
 		keyboardLeftDown = FlxG.keys.LEFT;
