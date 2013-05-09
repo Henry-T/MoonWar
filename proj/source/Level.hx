@@ -24,6 +24,7 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.misc.VarTween;
 import org.flixel.tweens.util.Ease;
 import nme.Assets;
+import nme.events.Event;
 
 class Level extends MWState
 {
@@ -142,6 +143,7 @@ class Level extends MWState
 	public var lbResult:FlxText;
 
 	// gui - pause panel
+	public var pauseGroup:FlxGroup;
 	public var pauseMask:FlxSprite;
 	public var pauseBg:SliceShape;
 	public var selector_Pause:FlxSprite;
@@ -363,6 +365,8 @@ class Level extends MWState
 		lbResult.visible = false;
 
 		// gui - pause panel
+		pauseGroup = new FlxGroup();
+
 		pauseMask = new FlxSprite(0,0);
 		pauseMask.makeGraphic(FlxG.width, FlxG.height, 0xff000000); pauseMask.scrollFactor.make(0,0);
 		pauseMask.alpha = 0.5;
@@ -562,10 +566,10 @@ class Level extends MWState
 		camTweening = false;
 
 		ResUtil.playGame1();
-		ShowPause(true);
 		#if !FLX_NO_KEYBOARD
 		ChangeSelPause(0);
 		#end
+		ShowPause(false);
 	}
 
 	public function AddAll():Void
@@ -668,13 +672,13 @@ class Level extends MWState
 		add(lbMission);
 		add(lbResult);
 
-		add(pauseMask);
-		add(pauseBg);
-		add(selector_Pause);
-		add(btnResume_Pause);
-		add(btnAgain_Pause);
-		add(btnQuit_Pause);
-		add(lbPaused);
+		pauseGroup.add(add(pauseMask));
+		pauseGroup.add(add(pauseBg));
+		pauseGroup.add(add(selector_Pause));
+		pauseGroup.add(add(btnResume_Pause));
+		pauseGroup.add(add(btnAgain_Pause));
+		pauseGroup.add(add(btnQuit_Pause));
+		pauseGroup.add(add(lbPaused));
 
 		add(toSkip);
 		add(sceneName);
@@ -686,6 +690,24 @@ class Level extends MWState
 
 	override public function update():Void 
 	{
+		if(FlxG.paused){
+			pauseGroup.update();
+
+			#if !FLX_NO_KEYBOARD
+			if(pauseBg.visible == true){
+				if(FlxG.keys.justPressed("UP"))
+					ChangeSelPause(curSelPause-1);
+				else if(FlxG.keys.justPressed("DOWN"))
+					ChangeSelPause(curSelPause+1);
+				else if(FlxG.keys.justPressed("X"))
+					ActionPause(curSelPause);
+				else if(FlxG.keys.justPressed("Z"))
+					Pause(false);	// Do nothing by now
+			}
+			#end
+			return;
+		}
+
 		// handle skip
 		if(toSkip.visible){
 			var toSkipTriggered = false;
@@ -839,15 +861,8 @@ class Level extends MWState
 		// update boss health bar
 		
 		#if !FLX_NO_KEYBOARD
-		if(pauseBg.visible == true){
-			if(FlxG.keys.justPressed("UP"))
-				ChangeSelPause(curSelPause-1);
-			else if(FlxG.keys.justPressed("DOWN"))
-				ChangeSelPause(curSelPause+1);
-			else if(FlxG.keys.justPressed("X"))
-				ActionPause(curSelPause);
-			else if(FlxG.keys.justPressed("Z"))
-				ShowPause(false);	// Do nothing by now
+		if(FlxG.keys.justPressed("P")){
+			Pause(true);
 		}
 		#end
 		
@@ -876,7 +891,7 @@ class Level extends MWState
 		switch (id) {
 			case 0:
 			// TODO resume the game
-			ShowPause(false);
+			Pause(false);
 			case 1:
 			// TODO show confirm
 			FlxG.switchState(GameStatic.GetCurLvlInst());
@@ -977,7 +992,7 @@ class Level extends MWState
 		// TODO
 	}
 
-	public function ShowPause(isShow:Bool){
+	private function ShowPause(isShow:Bool){
 		pauseBg.visible = isShow;
 		pauseMask.visible = isShow;
 		selector_Pause.visible = isShow;
@@ -1018,5 +1033,19 @@ class Level extends MWState
 			});
 		};
 		addTween(twn);
+	}
+
+	public override function onFocus(){
+		// Nothing to do here
+	}
+
+	public override function onFocusLost(){
+		trace("lost");
+		Pause(true);
+	}
+
+	public function Pause(pause:Bool){
+		FlxG.paused = pause;
+		ShowPause(pause);
 	}
 }
