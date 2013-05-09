@@ -48,10 +48,18 @@ class GameStatic
 	public static var txtSize_dialog:Int = 8;
 	public static var button_itemWidth:Int = 100;
 	public static var button_itemHeight:Int = 18;
+	public static var border_itemWidth:Int = 102;
+	public static var border_itemHeight:Int = 20;
 	public static var button_menuWidth:Int = 100;
-	public static var button_menuHeight:Int = 25;
+	public static var button_menuHeight:Int = 24;
+	public static var border_menuWidth:Int = 102;
+	public static var border_menuHeight:Int = 26;
 	public static var button_mainWidth:Int = 150;
 	public static var button_mainHeight:Int = 30;
+	public static var border_mainWidth:Int = 152;
+	public static var border_mainHeight:Int = 32;
+	
+	public static var offset_border:Int = -1;
 
 
 	public static function Initial(){
