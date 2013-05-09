@@ -79,7 +79,7 @@ class Level1 extends Level
 		inFight = false;
 		fightOver = false;
 		AddAll();
-		timer1.start(2, 1, function(t:FlxTimer){
+		TimerPool.Get().start(2, 1, function(t:FlxTimer){
 			lineMgr.Start(lines1, function(){
 				bot.On = true;
 				hpBar.visible = true;
