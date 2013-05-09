@@ -39,9 +39,9 @@ class MainMenu extends GameScreen
 
 		this.bgColor = 0xff000000;
 
-		btnGNormal = new SliceShape(0, 0 ,150, 30, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone(); 
-		btnGOver =  new SliceShape(0, 0 , 150, 30, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone(); 
-		selHighLight = new SliceShape(0, 0 ,154, 34, "assets/img/ui_boxact_border.png", SliceShape.MODE_BOX, 2).pixels.clone(); 
+		btnGNormal = new SliceShape(0, 0 ,GameStatic.button_mainWidth, GameStatic.button_mainHeight, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone(); 
+		btnGOver =  new SliceShape(0, 0 , GameStatic.button_mainWidth, GameStatic.button_mainHeight, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone(); 
+		selHighLight = new SliceShape(0, 0 ,GameStatic.border_mainWidth, GameStatic.border_mainHeight, "assets/img/ui_boxact_border.png", SliceShape.MODE_BOX, 2).pixels.clone(); 
 
 		bgImage = new FlxSprite(0, 0, "assets/img/title.png");
 		imgBoss = new FlxSprite(0, 0,"assets/img/titleBoss.png");
@@ -55,20 +55,26 @@ class MainMenu extends GameScreen
 		add(imgMoon);
 		add(imgTitleTxt);
 
-		startBtn = new MyButton(100 ,190,"START",function(){FlxG.switchState(new IntroScreen());});
-		startBtn.loadGraphic(btnGNormal); startBtn.x = FlxG.width / 2 - startBtn.width / 2;
+		startBtn = new MyButton(0 ,0,"START",function(){FlxG.switchState(new IntroScreen());});
+		startBtn.loadGraphic(btnGNormal);
+		startBtn.x = GameStatic.widthH - startBtn.width*0.5;
+		startBtn.y = GameStatic.heightH - startBtn.height*1.4;
 		startBtn.label.setFormat("assets/fnt/pixelex.ttf", 24, 0xffffff, "center");
 		startBtn.onOver = function() { startBtn.loadGraphic(btnGOver); FlxG.play("sel1"); };
 		startBtn.onOut = function(){startBtn.loadGraphic(btnGNormal);};
 		
-		btnMap = new MyButton(100, 240, "LEVEL", function():Void { FlxG.switchState(new GameMap()); } );
+		btnMap = new MyButton(0, 0, "LEVEL", function():Void { FlxG.switchState(new GameMap()); } );
 		btnMap.loadGraphic(btnGNormal); btnMap.x = FlxG.width / 2 - btnMap.width / 2;
+		btnMap.x = GameStatic.widthH - startBtn.width*0.5;
+		btnMap.y = GameStatic.heightH;
 		btnMap.label.setFormat("assets/fnt/pixelex.ttf", 24, 0xffffff, "center");
 		btnMap.onOver = function(){btnMap.loadGraphic(btnGOver); FlxG.play("sel1");};
 		btnMap.onOut = function(){btnMap.loadGraphic(btnGNormal);};
 		
-		btnClearData = new MyButton(100, 290, "HELP", function() { FlxG.switchState(new HelpScreen()); } );
+		btnClearData = new MyButton(0, 0, "HELP", function() { FlxG.switchState(new HelpScreen()); } );
 		btnClearData.loadGraphic(btnGNormal); btnClearData.x = FlxG.width / 2 - btnClearData.width / 2;
+		btnClearData.x = GameStatic.widthH - btnClearData.width*0.5;
+		btnClearData.y = GameStatic.heightH + btnClearData.height*1.4;
 		btnClearData.label.setFormat("assets/fnt/pixelex.ttf", 24, 0xffffff, "center");
 		btnClearData.onOver = function(){btnClearData.loadGraphic(btnGOver); FlxG.play("sel1");};
 		btnClearData.onOut = function(){btnClearData.loadGraphic(btnGNormal);};
