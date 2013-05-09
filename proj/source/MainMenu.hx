@@ -128,6 +128,8 @@ class MainMenu extends GameScreen
 	#if !FLX_NO_KEYBOARD
 	public function ChangeSel(delta:Int){
 		selId += delta;
+		while(selId < 0) selId+=3;
+		while(selId >= 3) selId-=3;
 		switch (selId) {
 		case 0:
 			selector.x = startBtn.x-2; selector.y = startBtn.y-2;
