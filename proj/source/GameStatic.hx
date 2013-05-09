@@ -16,6 +16,8 @@ class GameStatic
 	public static var endViewed:Bool = false;	// turn this on when end screen shown
 	public static var score:Int = 0;		//
 
+	public static var AllLevelCnt:Int = 10;
+
 	//public static var ProcLvl:Int;
 	public static var ProcLvl(getProcLvl, setProcLvl):Int;
 	public static function setProcLvl(val:Int):Int { Save.data.ProcLvl = val; return val; }
@@ -72,9 +74,12 @@ class GameStatic
 		Save.data.Score = 0;
 	}
 
-	public static function GetCurLvlInst() : FlxState
-	{
-		switch(CurLvl)
+	public static function GetCurLvlInst() : FlxState{
+		return GetLvlInst(CurLvl);
+	}
+
+	public static function GetLvlInst(id:Int) : FlxState{
+		switch(id)
 		{
 		case 0:
 			return new IntroScreen();
@@ -100,28 +105,8 @@ class GameStatic
 		return null;
 	}
 
-	public static function GetNextInst():FlxState
-	{
-		switch(CurLvl)
-		{
-		case 1:
-			return new Level2();
-		case 2:
-			return new Level3();
-		case 3:
-			return new Level4();
-		case 4:
-			return new Level5();
-		case 5:
-			return new Level6();
-		case 6:
-			return new Level7();
-		case 7:
-			return new Level8();
-		case 8:
-			return new EndScreen();
-		}
-		return null;
+	public static function GetNextInst():FlxState{
+		return GetLvlInst(CurLvl + 1);
 	}
 
 	public static function GetMissionName(id:Int):String

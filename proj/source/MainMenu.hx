@@ -111,12 +111,17 @@ class MainMenu extends GameScreen
 
 		// Handle Keyboard Input
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keys.justPressed("UP"))
+		if(FlxG.keys.justPressed("UP")){
 			ChangeSel(-1);
-		else if(FlxG.keys.justPressed("DOWN"))
+			FlxG.play("sel1");
+		}
+		else if(FlxG.keys.justPressed("DOWN")){
 			ChangeSel(1);
-		else if(FlxG.keys.justPressed("ENTER"))
+			FlxG.play("sel1");
+		}
+		else if(FlxG.keys.justPressed("ENTER")){
 			SelAction(selId);
+		}
 		#end
 	}
 
@@ -126,13 +131,10 @@ class MainMenu extends GameScreen
 		switch (selId) {
 		case 0:
 			selector.x = startBtn.x-2; selector.y = startBtn.y-2;
-			FlxG.play("sel1");
 		case 1:
 			selector.x = btnMap.x-2; selector.y = btnMap.y-2;
-			FlxG.play("sel1");
 		case 2:
 			selector.x = btnClearData.x-2; selector.y = btnClearData.y-2;
-			FlxG.play("sel1");
 		}
 
 	}

@@ -25,7 +25,6 @@ class GameMap extends GameScreen
 	public var btnStart:FlxButton;
 
 	public var pic:FlxSprite;
-	public var SelId:Int;
 
 	public var bg:FlxSprite;
 	public var picBg:FlxSprite;
@@ -43,6 +42,11 @@ class GameMap extends GameScreen
 
 	public var btnGBigNormal:BitmapData;
 	public var btnGBigOver:BitmapData;
+	public var selHighLight:BitmapData;
+
+	#if !FLX_NO_KEYBOARD
+	public var selector:FlxSprite;
+	#end
 
 	public function new() 
 	{
@@ -56,6 +60,7 @@ class GameMap extends GameScreen
 
 		btnGLvlNormal = new SliceShape(0,0, 100, 18, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
 		btnGLvlOver = new SliceShape(0,0, 100, 18, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		selHighLight = new SliceShape(0, 0 ,102, 20, "assets/img/ui_boxact_border.png", SliceShape.MODE_BOX, 2).pixels.clone(); 
 
 		btnGBigNormal = new SliceShape(0,0, 100, 25, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 		btnGBigOver = new SliceShape(0,0, 100, 25, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
@@ -89,7 +94,9 @@ class GameMap extends GameScreen
 
 		pic = new FlxSprite();
 
-
+		#if !FLX_NO_KEYBOARD
+		selector = new FlxSprite(selHighLight);
+		#end
 
 		btnMenu = new FlxButton(0, 0, "BACK", function() { FlxG.switchState(new MainMenu()); } );
 		btnMenu.loadGraphic(btnGBigNormal);
@@ -124,6 +131,9 @@ class GameMap extends GameScreen
 		add(bottomPnl);
 		//add(picBg);
 		add(picPnl);
+		#if !FLX_NO_KEYBOARD
+		add(selector);
+		#end
 		add(lvlBtns);
 		add(btnMenu);
 		add(pic);
@@ -141,8 +151,26 @@ class GameMap extends GameScreen
 		SwitchLevel(0);
 	}
 
+	public override function update(){
+		#if !FLX_NO_KEYBOARD
+		if(FlxG.keys.justPressed("UP")){
+			SwitchLevel(GameStatic.CurLvl-1);
+			FlxG.play("sel1");
+		}
+		else if(FlxG.keys.justPressed("DOWN")){
+			SwitchLevel(GameStatic.CurLvl+1);
+			FlxG.play("sel1");
+		}
+		else if(FlxG.keys.justPressed("ENTER")){
+			StartLevel(GameStatic.CurLvl);
+		}
+		#end
+	}
+
 	public function SwitchLevel(id:Int)
 	{
+		while(id < 0) id+=GameStatic.AllLevelCnt;
+		while(id >= GameStatic.AllLevelCnt) id -= GameStatic.AllLevelCnt;
 		GameStatic.CurLvl = id;
 		pic.loadGraphic("assets/img/map"+ id+".png");
 		pic.x = FlxG.width * 0.66 - pic.width / 2;
@@ -168,5 +196,16 @@ class GameMap extends GameScreen
 		missionTxt.text = GameStatic.GetMissionName(id);
 		descTxt.text = GameStatic.GetMissionDesc(id);
 
+		// set selector
+		#if !FLX_NO_KEYBOARD
+		selector.x = cast(lvlBtns.members[id], FlxButton).x-1;
+		selector.y = cast(lvlBtns.members[id], FlxButton).y-1;
+		#end
 	}
+
+	#if !FLX_NO_KEYBOARD
+	public function StartLevel(id:Int){
+		FlxG.switchState(GameStatic.GetLvlInst(id));
+	}
+	#end
 }

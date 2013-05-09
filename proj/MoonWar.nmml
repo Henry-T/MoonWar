@@ -67,12 +67,10 @@
 	<!--Optimise Flags of Flixel-->
     <!--<set name="FLX_NO_DEBUG" />-->
     <set name="FLX_NO_RECORD" />
-    <set name="FLX_NO_MOUSE" if="android" />
-    <set name="FLX_NO_MOUSE" if="web" />
-    <set name="FLX_NO_KEYBOARD" if="mobile" />
-    <set name="FLX_NO_TOUCH" if="desktop" />
-    <set name="FLX_NO_TOUCH" if="web" />
+    <set name="FLX_NO_MOUSE"/>
     <set name="FLX_NO_JOYSTICK" />
+    <set name="FLX_NO_KEYBOARD" if="mobile" />
+    <set name="FLX_NO_TOUCH" unless="mobile" />
 
     <!-- Set preloader just at the end of this file as someone said on HaxeFlixel forum-->
     <app preloader="Preloader"/>
