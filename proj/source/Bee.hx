@@ -15,8 +15,6 @@ class Bee extends Enemy
 
 	// state
 	public var locked:Bool;	// If this bee is in battle position
-	public var timer1:FlxTimer;
-	public var timer2:FlxTimer;
 	public var canShot:Bool;
 
 	// trace
@@ -35,13 +33,14 @@ class Bee extends Enemy
 	public var logPos:FlxPoint;	// Remember world pos for floating up and down
 	public var flipMove:Bool;	// Just for Bomber when fly back
 
+	private var shootAllTimer:FlxTimer;
+	private var shootTimer:FlxTimer;
+
 	public function new(x:Float=0, y:Float=0)
 	{
 		super(x, y);
 		
 		// makeGraphic(40, 40, 0xff448811);
-		timer1 = new FlxTimer();
-		timer2 = new FlxTimer();
 		canShot = true;
 	}
 
@@ -104,7 +103,7 @@ class Bee extends Enemy
 			locked = true;
 			health = 6;
 			shotCnt = 1;
-			shotSpan = 0.5;
+			shotSpan = 1.5;//0.5;
 			shotCold = 5;
 			faceTarget = false;
 			speed = 200;
@@ -131,8 +130,8 @@ class Bee extends Enemy
 		// Initialize shooting!
 		if (mode != "Bomb")
 		{
-			timer1.start(shotCold, 9999, function(t:FlxTimer){
-				timer2.start(shotSpan, shotCnt, function(t:FlxTimer) {
+			shootAllTimer = TimerPool.Get().start(shotCold, 9999, function(t:FlxTimer){
+				shootTimer = TimerPool.Get().start(shotSpan, shotCnt, function(t:FlxTimer) {
 					if(canShot){
 						var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
 						bgb.reset(getMidpoint().x, getMidpoint().y);
@@ -140,7 +139,11 @@ class Bee extends Enemy
 						bgb.velocity.x = Math.cos((agl-90) / 180 * Math.PI) * 200;
 						bgb.velocity.y = Math.sin((agl-90) / 180 * Math.PI) * 200;
 					}
+					if(shootTimer!=null && shootTimer.finished)
+						shootTimer = null;
 				}); 
+				if(shootAllTimer!=null && shootAllTimer.finished)
+					shootAllTimer = null;
 			} );
 		}
 		
@@ -172,6 +175,7 @@ class Bee extends Enemy
 				logPos.x += (!flipMove?-1: 1) * speed * FlxG.elapsed;
 				logPos.y = FlxG.camera.scroll.y + 100 * Math.sin((logPos.x-FlxG.camera.scroll.x) * Math.PI / (FlxG.width+60));
 				
+				// check lock for bomb
 				if ((!flipMove && logPos.x < FinPos.x) || (flipMove && logPos.x > InitPos.x))
 				{
 					logPos.x = flipMove?InitPos.x:FinPos.x;
@@ -188,25 +192,29 @@ class Bee extends Enemy
 				logPos.y += speed * FlxG.elapsed;
 			}
 			
-			// checking lock
-			if (FlxU.getDistance(logPos, FinPos) < 2)
+			// checking lock if not Bomb
+			if (FlxU.getDistance(logPos, FinPos) < 2 && mode != "Bomb")
 			{
 				locked = true;
 			}
 		}
 		
-		if (locked && (timer1.finished||timer1.timeLeft==0) && mode == "Bomb")
+		if (locked && mode == "Bomb")
 		{
-			timer1.start(shotCold, 1, function(t:FlxTimer) {
+			shootAllTimer = TimerPool.Get().start(shotCold, 1, function(t:FlxTimer) {
 				locked = false;
-				timer2.start(shotSpan, 10, function(t:FlxTimer)
+				shootTimer = TimerPool.Get().start(shotSpan, 10, function(t:FlxTimer)
 				{
-				var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
-				bgb.reset(getMidpoint().x, getMidpoint().y);
-				var agl:Float = FlxU.getAngle(getMidpoint(), cast(FlxG.state , Level).bot.getMidpoint());
-				bgb.velocity.x = 0;
-				bgb.velocity.y = 100;
+					var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
+					bgb.reset(getMidpoint().x, getMidpoint().y);
+					var agl:Float = FlxU.getAngle(getMidpoint(), cast(FlxG.state , Level).bot.getMidpoint());
+					bgb.velocity.x = 0;
+					bgb.velocity.y = 100;
+					if(shootTimer!=null && shootTimer.finished)
+						shootTimer = null;
 				});
+				if(shootAllTimer!=null && shootAllTimer.finished)
+					shootAllTimer = null;
 			});
 		}
 		
@@ -237,8 +245,9 @@ class Bee extends Enemy
 	{
 		super.kill();
 		
-		timer1.stop();
-		timer2.stop();
+		// clean requested timers!
+		if(shootAllTimer != null) shootAllTimer.stop();
+		if(shootTimer != null) shootTimer.stop();
 		
 		var ex:FlxSprite = cast(cast(FlxG.state , Level).explo2s.recycle(FlxSprite) , FlxSprite);
 		ex.loadGraphic("assets/img/explo2.png", true, false, 30, 30);
