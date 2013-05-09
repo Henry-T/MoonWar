@@ -5,6 +5,7 @@ import org.flixel.FlxSave;
 import org.flixel.FlxSave;
 import org.flixel.FlxState;
 import nme.system.Capabilities;
+import org.flixel.FlxG;
 
 class GameStatic 
 {
@@ -78,6 +79,10 @@ class GameStatic
 	
 	public static var offset_border:Int = -1;
 
+	public static var width:Int;
+	public static var height:Int;
+	public static var widthH:Int;
+	public static var heightH:Int;
 
 	public static function Initial(){
 		screenWidth = Std.int(nme.system.Capabilities.screenResolutionX);
@@ -105,6 +110,11 @@ class GameStatic
 			ratioMode = RATIO_MODE_16_9;
 		else
 			ratioMode = RATIO_MODE_Wide;
+
+		width = FlxG.width;
+		height = FlxG.height;
+		widthH = Std.int(FlxG.width * 0.5);
+		heightH = Std.int(FlxG.height * 0.5);
 
 		// set layout size based on device screen
 		txtSize_normalButton= screenDensity * base_txtSize_normalButton;
