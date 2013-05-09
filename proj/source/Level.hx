@@ -965,10 +965,10 @@ class Level extends MWState
 
 		endMask.visible = true;
 		endMask.alpha = 0;
-		this.timer1.start(0.1, 20, function(t:FlxTimer){
+		TimerPool.Get().start(0.1, 20, function(t:FlxTimer){
 			endMask.alpha += 0.03;
 		});
-		timer2.start(2, 1, function(t:FlxTimer){
+		TimerPool.Get().start(2, 1, function(t:FlxTimer){
 			endBg.visible = true;
 			btnAgain.visible = true;
 			btnMap.visible = true;
@@ -1026,7 +1026,7 @@ class Level extends MWState
 		var twn:VarTween = new VarTween(null, FlxTween.ONESHOT);
 		twn.tween(sceneName, "alpha", 1, 2, Ease.quartOut);
 		twn.complete = function(){
-			timerSceneName.start(2, 1, function(t:FlxTimer){
+			TimerPool.Get().start(2, 1, function(t:FlxTimer){
 				var twn2:VarTween = new VarTween(null, FlxTween.ONESHOT);
 				twn2.tween(sceneName, "alpha", 0, 2, Ease.quartOut);
 				addTween(twn2);
@@ -1040,7 +1040,6 @@ class Level extends MWState
 	}
 
 	public override function onFocusLost(){
-		trace("lost");
 		Pause(true);
 	}
 
