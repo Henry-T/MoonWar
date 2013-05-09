@@ -30,6 +30,12 @@ class GameStatic
 
 	public static var screenDensity : Float;
 
+	// Layout 
+	public static var txtSize_normalButton:Int = 8;
+	public static var txtSize_menuButton:Int = 12;
+	public static var txtSize_mainButton:Int = 24;
+	public static var txtSize_dialog:Int = 8;
+
 	public static function Initial(){
 
 		// Get Screen Density
@@ -40,7 +46,7 @@ class GameStatic
 			screenDensity = 1.5;
 		else
 			screenDensity = 2;
-		screenDensity = 2;
+		//screenDensity = 2;
 	}
 
 	public static function Load():Void
