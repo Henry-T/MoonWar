@@ -42,10 +42,10 @@ class MWGame extends FlxGame
 	}
 
 	private override function onFocus(FlashEvent:Event = null):Void{
-
+		_state.onFocus();
 	}
 
 	private override function onFocusLost(FlashEvent:Event = null):Void{
-
+		_state.onFocusLost();
 	}
 }
