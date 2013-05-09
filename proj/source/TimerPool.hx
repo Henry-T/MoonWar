@@ -11,7 +11,8 @@ import org.flixel.FlxTimer;
 //		If this does happen, call Clear() to remove all idle timers.
 // LIMIT: This is only useful on one time timer which you won't try to stop when started. 
 //		If you need a muiti time timer or want to track it's status, more work is needed to clear up!
-//		
+// WARN: Even timer seems no need to get tracked needs track sometime. Eg. a guy shoot bullets on schedule of a timer
+// 		When it's dead, you have to stop the timer manually becase the timer is not part of the guy!
 class TimerPool {
 	private static var timers:Array<FlxTimer>;
 
