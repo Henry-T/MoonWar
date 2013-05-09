@@ -3,6 +3,7 @@ package;
 import nme.Lib;
 import org.flixel.FlxGame;
 import org.flixel.FlxG;
+import nme.events.Event;
 	
 class MWGame extends FlxGame
 {	
@@ -38,5 +39,13 @@ class MWGame extends FlxGame
 		FlxG.framerate = 30;
 		FlxG.flashFramerate = 30;
 		nme.ui.Mouse.hide();
+	}
+
+	private override function onFocus(FlashEvent:Event = null):Void{
+
+	}
+
+	private override function onFocusLost(FlashEvent:Event = null):Void{
+
 	}
 }
