@@ -45,6 +45,8 @@ class Level3 extends Level
 	public var repairSpawning:Bool;
 	public var repairSpawnTime:Float;
 
+	private var spawnFlag:Bool;
+
 	public function new()
 	{
 		super();
@@ -164,6 +166,7 @@ class Level3 extends Level
 		FlxG.camera.scroll.x = t.x + t.width / 2 -FlxG.width / 2;
 		switchState(0);
 		bgMetal.visible = false;
+		spawnFlag = false;
 
 		bot.On = false;
 		bot.x = botPos1.x;
@@ -214,9 +217,9 @@ class Level3 extends Level
 					preWalking = false;
 					bot.velocity.x = 0;
 					bot.play("idle");
-					timer1.start(0.5, 1, function(t:FlxTimer) { 
+					TimerPool.Get().start(0.5, 1, function(t:FlxTimer) { 
 						lineMgr.Start(lines1, function() {
-							timer1.start(0.5, 1, talkOver);
+							TimerPool.Get().start(0.5, 1, talkOver);
 						});
 					});
 				}
@@ -231,7 +234,7 @@ class Level3 extends Level
 					bot.y -= 10;
 					bot.velocity.y = -bot._jumpPower;
 					bot.play("jump_up", true); 
-					timer1.start(3, 1, preEnd);
+					TimerPool.Get().start(3, 1, preEnd);
 					onBoard = true;
 				}
 			}
@@ -251,6 +254,7 @@ class Level3 extends Level
 			b.target = bot;
 		}
 	}
+
 
 	override public function update():Void
 	{
@@ -288,12 +292,13 @@ class Level3 extends Level
 		
 		if (battling)
 		{
-			if (Bees.countLiving() <= 0 && timer1.finished)	// Note <=0 !
+			if (Bees.countLiving() <= 0 && spawnFlag == false)	// Note <=0 !
 			{
+				spawnFlag = true;
 				if (egPointer < eGroups.length)
 				{
 					var eg:EnemyGroup = cast(eGroups[egPointer] , EnemyGroup);
-					timer1.start(eg.timeSpan, 1, function(t:FlxTimer) { spawnBee(); } );
+					TimerPool.Get().start(eg.timeSpan, 1, function(t:FlxTimer) { spawnBee(); spawnFlag=false;} );
 					if(egPointer == 4 || egPointer == 7)
 						spawnRepair();
 					egPointer++;
@@ -305,7 +310,7 @@ class Level3 extends Level
 					for (r in hps.members) {
 						if(r.alive) r.kill();
 					}
-					timer1.start(2.5, 1, function(tmr:FlxTimer){
+					TimerPool.Get().start(2.5, 1, function(tmr:FlxTimer){
 						// start trans again!
 						battling = false;
 						bg1.velocity.x = 0;
