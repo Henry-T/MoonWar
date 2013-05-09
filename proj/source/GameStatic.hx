@@ -39,7 +39,7 @@ class GameStatic
 	public static function setCurLvl(val:Int):Int { Save.data.CurLvl = val; return val; }
 	public static function getCurLvl():Int { return Save.data.CurLvl; }
 
-	public static var screenDensity : Float;
+	public static var screenDensity : Int;
 
 	// Layout 
 	public static var txtSize_normalButton:Int = 8;
@@ -58,6 +58,23 @@ class GameStatic
 	public static var button_mainHeight:Int = 30;
 	public static var border_mainWidth:Int = 152;
 	public static var border_mainHeight:Int = 32;
+
+	public static var base_txtSize_normalButton:Int = 8;
+	public static var base_txtSize_menuButton:Int = 12;
+	public static var base_txtSize_mainButton:Int = 24;
+	public static var base_txtSize_dialog:Int = 8;
+	public static var base_button_itemWidth:Int = 100;
+	public static var base_button_itemHeight:Int = 18;
+	public static var base_border_itemWidth:Int = 102;
+	public static var base_border_itemHeight:Int = 20;
+	public static var base_button_menuWidth:Int = 100;
+	public static var base_button_menuHeight:Int = 24;
+	public static var base_border_menuWidth:Int = 102;
+	public static var base_border_menuHeight:Int = 26;
+	public static var base_button_mainWidth:Int = 150;
+	public static var base_button_mainHeight:Int = 30;
+	public static var base_border_mainWidth:Int = 152;
+	public static var base_border_mainHeight:Int = 32;
 	
 	public static var offset_border:Int = -1;
 
@@ -71,10 +88,10 @@ class GameStatic
 		if (dpi < 100)
 			screenDensity = 1;
 		else if (dpi < 200)
-			screenDensity = 1.5;
-		else
 			screenDensity = 2;
-		//screenDensity = 2;
+		else
+			screenDensity = 3;
+		screenDensity = 2;
 
 		// Check ratio mode 
 		ratioValue = nme.system.Capabilities.pixelAspectRatio;
@@ -88,6 +105,24 @@ class GameStatic
 			ratioMode = RATIO_MODE_16_9;
 		else
 			ratioMode = RATIO_MODE_Wide;
+
+		// set layout size based on device screen
+		txtSize_normalButton= screenDensity * base_txtSize_normalButton;
+		txtSize_menuButton	= screenDensity * base_txtSize_menuButton;
+		txtSize_mainButton	= screenDensity * base_txtSize_mainButton;
+		txtSize_dialog		= screenDensity * base_txtSize_dialog;
+		button_itemWidth	= screenDensity * base_button_itemWidth;
+		button_itemHeight	= screenDensity * base_button_itemHeight;
+		border_itemWidth	= screenDensity * base_border_itemWidth;
+		border_itemHeight	= screenDensity * base_border_itemHeight;
+		button_menuWidth	= screenDensity * base_button_menuWidth;
+		button_menuHeight	= screenDensity * base_button_menuHeight;
+		border_menuWidth	= screenDensity * base_border_menuWidth;
+		border_menuHeight	= screenDensity * base_border_menuHeight;
+		button_mainWidth	= screenDensity * base_button_mainWidth;
+		button_mainHeight	= screenDensity * base_button_mainHeight;
+		border_mainWidth	= screenDensity * base_border_mainWidth;
+		border_mainHeight	= screenDensity * base_border_mainHeight;
 	}
 
 	public static function Load():Void
