@@ -17,14 +17,14 @@
 
 
 	<assets path="assets" if="linux" >
-		<sound path="snd/birth1.mp3" id="birth1" />
-		<sound path="snd/explo1.mp3" id="explo1" />
-		<sound path="snd/hit1.mp3" id="hit1" />
-		<sound path="snd/hit2.mp3" id="hit2" />
-		<sound path="snd/jump2.mp3" id="jump2" />
-		<sound path="snd/sel1.mp3" id="sel1" />
-		<sound path="snd/shoot.mp3" id="shoot" />
-		<sound path="snd/shoot1.mp3" id="shoot1" />
+		<sound path="snd/birth1.wav" id="birth1" />
+		<sound path="snd/explo1.wav" id="explo1" />
+		<sound path="snd/hit1.wav" id="hit1" />
+		<sound path="snd/hit2.wav" id="hit2" />
+		<sound path="snd/jump2.wav" id="jump2" />
+		<sound path="snd/sel1.wav" id="sel1" />
+		<sound path="snd/shoot.wav" id="shoot" />
+		<sound path="snd/shoot1.wav" id="shoot1" />
 		<music path="snd/DST-Assembly2.mp3" id="game" />
 		<music path="snd/DST-MrMagic.mp3" id="title" />
 	</assets>
