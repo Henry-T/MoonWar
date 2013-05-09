@@ -129,6 +129,9 @@ class Level extends MWState
 	// gui
 	public var btnGNormal:BitmapData;
 	public var btnGOver:BitmapData;
+	public var selHighLight:BitmapData;
+
+	// gui - end panel
 	public var endMask:FlxSprite;
 	public var endBg:SliceShape;
 	public var btnAgain:FlxButton;
@@ -137,6 +140,17 @@ class Level extends MWState
 	public var btnHelp:FlxButton;
 	public var lbMission:FlxText;
 	public var lbResult:FlxText;
+
+	// gui - pause panel
+	public var pauseMask:FlxSprite;
+	public var pauseBg:SliceShape;
+	public var selector_Pause:FlxSprite;
+	public var btnResume_Pause:FlxButton;
+	public var btnAgain_Pause:FlxButton;
+	public var btnQuit_Pause:FlxButton;
+	public var lbPaused:FlxText;
+
+	// gui - skip button
 	public var toSkip:FlxSprite;
 	public var skipFun:Void->Void;
 	public var btnShowHelp:FlxButton;
@@ -171,6 +185,12 @@ class Level extends MWState
 
 	// Input
 	public var input:Input;
+
+	// misc
+	public static var maxSelPause:Int = 3;
+	public static var maxSelEnd:Int = 3;
+	public var curSelPause:Int;
+	public var curSelEnd:Int;
 
 	public function new()
 	{
@@ -278,9 +298,16 @@ class Level extends MWState
 		baseHPBar.visible = false;
 		
 		// gui
-		btnGNormal = new SliceShape(0,0, 90, 18, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
-		btnGOver =  new SliceShape(0,0, 90, 18, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGNormal = new SliceShape(0,0, GameStatic.button_menuWidth, GameStatic.button_menuHeight, ResUtil.IMG_ui_box_blue, SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGOver =  new SliceShape(0,0, GameStatic.button_menuWidth, GameStatic.button_menuHeight, ResUtil.IMG_ui_box_act_blue, SliceShape.MODE_BOX, 3).pixels.clone();
+		selHighLight = new SliceShape(0, 0 ,GameStatic.border_menuWidth, GameStatic.border_menuHeight, ResUtil.IMG_ui_box_border, SliceShape.MODE_BOX, 2).pixels.clone(); 
 
+		btnShowHelp = new FlxButton(FlxG.width - 44, 4, "", function() { FlxG.mute = !FlxG.mute; } );
+		btnShowHelp.scrollFactor.make(0,0);
+		btnShowHelp.onOver = function(){btnMute.loadGraphic("assets/img/showHelp_act.png");};
+		btnShowHelp.onOut = function(){btnMute.loadGraphic("assets/img/showHelp.png");};
+
+		// gui - end panel
 		endMask = new FlxSprite(0,0);
 		endMask.makeGraphic(FlxG.width, FlxG.height, 0xff000000); endMask.scrollFactor.make(0,0);
 		endMask.alpha = 0.0;
@@ -335,6 +362,45 @@ class Level extends MWState
 		lbResult.scrollFactor.make(0,0);
 		lbResult.visible = false;
 
+		// gui - pause panel
+		pauseMask = new FlxSprite(0,0);
+		pauseMask.makeGraphic(FlxG.width, FlxG.height, 0xff000000); pauseMask.scrollFactor.make(0,0);
+		pauseMask.alpha = 0.5;
+
+		pauseBg = new SliceShape(Math.round(FlxG.width*0.5-150), Math.round(FlxG.height * 0.5-125), 300, 250,"assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
+		pauseBg.scrollFactor.make(0,0);
+
+		selector_Pause = new FlxSprite(selHighLight);
+		selector_Pause.scrollFactor.make(0,0);
+
+		btnResume_Pause = new FlxButton(0, 0, "RESUME", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
+		btnResume_Pause.loadGraphic(btnGNormal);
+		btnResume_Pause.x = FlxG.width/2 - btnResume_Pause.width/2;
+		btnResume_Pause.y = FlxG.height/2 - 70;
+		btnResume_Pause.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
+		btnResume_Pause.scrollFactor.make(0, 0);
+
+		btnAgain_Pause = new FlxButton(0, 0, "AGAIN", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
+		btnAgain_Pause.loadGraphic(btnGNormal);
+		btnAgain_Pause.x = FlxG.width/2 - btnAgain_Pause.width/2;
+		btnAgain_Pause.y = FlxG.height/2;
+		btnAgain_Pause.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
+		btnAgain_Pause.scrollFactor.make(0, 0);
+
+		btnQuit_Pause = new FlxButton(275 - 80, 350, "QUIT", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
+		btnQuit_Pause.loadGraphic(btnGNormal);
+		btnQuit_Pause.x = FlxG.width/2 - btnQuit_Pause.width/2;
+		btnQuit_Pause.y = FlxG.height/2 + 70;
+		btnQuit_Pause.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
+		btnQuit_Pause.scrollFactor.make(0, 0);
+
+		lbPaused = new FlxText(0, 0, 200, "PAUSED", 26);
+		lbPaused.setFormat(ResUtil.FNT_Pixelex, 26, 0xffffffff, "center");
+		lbPaused.x = FlxG.width*0.5 - lbPaused.width/2;
+		lbPaused.y = FlxG.height*0.5 - 120;
+		lbPaused.scrollFactor.make(0,0);
+
+		// gui - skip button
 		toSkip = new FlxSprite(0, 0, "assets/img/clickToSkip.png");
 		toSkip.scrollFactor.make(0, 0);
 		toSkip.visible = false;
@@ -343,11 +409,6 @@ class Level extends MWState
 		sceneName.setFormat("assets/fnt/pixelex.ttf", 22, 0xffffffff, "center");
 		sceneName.scrollFactor.make(0,0);
 		sceneName.alpha = 0;
-
-		btnShowHelp = new FlxButton(FlxG.width - 44, 4, "", function() { FlxG.mute = !FlxG.mute; } );
-		btnShowHelp.scrollFactor.make(0,0);
-		btnShowHelp.onOver = function(){btnMute.loadGraphic("assets/img/showHelp_act.png");};
-		btnShowHelp.onOut = function(){btnMute.loadGraphic("assets/img/showHelp.png");};
 
 		// Dialogs
 		// try load tile layers
@@ -501,6 +562,10 @@ class Level extends MWState
 		camTweening = false;
 
 		ResUtil.playGame1();
+		ShowPause(true);
+		#if !FLX_NO_KEYBOARD
+		ChangeSelPause(0);
+		#end
 	}
 
 	public function AddAll():Void
@@ -602,6 +667,14 @@ class Level extends MWState
 		add(btnMap);
 		add(lbMission);
 		add(lbResult);
+
+		add(pauseMask);
+		add(pauseBg);
+		add(selector_Pause);
+		add(btnResume_Pause);
+		add(btnAgain_Pause);
+		add(btnQuit_Pause);
+		add(lbPaused);
 
 		add(toSkip);
 		add(sceneName);
@@ -765,9 +838,54 @@ class Level extends MWState
 		
 		// update boss health bar
 		
+		#if !FLX_NO_KEYBOARD
+		if(pauseBg.visible == true){
+			if(FlxG.keys.justPressed("UP"))
+				ChangeSelPause(curSelPause-1);
+			else if(FlxG.keys.justPressed("DOWN"))
+				ChangeSelPause(curSelPause+1);
+			else if(FlxG.keys.justPressed("X"))
+				ActionPause(curSelPause);
+			else if(FlxG.keys.justPressed("Z"))
+				ShowPause(false);	// Do nothing by now
+		}
+		#end
 		
 		super.update();
 	}
+
+	#if !FLX_NO_KEYBOARD
+	public function ChangeSelPause(selId:Int){
+		while(selId<0) selId += maxSelPause;
+		while(selId>=maxSelPause) selId -= maxSelEnd;
+		curSelPause = selId;
+		switch (curSelPause) {
+			case 0:
+				selector_Pause.x = btnResume_Pause.x + GameStatic.offset_border;
+				selector_Pause.y = btnResume_Pause.y + GameStatic.offset_border;
+			case 1:
+				selector_Pause.x = btnAgain_Pause.x + GameStatic.offset_border;
+				selector_Pause.y = btnAgain_Pause.y + GameStatic.offset_border;
+			case 2:
+				selector_Pause.x = btnQuit_Pause.x + GameStatic.offset_border;
+				selector_Pause.y = btnQuit_Pause.y + GameStatic.offset_border;
+		}
+	}
+
+	public function ActionPause(id:Int){
+		switch (id) {
+			case 0:
+			// TODO resume the game
+			ShowPause(false);
+			case 1:
+			// TODO show confirm
+			FlxG.switchState(GameStatic.GetCurLvlInst());
+			case 2:
+			// TODO show confirm
+			FlxG.switchState(new GameMap());
+		}
+	}
+	#end
 
 	public function DisJS1Frame():Void
 	{
@@ -853,6 +971,20 @@ class Level extends MWState
 			FlxG.mouse.show(); 
 			#end
 		});
+	}
+
+	public function ShowEnd(){
+		// TODO
+	}
+
+	public function ShowPause(isShow:Bool){
+		pauseBg.visible = isShow;
+		pauseMask.visible = isShow;
+		selector_Pause.visible = isShow;
+		btnResume_Pause.visible = isShow;
+		btnAgain_Pause.visible = isShow;
+		btnQuit_Pause.visible = isShow;
+		lbPaused.visible = isShow;
 	}
 
 	public function TweenCamera(x:Float, y:Float, dur:Float, useEase:Bool, onDone:Void->Void){
