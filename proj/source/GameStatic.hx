@@ -8,6 +8,17 @@ import nme.system.Capabilities;
 
 class GameStatic 
 {
+	public static var RATIO_MODE_Narrow	:Int = 0;
+	public static var RATIO_MODE_4_3	:Int = 1;
+	public static var RATIO_MODE_Middle	:Int = 2;
+	public static var RATIO_MODE_16_9	:Int = 3;
+	public static var RATIO_MODE_Wide	:Int = 4;
+
+	public static var screenWidth:Int;
+	public static var screenHeight:Int;
+	public static var ratioMode:Int;
+	public static var ratioValue:Float;
+
 	// save to player profile for state changing and session changing
 	public static var Save:FlxSave;			// saving instance
 	//public static var curLvl:Int = 0;		// current level number, for play again etc..
@@ -44,6 +55,8 @@ class GameStatic
 
 
 	public static function Initial(){
+		screenWidth = Std.int(nme.system.Capabilities.screenResolutionX);
+		screenHeight = Std.int(nme.system.Capabilities.screenResolutionY);
 
 		// Get Screen Density
 		var dpi = Capabilities.screenDPI;
@@ -54,6 +67,19 @@ class GameStatic
 		else
 			screenDensity = 2;
 		//screenDensity = 2;
+
+		// Check ratio mode 
+		ratioValue = nme.system.Capabilities.pixelAspectRatio;
+		if(ratioValue < 1.2)
+			ratioMode = RATIO_MODE_Narrow;
+		else if(ratioMode < 1.45)
+			ratioMode = RATIO_MODE_4_3;
+		else if(ratioMode < 1.6)
+			ratioMode = RATIO_MODE_Middle;
+		else if(ratioMode < 1.9)
+			ratioMode = RATIO_MODE_16_9;
+		else
+			ratioMode = RATIO_MODE_Wide;
 	}
 
 	public static function Load():Void
@@ -188,5 +214,6 @@ class GameStatic
 
 	public static function ScreenValidation():Bool{
 		// TODO valid resolation and dpi with core gui layout
+		return true;
 	}
 }
