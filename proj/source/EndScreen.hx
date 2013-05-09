@@ -78,19 +78,19 @@ class EndScreen extends GameScreen
 		tween1.setMotion(txtTheEnd.x, txtTheEnd.y, txtTheEnd.x, txtTheEnd.y + 100, 1.5, Ease.bounceOut);
 		addTween(tween1);
 
-		timer1.start(1.5, 1, function(t:FlxTimer){
+		TimerPool.Get().start(1.5, 1, function(t:FlxTimer){
 			var tween2:VarTween = new VarTween(null, FlxTween.ONESHOT);
 			tween2.tween(txtThanks, "alpha", 1, 1, Ease.quadOut);
 			addTween(tween2);
 		});
 
-		timer2.start(1.5, 1, function(t:FlxTimer){
+		TimerPool.Get().start(1.5, 1, function(t:FlxTimer){
 			var tween3:VarTween = new VarTween(null, FlxTween.ONESHOT);
 			tween3.tween(bottomPnl, "alpha", 1, 1.5, Ease.quadOut);
 			addTween(tween3);
 		});
 
-		timer3.start(2, 1, function(t:FlxTimer){
+		TimerPool.Get().start(2, 1, function(t:FlxTimer){
 			var tween4:VarTween = new VarTween(null, FlxTween.ONESHOT);
 			tween4.tween(btnBack, "alpha", 1, 1.5, Ease.quadOut);
 			addTween(tween4);
