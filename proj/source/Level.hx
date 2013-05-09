@@ -318,47 +318,47 @@ class Level extends MWState
 		endBg.scrollFactor.make(0,0);
 		endBg.visible = false;
 
-		btnAgain = new FlxButton(275 - 80, 350, "Again", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
+		btnAgain = new FlxButton(0, 0, "Again", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
 		btnAgain.loadGraphic(btnGNormal);
-		btnAgain.x = FlxG.width/2 - btnAgain.width/2 - btnAgain.width * 1.1;
-		btnAgain.y = FlxG.height/2 + 100;
-		btnAgain.label.setFormat("assets/fnt/pixelex.ttf", 8, 0xffffff, "center");
+		btnAgain.x = FlxG.width/2 - btnAgain.width/2;
+		btnAgain.y = FlxG.height/2 + 50;
+		btnAgain.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
 		btnAgain.scrollFactor.make(0, 0);
 		btnAgain.visible = false;
 
-		btnMap = new FlxButton(275, 350, "Levels", function() { FlxG.switchState(new GameMap()); } );
+		btnMap = new FlxButton(0, 0, "Levels", function() { FlxG.switchState(new GameMap()); } );
 		btnMap.loadGraphic(btnGNormal);
 		btnMap.x = FlxG.width/2 - btnAgain.width/2;
-		btnMap.y = FlxG.height/2 + 100;
-		btnMap.label.setFormat("assets/fnt/pixelex.ttf", 8, 0xffffff, "center");
+		btnMap.y = FlxG.height/2;
+		btnMap.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
 		btnMap.scrollFactor.make(0, 0);
 		btnMap.visible = false;
 
-		btnNext = new FlxButton(275 + 80, 350, "Next", function() { FlxG.switchState(GameStatic.GetNextInst()); } );
+		btnNext = new FlxButton(0, 0, "Next", function() { FlxG.switchState(GameStatic.GetNextInst()); } );
 		btnNext.loadGraphic(btnGNormal);
-		btnNext.x = FlxG.width/2 - btnAgain.width/2 + btnAgain.width * 1.1;
-		btnNext.y = FlxG.height/2 + 100;
-		btnNext.label.setFormat("assets/fnt/pixelex.ttf", 8, 0xffffff, "center");
+		btnNext.x = FlxG.width/2 - btnAgain.width/2;
+		btnNext.y = FlxG.height/2 - 50;
+		btnNext.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
 		btnNext.scrollFactor.make(0, 0);
 		btnNext.visible = false;
 
 		btnHelp = new FlxButton(275 + 80, 350, "Help", function(){});
 		btnHelp.loadGraphic(btnGNormal);
-		btnHelp.x = FlxG.width/2 - btnAgain.width/2 + btnAgain.width * 1.1;
-		btnHelp.y = FlxG.height/2 + 100;
-		btnHelp.label.setFormat("assets/fnt/pixelex.ttf", 8, 0xffffff, "center");
+		btnHelp.x = FlxG.width/2 - btnAgain.width/2;
+		btnHelp.y = FlxG.height/2 - 50;
+		btnHelp.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
 		btnHelp.scrollFactor.make(0,0);
 		btnHelp.visible = false;
 
 		lbMission = new FlxText(0, 0, 200, "MISSION", 26);
-		lbMission.setFormat("assets/fnt/pixelex.ttf", 26, 0xffffffff, "center");
+		lbMission.setFormat(ResUtil.FNT_Pixelex, 26, 0xffffffff, "center");
 		lbMission.x = FlxG.width*0.5 - lbMission.width/2;
 		lbMission.y = FlxG.height*0.5 - 120;
 		lbMission.scrollFactor.make(0,0);
 		lbMission.visible = false;
 
 		lbResult = new FlxText(0, 0, 200, "ACCOMPLISHED", 18);
-		lbResult.setFormat("assets/fnt/pixelex.ttf", 18, 0xffffffff, "center");
+		lbResult.setFormat(ResUtil.FNT_Pixelex, 18, 0xffffffff, "center");
 		lbResult.x = FlxG.width*0.5 - lbMission.width/2;
 		lbResult.y = FlxG.height*0.5 - 90;
 		lbResult.scrollFactor.make(0,0);
@@ -380,7 +380,7 @@ class Level extends MWState
 		btnResume_Pause = new FlxButton(0, 0, "RESUME", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
 		btnResume_Pause.loadGraphic(btnGNormal);
 		btnResume_Pause.x = FlxG.width/2 - btnResume_Pause.width/2;
-		btnResume_Pause.y = FlxG.height/2 - 70;
+		btnResume_Pause.y = FlxG.height/2 - 50;
 		btnResume_Pause.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
 		btnResume_Pause.scrollFactor.make(0, 0);
 
@@ -394,7 +394,7 @@ class Level extends MWState
 		btnQuit_Pause = new FlxButton(275 - 80, 350, "QUIT", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
 		btnQuit_Pause.loadGraphic(btnGNormal);
 		btnQuit_Pause.x = FlxG.width/2 - btnQuit_Pause.width/2;
-		btnQuit_Pause.y = FlxG.height/2 + 70;
+		btnQuit_Pause.y = FlxG.height/2 + 50;
 		btnQuit_Pause.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
 		btnQuit_Pause.scrollFactor.make(0, 0);
 
