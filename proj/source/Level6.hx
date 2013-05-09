@@ -108,7 +108,7 @@ class Level6 extends Level
 		{
 			downing = false;
 			//bot.On = true;
-			timer1.start(0.5, 1, function(t:FlxTimer){
+			TimerPool.Get().start(0.5, 1, function(t:FlxTimer){
 				lineMgr.Start(lines1, function(){
 					bot.On = true;
 					hpBar.visible = true;
