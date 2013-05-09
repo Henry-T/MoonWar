@@ -152,6 +152,7 @@ class GameMap extends GameScreen
 	}
 
 	public override function update(){
+		super.update();
 		#if !FLX_NO_KEYBOARD
 		if(FlxG.keys.justPressed("UP")){
 			SwitchLevel(GameStatic.CurLvl-1);
@@ -161,9 +162,11 @@ class GameMap extends GameScreen
 			SwitchLevel(GameStatic.CurLvl+1);
 			FlxG.play("sel1");
 		}
-		else if(FlxG.keys.justPressed("ENTER")){
+		else if(FlxG.keys.justPressed("X")){
 			StartLevel(GameStatic.CurLvl);
 		}
+		else if(FlxG.keys.justPressed("Z"))
+			FlxG.switchState(new MainMenu());
 		#end
 	}
 

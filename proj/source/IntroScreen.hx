@@ -61,6 +61,18 @@ class IntroScreen extends GameScreen
 		refreshImg();
 	}
 
+	public override function update(){
+		super.update();
+		#if !FLX_NO_KEYBOARD
+		if(FlxG.keys.justPressed("RIGHT")){
+			onNext();
+		}
+		else if(FlxG.keys.justPressed("LEFT")){
+			onLast();
+		}
+		#end
+	}
+
 	public function onLast():Void
 	{
 		if(id > 0)
