@@ -10,9 +10,7 @@ import org.flixel.FlxButton;
 // Wrap up for all input situations and give a handy access to input for this game
 class Input extends FlxGroup {
 	#if !FLX_NO_TOUCH
-	#if !FLX_NO_MOUSE
 	public var analog:MyAnalog;
-	#end
 	#end
 	public var gamePad:MyGamePad;
 
@@ -49,20 +47,22 @@ class Input extends FlxGroup {
 	public function new(){
 		super();
 		#if !FLX_NO_TOUCH
-		#if !FLX_NO_MOUSE
 		analog = new MyAnalog(GameStatic.screenDensity==1?50:90, FlxG.height - (GameStatic.screenDensity==1?50:90));
 		add(analog);
-		#end
 		#end
 		
 		gamePad = new MyGamePad();
 		add(gamePad);
 
 		gamePad.visible = false;
+		#if !FLX_NO_TOUCH
 		analog.visible = false;
+		#end
 		#if android
 		gamePad.visible = true;
+		#if !FLX_NO_TOUCH
 		analog.visible = true;
+		#end
 		#end
 	}
 
