@@ -37,5 +37,6 @@ class MWGame extends FlxGame
 
 		FlxG.framerate = 30;
 		FlxG.flashFramerate = 30;
+		nme.ui.Mouse.hide();
 	}
 }

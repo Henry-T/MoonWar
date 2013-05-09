@@ -140,6 +140,7 @@ class Preloader extends NMEPreloader
 
 		// HACK
 		//isForbid = true;
+		nme.ui.Mouse.hide();
 	}
 
 	public override function onLoaded()
