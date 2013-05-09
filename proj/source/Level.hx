@@ -135,6 +135,7 @@ class Level extends MWState
 	// gui - end panel
 	public var endMask:FlxSprite;
 	public var endBg:SliceShape;
+	public var selector_End:FlxSprite;
 	public var btnAgain:FlxButton;
 	public var btnMap:FlxButton;
 	public var btnNext:FlxButton;
@@ -317,6 +318,10 @@ class Level extends MWState
 		endBg = new SliceShape(Math.round(FlxG.width*0.5-150), Math.round(FlxG.height * 0.5-125), 300, 250,"assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
 		endBg.scrollFactor.make(0,0);
 		endBg.visible = false;
+
+		selector_End = new FlxSprite(selHighLight);
+		selector_End.scrollFactor.make(0,0);
+		selector_End.visible = false;
 
 		btnAgain = new FlxButton(0, 0, "Again", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
 		btnAgain.loadGraphic(btnGNormal);
@@ -566,8 +571,11 @@ class Level extends MWState
 		camTweening = false;
 
 		ResUtil.playGame1();
+		curSelPause = 0;
+		curSelEnd = 0;
 		#if !FLX_NO_KEYBOARD
 		ChangeSelPause(0);
+		ChangeSelEnd(0);
 		#end
 		ShowPause(false);
 	}
@@ -665,6 +673,9 @@ class Level extends MWState
 
 		add(endMask);
 		add(endBg);
+		#if !FLX_NO_KEYBOARD
+		add(selector_End);
+		#end
 		add(btnNext);
 		add(btnHelp);
 		add(btnAgain);
@@ -674,7 +685,9 @@ class Level extends MWState
 
 		pauseGroup.add(add(pauseMask));
 		pauseGroup.add(add(pauseBg));
+		#if !FLX_NO_KEYBOARD
 		pauseGroup.add(add(selector_Pause));
+		#end
 		pauseGroup.add(add(btnResume_Pause));
 		pauseGroup.add(add(btnAgain_Pause));
 		pauseGroup.add(add(btnQuit_Pause));
@@ -861,8 +874,16 @@ class Level extends MWState
 		// update boss health bar
 		
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keys.justPressed("P")){
+		if(FlxG.keys.justPressed("P") && !isEnd){
 			Pause(true);
+		}
+		if(endBg.visible){
+			if(FlxG.keys.justPressed("UP"))
+				ChangeSelEnd(curSelEnd-1);
+			else if(FlxG.keys.justPressed("DOWN"))
+				ChangeSelEnd(curSelEnd+1);
+			else if(FlxG.keys.justPressed("X"))
+				ActionEnd(curSelEnd);
 		}
 		#end
 		
@@ -870,9 +891,41 @@ class Level extends MWState
 	}
 
 	#if !FLX_NO_KEYBOARD
+	public function ChangeSelEnd(selId:Int){
+		while(selId<0) selId += maxSelEnd;
+		while(selId>=maxSelEnd) selId -= maxSelEnd;
+		curSelEnd = selId;
+		switch (curSelEnd) {
+			case 0:
+				selector_End.x = btnHelp.x + GameStatic.offset_border;
+				selector_End.y = btnHelp.y + GameStatic.offset_border;
+			case 1:
+				selector_End.x = btnMap.x + GameStatic.offset_border;
+				selector_End.y = btnMap.y + GameStatic.offset_border;
+			case 2:
+				selector_End.x = btnAgain.x + GameStatic.offset_border;
+				selector_End.y = btnAgain.y + GameStatic.offset_border;
+		}
+	}
+
+	public function ActionEnd(id:Int){
+		switch (id) {
+			case 0:
+			if(isWin)
+				FlxG.switchState(GameStatic.GetNextInst());
+			else
+				FlxG.switchState(GameStatic.GetCurLvlInst());	// TODO link to help page
+			case 1:
+			FlxG.switchState(new GameMap());
+			case 2:
+			// TODO show confirm
+			FlxG.switchState(GameStatic.GetCurLvlInst());
+		}
+	}
+
 	public function ChangeSelPause(selId:Int){
 		while(selId<0) selId += maxSelPause;
-		while(selId>=maxSelPause) selId -= maxSelEnd;
+		while(selId>=maxSelPause) selId -= maxSelPause;
 		curSelPause = selId;
 		switch (curSelPause) {
 			case 0:
@@ -970,6 +1023,7 @@ class Level extends MWState
 		});
 		TimerPool.Get().start(2, 1, function(t:FlxTimer){
 			endBg.visible = true;
+			selector_End.visible = true;
 			btnAgain.visible = true;
 			btnMap.visible = true;
 			lbMission.visible = true;
