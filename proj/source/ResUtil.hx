@@ -11,6 +11,7 @@ class ResUtil
 	public static var IMG_ui_box_act_yellow = "assets/img/ui_boxact_y.png";
 	public static var IMG_ui_box_blue = "assets/img/ui_box_b.png";
 	public static var IMG_ui_box_act_blue = "assets/img/ui_boxact_b.png";
+	public static var IMG_ui_box_border = "assets/img/ui_boxact_border.png";
 
 	public static function playTitle() : Void
 	{
