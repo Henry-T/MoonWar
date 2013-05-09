@@ -121,7 +121,7 @@ class Level4 extends Level
 		{
 			breakShown = true;
 			bot.On = false;
-			timer1.start(2, 1, function(t:FlxTimer){
+			TimerPool.Get().start(2, 1, function(t:FlxTimer){
 				lineMgr.Start(lines2, function(){
 					coverOpen = true;
 					tileCoverD.visible = false;
@@ -139,7 +139,7 @@ class Level4 extends Level
 		if (door1Up.open && downing)
 		{
 			downing = false;
-			timer1.start(1, 1, function(t:FlxTimer){
+			TimerPool.Get().start(1, 1, function(t:FlxTimer){
 				lineMgr.Start(lines1, function(){
 					bot.On = true;
 					hpBar.visible = true;
