@@ -51,14 +51,19 @@ class Input extends FlxGroup {
 		#if !FLX_NO_TOUCH
 		#if !FLX_NO_MOUSE
 		analog = new MyAnalog(GameStatic.screenDensity==1?50:90, FlxG.height - (GameStatic.screenDensity==1?50:90));
-		analog.visible = false;
 		add(analog);
 		#end
 		#end
 		
 		gamePad = new MyGamePad();
-		gamePad.visible = false;
 		add(gamePad);
+
+		gamePad.visible = false;
+		analog.visible = false;
+		#if android
+		gamePad.visible = true;
+		analog.visible = true;
+		#end
 	}
 
 	public function showControl(isShow:Bool){
