@@ -44,7 +44,7 @@ class Input extends FlxGroup {
 
 	public function new(){
 		super();
-		analog = new MyAnalog(GameStatic.screenDensity==1?50:90, FlxG.height - (GameStatic.screenDensity==1?50:90));
+		analog = new MyAnalog(50 * GameStatic.screenDensity, FlxG.height-50* GameStatic.screenDensity);
 		add(analog);
 		
 		gamePad = new MyGamePad();
@@ -167,9 +167,9 @@ class Input extends FlxGroup {
 			Left = true;
 		if(keyboardRightDown || (AnalogPressed&&(AnalogAngle<60&&AnalogAngle>-60)))
 			Right = true;
-		if(keyboardUpDown || (AnalogPressed&&(AnalogAngle<-30&&AnalogAngle>-120)))
+		if(keyboardUpDown || (AnalogPressed&&(AnalogAngle<-30&&AnalogAngle>-150)))
 			Up = true;
-		if(keyboardDownDown || (AnalogPressed&&(AnalogAngle>30&&AnalogAngle<120)))
+		if(keyboardDownDown || (AnalogPressed&&(AnalogAngle>30&&AnalogAngle<150)))
 			Down = true;
 		if(keyboardZDown || gamePad.buttonB.status == FlxButton.PRESSED)
 			Jump = true;
@@ -182,9 +182,9 @@ class Input extends FlxGroup {
 			JustDown_Left = true;
 		if(keyboardRightJustDown || (AnalogJustPressed&&(AnalogAngle<60&&AnalogAngle>-60)))
 			JustDown_Right = true;
-		if(keyboardUpJustDown || (AnalogJustPressed&&(AnalogAngle<-30&&AnalogAngle>-120)))
+		if(keyboardUpJustDown || (AnalogJustPressed&&(AnalogAngle<-30&&AnalogAngle>-150)))
 			JustDown_Up = true;
-		if(keyboardDownJustDown || (AnalogJustPressed&&(AnalogAngle>30&&AnalogAngle<120)))
+		if(keyboardDownJustDown || (AnalogJustPressed&&(AnalogAngle>30&&AnalogAngle<150)))
 			JustDown_Down = true;
 		if(keyboardZJustDown || 
 			(gamePad.buttonB.status == FlxButton.PRESSED&&
@@ -203,9 +203,9 @@ class Input extends FlxGroup {
 			JustUp_Left = true;
 		if(keyboardRightJustUp || (AnalogJustReleased&&(AnalogAngle<60&&AnalogAngle>-60)))
 			JustUp_Right = true;
-		if(keyboardUpJustUp || (AnalogJustReleased&&(AnalogAngle<-30&&AnalogAngle>-120)))
+		if(keyboardUpJustUp || (AnalogJustReleased&&(AnalogAngle<-30&&AnalogAngle>-150)))
 			JustUp_Up = true;
-		if(keyboardDownJustUp || (AnalogJustReleased&&(AnalogAngle>30&&AnalogAngle<120)))
+		if(keyboardDownJustUp || (AnalogJustReleased&&(AnalogAngle>30&&AnalogAngle<150)))
 			JustUp_Down = true;
 		if(keyboardZJustUp ||
 			(lastBtnBStatus == FlxButton.PRESSED&&
