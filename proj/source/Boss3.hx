@@ -225,8 +225,8 @@ class Boss3 extends Enemy
 				bgb.reset(getMidpoint().x + ((facing==FlxObject.RIGHT)?10:-10), getMidpoint().y - 20);
 				bgb.visible = true;
 				var len = Math.sqrt(Math.pow(game.bot.y - bgb.y,2)+ Math.pow(game.bot.x-bgb.x, 2));
-				bgb.velocity.x = (game.bot.x - bgb.x)/len * 500;
-				bgb.velocity.y = (game.bot.y - bgb.y)/len * 500;
+				bgb.velocity.x = (game.bot.x - bgb.x)/len * 300;
+				bgb.velocity.y = (game.bot.y - bgb.y)/len * 300;
 			});
 		}
 		else if (name == "dashing")
