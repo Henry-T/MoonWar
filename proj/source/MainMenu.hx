@@ -6,9 +6,11 @@ import org.flixel.FlxSprite;
 import nme.display.BitmapData;
 import mochi.as3.MochiAd;
 import mochi.as3.MochiServices;
+import org.flixel.addons.FlxBackdrop;
 
 class MainMenu extends GameScreen
 {
+	public var bdSky:FlxBackdrop;
 	public var bgImage:FlxSprite;
 	public var imgBoss:FlxSprite;
 	public var imgMoon:FlxSprite;
@@ -44,6 +46,7 @@ class MainMenu extends GameScreen
 		selHighLight = new SliceShape(0, 0 ,GameStatic.border_mainWidth, GameStatic.border_mainHeight, "assets/img/ui_boxact_border.png", SliceShape.MODE_BOX, 2).pixels.clone(); 
 
 		bgImage = new FlxSprite(0, 0, "assets/img/title.png");
+		bdSky = new FlxBackdrop("assets/img/bgSky.png", 0, 0, true, true);
 		imgBoss = new FlxSprite(0, 0,"assets/img/titleBoss.png");
 		imgBoss.x = FlxG.width * 0.5 - imgBoss.width * 0.5; imgBoss.y = 5;
 		imgMoon = new FlxSprite(0, 0,"assets/img/titleMoon.png");
@@ -51,6 +54,7 @@ class MainMenu extends GameScreen
 		imgTitleTxt = new FlxSprite(0, 0,"assets/img/titleText.png");
 		imgTitleTxt.x = FlxG.width * 0.5 - imgTitleTxt.width * 0.5; imgTitleTxt.y = 5;
 		//add(bgImage);
+		add(bdSky);
 		add(imgBoss);
 		add(imgMoon);
 		add(imgTitleTxt);
