@@ -23,6 +23,7 @@ import nme.display.BitmapData;
 import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.misc.VarTween;
 import org.flixel.tweens.util.Ease;
+import org.flixel.addons.FlxBackdrop;
 import nme.Assets;
 import nme.events.Event;
 
@@ -33,6 +34,10 @@ class Level extends MWState
 	public var bgMetal:FlxSprite;
 	public var bg1:FlxSprite;
 	public var bg2:FlxSprite;
+	public var bd1:FlxBackdrop;
+	public var bd2:FlxBackdrop;
+	public var bd3:FlxBackdrop;
+	public var bd4:FlxBackdrop;
 
 	// Tiles
 	public var tileXML:String;	// Set this in Constructor to perform preload
@@ -584,6 +589,10 @@ class Level extends MWState
 	{
 		add(bgStar);
 		add(bgMetal);
+		add(bd1);
+		add(bd2);
+		add(bd3);
+		add(bd4);
 		add(bg1);
 		add(bg2);
 		
