@@ -7,6 +7,7 @@ import org.flixel.FlxPoint;
 import org.flixel.FlxTimer;
 import org.flixel.system.FlxTile;
 import org.flixel.tmx.TmxObjectGroup;
+import org.flixel.addons.FlxBackdrop;
 
 class Level3 extends Level
 {
@@ -119,10 +120,13 @@ class Level3 extends Level
 		}
 		
 		// bg for game and preDash
-		bg1 = new FlxSprite(0,0, "assets/img/mSurf2.png");
-		bg1.x = 0; bg1.y = 0;
-		bg2 = new FlxSprite(0,0, "assets/img/mSurf2.png");
-		bg2.x = FlxG.width; bg2.y = 0;
+		bd1 = new FlxBackdrop("assets/img/star2.png", 0.05, 0.05, true, true);
+		bd2 = new FlxBackdrop("assets/img/bgSkyStar.png", 0.3, 0.3, true, true);
+		bd3 = new FlxBackdrop("assets/img/mSurf2.png", 0, 0, true, true);
+		//bg1 = new FlxSprite(0,0, "assets/img/mSurf2.png");
+		//bg1.x = 0; bg1.y = 0;
+		//bg2 = new FlxSprite(0,0, "assets/img/mSurf2.png");
+		//bg2.x = FlxG.width; bg2.y = 0;
 		
 		dms = new FlxGroup();
 		//add(dms);
@@ -161,6 +165,8 @@ class Level3 extends Level
 
 		
 		AddAll();
+		this.remove(bgStar);
+		this.remove(bgMetal);
 		
 		// initial
 		FlxG.camera.scroll.x = t.x + t.width / 2 -FlxG.width / 2;
@@ -285,8 +291,11 @@ class Level3 extends Level
 
 			t.velocity.x = 0;
 			bot.velocity.x = 0;
-			bg1.velocity.x = -300;
-			bg2.velocity.x = -300;
+			//bg1.velocity.x = -300;
+			//bg2.velocity.x = -300;
+			bd1.velocity.x = -300/200;
+			bd2.velocity.x = -100;
+			bd3.velocity.x = -300;
 			bot.On = true;
 		}
 		
@@ -313,8 +322,11 @@ class Level3 extends Level
 					TimerPool.Get().start(2.5, 1, function(tmr:FlxTimer){
 						// start trans again!
 						battling = false;
-						bg1.velocity.x = 0;
-						bg2.velocity.x = 0;
+						//bg1.velocity.x = 0;
+						//bg2.velocity.x = 0;
+						bd1.velocity.x = 0;
+						bd2.velocity.x = 0;
+						bd3.velocity.x = 0;
 						t.velocity.x = 300;
 					});
 				}
@@ -329,10 +341,10 @@ class Level3 extends Level
 				bot.x = t.x + t.width - bot.width / 2;
 		}
 		
-		if(!bg1.onScreen() && bg1.x < FlxG.camera.scroll.x)
-			bg1.x += 2*FlxG.width;
-		if(!bg2.onScreen() && bg2.x < FlxG.camera.scroll.x)
-			bg2.x += 2*FlxG.width;
+		//if(!bg1.onScreen() && bg1.x < FlxG.camera.scroll.x)
+		//	bg1.x += 2*FlxG.width;
+		//if(!bg2.onScreen() && bg2.x < FlxG.camera.scroll.x)
+		//	bg2.x += 2*FlxG.width;
 		
 		birthPos = new FlxPoint(t.x + 60, 390);
 
