@@ -48,7 +48,7 @@
  </layer>
  <layer name="js" width="250" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt1zEKgDAMQNFu3v/GDuIiCNYGmrTvgXug1Py2BgAAAAAAAACtHY8PAADIR7cDAEB+uh0AAPLT7QAAkJ9uz+N5Fn/OxHkCALvr7aEq/VRlzh3odgCAy0jP6HYAvop4h0fPALCLVbsdVuPekYFuB5hHt0MN7h0A0d7e4tl3TaVZI+l2AOhjB7IK3V6LbgcAACAb705glH8IzGefAwAAAAAAcDsByfUETA==
+   eJzt1zEKwCAMQFG33v/GnboIhVoFE/MeuAti/LYGAAAAAAAAAK1d3QIAAOLR7QAAEJ9uBwCA+HQ7AADEp9vj6M/iz5k4TwCgutEeytJPWfZZwYpuB85nRgAVzMw53Q7AV7v/4WY7UNmp3Q6nce+IQLcD7KPbIQf3DoDV3v7i0d+aTHtdSbcDwBhvIKfQ7bnodgAAAKLx7wRmmSGwn/ccAAAAAACAxw1ddQRM
   </data>
  </layer>
  <layer name="po" width="250" height="50">
@@ -130,20 +130,6 @@
     <property name="speed" value="50"/>
     <property name="start" value="1"/>
     <property name="w" value="4"/>
-   </properties>
-  </object>
-  <object name="lift" type="lift" x="1240" y="660" width="160" height="20">
-   <properties>
-    <property name="speed" value="60"/>
-    <property name="start" value="0"/>
-    <property name="w" value="2"/>
-   </properties>
-  </object>
-  <object name="lift" type="lift" x="1080" y="520" width="160" height="20">
-   <properties>
-    <property name="speed" value="60"/>
-    <property name="start" value="1"/>
-    <property name="w" value="2"/>
    </properties>
   </object>
   <object name="camFix" x="3480" y="340" width="100" height="20"/>
