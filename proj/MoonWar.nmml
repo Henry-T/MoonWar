@@ -15,8 +15,8 @@
 	<assets path="assets" include="*.tsx" />
 	<assets path="assets" include="*.xml" />
 
-
 	<assets path="assets" if="desktop" >
+		<sound path="data/beep.wav" id="Beep" />
 		<sound path="snd/birth1.wav" id="birth1" />
 		<sound path="snd/explo1.wav" id="explo1" />
 		<sound path="snd/hit1.wav" id="hit1" />
@@ -30,6 +30,7 @@
 	</assets>
 
 	<assets path="assets" if="android" >
+		<sound path="data/beep.wav" id="Beep" />
 		<sound path="snd/birth1.wav" id="birth1" />
 		<sound path="snd/explo1.wav" id="explo1" />
 		<sound path="snd/hit1.wav" id="hit1" />
@@ -43,6 +44,7 @@
 	</assets>
 	
 	<assets path="assets" if="flash" >
+		<sound path="data/beep.mp3" id="Beep" />
 		<sound path="snd/birth1.mp3" id="birth1" />
 		<sound path="snd/explo1.mp3" id="explo1" />
 		<sound path="snd/hit1.mp3" id="hit1" />
