@@ -32,4 +32,21 @@ class MWState extends FlxState
 			btnMute.loadGraphic("assets/img/mute.png");
 
 	}
+
+	public override function update(){
+		super.update();
+		#if !FLX_NO_KEYBOARD
+		if(FlxG.keys.justPressed("M")){
+			FlxG.mute = !FlxG.mute;
+			updateMuteButton();
+		}
+		#end
+	}
+
+	private function updateMuteButton(){
+		if(FlxG.mute)
+			btnMute.loadGraphic("assets/img/mute_dis.png");
+		else 
+			btnMute.loadGraphic("assets/img/mute.png");
+	}
 }
