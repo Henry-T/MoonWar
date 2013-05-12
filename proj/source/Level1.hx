@@ -74,7 +74,7 @@ class Level1 extends Level
 		
 		// Initial
 		GameStatic.CurLvl = 1;
-		bot.x = 50; bot.y = 150; bot.On = false;
+		bot.x = start.x; bot.y = start.y; bot.On = false;
 		FlxG.camera.follow(bot);
 		inFight = false;
 		fightOver = false;
@@ -152,5 +152,5 @@ class Level1 extends Level
 	public function showTip(bot:Bot, tip:Tip1):Void
 	{
 		tip.shown = true;
-	}
+	}]
 }
