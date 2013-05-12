@@ -116,7 +116,7 @@ class Level3 extends Level
 			else if (to.name == "battle")
 				battlePos = new FlxPoint(to.x, to.y);
 			else if (to.name == "cam1")
-				posCam1 = new FlxPoint(to.x, to.y);
+				posCam1 = new FlxPoint(to.x + to.width*0.5, to.y+to.height*0.5);
 		}
 		
 		// bg for game and preDash

@@ -82,7 +82,7 @@ class Level8 extends Level
 				gates.add(gate);
 			}
 			else if(o.name == "cam1"){
-				camPos1 = new FlxPoint(o.x, o.y);
+				camPos1 = new FlxPoint(o.x + o.width * 0.5, o.y + o.height * 0.5);
 			}
 		}
 		
