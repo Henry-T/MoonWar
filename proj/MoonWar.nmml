@@ -3,7 +3,7 @@
 	<meta title="Moon War" description="Cubebot fight back RageMetal with Dr.Cube." package="com.lolofinil.moonwar" version="1.0.0" company="lolofinil" />
 	<app title="MoonWar" file="MoonWar" main="Main" version="0.0.1" path="export" company="Lolofinil"/>
 	
-	<window width="550" height="400" fps="30" orientation="portrait" resizable="false" if="web" />
+	<window width="800" height="480" fps="30" orientation="portrait" resizable="false" if="web" />
 	<window width="0" height="0" fps="30" orientation="landscape" fullscreen="true" if="mobile" />
 	<window width="550" height="400" fps="30" orientation="landscape" fullscreen="false" if="desktop" />
  	
