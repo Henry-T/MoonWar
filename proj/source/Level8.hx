@@ -11,6 +11,7 @@ import org.flixel.FlxCamera;
 import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 import org.flixel.tweens.motion.LinearMotion;
+import org.flixel.addons.FlxBackdrop;
 
 class Level8 extends Level 
 {
@@ -88,6 +89,8 @@ class Level8 extends Level
 		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift_r.png");
 		tile.follow();
 		
+		bd1 = new FlxBackdrop("assets/img/metal.png", 0.2, 0.2, true, true);
+
 		
 		boss3 = new Boss3(bossPos.x, bossPos.y);
 		

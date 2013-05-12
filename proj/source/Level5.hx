@@ -5,6 +5,7 @@ import org.flixel.FlxSprite;
 import org.flixel.FlxPoint;
 import org.flixel.FlxObject;
 import org.flixel.tmx.TmxObjectGroup;
+import org.flixel.addons.FlxBackdrop;
 
 class Level5 extends Level 
 {
@@ -53,6 +54,8 @@ class Level5 extends Level
 		
 		bInLift2 = new FlxSprite(doorPos.x-10, doorPos.y-6, "assets/img/bInLift_l.png");
 		
+		bd1 = new FlxBackdrop("assets/img/metal.png", 0.2, 0.2, true, true);
+
 		bot.x = start.x; bot.y = start.y;
 		
 		AddAll();

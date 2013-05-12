@@ -6,6 +6,7 @@ import org.flixel.FlxPoint;
 import org.flixel.FlxObject;
 import org.flixel.tmx.TmxObjectGroup;
 import org.flixel.FlxTimer;
+import org.flixel.addons.FlxBackdrop;
 
 class Level6 extends Level 
 {
@@ -66,6 +67,8 @@ class Level6 extends Level
 		
 		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift_l.png"); 
 		
+		bd1 = new FlxBackdrop("assets/img/metal.png", 0.2, 0.2, true, true);
+
 		AddAll();
 		
 		// initial scene

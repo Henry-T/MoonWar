@@ -6,6 +6,7 @@ import org.flixel.FlxObject;
 import org.flixel.FlxPoint;
 import org.flixel.system.FlxTile;
 import org.flixel.tmx.TmxObjectGroup;
+import org.flixel.addons.FlxBackdrop;
 
 class Level7 extends Level 
 {
@@ -91,6 +92,8 @@ class Level7 extends Level
 		// tile
 		bInLift = new FlxSprite(start.x - 10, start.y - 6, "assets/img/bInLift_r.png");		
 		
+		bd1 = new FlxBackdrop("assets/img/metal.png", 0.2, 0.2, true, true);
+
 		AddAll();
 		add(warnObj);
 

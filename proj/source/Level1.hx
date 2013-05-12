@@ -5,6 +5,7 @@ import org.flixel.FlxPoint;
 import org.flixel.FlxSprite;
 import org.flixel.FlxTimer;
 import org.flixel.tmx.TmxObjectGroup;
+import org.flixel.addons.FlxBackdrop;
 
 class Level1 extends Level
 {
@@ -72,6 +73,8 @@ class Level1 extends Level
 			}
 		}
 		
+		bd1 = new FlxBackdrop("assets/img/metal.png", 0.2, 0.2, true, true);
+
 		// Initial
 		GameStatic.CurLvl = 1;
 		bot.x = start.x; bot.y = start.y; bot.On = false;
@@ -152,5 +155,5 @@ class Level1 extends Level
 	public function showTip(bot:Bot, tip:Tip1):Void
 	{
 		tip.shown = true;
-	}]
+	}
 }
