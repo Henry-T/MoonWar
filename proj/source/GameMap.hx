@@ -58,16 +58,16 @@ class GameMap extends GameScreen
 		super.create();
 		this.bgColor = 0xff000000;
 
-		btnGLvlNormal = new SliceShape(0,0, 100, 18, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
-		btnGLvlOver = new SliceShape(0,0, 100, 18, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
-		selHighLight = new SliceShape(0, 0 ,102, 20, "assets/img/ui_boxact_border.png", SliceShape.MODE_BOX, 2).pixels.clone(); 
+		btnGLvlNormal = new SliceShape(0,0, GameStatic.button_itemWidth, GameStatic.button_itemHeight, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGLvlOver = new SliceShape(0,0, GameStatic.button_itemWidth, GameStatic.button_itemHeight, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		selHighLight = new SliceShape(0, 0 ,GameStatic.border_itemWidth, GameStatic.border_itemHeight, "assets/img/ui_boxact_border.png", SliceShape.MODE_BOX, 2).pixels.clone(); 
 
 		btnGBigNormal = new SliceShape(0,0, 100, 25, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 		btnGBigOver = new SliceShape(0,0, 100, 25, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 
 		bg = new FlxSprite(0,0,"assets/img/bgStar.png");
 
-		leftPnl = new SliceShape(30, 0, 135, 400, "assets/img/ui_barv_b.png", SliceShape.MODE_VERTICLE, 1);
+		leftPnl = new SliceShape(30, 0, 135, FlxG.height, "assets/img/ui_barv_b.png", SliceShape.MODE_VERTICLE, 1);
 		bottomPnl = new SliceShape(0, FlxG.height - 50, FlxG.width, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
 
 		picBg = new FlxSprite(0,0,"assets/img/mapBg.png");
@@ -201,8 +201,8 @@ class GameMap extends GameScreen
 
 		// set selector
 		#if !FLX_NO_KEYBOARD
-		selector.x = cast(lvlBtns.members[id], FlxButton).x-1;
-		selector.y = cast(lvlBtns.members[id], FlxButton).y-1;
+		selector.x = cast(lvlBtns.members[id], FlxButton).x+GameStatic.offset_border;
+		selector.y = cast(lvlBtns.members[id], FlxButton).y+GameStatic.offset_border;
 		#end
 	}
 
