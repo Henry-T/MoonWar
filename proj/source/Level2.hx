@@ -182,11 +182,11 @@ class Level2 extends Level
 			else if(td.name == "posBStart")
 				posBStart = new FlxPoint(td.x, td.y);
 			else if(td.name == "cam1")
-				posCam1 = new FlxPoint(td.x, td.y);
+				posCam1 = new FlxPoint(td.x+td.width*0.5, td.y+td.height*0.5);
 			else if(td.name == "cam2")
-				posCam2 = new FlxPoint(td.x, td.y);
+				posCam2 = new FlxPoint(td.x+td.width*0.5, td.y+td.height*0.5);
 			else if(td.name == "cam3")
-				posCam3 = new FlxPoint(td.x, td.y);
+				posCam3 = new FlxPoint(td.x+td.width*0.5, td.y+td.height*0.5);
 			else if(td.name == "landHeight")
 				landHeight = td.y;
 			else if(td.name == "explo1")
