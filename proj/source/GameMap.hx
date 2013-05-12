@@ -46,7 +46,10 @@ class GameMap extends GameScreen
 
 	#if !FLX_NO_KEYBOARD
 	public var selector:FlxSprite;
+	public var selectorMenu:SliceShape;
 	#end
+
+	public var curMenuSel:Int;
 
 	public function new() 
 	{
@@ -92,6 +95,7 @@ class GameMap extends GameScreen
 
 		#if !FLX_NO_KEYBOARD
 		selector = new FlxSprite(selHighLight);
+		selectorMenu = new SliceShape(0, 0, GameStatic.border_menuWidth, GameStatic.border_menuHeight, "assets/img/ui_boxact_border.png", SliceShape.MODE_BOX, 2);
 		#end
 
 		btnMenu = new FlxButton(0, 0, "BACK", function() { FlxG.switchState(new MainMenu()); } );
@@ -128,6 +132,7 @@ class GameMap extends GameScreen
 		add(picPnl);
 		#if !FLX_NO_KEYBOARD
 		add(selector);
+		//add(selectorMenu);
 		#end
 		add(lvlBtns);
 		add(btnMenu);
@@ -144,6 +149,8 @@ class GameMap extends GameScreen
 			cast(b, FlxButton).label.color = 0xffffffff;
 		}
 		SwitchLevel(0);
+		curMenuSel = 0;
+		SwitchMenu(curMenuSel);
 	}
 
 	public override function update(){
@@ -157,8 +164,17 @@ class GameMap extends GameScreen
 			SwitchLevel(GameStatic.CurLvl+1);
 			FlxG.play("sel1");
 		}
+		else if(FlxG.keys.justPressed("RIGHT")){
+			SwitchMenu(1);
+			FlxG.play("sel1");
+		}
+		else if(FlxG.keys.justPressed("LEFT")){
+			SwitchMenu(-1);
+			FlxG.play("sel1");
+		}
 		else if(FlxG.keys.justPressed("X")){
-			StartLevel(GameStatic.CurLvl);
+			//MenuAction(curMenuSel);
+			FlxG.switchState(GameStatic.GetCurLvlInst());
 		}
 		else if(FlxG.keys.justPressed("Z"))
 			FlxG.switchState(new MainMenu());
@@ -204,6 +220,30 @@ class GameMap extends GameScreen
 	#if !FLX_NO_KEYBOARD
 	public function StartLevel(id:Int){
 		FlxG.switchState(GameStatic.GetLvlInst(id));
+	}
+
+	public function SwitchMenu(id:Int){
+		while(id < 0) id += 2;
+		while(id >=2) id -= 2;
+		curMenuSel = id;
+
+		switch (id) {
+			case 0:
+				selectorMenu.x = btnStart.x + GameStatic.offset_border;
+				selectorMenu.y = btnStart.y + GameStatic.offset_border;
+			case 1:
+				selectorMenu.x = btnEnd.x + GameStatic.offset_border;
+				selectorMenu.y = btnEnd.y + GameStatic.offset_border;
+		}
+	}
+
+	public function MenuAction(id:Int){
+		switch (id) {
+			case 0:
+				FlxG.switchState(new MainMenu());
+			case 1: 
+				StartLevel(GameStatic.CurLvl);
+		}
 	}
 	#end
 }
