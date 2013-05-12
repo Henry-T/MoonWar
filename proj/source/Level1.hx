@@ -64,7 +64,7 @@ class Level1 extends Level
 				fightArea = new FlxObject(td.x, td.y, td.width, td.height);
 			}
 			else if(td.name == "cam1"){
-				camPos1 = new FlxPoint(td.x, td.y);
+				camPos1 = new FlxPoint(td.x + td.width * 0.5, td.y + td.height * 0.5);
 			}
 			else if (td.name == "com1")
 			{
