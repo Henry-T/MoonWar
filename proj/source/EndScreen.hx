@@ -18,6 +18,7 @@ class EndScreen extends GameScreen
 	public var btnBack:FlxButton;
 
 	public var bottomPnl:SliceShape;
+	public var selector:SliceShape;
 
 	public var btnGBigNormal:BitmapData;
 	public var btnGBigOver:BitmapData;
@@ -25,6 +26,8 @@ class EndScreen extends GameScreen
 	public var timer1:FlxTimer;
 	public var timer2:FlxTimer;
 	public var timer3:FlxTimer;
+
+	public var exitEnabled:Bool;
 
 	public function new() 
 	{
@@ -39,8 +42,8 @@ class EndScreen extends GameScreen
 		timer2 = new FlxTimer();
 		timer3 = new FlxTimer();
 		
-		btnGBigNormal = new SliceShape(0,0, 200, 25, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
-		btnGBigOver = new SliceShape(0,0, 200, 25, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGBigNormal = new SliceShape(0,0, GameStatic.button_menuWidth, GameStatic.button_menuHeight, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGBigOver = new SliceShape(0,0, GameStatic.button_menuWidth, GameStatic.button_menuHeight, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 
 		bg = new FlxBackdrop("assets/img/star2.png", 0, 0, true, true);
 		txtTheEnd = new FlxSprite("assets/img/theEnd.png");
@@ -51,28 +54,35 @@ class EndScreen extends GameScreen
 		txtThanks.x = FlxG.width * 0.5 - txtThanks.width * 0.5;
 		txtThanks.y = FlxG.height * 0.4;
 
-		bottomPnl = new SliceShape(0, 350, 560, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
+		bottomPnl = new SliceShape(0, FlxG.height-50, FlxG.width + 10, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
 
-		btnBack = new FlxButton(0, 0, "BACK TO MENU", function() { FlxG.switchState(new MainMenu()); } );
+		selector = new SliceShape(0, 0, GameStatic.border_menuWidth, GameStatic.border_menuHeight, "assets/img/ui_boxact_border.png", SliceShape.MODE_BOX, 2);
+		btnBack = new FlxButton(0, 0, "BACK", function() { FlxG.switchState(new MainMenu()); } );
 		btnBack.loadGraphic(btnGBigNormal);
 		btnBack.onOver = function(){btnBack.loadGraphic(btnGBigOver);};
 		btnBack.onOut = function(){btnBack.loadGraphic(btnGBigNormal);};
 		btnBack.x = FlxG.width * 0.5 - btnBack.width/2;
-		btnBack.y = FlxG.height * 0.90;
+		btnBack.y = FlxG.height * 1.10;
 		btnBack.label.setFormat("assets/fnt/pixelex.ttf", 16, 0xffffff, "center");
 
 		add(bg);
 		add(txtTheEnd);
 		add(txtThanks);
 		add(bottomPnl);
+		add(selector);
 		add(btnBack);
 
 		// initial
+		exitEnabled = false;
 		ResUtil.playTitle();
 		txtTheEnd.y -= 100;
 		txtThanks.alpha = 0;
 		bottomPnl.alpha = 0;
 		btnBack.alpha = 0;
+		btnBack.label.alpha = 0;
+		selector.visible = false;
+		selector.x = btnBack.x + GameStatic.offset_border;
+		selector.y = FlxG.height * 0.9 + GameStatic.offset_border;
 
 		var tween1:LinearMotion = new LinearMotion(null, FlxTween.ONESHOT);
 		tween1.setObject(txtTheEnd);
@@ -96,5 +106,30 @@ class EndScreen extends GameScreen
 			tween4.tween(btnBack, "alpha", 1, 1.5, Ease.quadOut);
 			addTween(tween4);
 		});
+
+		TimerPool.Get().start(2, 1, function(t:FlxTimer){
+			var tween5:VarTween = new VarTween(null, FlxTween.ONESHOT);
+			tween5.tween(btnBack.label,"alpha", 1, 1.5, Ease.quadOut);
+			addTween(tween5);
+		});
+
+		TimerPool.Get().start(2, 1, function(t:FlxTimer){
+			var tween6:VarTween = new VarTween(null, FlxTween.ONESHOT);
+			tween6.tween(btnBack, "y", FlxG.height * 0.9, 1.5, Ease.quadOut);
+			addTween(tween6);
+		});
+
+		TimerPool.Get().start(3.5, 1, function(t:FlxTimer){
+			selector.visible = true;
+			exitEnabled = true;
+		});
+	}
+
+	public override function update(){
+		super.update();
+
+		if(exitEnabled && GameStatic.useKeyboard && FlxG.keys.justPressed("X")){
+			FlxG.switchState(new GameMap());
+		}
 	}
 }
