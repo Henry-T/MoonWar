@@ -1065,14 +1065,18 @@ class Level extends MWState
 		lbPaused.visible = isShow;
 	}
 
-	public function TweenCamera(x:Float, y:Float, dur:Float, useEase:Bool, onDone:Void->Void){
-		camScrollXTween.tween(FlxG.camera.scroll, "x", x, dur, useEase?Ease.quartInOut:null);
-		camScrollYTween.tween(FlxG.camera.scroll, "y", y, dur, useEase?Ease.quartInOut:null);
+	public function TweenCamera2(scrollX:Float, scrollY:Float, dur:Float, useEase:Bool, onDone:Void->Void){
+		camScrollXTween.tween(FlxG.camera.scroll, "x", scrollX, dur, useEase?Ease.quartInOut:null);
+		camScrollYTween.tween(FlxG.camera.scroll, "y", scrollY, dur, useEase?Ease.quartInOut:null);
 		camXTweenDone = false;
 		camYTweenDone = false;
 		camTweening = true;
 		onCamTweenDone = onDone;
 	} 
+
+	public function TweenCamera(focusX:Float, focusY:Float, dur:Float, useEase:Bool, onDone:Void->Void){
+		TweenCamera(focusX - FlxG.camera.width * 0.5, focusY - FlxG.camera.height * 0.5, dur, useEase, onDone);
+	}
 
 	public function ShowSkip(show:Bool, call:Void->Void=null){
 		toSkip.visible = show;
