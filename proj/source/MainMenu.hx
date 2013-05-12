@@ -142,11 +142,11 @@ class MainMenu extends GameScreen
 		while(selId >= 3) selId-=3;
 		switch (selId) {
 		case 0:
-			selector.x = startBtn.x-2; selector.y = startBtn.y-2;
+			selector.x = startBtn.x+GameStatic.offset_border; selector.y = startBtn.y+GameStatic.offset_border;
 		case 1:
-			selector.x = btnMap.x-2; selector.y = btnMap.y-2;
+			selector.x = btnMap.x+GameStatic.offset_border; selector.y = btnMap.y+GameStatic.offset_border;
 		case 2:
-			selector.x = btnClearData.x-2; selector.y = btnClearData.y-2;
+			selector.x = btnClearData.x+GameStatic.offset_border; selector.y = btnClearData.y+GameStatic.offset_border;
 		}
 
 	}
