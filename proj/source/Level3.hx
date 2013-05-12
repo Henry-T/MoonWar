@@ -122,7 +122,8 @@ class Level3 extends Level
 		// bg for game and preDash
 		bd1 = new FlxBackdrop("assets/img/star2.png", 0.05, 0.05, true, true);
 		bd2 = new FlxBackdrop("assets/img/bgSkyStar.png", 0.3, 0.3, true, true);
-		bd3 = new FlxBackdrop("assets/img/mSurf2.png", 0, 0, true, true);
+		bd3 = new FlxBackdrop("assets/img/mSurf2.png", 0, 0, true, false);
+		bd3.y = FlxG.height - bd3.height;
 		//bg1 = new FlxSprite(0,0, "assets/img/mSurf2.png");
 		//bg1.x = 0; bg1.y = 0;
 		//bg2 = new FlxSprite(0,0, "assets/img/mSurf2.png");
