@@ -8,12 +8,13 @@ import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 import org.flixel.tweens.motion.LinearMotion;
 import org.flixel.tweens.misc.VarTween;
+import org.flixel.addons.FlxBackdrop;
 
 class EndScreen extends GameScreen 
 {
 	public var txtTheEnd:FlxSprite;
 	public var txtThanks:FlxSprite;
-	public var bg:FlxSprite;
+	public var bg:FlxBackdrop;
 	public var btnBack:FlxButton;
 
 	public var bottomPnl:SliceShape;
@@ -41,7 +42,7 @@ class EndScreen extends GameScreen
 		btnGBigNormal = new SliceShape(0,0, 200, 25, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 		btnGBigOver = new SliceShape(0,0, 200, 25, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 
-		bg = new FlxSprite("assets/img/bgStar.png");
+		bg = new FlxBackdrop("assets/img/star2.png", 0, 0, true, true);
 		txtTheEnd = new FlxSprite("assets/img/theEnd.png");
 		txtTheEnd.x = FlxG.width * 0.5 - txtTheEnd.width * 0.5;
 		txtTheEnd.y = FlxG.height * 0.1;
