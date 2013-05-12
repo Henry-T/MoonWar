@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="178" height="30" tilewidth="20" tileheight="20" backgroundcolor="#464646">
+<map version="1.0" orientation="orthogonal" width="200" height="30" tilewidth="20" tileheight="20" backgroundcolor="#464646">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
   <image source="../img/defTile.png" width="360" height="280"/>
   <terraintypes>
@@ -21,132 +21,131 @@
   <tile id="79" terrain="0,,0,0"/>
   <tile id="80" terrain=",0,0,0"/>
  </tileset>
- <layer name="bgFar" width="178" height="30">
+ <layer name="bgFar" width="200" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt1DEOgCAQRcE9jtdVGy/i/aS0QIOBACYzyS+3e9kIAGa1pe1p620lzsxglCWzEk8d65mech1++au199DCEXUNvnWsZXqp7U/HzKBVfzpmJB0DAAAAAAAAAAAAAAAAAAB/cgFEpDn1
+   eJzt1TEOgCAQRUGO43XVxot4Pygt0GDWQjYzyS/p9oVSAAAA5rG17W3rZSPOziCbpbMRd33ohAx69/3mH4i+hz87Suy2n/rQCLOL3rU+yOyru9YHGekDAAAAAAAAAAAAAAAAAAAgjwq/JDn1
   </data>
  </layer>
- <layer name="bg" width="178" height="30">
+ <layer name="bg" width="200" height="30">
   <data encoding="base64" compression="zlib">
-   eJztmElOwzAUhn2IXop7dMOgDioR5yBZwEUQg9gzLNgjEHTPAsEJsKVYtYyH59iOk/T/pF+V/Z7H/HGs1oyxK5YfMUbN1bS/1DGbNnettJN1LtVaWbaptJw6emVgCPThYXUsqS5tpNaWeqGlI2ZTKkzvap/7u8+k3OdbrjuuLdc1141hrBQ+pug0IDcVer+rxP2rnLP/3xzq/Gql/VRYJuzrh+uglfD0e1v/3f7GeKern/vwr2+OOegyzmVPcyuBvpaHyP6kj++VumdlrI1hTBcUP66IeVSfiTr1Dt4oscbSxjVXE9JTC7a7p6ttXGclZU0h96spsNDKX1yvmqhsuT5afSr1wtPi/eiydznOYYqPpcdCnr3tLmPiosO89PnlWv8Y0dfxxHb3W6HfgL7eNMl+hKeFjysW5+MNS/8MXT4OffYhual97Dp/K0dsqj5+TNCnfp4LDeE8tj1r33i2c5k619j15NyTqfr4JdM4Q/BxqM9c9wqbv0z/CVLW44vl3BMQx9nAJPA9c9XbOjHnceWoL7UXY+OQ64hrznXMdVI4x9RmruSmLqvoXpX3Iso5prZbW/Io57xtHNe8c8TGCGU9febozDOXJaXOY+p33zbvXLExQllPnzmu/NTlGSt/r7Fp5pi3a00pYmNkn30soX4rSuXBx37gY3+sdB587Ac+9sdK58HHfuBjf6x0HnzsBz72x0rnwccAAAAAAAAAAAAAAAAAAAAAAAAAAKALf3SASAg=
+   eJztmEtOwzAURb2Ibop9dMJHpVWJWAfJADZS8RFzPgPmCASdM0CwAmwpVi3Xz3l27MY090hXKPbzl3djp0IAAAAAeVhJ1VJN+3dV8JhNG7sw2ukyn2rrWbeprJi698rAPmLmTsljunJ/QZQrnXrqKKXC9Q7Y5f6CdOTIj1upO6m11LXUTYIxQ3Nd6ywgNhV2v/PE/ZtciO0zkju/2mgP3Jjv21T8SB20Ul55b8u/rTFjcibWJ7vwRdcccxAzztWO5rYPUHv00LNf7Y97o+zZGHPpGNMHJ8/nzDhu/qoy8xunMeoaoo1vri50rs7E5jvIbON7t3PWFHLPBNvovZlZ5V9Sr5a4rKU+Wn0a5corDyLuf5Lj3OD4Q+9NSE5RdzoXlxHzsueXa/2A3p8nsfl+UPoN6PPNku5HeUX5oyLG5M5zKdLnhs8foTkVEpvaH77zovLUwR9uqP15TNC3ff4olXB+UDnUNR51jnDn2nc9OfcE/nBD7c9LpvFK8Edo/vruV1Teun575qynqy7nnoAyOS9Miq5cMj1j0+f8qDzlQ+3FGDiUOpKaSh1LnfyDGFebqRGb+tnE9oC+H3Leu2a7BRHHOZeocXzzzlE3Fjh7UFqMzTTzs2ao84N7/6HmnatuLHD2oLQYX3zq54kY/n5HaeKZt29NKerGQmm5X5o/NNyzbag4+CMPpeV+qf7oqhs6Dv7IQ2m5D3/ExcEfeSgt9+GPuDj4Iw+l5T78ERcHfwAAAAAAAAAAAAAAAAAAAAAAAACgL3/51FrR
   </data>
  </layer>
- <layer name="tile" width="178" height="30">
+ <layer name="tile" width="200" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt2MtOwkAUxvHzNCY8io+jG934WOAF9iCKe7wge40oT2BP2kmGpp3plM4I9f9LTgjY6VT45tJuRORH4ttmdVfUeI/zzIvXUVbXFXVTczz67TRxX6ZCDCJWl3RsmfG6lupxhTiWifsy1dZD8foseV4ea/5e9z6mWVZT2R0jrAdppJwvzrI6l3zeCrWMUF1LmeOhtFtX7DbDCNf1VyYJ+7qVfL19T9inz6zjc7XNsX43Te8ftI/QHGubUanNSvqz71kk7EvX+KGEzQN2LgYRPmua40XR1rW/13N9yO583zTHE+uanjzHThues9ym6n/ty77n0HNs52IZ4bPQHLvonv2lVK+O43V+XBWla5TJ8VtWX452++T4XvI1Ufvceq7vmPjGfpd0zgnN8bdUP1/rovR3/Cz1V5cRzbE9BqrGf9N9uOnD5H4teW7N3mJcc37fNbpoG/0uD2lP16WU9/Pmd9vn+XFsrhy73ocorwkm603vQ6va++5b27Q5JhcJ+7q06iphvyFS5Fi57tE24t5XAD5Ve2plcpvimctc0t634P8wuepiH2Y/Y7PL7LfIMQAAAAAAwPE7oageFAAAAAAAAAAAAAAAMf0CULX5XQ==
+   eJzt2clSwkAQgOF+GksehcfRi158LHCBO4jiHRfk7s4TmK5kqoZUMskkmZHg/1V1scikIzU9GyIAAIRxk8R99vwriZ8IObdZXo1Ji+ssssdxEpcFcVXyecDHcRbDiDmHVvgYBIwuac2acWAjxfWKflhZ0aecd9njo+zOg/m/l70OaZ7ETHZrj/mrnz4kHeNijm8nSZxKOs76WgWIrsWsj5E0mwftNqMA93VophFzXUtak68Rc1aZd3ytpvWh303d/Znm8K0PbTPOtVkL678qy4i5dK0zEr9xy+5vgwDv1a2PZdbWtX/Sa73J7vxUtz6m1j09VHx2VvOa+TZF/yvrP7d9rw+7v60CvOdbHy66J3rKxbPj8zqer7PQOdXUx0sSn452berjVtI5XHNuK+4P1WNVl3SM9K2Pbyk+x+0itH+85/KV9T2tD7u2isaVuvsck8PU00bSejBrrEnJ9avu0UXb6He5T2vbPoh5vmP6Q5vfP0Jz1YfrtY/8HGZqqO75QVH7qvOGJm0O0VmDiOXciouIeX3EqA/l2lvrb7au9RXwV4r2LMrUQ4wzuIXE3RcCbZn+2sV61D7LtcOsO6kPAAAAAAAA4H86IgiiNAAAAAAAAAAAAAD8H78NpQeZ
   </data>
  </layer>
- <layer name="tileUp" width="178" height="30">
+ <layer name="tileUp" width="200" height="30">
   <data encoding="base64" compression="zlib">
-   eJztw0EKgCAQAEA/W18oyXy7e/C0hGeJGZhSAAAAAAAA/utKn1g/tngsvvFMe7xnAAAAAAAAAAAAAAAAAAD2MQB+kQt3
+   eJztw7ENgDAMALA+Cy9ARentzcAUVUwZbcmtAQAAAAAAAABArSt9Yt8c8fj5xjOd8f4CAAAAAAAAAAAAAAAAAEC1BX2YC3c=
   </data>
  </layer>
- <layer name="break" width="178" height="30">
+ <layer name="break" width="200" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt0jEOg0AMBEA+kf8R8oe8n6OgsXKG5i5GmpFcgF0saJcFAAAAAAAAqOrbZmvz+bFb27wn3Lw6c+aLeUc8x/eVHNl6/3XU7ml633NaJ9zocS7LNntX1Z3Mo2/0OKfH1/Q4zxb9406Pr+lxni3S45r0OM8W6XFNepxni/S4Jj3Os0V6DAAAAAAAAADAE+2QK1Sa
+   eJzt00EKwjAQBdBcwvtVvYPnNwUXIiSMA7FjeQ9m0fYX0jK/NQAAAAAAAAAAALK2Ptc+jz63Pvfimctg2uudd6uuP+9Xsp9t9F9XPTu7rY3/QbWMfszNzvbrZ2cS+c4KGf2Y0481Kux+JPNP/Tgipx9rVNj9SEY/8hn9yKuw+5GMfuQz+pFXYfcjGf3IZ/Qjr8LuRzL6kc/oBwAAAAAAAADwrSfVQFu0
   </data>
  </layer>
- <layer name="cover" width="178" height="30">
+ <layer name="cover" width="200" height="30">
   <data encoding="base64" compression="zlib">
-   eJztwzEJAAAIADDTaP+GVvARFDZYBAAAAAAAAAAAAAAAAJ+kHj5Vqqqqqqqqqrq4AYdGQ0o=
+   eJztwzEJAAAIADDTaP+GZhA8BDdYBAAAAAAAAAAAAAAAAAAAAMylHr6tVFVVVVVV1Tcb2ScrOA==
   </data>
  </layer>
- <objectgroup name="misc" width="178" height="30">
-  <object name="spawn" x="188" y="100" width="32" height="30"/>
-  <object name="bee1" type="posBee" x="2900" y="100" width="40" height="40"/>
-  <object name="posBIn" x="2960" y="160" width="80" height="100"/>
-  <object name="bee2" type="posBee" x="2800" y="100" width="40" height="40"/>
-  <object name="bee3" type="posBee" x="3080" y="100" width="40" height="40"/>
-  <object name="bee4" type="posBee" x="3180" y="100" width="40" height="40"/>
-  <object name="grd2" type="posGuard" x="2900" y="320" width="40" height="40"/>
-  <object name="grd1" type="posGuard" x="3080" y="320" width="40" height="40"/>
-  <object name="cam2" type="cam" x="2740" y="0" width="540" height="400"/>
-  <object name="cam1" type="cam" x="2120" y="0" width="540" height="400"/>
-  <object name="cam3" type="cam" x="0" y="0" width="540" height="400"/>
-  <object name="posBStart" x="400" y="260" width="80" height="100" visible="0"/>
-  <object name="grd3" type="posGuard" x="3180" y="320" width="40" height="40"/>
-  <object name="grd4" type="posGuard" x="2800" y="320" width="40" height="40"/>
-  <object name="posBInSrc" x="3280" y="20" width="80" height="100" visible="0"/>
-  <object name="posBInCtrl" x="3140" y="140" width="80" height="100" visible="0"/>
-  <object type="cube" x="2920" y="320" width="40" height="40">
+ <objectgroup name="misc" width="200" height="30">
+  <object name="spawn" x="428" y="140" width="32" height="30"/>
+  <object name="bee1" type="posBee" x="3140" y="140" width="40" height="40"/>
+  <object name="posBIn" x="3200" y="200" width="80" height="100"/>
+  <object name="bee2" type="posBee" x="3040" y="140" width="40" height="40"/>
+  <object name="bee3" type="posBee" x="3320" y="140" width="40" height="40"/>
+  <object name="bee4" type="posBee" x="3420" y="140" width="40" height="40"/>
+  <object name="grd2" type="posGuard" x="3140" y="360" width="40" height="40"/>
+  <object name="grd1" type="posGuard" x="3320" y="360" width="40" height="40"/>
+  <object name="cam2" type="cam" x="2980" y="40" width="540" height="400"/>
+  <object name="cam1" type="cam" x="2360" y="40" width="540" height="400"/>
+  <object name="cam3" type="cam" x="240" y="40" width="540" height="400"/>
+  <object name="posBStart" x="640" y="300" width="80" height="100"/>
+  <object name="grd3" type="posGuard" x="3420" y="360" width="40" height="40"/>
+  <object name="grd4" type="posGuard" x="3040" y="360" width="40" height="40"/>
+  <object name="posBInSrc" x="3620" y="-100" width="80" height="100"/>
+  <object name="posBInCtrl" x="3380" y="180" width="80" height="100"/>
+  <object type="cube" x="3160" y="360" width="40" height="40">
    <properties>
     <property name="group" value="1"/>
    </properties>
   </object>
-  <object type="cube" x="2860" y="320" width="40" height="40">
+  <object type="cube" x="3100" y="360" width="40" height="40">
    <properties>
     <property name="group" value="0"/>
    </properties>
   </object>
-  <object type="cube" x="2820" y="320" width="40" height="40">
+  <object type="cube" x="3060" y="360" width="40" height="40">
    <properties>
     <property name="group" value="0"/>
    </properties>
   </object>
-  <object type="cube" x="2840" y="280" width="40" height="40">
+  <object type="cube" x="3080" y="320" width="40" height="40">
    <properties>
     <property name="group" value="0"/>
     <property name="type" value="death"/>
    </properties>
   </object>
-  <object type="cube" x="2840" y="240" width="40" height="40">
+  <object type="cube" x="3080" y="280" width="40" height="40">
    <properties>
     <property name="group" value="0"/>
    </properties>
   </object>
-  <object type="cube" x="2800" y="280" width="40" height="40">
+  <object type="cube" x="3040" y="320" width="40" height="40">
    <properties>
     <property name="group" value="0"/>
    </properties>
   </object>
-  <object type="cube" x="2780" y="320" width="40" height="40">
+  <object type="cube" x="3020" y="360" width="40" height="40">
    <properties>
     <property name="group" value="0"/>
    </properties>
   </object>
-  <object type="cube" x="3040" y="280" width="40" height="40">
+  <object type="cube" x="3280" y="320" width="40" height="40">
    <properties>
     <property name="group" value="1"/>
     <property name="type" value="death"/>
    </properties>
   </object>
-  <object name="posBInLand" x="2960" y="260" width="80" height="100" visible="0"/>
-  <object name="border" type="border" x="0" y="-20" width="3280" height="420" visible="0"/>
-  <object name="explo1" type="hexplo" x="2840" y="220" width="60" height="20" visible="0"/>
-  <object name="explo2" type="hexplo" x="3080" y="280" width="60" height="20" visible="0"/>
-  <object type="cube" x="2960" y="280" width="40" height="40">
+  <object name="posBInLand" x="3200" y="300" width="80" height="100"/>
+  <object name="border" type="border" x="20" y="20" width="3960" height="480"/>
+  <object name="explo1" type="hexplo" x="3080" y="260" width="60" height="20"/>
+  <object name="explo2" type="hexplo" x="3320" y="320" width="60" height="20"/>
+  <object type="cube" x="3200" y="320" width="40" height="40">
    <properties>
     <property name="group" value="1"/>
    </properties>
   </object>
-  <object type="cube" x="3000" y="280" width="40" height="40">
+  <object type="cube" x="3240" y="320" width="40" height="40">
    <properties>
     <property name="group" value="1"/>
    </properties>
   </object>
-  <object type="cube" x="2960" y="320" width="40" height="40">
+  <object type="cube" x="3200" y="360" width="40" height="40">
    <properties>
     <property name="group" value="1"/>
    </properties>
   </object>
-  <object type="cube" x="3020" y="320" width="40" height="40">
+  <object type="cube" x="3260" y="360" width="40" height="40">
    <properties>
     <property name="group" value="1"/>
    </properties>
   </object>
-  <object type="cube" x="3060" y="320" width="40" height="40">
+  <object type="cube" x="3300" y="360" width="40" height="40">
    <properties>
     <property name="group" value="1"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="boss" width="178" height="30">
-  <object name="appear" x="365" y="519" width="133" height="14"/>
-  <object name="rect" x="61" y="400" width="136" height="137"/>
-  <object name="appearUp" x="60" y="360" width="137" height="19"/>
-  <object name="appearUp" x="363" y="361" width="137" height="19"/>
-  <object name="appear" x="60" y="524" width="133" height="14"/>
-  <object name="jumpLen" x="60" y="389" width="299" height="9"/>
-  <object x="9" y="7"/>
+ <objectgroup name="boss" width="200" height="30">
+  <object name="appear" x="605" y="559" width="133" height="14"/>
+  <object name="rect" x="301" y="440" width="136" height="137"/>
+  <object name="appearUp" x="300" y="400" width="137" height="19"/>
+  <object name="appearUp" x="603" y="401" width="137" height="19"/>
+  <object name="appear" x="300" y="564" width="133" height="14"/>
+  <object name="jumpLen" x="300" y="429" width="299" height="9"/>
  </objectgroup>
 </map>
