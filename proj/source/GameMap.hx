@@ -6,6 +6,7 @@ import org.flixel.FlxSprite;
 import org.flixel.FlxGroup;
 import org.flixel.FlxText;
 import nme.display.BitmapData;
+import org.flixel.addons.FlxBackdrop;
 
 
 class GameMap extends GameScreen 
@@ -26,8 +27,7 @@ class GameMap extends GameScreen
 
 	public var pic:FlxSprite;
 
-	public var bg:FlxSprite;
-	public var picBg:FlxSprite;
+	public var bgStar:FlxBackdrop;
 
 	public var missionTxt:FlxText;
 	public var descTxt:FlxText;
@@ -65,16 +65,12 @@ class GameMap extends GameScreen
 		btnGBigNormal = new SliceShape(0,0, 100, 25, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 		btnGBigOver = new SliceShape(0,0, 100, 25, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 
-		bg = new FlxSprite(0,0,"assets/img/bgStar.png");
+		bgStar = new FlxBackdrop("assets/img/star2.png");
 
 		leftPnl = new SliceShape(30, 0, 135, FlxG.height, "assets/img/ui_barv_b.png", SliceShape.MODE_VERTICLE, 1);
 		bottomPnl = new SliceShape(0, FlxG.height - 50, FlxG.width, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
 
-		picBg = new FlxSprite(0,0,"assets/img/mapBg.png");
-		picBg.x = FlxG.width * 0.66 - picBg.width / 2;
-		picBg.y = FlxG.height * 0.43 - picBg.height / 2;
-
-		picPnl = new SliceShape(Math.round(picBg.x), Math.round(picBg.y), Math.round(picBg.width), Math.round(picBg.height), "assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
+		picPnl = new SliceShape(Math.round(FlxG.width * 0.66 - 355 / 2), Math.round(FlxG.height * 0.43 - 227 / 2), 355, 227, "assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
 
 
 		lvlBtns = new FlxGroup();
@@ -126,10 +122,9 @@ class GameMap extends GameScreen
 		descTxt.x = FlxG.width * 0.66 - 150;
 		descTxt.y = FlxG.height * 0.75;
 
-		add(bg);
+		add(bgStar);
 		add(leftPnl);
 		add(bottomPnl);
-		//add(picBg);
 		add(picPnl);
 		#if !FLX_NO_KEYBOARD
 		add(selector);
