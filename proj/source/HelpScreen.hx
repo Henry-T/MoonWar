@@ -4,10 +4,11 @@ import nme.display.BitmapData;
 import org.flixel.FlxButton;
 import org.flixel.FlxText;
 import org.flixel.FlxG;
+import org.flixel.addons.FlxBackdrop;
 
 class HelpScreen extends MWState
 {
-	public var bg:FlxSprite;
+	public var bg:FlxBackdrop;
 
 	public var mainPnl:SliceShape;
 	public var bottomPnl:SliceShape;
@@ -16,6 +17,8 @@ class HelpScreen extends MWState
 	public var btnBack:FlxButton;
 	public var btnLast:FlxButton;
 	public var btnNext:FlxButton;
+
+	public var selector:SliceShape;
 
 	public var txtMusic:FlxText;
 	public var txtMusicBy:FlxText;
@@ -65,6 +68,8 @@ class HelpScreen extends MWState
 	{
 		super.create();
 
+		this.bgColor = 0xff000000;
+
 		curId = 0;
 
 		images = new Array<FlxSprite>();
@@ -75,14 +80,16 @@ class HelpScreen extends MWState
 			images.push(img);
 		}
 
-		bg = new FlxSprite("assets/img/bgStar.png");
-		mainPnl = new SliceShape(0,0, 350, 280, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3);
+		bg = new FlxBackdrop("assets/img/star2.png", 0, 0, true, true);
+		mainPnl = new SliceShape(0,0, 350, 280, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3);
 		mainPnl.x = FlxG.width*0.5 - mainPnl.width*0.5;
 		mainPnl.y = FlxG.height*0.4 - mainPnl.height*0.5;
 
-		bottomPnl = new SliceShape(-5, FlxG.height-50, FlxG.width + 10, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
-		btnGBigNormal = new SliceShape(0,0, 100, 25, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
-		btnGBigOver = new SliceShape(0,0, 100, 25, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		selector = new SliceShape(0, 0, GameStatic.border_menuWidth, GameStatic.border_menuHeight, "assets/img/ui_boxact_border.png", SliceShape.MODE_BOX, 2);
+
+		bottomPnl = new SliceShape(-5, FlxG.height-50, FlxG.width + 10, 40, "assets/img/ui_barh_b.png", SliceShape.MODE_HERT, 1);
+		btnGBigNormal = new SliceShape(0,0, GameStatic.button_menuWidth, GameStatic.button_menuHeight, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
+		btnGBigOver = new SliceShape(0,0, GameStatic.button_menuWidth, GameStatic.button_menuHeight, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
 		btnBack = new FlxButton(0, 0, "BACK", function() { FlxG.switchState(new MainMenu()); } );
 		btnBack.loadGraphic(btnGBigNormal);
 		btnBack.onOver = function(){btnBack.loadGraphic(btnGBigOver);};
@@ -143,14 +150,34 @@ class HelpScreen extends MWState
 		//add(txtMusic);
 		//add(txtMusicBy);
 		add(bottomPnl);
+		if(GameStatic.useKeyboard)
+			add(selector);
 		add(btnBack);
-		add(btnLast);
-		add(btnNext);
+		if(GameStatic.useTouch){
+			add(btnLast);
+			add(btnNext);
+		}
 		add(txtTitle);
 		add(txtNum);
 		add(txtDesc);
 
+		selector.x = btnBack.x + GameStatic.offset_border;
+		selector.y = btnBack.y + GameStatic.offset_border;
+
 		UpdateDesc();
+	}
+
+	public override function update(){
+		super.update();
+
+		#if !FLX_NO_KEYBOARD
+		if(FlxG.keys.justPressed("LEFT"))
+			UpdateDesc(-1);
+		if(FlxG.keys.justPressed("RIGHT"))
+			UpdateDesc(1);
+		if(FlxG.keys.justPressed("X"))
+			FlxG.switchState(new MainMenu());
+		#end
 	}
 
 	public override function draw(){
