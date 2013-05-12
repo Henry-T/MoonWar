@@ -84,7 +84,26 @@ class GameStatic
 	public static var widthH:Int;
 	public static var heightH:Int;
 
+	public static var useMouse:Bool;
+	public static var useTouch:Bool;
+	public static var useKeyboard:Bool;
+
 	public static function Initial(){
+		// Check Input Mode
+		useMouse = true;
+		useTouch = true;
+		useKeyboard = true;
+
+		#if FLX_NO_MOUSE
+		useMouse = false;
+		#end
+		#if FLX_NO_TOUCH
+		useTouch = false;
+		#end
+		#if FLX_NO_KEYBOARD
+		useKeyboard = false;
+		#end
+
 		screenWidth = Std.int(nme.system.Capabilities.screenResolutionX);
 		screenHeight = Std.int(nme.system.Capabilities.screenResolutionY);
 
@@ -96,7 +115,7 @@ class GameStatic
 			screenDensity = 2;
 		else
 			screenDensity = 3;
-		screenDensity = 2;
+		//screenDensity = 2;
 
 		// Check ratio mode 
 		ratioValue = nme.system.Capabilities.pixelAspectRatio;
