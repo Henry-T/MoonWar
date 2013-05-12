@@ -1075,7 +1075,7 @@ class Level extends MWState
 	} 
 
 	public function TweenCamera(focusX:Float, focusY:Float, dur:Float, useEase:Bool, onDone:Void->Void){
-		TweenCamera(focusX - FlxG.camera.width * 0.5, focusY - FlxG.camera.height * 0.5, dur, useEase, onDone);
+		TweenCamera2(focusX - FlxG.camera.width * 0.5, focusY - FlxG.camera.height * 0.5, dur, useEase, onDone);
 	}
 
 	public function ShowSkip(show:Bool, call:Void->Void=null){
