@@ -46,6 +46,11 @@
    eJztzDENAAAIA7Dd+BeMh12QtAKaAAAAAAAAAEBvjn8AAADAHwtz7wAV
   </data>
  </layer>
+ <layer name="light" width="125" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzt0ssJwzAURUHV4bRgt5JP/81Y6iALQQJnBu5ej6PXGOOwr7fL40fvf85dG+/g/62/pnmL5j2a92jeo3mP5j2a92jeo3mP5j2a92jeo3mP5j2a92jeo3mP5j2a92jeo3nPav6eOy2zz9wN20YnPg==
+  </data>
+ </layer>
  <layer name="cover" width="125" height="24">
   <data encoding="base64" compression="zlib">
    eJzt2csNgCAQRVGW1qAtaAfSgmj/zYg7FqPRQGYmck8y+5c8SPiEAAAAAOiIeebKWdVTw9piHQDq6Lw/dN4fOsdfpDyjMJtlKJiYrANAndR5Uk8BTVLnX840sVUQqJE638P7N6xDJyYa8tTZ3VrzlNE79ibwTLrL1gz34D6U/3xDaLuG4FN5JuZNtw9l59eZlL95AJZOaQgRgg==
@@ -54,7 +59,7 @@
  <objectgroup name="bonus" width="125" height="24" visible="0">
   <object name="life" x="498" y="118"/>
  </objectgroup>
- <objectgroup name="misc" width="125" height="24">
+ <objectgroup name="misc" width="125" height="24" visible="0">
   <object name="start" x="100" y="220" width="40" height="40"/>
   <object name="end" x="2360" y="280" width="40" height="40"/>
   <object type="cube" x="760" y="260" width="40" height="40"/>
