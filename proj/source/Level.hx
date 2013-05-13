@@ -144,10 +144,10 @@ class Level extends MWState
 	public var endMask:FlxSprite;
 	public var endBg:SliceShape;
 	public var selector_End:FlxSprite;
-	public var btnAgain:FlxButton;
-	public var btnMap:FlxButton;
-	public var btnNext:FlxButton;
-	public var btnHelp:FlxButton;
+	public var btnAgain:MyButton;
+	public var btnMap:MyButton;
+	public var btnNext:MyButton;
+	public var btnHelp:MyButton;
 	public var lbMission:FlxText;
 	public var lbResult:FlxText;
 
@@ -156,9 +156,9 @@ class Level extends MWState
 	public var pauseMask:FlxSprite;
 	public var pauseBg:SliceShape;
 	public var selector_Pause:FlxSprite;
-	public var btnResume_Pause:FlxButton;
-	public var btnAgain_Pause:FlxButton;
-	public var btnQuit_Pause:FlxButton;
+	public var btnResume_Pause:MyButton;
+	public var btnAgain_Pause:MyButton;
+	public var btnQuit_Pause:MyButton;
 	public var lbPaused:FlxText;
 
 	// gui - skip button
@@ -313,7 +313,7 @@ class Level extends MWState
 		btnGOver =  new SliceShape(0,0, GameStatic.button_menuWidth, GameStatic.button_menuHeight, ResUtil.IMG_ui_box_act_blue, SliceShape.MODE_BOX, 3).pixels.clone();
 		selHighLight = new SliceShape(0, 0 ,GameStatic.border_menuWidth, GameStatic.border_menuHeight, ResUtil.IMG_ui_box_border, SliceShape.MODE_BOX, 2).pixels.clone(); 
 
-		btnShowHelp = new FlxButton(FlxG.width - 44, 4, "", function() { FlxG.mute = !FlxG.mute; } );
+		btnShowHelp = new MyButton(FlxG.width - 44, 4, "", function() { FlxG.mute = !FlxG.mute; } );
 		btnShowHelp.scrollFactor.make(0,0);
 		btnShowHelp.onOver = function(){btnMute.loadGraphic("assets/img/showHelp_act.png");};
 		btnShowHelp.onOut = function(){btnMute.loadGraphic("assets/img/showHelp.png");};
@@ -332,7 +332,7 @@ class Level extends MWState
 		selector_End.scrollFactor.make(0,0);
 		selector_End.visible = false;
 
-		btnAgain = new FlxButton(0, 0, "Again", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
+		btnAgain = new MyButton(0, 0, "Again", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
 		btnAgain.loadGraphic(btnGNormal);
 		btnAgain.x = FlxG.width/2 - btnAgain.width/2;
 		btnAgain.y = FlxG.height/2 + 50;
@@ -340,7 +340,7 @@ class Level extends MWState
 		btnAgain.scrollFactor.make(0, 0);
 		btnAgain.visible = false;
 
-		btnMap = new FlxButton(0, 0, "Levels", function() { FlxG.switchState(new GameMap()); } );
+		btnMap = new MyButton(0, 0, "Levels", function() { FlxG.switchState(new GameMap()); } );
 		btnMap.loadGraphic(btnGNormal);
 		btnMap.x = FlxG.width/2 - btnAgain.width/2;
 		btnMap.y = FlxG.height/2;
@@ -348,7 +348,7 @@ class Level extends MWState
 		btnMap.scrollFactor.make(0, 0);
 		btnMap.visible = false;
 
-		btnNext = new FlxButton(0, 0, "Next", function() { FlxG.switchState(GameStatic.GetNextInst()); } );
+		btnNext = new MyButton(0, 0, "Next", function() { FlxG.switchState(GameStatic.GetNextInst()); } );
 		btnNext.loadGraphic(btnGNormal);
 		btnNext.x = FlxG.width/2 - btnAgain.width/2;
 		btnNext.y = FlxG.height/2 - 50;
@@ -356,7 +356,7 @@ class Level extends MWState
 		btnNext.scrollFactor.make(0, 0);
 		btnNext.visible = false;
 
-		btnHelp = new FlxButton(275 + 80, 350, "Help", function(){nme.Lib.getURL(new URLRequest("www.youtube.com"));});
+		btnHelp = new MyButton(275 + 80, 350, "Help", function(){nme.Lib.getURL(new URLRequest("www.youtube.com"));});
 		btnHelp.loadGraphic(btnGNormal);
 		btnHelp.x = FlxG.width/2 - btnAgain.width/2;
 		btnHelp.y = FlxG.height/2 - 50;
@@ -391,21 +391,21 @@ class Level extends MWState
 		selector_Pause = new FlxSprite(selHighLight);
 		selector_Pause.scrollFactor.make(0,0);
 
-		btnResume_Pause = new FlxButton(0, 0, "RESUME", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
+		btnResume_Pause = new MyButton(0, 0, "RESUME", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
 		btnResume_Pause.loadGraphic(btnGNormal);
 		btnResume_Pause.x = FlxG.width/2 - btnResume_Pause.width/2;
 		btnResume_Pause.y = FlxG.height/2 - 50;
 		btnResume_Pause.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
 		btnResume_Pause.scrollFactor.make(0, 0);
 
-		btnAgain_Pause = new FlxButton(0, 0, "AGAIN", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
+		btnAgain_Pause = new MyButton(0, 0, "AGAIN", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
 		btnAgain_Pause.loadGraphic(btnGNormal);
 		btnAgain_Pause.x = FlxG.width/2 - btnAgain_Pause.width/2;
 		btnAgain_Pause.y = FlxG.height/2;
 		btnAgain_Pause.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
 		btnAgain_Pause.scrollFactor.make(0, 0);
 
-		btnQuit_Pause = new FlxButton(275 - 80, 350, "QUIT", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
+		btnQuit_Pause = new MyButton(275 - 80, 350, "QUIT", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
 		btnQuit_Pause.loadGraphic(btnGNormal);
 		btnQuit_Pause.x = FlxG.width/2 - btnQuit_Pause.width/2;
 		btnQuit_Pause.y = FlxG.height/2 + 50;
