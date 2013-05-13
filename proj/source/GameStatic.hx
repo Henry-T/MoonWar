@@ -91,6 +91,8 @@ class GameStatic
 
 	public static var helpLink:String = "http://www.youtube.com";
 
+	public static var justStart:Bool = true;
+
 	public static function Initial(){
 		// Check Input Mode
 		useMouse = true;
