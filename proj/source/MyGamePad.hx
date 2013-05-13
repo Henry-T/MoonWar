@@ -16,8 +16,8 @@ class MyGamePad extends FlxTypedGroup<FlxButton>
 		super();
 		actions = new FlxTypedGroup<FlxButton>();
 		var mag:Int = GameStatic.screenDensity == 1?1:2;
-		actions.add(add(buttonA = createButton(FlxG.width - 44*mag, FlxG.height - 45*mag, 44*mag, 45*mag, (GameStatic.screenDensity==1?"assets/img/gpAM.png":"assets/img/gpAL.png"))));
-		actions.add(add(buttonB = createButton(FlxG.width - 96*mag, FlxG.height - 45*mag, 44*mag, 45*mag, (GameStatic.screenDensity==1?"assets/img/gpBM.png":"assets/img/gpBL.png"))));
+		actions.add(add(buttonA = createButton(FlxG.width - 44*mag, FlxG.height - 45*mag, 44*mag, 45*mag, (GameStatic.screenDensity==1?"assets/img/gpAS.png":"assets/img/gpAM.png"))));
+		actions.add(add(buttonB = createButton(FlxG.width - 96*mag, FlxG.height - 45*mag, 44*mag, 45*mag, (GameStatic.screenDensity==1?"assets/img/gpBS.png":"assets/img/gpBM.png"))));
 	}
 
 	public function createButton(X:Float, Y:Float, Width:Int, Height:Int, Image:String, OnClick:Void->Void = null):FlxButton
