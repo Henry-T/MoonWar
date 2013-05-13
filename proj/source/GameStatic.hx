@@ -88,6 +88,8 @@ class GameStatic
 	public static var useTouch:Bool;
 	public static var useKeyboard:Bool;
 
+	public static var helpLink:String = "http://www.youtube.com";
+
 	public static function Initial(){
 		// Check Input Mode
 		useMouse = true;
