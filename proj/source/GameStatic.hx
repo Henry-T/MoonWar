@@ -43,27 +43,27 @@ class GameStatic
 	public static var screenDensity : Int;
 
 	// Layout 
-	public static var txtSize_normalButton:Int = 8;
-	public static var txtSize_menuButton:Int = 12;
-	public static var txtSize_mainButton:Int = 24;
-	public static var txtSize_dialog:Int = 8;
-	public static var button_itemWidth:Int = 100;
-	public static var button_itemHeight:Int = 18;
-	public static var border_itemWidth:Int = 102;
-	public static var border_itemHeight:Int = 20;
-	public static var button_menuWidth:Int = 100;
-	public static var button_menuHeight:Int = 24;
-	public static var border_menuWidth:Int = 102;
-	public static var border_menuHeight:Int = 26;
-	public static var button_mainWidth:Int = 150;
-	public static var button_mainHeight:Int = 30;
-	public static var border_mainWidth:Int = 152;
-	public static var border_mainHeight:Int = 32;
-	public static var offset_border:Int = -1;
+	public static var txtSize_normalButton:Int;
+	public static var txtSize_menuButton:Int;
+	public static var txtSize_mainButton:Int;
+	public static var txtSize_dialog:Int;
+	public static var button_itemWidth:Int;
+	public static var button_itemHeight:Int;
+	public static var border_itemWidth:Int;
+	public static var border_itemHeight:Int;
+	public static var button_menuWidth:Int;
+	public static var button_menuHeight:Int;
+	public static var border_menuWidth:Int;
+	public static var border_menuHeight:Int;
+	public static var button_mainWidth:Int;
+	public static var button_mainHeight:Int;
+	public static var border_mainWidth:Int;
+	public static var border_mainHeight:Int;
+	public static var offset_border:Int;
 
 	public static var base_txtSize_normalButton:Int = 8;
 	public static var base_txtSize_menuButton:Int = 12;
-	public static var base_txtSize_mainButton:Int = 24;
+	public static var base_txtSize_mainButton:Int = 18;
 	public static var base_txtSize_dialog:Int = 8;
 	public static var base_button_itemWidth:Int = 100;
 	public static var base_button_itemHeight:Int = 18;
@@ -118,7 +118,7 @@ class GameStatic
 			screenDensity = 2;
 		else
 			screenDensity = 3;
-		screenDensity = 2;
+		//screenDensity = 2;
 
 		// Check ratio mode 
 		ratioValue = nme.system.Capabilities.pixelAspectRatio;
@@ -149,6 +149,8 @@ class GameStatic
 		border_itemHeight	= screenDensity * base_border_itemHeight;
 		button_menuWidth	= screenDensity * base_button_menuWidth;
 		button_menuHeight	= screenDensity * base_button_menuHeight;
+		//button_menuWidth 	= screenDensity * base_button_menuWidth;
+		//button_menuHeight 	= Std.int(FlxG.height * 0.08);
 		border_menuWidth	= screenDensity * base_border_menuWidth;
 		border_menuHeight	= screenDensity * base_border_menuHeight;
 		button_mainWidth	= screenDensity * base_button_mainWidth;
