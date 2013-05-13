@@ -190,7 +190,7 @@ class Input extends FlxGroup {
 			Shoot = true;
 		if(keyboardXDown || gamePad.buttonA.status == FlxButton.PRESSED)
 			Action = true;
-		if(keyboardAnykeyDown)
+		if(keyboardAnykeyDown || AnalogPressed || gamePad.buttonA.status==FlxButton.PRESSED || gamePad.buttonB.status==FlxButton.PRESSED)
 			Anykey = true;
 
 		if(keyboardLeftJustDown || (AnalogJustPressed&&(AnalogAngle<-120||AnalogAngle>120)))
@@ -209,11 +209,10 @@ class Input extends FlxGroup {
 			(gamePad.buttonA.status == FlxButton.PRESSED&&
 			(lastBtnAStatus==FlxButton.NORMAL||lastBtnAStatus==FlxButton.HIGHLIGHT)))
 			JustDown_Shoot = true;
-		if(keyboardXJustDown || 
-			(gamePad.buttonA.status == FlxButton.PRESSED&&
-			(lastBtnAStatus==FlxButton.NORMAL||lastBtnAStatus==FlxButton.HIGHLIGHT)))
-			JustDown_Action = true;
-		if(keyboardAnykeyJustDown)
+		JustDown_Action = JustDown_Shoot;
+		if(keyboardAnykeyJustDown||AnalogJustPressed||
+			((gamePad.buttonA.status == FlxButton.PRESSED&&(lastBtnAStatus==FlxButton.NORMAL||lastBtnAStatus==FlxButton.HIGHLIGHT)))||
+			((gamePad.buttonB.status == FlxButton.PRESSED&&(lastBtnBStatus==FlxButton.NORMAL||lastBtnBStatus==FlxButton.HIGHLIGHT))))
 			JustDown_Anykey = true;
 
 		if(keyboardLeftJustUp || (AnalogJustReleased&&(AnalogAngle<-120||AnalogAngle>120)))
@@ -226,17 +225,16 @@ class Input extends FlxGroup {
 			JustUp_Down = true;
 		if(keyboardZJustUp ||
 			(lastBtnBStatus == FlxButton.PRESSED&&
-			(gamePad.buttonA.status==FlxButton.NORMAL||gamePad.buttonA.status==FlxButton.HIGHLIGHT)))
+			(gamePad.buttonB.status==FlxButton.NORMAL||gamePad.buttonB.status==FlxButton.HIGHLIGHT)))
 			JustUp_Jump = true;
 		if(keyboardXJustUp ||
 			(lastBtnAStatus == FlxButton.PRESSED&&
 			(gamePad.buttonA.status==FlxButton.NORMAL||gamePad.buttonA.status==FlxButton.HIGHLIGHT)))
 			JustUp_Shoot = true;
-		if(keyboardXJustUp ||
-			(lastBtnAStatus == FlxButton.PRESSED&&
-			(gamePad.buttonA.status==FlxButton.NORMAL||gamePad.buttonA.status==FlxButton.HIGHLIGHT)))
-			JustUp_Action = true;
-		if(keyboardAnykeyJustUp)
+		JustUp_Action = JustUp_Shoot;
+		if(keyboardAnykeyJustUp||AnalogJustReleased||
+			((lastBtnAStatus == FlxButton.PRESSED&&(gamePad.buttonA.status==FlxButton.NORMAL||gamePad.buttonA.status==FlxButton.HIGHLIGHT)))||
+			((lastBtnBStatus == FlxButton.PRESSED&&(gamePad.buttonB.status==FlxButton.NORMAL||gamePad.buttonB.status==FlxButton.HIGHLIGHT))))
 			JustUp_Anykey = true;
 
 		// update other data for this class
