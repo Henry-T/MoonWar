@@ -26,11 +26,13 @@ class Enemy extends FlxSprite
 	
 	override public function kill():Void
 	{
-		FlxG.play("explo1");
-		var lvl:Level = cast(FlxG.state, Level);
-		lvl.AddExp(getMidpoint().x, getMidpoint().y);
-		for (i in 0...4)
-			lvl.boomPar.Boom(x, y, width, height);
+		if(this.onScreen()){
+			FlxG.play("explo1");
+			var lvl:Level = cast(FlxG.state, Level);
+			lvl.AddExp(getMidpoint().x, getMidpoint().y);
+			for (i in 0...4)
+				lvl.boomPar.Boom(x, y, width, height);
+		}
 		super.kill();
 	}
 }
