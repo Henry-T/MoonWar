@@ -119,11 +119,6 @@ class Level2 extends Level
 		tileBreak 	= GetTile("break", FlxObject.ANY); 
 		//tileBreak.setTileProperties(0, FlxObject.ANY , onBreak, null, tileBreak._tileObjects.length);	// set all breakable to handle collision
 		
-		sBase = new FlxSprite(13 * 20, 20 * 5 + 6, "assets/img/sBase.png");
-		sBase.offset = new FlxPoint(121, 42);
-		sBase.width = 60; sBase.height = 75;
-		sBase.health = BaseMaxLife;
-		
 		boss1 = new Boss1(bossX, bossY + 300/* + bossBury*/, this); 	// final pos 10, 230
 		
 		smokeEmt1 = new FlxEmitter(550, 375);
@@ -193,6 +188,13 @@ class Level2 extends Level
 				exploPos1 = new FlxPoint(td.x, td.y);
 			else if(td.name == "explo2")
 				exploPos2 = new FlxPoint(td.x, td.y);
+			else if(td.name == "sBase"){
+				//sBase = new FlxSprite(13 * 20, 20 * 5 + 6, "assets/img/sBase.png");
+				sBase = new FlxSprite(td.x, td.y + 6, "assets/img/sBase.png");
+				sBase.offset = new FlxPoint(121, 42);
+				sBase.width = 60; sBase.height = 75;
+				sBase.health = BaseMaxLife;
+			}
 		}
 		
 		// Addings
@@ -304,8 +306,8 @@ class Level2 extends Level
 											birthRay.x = 150;
 											birthRay.y = bot.y + bot.height - birthRay.height*birthRay.scale.y;
 											birthRay.play("birth");
-											bot.x = 152;
-											bot.y = 130;
+											bot.x = start.x;
+											bot.y = start.y;
 
 											FlxG.camera.follow(null);
 											TweenCamera(posCam3.x, posCam3.y, 2, true, function(){
