@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="215" height="20" tilewidth="20" tileheight="20">
+<map version="1.0" orientation="orthogonal" width="265" height="20" tilewidth="20" tileheight="20">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
   <image source="../img/defTile.png" width="360" height="280"/>
   <terraintypes>
@@ -24,42 +24,44 @@
  <tileset firstgid="253" name="armyMark" tilewidth="20" tileheight="20">
   <image source="../img/armyMark.png" width="180" height="100"/>
  </tileset>
- <layer name="bgFar" width="215" height="20">
+ <layer name="bgFar" width="265" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2EEKwjAQhtG5hWfwCB4qRaT3x02EEJCCnaEY3oOfbrP5CE2LiNYH5Ln3aQtyaQtqaAtqtGl76AwyjPfWq3+3S08Eaxjb2sKbIWQZ2/r09bz0RLCG+X/LvQUAsI7bwYDfaAtqaAtqfGtIW3COtgD4R49pQA5tQQ1tQY2jtt413BU1
+   eJzt2d0JgzAUgNG7RWfoCB1Kqf0Zzf1awUIaYiyUKiXnwEUf8/RxjRH/b3xOlwzQnnFljvNoBLQp7UGfvN9DIwB7BFBW6kCpEV02t9ALaEGpEUPU94jL/Ox3OC+wrbU9YurBNd4b0Yd/HNCK9F7y0/uIVyfOO5wX2NZSE/Lvjfw+wh4BAMCSw8oAbdMIoEYjgJqlFmgEMNEIAOBbp2wAUhoB1GgEUKMRv/UAUQlFIA==
   </data>
  </layer>
- <layer name="bg" width="215" height="20">
+ <layer name="bg" width="265" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt00sKwkAQRdEeqDsQB2qm7kHBBfjZgT9w7P6n1qAlQdIQIUlRz3vgEmgIFAWVEgAAAAAAAAAAABDHqxAAAADimVjTH5p9/f/I3+cIswKqlt4DAMEsGn2srK21s9b5rXRbx+FGA0Jru62DdbLOqb6d0m1dhxsNCK3tti7Wzbqn+nb2I88F/KMNdU6F9x4VmltVY6dVfvOeK2oqvPeoELfVbyq896gQt9VvKrz3qFCX23oDBY1rZw==
+   eJzt2d1NwzAYheFcABsgLoDesgNIDMDPBi0UGAAqaAcJszADMzBDl+iJakshStI4BOdL+j7SkVrXVQPxdwRqktT7VL6UhZK6x36tLmnhuX/PsrAn3fH5AGwrm/9FxXqW15rXqhLqu/VPA6BrofPu8xGwNxQdAdjTtiu67AaPjgDsaDLrbw33te2KYieslZ+aAIjnP/5++GtHALAjP8vvCR0B4Lcuu6DqO49d6AjALv7XAAAAbcyVJ2WlPCsvI9qL4TlQDgNy1M9l7p15sp25JvM2tL0Yr9O+L2DPrEa8F8Nykot3plwqV8q5W6Mj4rIwy3QEMmUdcaPcKffKrVujI+KyMMt0BDJlHTFVHpRHZebWriNfFwBg2C56DrZi/96PlUnu8ydure/zwDmyh3trAx3BObKKe2sDHcE5sop7awMdMb5ztAH8CgRp
   </data>
  </layer>
- <layer name="tile" width="215" height="20">
+ <layer name="tile" width="265" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2MsJgDAQQMEUYVqwCKvx04P1G8GAF39ERWQG3kFQ2MtCYggAAAAAAAAA/EEsqNkICKFayvty5XnWprrUmOpTw3ujw6fF41dOfTeWDgI/U3ImXLNbUM5uwTPsFjwj/8uoJe12x30LAACA+0zIVSh9
+   eJzt2dENgjAUheEOoStoXMHB1biARl1AV9AH4wT2oT5RMNALN5z+X3JCQB/qyaUJGEI/l3TcxewzObR8H4CuzYgBoOWajo+YY8yt5fO2cwCa7iMEAP45ey8AQJFTaL4/sLzGHgHM2zM0nw8sr7FHAPP2Dvn/OC3yiXlN91MAAKKWBUGZrXigYZHyu+/7nAPQN/ReZ48A6sCzBgBr7BEAurBHAOjCO0sbK2KSWk3Z8dD3Ed6zMfe5WhOT1Mq791z33utRmyvvDlRSK+/ec917r0dtrrw7UEmtvHvPde+9HrW58u5AJbXy7j3Xvfd61ObqCxpP28E=
   </data>
  </layer>
- <objectgroup name="enemy" width="215" height="20"/>
- <objectgroup name="misc" width="215" height="20">
-  <object name="botPos1" x="0" y="140" width="60" height="40"/>
-  <object name="botPos2" x="172" y="260" width="52" height="44"/>
-  <object name="botPos3" x="297" y="260" width="60" height="40"/>
-  <object name="tPos2" x="3780" y="260" width="180" height="40"/>
-  <object name="tPos" x="230" y="267" width="175" height="36"/>
-  <object name="end" x="4160" y="360" width="40" height="40"/>
-  <object name="battle" x="1920" y="0" width="100" height="300"/>
-  <object name="comOut" type="com" x="4120" y="260" width="20" height="40">
+ <objectgroup name="enemy" width="265" height="20"/>
+ <objectgroup name="misc" width="265" height="20">
+  <object name="botPos1" x="1000" y="140" width="60" height="40"/>
+  <object name="botPos2" x="1172" y="260" width="60" height="40"/>
+  <object name="botPos3" x="1297" y="260" width="60" height="40"/>
+  <object name="tPos2" x="3180" y="240" width="180" height="60"/>
+  <object name="tPos" x="1220" y="240" width="180" height="60"/>
+  <object name="end" x="3560" y="360" width="40" height="40"/>
+  <object name="battle" x="2220" y="0" width="100" height="300"/>
+  <object name="comOut" type="com" x="3520" y="260" width="20" height="40">
    <properties>
     <property name="on" value="0"/>
    </properties>
   </object>
-  <object name="door2" x="4160" y="260" width="40" height="40"/>
-  <object name="cam1" type="cam" x="3760" y="0" width="540" height="400"/>
-  <object name="SPACE to open Console and Enter Lift" type="sign" x="4020" y="200" width="260" height="20">
+  <object name="door2" x="3560" y="260" width="40" height="40"/>
+  <object name="cam2" type="cam" x="3160" y="0" width="540" height="400"/>
+  <object name="SPACE to open Console and Enter Lift" type="sign" x="3420" y="200" width="260" height="20">
    <properties>
     <property name="text" value="SPACE to open Console and Enter Lift"/>
    </properties>
   </object>
-  <object type="border" x="0" y="0" width="4300" height="400"/>
+  <object type="border" x="400" y="-160" width="4220" height="520"/>
+  <object name="cam1" type="cam" x="1040" y="-40" width="540" height="400"/>
+  <object name="ground" x="1060" y="300" width="480" height="20"/>
  </objectgroup>
 </map>

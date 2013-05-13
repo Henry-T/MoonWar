@@ -29,8 +29,9 @@ class Level3 extends Level
 	public var battling:Bool;
 	public var battleEnd:Bool;
 	public var onBoard:Bool;
-
 	public var posCam1:FlxPoint;
+	public var posCam2:FlxPoint;
+	public var ground:FlxPoint;
 
 	private var reached:Bool;
 
@@ -106,13 +107,18 @@ class Level3 extends Level
 				battlePos = new FlxPoint(to.x, to.y);
 			else if (to.name == "cam1")
 				posCam1 = new FlxPoint(to.x + to.width*0.5, to.y+to.height*0.5);
+			else if (to.name == "cam2")
+				posCam2 = new FlxPoint(to.x + to.width*0.5, to.y+to.height*0.5);
+			else if (to.name == "ground")
+				ground = new FlxPoint(to.x, to.y);
 		}
 		
 		// bg for game and preDash
-		bd1 = new FlxBackdrop("assets/img/star2.png", 0.05, 0.05, true, true);
+		bd1 = new FlxBackdrop("assets/img/star2.png", 0.1, 0.1, true, true);
 		bd2 = new FlxBackdrop("assets/img/bgSkyStar.png", 0.3, 0.3, true, true);
-		bd3 = new FlxBackdrop("assets/img/mSurf2.png", 0, 0, true, false);
-		bd3.y = FlxG.height - bd3.height;
+		bd3 = new FlxBackdrop("assets/img/mSurf2.png", 1, 1, true, false);
+		bd3.x = 0;
+		bd3.y = ground.y;
 		//bg1 = new FlxSprite(0,0, "assets/img/mSurf2.png");
 		//bg1.x = 0; bg1.y = 0;
 		//bg2 = new FlxSprite(0,0, "assets/img/mSurf2.png");
@@ -123,7 +129,7 @@ class Level3 extends Level
 		bigGuns = new FlxGroup(); 
 		//add(bigGuns);
 		
-		t = new Trans(220, 240, null);
+		t = new Trans(tPos.x, tPos.y, null);
 		t.active=false;
 
 		
@@ -132,7 +138,7 @@ class Level3 extends Level
 		this.remove(bgMetal);
 		
 		// initial
-		FlxG.camera.scroll.x = t.x + t.width / 2 -FlxG.width / 2;
+		FlxG.camera.focusOn(posCam1);
 		switchState(0);
 		bgMetal.visible = false;
 		spawnFlag = false;
@@ -219,7 +225,9 @@ class Level3 extends Level
 		{
 			var b:Bee = cast(Bees.recycle(Bee) , Bee);
 			b.reset(-1000, -1000);
-			b.resetMode(FlxG.camera.scroll.x + eD.CamX * 20, FlxG.camera.scroll.y + eD.CamY * 20, eD.Type);
+			var offsetX:Float = FlxG.width * 0.5 - 550 * 0.5;	// Designed on 550x400, so I need a offset for other screen resolutions
+			var offsetY:Float = FlxG.height * 0.5 - 400 * 0.5;
+			b.resetMode(FlxG.camera.scroll.x + eD.CamX * 20 + offsetX, FlxG.camera.scroll.y + eD.CamY * 20 + offsetY, eD.Type);
 			b.target = bot;
 		}
 	}
@@ -257,7 +265,7 @@ class Level3 extends Level
 			bot.velocity.x = 0;
 			//bg1.velocity.x = -300;
 			//bg2.velocity.x = -300;
-			bd1.velocity.x = -300/200;
+			bd1.velocity.x = -33;
 			bd2.velocity.x = -100;
 			bd3.velocity.x = -300;
 			bot.On = true;
@@ -323,7 +331,7 @@ class Level3 extends Level
 			reached = true;
 			t.velocity.x = 0;
 			FlxG.camera.follow(null);
-			TweenCamera(posCam1.x, posCam1.y, 1,true, function(){
+			TweenCamera(posCam2.x, posCam2.y, 1,true, function(){
 				lineMgr.Start(lines2, function(){
 					onBoard = false;
 					bot.On = true;
