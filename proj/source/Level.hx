@@ -26,6 +26,7 @@ import org.flixel.tweens.util.Ease;
 import org.flixel.addons.FlxBackdrop;
 import nme.Assets;
 import nme.events.Event;
+import nme.net.URLRequest;
 
 class Level extends MWState
 {
@@ -352,7 +353,7 @@ class Level extends MWState
 		btnNext.scrollFactor.make(0, 0);
 		btnNext.visible = false;
 
-		btnHelp = new FlxButton(275 + 80, 350, "Help", function(){});
+		btnHelp = new FlxButton(275 + 80, 350, "Help", function(){nme.Lib.getURL(new URLRequest("www.youtube.com"));});
 		btnHelp.loadGraphic(btnGNormal);
 		btnHelp.x = FlxG.width/2 - btnAgain.width/2;
 		btnHelp.y = FlxG.height/2 - 50;
@@ -575,6 +576,7 @@ class Level extends MWState
 		camYTweenDone = false;
 		camTweening = false;
 
+		// Initial
 		ResUtil.playGame1();
 		curSelPause = 0;
 		curSelEnd = 0;
@@ -583,6 +585,7 @@ class Level extends MWState
 		ChangeSelEnd(0);
 		#end
 		ShowPause(false);
+		FlxG.paused = false;
 	}
 
 	public function AddAll():Void
@@ -923,7 +926,7 @@ class Level extends MWState
 			if(isWin)
 				FlxG.switchState(GameStatic.GetNextInst());
 			else
-				FlxG.switchState(GameStatic.GetCurLvlInst());	// TODO link to help page
+				nme.Lib.getURL(new URLRequest(GameStatic.helpLink));	// TODO link to help page
 			case 1:
 			FlxG.switchState(new GameMap());
 			case 2:
