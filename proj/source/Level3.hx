@@ -23,19 +23,12 @@ class Level3 extends Level
 	public var tPos:FlxPoint;
 	public var tPos2:FlxPoint;
 	public var battlePos:FlxPoint;
-	public static var botWalkSpd:Float = 80;
+	public var botWalkSpd:Float = 80;
 	public var preWalking:Bool;
 	public var preWalking2:Bool;
 	public var battling:Bool;
 	public var battleEnd:Bool;
 	public var onBoard:Bool;
-
-	// trans
-
-	// ducks
-	public var dms:FlxGroup;
-	public var duckStart:Float;
-	public var duckEnd:Float;
 
 	public var posCam1:FlxPoint;
 
@@ -109,10 +102,6 @@ class Level3 extends Level
 				tPos = new FlxPoint(to.x, to.y);
 			else if(to.name == "tPos2")
 				tPos2 = new FlxPoint(to.x, to.y);
-			else if(to.name == "duckStart")
-				duckStart = to.x;
-			else if(to.name == "duckEnd")
-				duckEnd = to.x;
 			else if (to.name == "battle")
 				battlePos = new FlxPoint(to.x, to.y);
 			else if (to.name == "cam1")
@@ -128,33 +117,6 @@ class Level3 extends Level
 		//bg1.x = 0; bg1.y = 0;
 		//bg2 = new FlxSprite(0,0, "assets/img/mSurf2.png");
 		//bg2.x = FlxG.width; bg2.y = 0;
-		
-		dms = new FlxGroup();
-		//add(dms);
-		var dm:Dumom = new Dumom(this);
-		dm.SpawnPos = new FlxPoint(-30, 100);
-		dm.DuckSpawnCold = 1000;
-		dms.add(dm);
-		dm = new Dumom(this);
-		dm.SpawnPos = new FlxPoint(-30, 300);
-		dm.DuckSpawnCold = 1000;
-		dms.add(dm);
-		dm = new Dumom(this);
-		dm.SpawnPos = new FlxPoint(-30, 500);
-		dm.DuckSpawnCold = 1000;
-		dms.add(dm);
-		dm = new Dumom(this);
-		dm.SpawnPos = new FlxPoint(830, 100);
-		dm.DuckSpawnCold = 1000;
-		dms.add(dm);
-		dm = new Dumom(this);
-		dm.SpawnPos = new FlxPoint(830, 300);
-		dm.DuckSpawnCold = 1000;
-		dms.add(dm);
-		dm = new Dumom(this);
-		dm.SpawnPos = new FlxPoint(830, 500);
-		dm.DuckSpawnCold = 1000;
-		dms.add(dm);
 		
 		spawnUps = new FlxGroup(); 
 		// add(spawnUps);
