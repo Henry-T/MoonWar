@@ -119,7 +119,7 @@ class Level8 extends Level
 	override public function update():Void 
 	{
 		super.update();
-		if(FlxG.paused)	return;
+		if(FlxG.paused || endPause)	return;
 
 		FlxG.overlap(missles, bullets, function(m:FlxObject, b:FlxObject){m.hurt(1); b.kill();});
 

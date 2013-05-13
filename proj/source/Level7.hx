@@ -120,7 +120,7 @@ class Level7 extends Level
 	override public function update():Void 
 	{
 		super.update();
-		if(FlxG.paused)	return;
+		if(FlxG.paused || endPause)	return;
 
 		if (!lock1 || !lock2 || !lock3 || !lock4)
 			lastCom.SetOn(false);

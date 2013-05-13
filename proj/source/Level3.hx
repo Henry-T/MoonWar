@@ -266,7 +266,7 @@ class Level3 extends Level
 	override public function update():Void
 	{
 		super.update();
-		if(FlxG.paused)	return;
+		if(FlxG.paused || endPause)	return;
 
 		FlxG.collide(bot, t);
 

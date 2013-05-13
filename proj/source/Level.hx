@@ -69,6 +69,7 @@ class Level extends MWState
 	// Data
 	public var isEnd:Bool;
 	public var isWin:Bool;
+	public var endPause : Bool;
 	public var birthPos:FlxPoint;
 	public var start:FlxSprite;		// Normal Way to Start Level
 	public var end:FlxSprite;		// Normal Way to End Level
@@ -139,6 +140,7 @@ class Level extends MWState
 	public var selHighLight:BitmapData;
 
 	// gui - end panel
+	public var endGroup : FlxGroup;
 	public var endMask:FlxSprite;
 	public var endBg:SliceShape;
 	public var selector_End:FlxSprite;
@@ -317,6 +319,7 @@ class Level extends MWState
 		btnShowHelp.onOut = function(){btnMute.loadGraphic("assets/img/showHelp.png");};
 
 		// gui - end panel
+		endGroup = new FlxGroup();
 		endMask = new FlxSprite(0,0);
 		endMask.makeGraphic(FlxG.width, FlxG.height, 0xff000000); endMask.scrollFactor.make(0,0);
 		endMask.alpha = 0.0;
@@ -586,6 +589,7 @@ class Level extends MWState
 		#end
 		ShowPause(false);
 		FlxG.paused = false;
+		endPause = false;
 	}
 
 	public function AddAll():Void
@@ -683,17 +687,17 @@ class Level extends MWState
 		add(baseHPBar);
 		add(baseHPBg);
 
-		add(endMask);
-		add(endBg);
+		endGroup.add(add(endMask));
+		endGroup.add(add(endBg));
 		#if !FLX_NO_KEYBOARD
-		add(selector_End);
+		endGroup.add(add(selector_End));
 		#end
-		add(btnNext);
-		add(btnHelp);
-		add(btnAgain);
-		add(btnMap);
-		add(lbMission);
-		add(lbResult);
+		endGroup.add(add(btnNext));
+		endGroup.add(add(btnHelp));
+		endGroup.add(add(btnAgain));
+		endGroup.add(add(btnMap));
+		endGroup.add(add(lbMission));
+		endGroup.add(add(lbResult));
 
 		pauseGroup.add(add(pauseMask));
 		pauseGroup.add(add(pauseBg));
@@ -728,6 +732,25 @@ class Level extends MWState
 					ActionPause(curSelPause);
 				else if(FlxG.keys.justPressed("Z"))
 					Pause(false);	// Do nothing by now
+			}
+			#end
+			return;
+		}
+
+		if(endPause){
+			endGroup.update();
+
+			#if !FLX_NO_KEYBOARD
+			if(FlxG.keys.justPressed("P") && !isEnd){
+				Pause(true);
+			}
+			if(endBg.visible){
+				if(FlxG.keys.justPressed("UP"))
+					ChangeSelEnd(curSelEnd-1);
+				else if(FlxG.keys.justPressed("DOWN"))
+					ChangeSelEnd(curSelEnd+1);
+				else if(FlxG.keys.justPressed("X"))
+					ActionEnd(curSelEnd);
 			}
 			#end
 			return;
@@ -885,20 +908,6 @@ class Level extends MWState
 		
 		// update boss health bar
 		
-		#if !FLX_NO_KEYBOARD
-		if(FlxG.keys.justPressed("P") && !isEnd){
-			Pause(true);
-		}
-		if(endBg.visible){
-			if(FlxG.keys.justPressed("UP"))
-				ChangeSelEnd(curSelEnd-1);
-			else if(FlxG.keys.justPressed("DOWN"))
-				ChangeSelEnd(curSelEnd+1);
-			else if(FlxG.keys.justPressed("X"))
-				ActionEnd(curSelEnd);
-		}
-		#end
-		
 		super.update();
 	}
 
@@ -1034,6 +1043,7 @@ class Level extends MWState
 			endMask.alpha += 0.03;
 		});
 		TimerPool.Get().start(2, 1, function(t:FlxTimer){
+			endPause = true;
 			endBg.visible = true;
 			selector_End.visible = true;
 			btnAgain.visible = true;
