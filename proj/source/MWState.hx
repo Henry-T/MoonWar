@@ -16,6 +16,12 @@ class MWState extends FlxState
 	}
 
 	public override function create(){
+		// something force game to mute at the beginning, so I have to force it back
+		if(GameStatic.justStart){
+			FlxG.mute = false;
+			GameStatic.justStart = false;
+		}
+
 		btnMute = new FlxButton(FlxG.width - 20, 4, "", function() { FlxG.mute = !FlxG.mute; } );
 		btnMute.scrollFactor.make(0,0);
 		btnMute.onOver = function(){btnMute.loadGraphic("assets/img/mute_act.png");};
@@ -30,7 +36,6 @@ class MWState extends FlxState
 			btnMute.loadGraphic("assets/img/mute_dis.png");
 		else
 			btnMute.loadGraphic("assets/img/mute.png");
-
 	}
 
 	public override function update(){
