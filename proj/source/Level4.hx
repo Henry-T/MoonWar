@@ -116,6 +116,9 @@ class Level4 extends Level
 
 	override public function update():Void
 	{
+		super.update();
+		if(FlxG.paused)	return;
+
 		if(!coverOpen)
 			FlxG.collide(bot, tileCoverD);
 
@@ -155,6 +158,5 @@ class Level4 extends Level
 		{
 			EndLevel(true);
 		}
-		super.update();
 	}
 }

@@ -93,6 +93,9 @@ class Level1 extends Level
 
 	override public function update():Void
 	{
+		super.update();
+		if(FlxG.paused)	return;
+
 		FlxG.overlap(bot, end, function(b:FlxObject, e:FlxObject) { 
 			if(!isEnd){
 				EndLevel(true);
@@ -148,8 +151,6 @@ class Level1 extends Level
 				FlxG.camera.follow(bot, 0 ,null, 5);
 			}
 		}
-
-		super.update();
 	}
 
 	public function showTip(bot:Bot, tip:Tip1):Void

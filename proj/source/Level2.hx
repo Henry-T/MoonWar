@@ -365,6 +365,9 @@ class Level2 extends Level
 
 	override public function update():Void
 	{
+		super.update();
+		if(FlxG.paused)	return;
+
 		// remove cubes when out of view range
 		for (c in cubes.members) {
 			var cube:Cube = cast(c, Cube);
@@ -444,8 +447,6 @@ class Level2 extends Level
 		
 		smokeEmt2.x = boss1.x;
 		smokeEmt2.y = 360 - 5;
-		
-		super.update();	
 	}
 
 	private function duckHitTile(tile:FlxObject, duck:FlxObject):Void

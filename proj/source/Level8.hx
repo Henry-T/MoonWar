@@ -118,6 +118,9 @@ class Level8 extends Level
 	private var endTalkHappened:Bool;
 	override public function update():Void 
 	{
+		super.update();
+		if(FlxG.paused)	return;
+
 		FlxG.overlap(missles, bullets, function(m:FlxObject, b:FlxObject){m.hurt(1); b.kill();});
 
 		FlxG.overlap(boss3Buls, bot, function(bul:FlxObject, b:FlxObject){bul.kill(); b.hurt(15);});
@@ -216,6 +219,5 @@ class Level8 extends Level
 				});
 			}
 		}
-		super.update();
 	}
 }
