@@ -4,6 +4,7 @@ import nme.Lib;
 import org.flixel.FlxGame;
 import org.flixel.FlxG;
 import nme.events.Event;
+import org.flixel.system.input.FlxInputs;
 	
 class MWGame extends FlxGame
 {	
@@ -54,10 +55,18 @@ class MWGame extends FlxGame
 	}
 
 	private override function onFocus(FlashEvent:Event = null):Void{
+		stage.frameRate = _flashFramerate;
+		FlxG.resumeSounds();
+		FlxInputs.onFocus();
+		
 		_state.onFocus();
 	}
 
 	private override function onFocusLost(FlashEvent:Event = null):Void{
+		stage.frameRate = 10;
+		FlxG.pauseSounds();
+		FlxInputs.onFocusLost();
+		
 		_state.onFocusLost();
 	}
 }
