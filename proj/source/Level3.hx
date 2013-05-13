@@ -265,9 +265,11 @@ class Level3 extends Level
 
 	override public function update():Void
 	{
-		FlxG.collide(bot, t);
-
 		super.update();
+
+		if(FlxG.paused)	return;
+
+		FlxG.collide(bot, t);
 
 		// spawn repair box on time schedule
 		// if(battling){
