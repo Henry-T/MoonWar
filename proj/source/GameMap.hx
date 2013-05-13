@@ -70,26 +70,30 @@ class GameMap extends GameScreen
 
 		bgStar = new FlxBackdrop("assets/img/star2.png");
 
-		leftPnl = new SliceShape(30, 0, 135, FlxG.height, "assets/img/ui_barv_b.png", SliceShape.MODE_VERTICLE, 1);
+		var lvlBtnX : Int = Std.int(FlxG.width * 0.165  - btnGLvlNormal.width * 0.5);
+		var lvlBtnYOffset : Int = Std.int(btnGLvlNormal.height * 1.1);
+
+		leftPnl = new SliceShape(lvlBtnX-3, 0, btnGLvlNormal.width + 6, FlxG.height, "assets/img/ui_barv_b.png", SliceShape.MODE_VERTICLE, 1);
 		bottomPnl = new SliceShape(0, FlxG.height - 50, FlxG.width, 40, "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
 
-		picPnl = new SliceShape(Math.round(FlxG.width * 0.66 - 355 / 2), Math.round(FlxG.height * 0.43 - 227 / 2), 355, 227, "assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
-
+		var picPnlWidth : Int = Std.int(FlxG.width * 0.6);
+		var picPnlHeight: Int = Std.int(FlxG.height * 0.6);
+		picPnl = new SliceShape(Math.round(FlxG.width * 0.36), Math.round(FlxG.height * 0.1), picPnlWidth, picPnlHeight, "assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
 
 		lvlBtns = new FlxGroup();
-		btnIntro = new FlxButton(50, 10, "INTRO", function() { SwitchLevel(0); FlxG.play("sel1");}); lvlBtns.add(btnIntro);
+		btnIntro = new FlxButton(lvlBtnX, 10, "INTRO", function() { SwitchLevel(0); FlxG.play("sel1");}); lvlBtns.add(btnIntro);
 		// btnIntro.label.setFormat(null, 8, 0xffffaa40);
 		btnIntro.label.shadow = 2;//= new FlxText();
 		
-		btnLvl1 = new FlxButton(50, 10 + 35 * 1, "LEVEL1", function() { SwitchLevel(1); FlxG.play("sel1");} ); lvlBtns.add(btnLvl1);
-		btnLvl2 = new FlxButton(50, 10 + 35 * 2, "LEVEL2", function() { SwitchLevel(2); FlxG.play("sel1");} ); lvlBtns.add(btnLvl2);
-		btnLvl3 = new FlxButton(50, 10 + 35 * 3, "LEVEL3", function() { SwitchLevel(3); FlxG.play("sel1");} ); lvlBtns.add(btnLvl3);
-		btnLvl4 = new FlxButton(50, 10 + 35 * 4, "LEVEL4", function() { SwitchLevel(4); FlxG.play("sel1");} ); lvlBtns.add(btnLvl4);
-		btnLvl5 = new FlxButton(50, 10 + 35 * 5, "LEVEL5", function() { SwitchLevel(5); FlxG.play("sel1");} ); lvlBtns.add(btnLvl5);
-		btnLvl6 = new FlxButton(50, 10 + 35 * 6, "LEVEL6", function() { SwitchLevel(6); FlxG.play("sel1");} ); lvlBtns.add(btnLvl6);
-		btnLvl7 = new FlxButton(50, 10 + 35 * 7, "LEVEL7", function() { SwitchLevel(7); FlxG.play("sel1");} ); lvlBtns.add(btnLvl7);
-		btnLvl8 = new FlxButton(50, 10 + 35 * 8, "LEVEL8", function() { SwitchLevel(8); FlxG.play("sel1");} ); lvlBtns.add(btnLvl8);
-		btnEnd = new FlxButton(50, 10 + 35 * 9, "END", function() { SwitchLevel(9); FlxG.play("sel1");} ); lvlBtns.add(btnEnd);
+		btnLvl1 = new FlxButton(lvlBtnX, 10 + lvlBtnYOffset * 1, "LEVEL1", function() { SwitchLevel(1); FlxG.play("sel1");} ); lvlBtns.add(btnLvl1);
+		btnLvl2 = new FlxButton(lvlBtnX, 10 + lvlBtnYOffset * 2, "LEVEL2", function() { SwitchLevel(2); FlxG.play("sel1");} ); lvlBtns.add(btnLvl2);
+		btnLvl3 = new FlxButton(lvlBtnX, 10 + lvlBtnYOffset * 3, "LEVEL3", function() { SwitchLevel(3); FlxG.play("sel1");} ); lvlBtns.add(btnLvl3);
+		btnLvl4 = new FlxButton(lvlBtnX, 10 + lvlBtnYOffset * 4, "LEVEL4", function() { SwitchLevel(4); FlxG.play("sel1");} ); lvlBtns.add(btnLvl4);
+		btnLvl5 = new FlxButton(lvlBtnX, 10 + lvlBtnYOffset * 5, "LEVEL5", function() { SwitchLevel(5); FlxG.play("sel1");} ); lvlBtns.add(btnLvl5);
+		btnLvl6 = new FlxButton(lvlBtnX, 10 + lvlBtnYOffset * 6, "LEVEL6", function() { SwitchLevel(6); FlxG.play("sel1");} ); lvlBtns.add(btnLvl6);
+		btnLvl7 = new FlxButton(lvlBtnX, 10 + lvlBtnYOffset * 7, "LEVEL7", function() { SwitchLevel(7); FlxG.play("sel1");} ); lvlBtns.add(btnLvl7);
+		btnLvl8 = new FlxButton(lvlBtnX, 10 + lvlBtnYOffset * 8, "LEVEL8", function() { SwitchLevel(8); FlxG.play("sel1");} ); lvlBtns.add(btnLvl8);
+		btnEnd = new FlxButton(lvlBtnX, 10 + lvlBtnYOffset * 9, "END", function() { SwitchLevel(9); FlxG.play("sel1");} ); lvlBtns.add(btnEnd);
 
 		pic = new FlxSprite();
 
