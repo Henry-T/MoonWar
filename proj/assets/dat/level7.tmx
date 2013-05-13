@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="120" height="74" tilewidth="20" tileheight="20" backgroundcolor="#2f2f2f">
+<map version="1.0" orientation="orthogonal" width="130" height="74" tilewidth="20" tileheight="20" backgroundcolor="#2f2f2f">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
   <image source="../img/defTile.png" width="360" height="280"/>
   <terraintypes>
@@ -21,242 +21,242 @@
   <tile id="79" terrain="0,,0,0"/>
   <tile id="80" terrain=",0,0,0"/>
  </tileset>
- <layer name="bgFar" width="120" height="74">
+ <layer name="bgFar" width="130" height="74">
   <data encoding="base64" compression="zlib">
-   eJzt27EJADAMBLFMkv3HzAQGtzmkyv3xpc/ZucNNg75t+rbp26Zvm75t+rbp26Zvm75t+rbp26Zvm75t+rbpC/+yXwAAAAAAAAAAAAAAAAAAYMNvcpu+bfq26dumb5u+bfq26dumb5u+bfq26dumb5u+bfq26dumb5u+bfq26dumb5u+bfq26dum7+wBy8oJ2Q==
+   eJzt3KERACAQBDEqof8ymRVIBFgS9QXsnPwx3s3DzV90QHRAdEB0QHRAdEB0QHRAdEB0QHRAdEB0QHRAdABs9gAAAAAAAAAAAAAAAAAAAADgzG8GogOiA6IDogOiA6IDogOiA6IDogOiA6IDogOiA6IDogOiA6IDogOiA6IDogOiA6KDOwsJ1QnZ
   </data>
  </layer>
- <layer name="bg" width="120" height="74">
+ <layer name="bg" width="130" height="74">
   <data encoding="base64" compression="zlib">
-   eJztnMuO1DAQRbMA/mCGFgM/wGPfggH2vNkP8P9/gSNhqVTYrirb5bTd90hXjJh02ukz5TiO0+dt286KpCj9DlwGGrfwOy+eft+HvFYE+OHp9y7klSLAjxF+v4c8KwT4McLvm16NBWbgd23gd23gd23gd23gd23gd23gd200bp8Kr80Bv8czwu+PDfPPRxEdSfcCOKVt7/9tg/nn45FqsDeYfx7LaL9gLFq/z0PehrwLeeHaItATrd9PIV9CvoZ8dm0R6InW70PI75A/Ib9cWwR6gvPv2sDv2ly6XzoHdnvlscwHxm3h1x7tulA63wO/aS7FL3X6c9PNy8XQ+dkW1/Dr55Y7ldaExnzb8q6tvuHX1y11+lHZ/g9b3jX1rfEMv/37Y+pW6zRHybXm+ODXpz/u4ZYTXUfPex1LNQy/7fXKa9bSF9ewe9Y6ht/68HvVlprdX38iuTUeI3VcOs4V/XK8+2NLzdJ9cL8xWuhal1wNw2977Wo+u9Q+cn61njU1vKLfO/LziNqV6jbnT8pJeazX6Nfz/Gup3VJ9avxKjqU+Gn7r/Uq1Sx21+C311VIfDb/1fXPpM0s5avFbclw6Xvj16ZuP8Jvqo1f3a70vJ0Uzrio5Om3/j5tT/5f720jB5ztS7V3Vr3a9vDWa2k25o3nJ/s1F8kuPuaa9fB+X7Jaj/b4WazS1K/mNfem9sB3fZwp6H8LSXsrMfve/30chj4U8aXw/7TnV4lPjtwcz+rWcf3rQMo7SjsO8mNGv5fzTA9TvWHJ+pWdnpHH3feI1Oxp/1vEVT4oe1wmxr1vBr/TsTMt4VOtJO76S3Graa8mMfvl1IX92pnSdm1r7FucSUlj659L1b2p/KXLrvWozo9+axDmMlvmrlvB95eDz4a3vO5Nf7feT5q4Z+bHz+fwcUv1qfsf3laP3fOxMfmObb0hSnxXf5mbLHz+f75Xeu4ffHPx+x7X6PZPk/J4T26WirWH6/i1+S/Tum2fxGz93D7+WGqZt8PTb814Z/KbXqJbw8OvRN8NvveMdjV8tfCwPv3391jqm7aKxkFrjN4vfHvPFo/y2OK6FPwvTe50K/MqOS3PUtfDn1zxqF351jiXP2v659Iy4h1v4lR3zZzmt9Sw5Lc2vwa+v31wtp+5xSPfpRjqF3z61bLm3MdIp/LZ7tq7fG+kUfq8n3n57PP8Ov21+96S+S9/72l4L/PbzWzNG9EoEftv9St/TdGTgt90vpWaM6Jl4/obfPn6Pwtpm+IVf+J3vM4Bf+IVf+L2G/AVY4d5t
+   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
   </data>
  </layer>
- <layer name="light" width="120" height="74">
+ <layer name="light" width="130" height="74">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
- <layer name="tile" width="120" height="74">
+ <layer name="tile" width="130" height="74">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
- <layer name="js" width="120" height="74">
+ <layer name="js" width="130" height="74">
   <data encoding="base64" compression="zlib">
-   eJzt3EEKgzAQBVB3nqD3v2o37SZYG3GimfE9yEZCFOZnCIguCwAAAABPtH7GDGZ6FoBIazOi5vbM71lP/wXudrT3HV0TAADu5nwKAAAAAADAl3dHZNbm90yWt9axL4i2la1feZNDKonqzzCK/gxkdXVPqn4/AABitd/sO99xlVFZy5Rhe45e2XLin1Vk4fzDP9WyoT+Thf7MWdmyoz8zm2x7iHnIDoxljzGKbNF6dV4jJ/WtTX1rU9/a1Lc29a1NfWtT39rUd98bWlEFMw==
+   eJzt3EsKwyAUQNHMsoLuf6vl0Y4kBU2tVd85kEkIksH1A4EcBwAAAAAw0vm+ZjDTuwDs4CyuXs/WPF8znnUfyKp1zW0dEwAAGMt5HAAAAAAAALjDt0YyKDv/pvmrccwfZnfV6qd+dU1GvfYFWIV9AeBl9Bo365o663sBAJBL+Q8U51Rm86smd2zdHKa31Xryz0Oyco6jl90asi+QlX2BUVZrzL7A7labk6xHY7AWc5Z/0yB3PSrvsTcdEHRA0AFBBwQdEHRA0AFBB+2e5K0FMw==
   </data>
  </layer>
- <layer name="eo" width="120" height="74">
+ <layer name="eo" width="130" height="74">
   <data encoding="base64" compression="zlib">
-   eJztyzENAAAIA7Dd+BeMi5GQ9m8CAAAAAAAAAAAAAABwZ0oHAAAAAAAAAAAAAAAAAAAAAAAAAAAA4JMFjvEAFQ==
+   eJzty6ENAAAIA7Bp/j+YF6YIovVNAAAAAAAAAAAAAAAAAH6aowMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANBaLwAAFQ==
   </data>
  </layer>
- <layer name="nail" width="120" height="74">
+ <layer name="nail" width="130" height="74">
   <data encoding="base64" compression="zlib">
-   eJzt28EJACAIAEDXaP9F+/QSiXoERXcghJpOYAQAAAAA8Ko2AgAA4EYtRa5V7+pfNWMlv9M7y+/uAAAAAAAAAAAAAAAAAAAA/jG7qwYAAAAAAAAAAAAAOK0DJ2YEfw==
+   eJzt3MEJACAIAEDXaP9FI+oVEvnoEdyBEGq6gREAAAAAALzSVgAAAPCPtsVey97Zv2zGTb7Se8pXdwAAAAAAAAAAAAAAAAAAAAAwne5PAAAAAAAAAAAAAAAADB0QmAR/
   </data>
  </layer>
- <layer name="cover" width="120" height="74">
+ <layer name="cover" width="130" height="74">
   <data encoding="base64" compression="zlib">
-   eJzt17sJhEAUhlGLMNIadivQ/tvSYIXNfICP+3sOXAzGYOBjYKZpAAAAAAAAAAAAAAAAAAAAsozztPMMd2+EU/S/7+fWXXAWfbPpm03f2vqN62t99X8mfbPpm03fbPpm0zdTt2OO/E8Ny7lcO+fUpG82fbPpm+3tfdPfBW/vm07fbFX6fv+G7fTNVqUvx+gLwNXcybLpCwAAAAAAADVMqhcMtw==
+   eJzt17ENgzAURVGGSBVmSCYI+68FT0okqDA0Vr7Pkb4ooHBxjexpAgAAAAAAAAAAAAAAAAAAAKCqZZvHNp/eC6Gr+ft8dV0FvemA0AGhgzHMje/POtDJf9MBoQNCB4QOCB2M7Xlh7nxPLb99fvbfoDYdEDogdEDooE31+5IOCB0Q1Tp474Z2OiCqdcA9OgCAI2dLQgcAAAAAAAAAY1gBTu0Mtw==
   </data>
  </layer>
- <objectgroup name="misc" width="120" height="74">
-  <object name="start" x="220" y="260" width="40" height="40"/>
-  <object name="door" x="220" y="380" width="40" height="40"/>
-  <object name="lift" type="lift" x="80" y="540" width="60" height="160">
+ <objectgroup name="misc" width="130" height="74">
+  <object name="start" x="320" y="260" width="40" height="40"/>
+  <object name="door" x="320" y="380" width="40" height="40"/>
+  <object name="lift" type="lift" x="180" y="540" width="60" height="160">
    <properties>
     <property name="speed" value="50"/>
     <property name="w" value="3"/>
    </properties>
   </object>
-  <object name="zBallPath" x="1360" y="560" width="620" height="620">
+  <object name="zBallPath" x="1460" y="560" width="620" height="620">
    <ellipse/>
   </object>
-  <object name="zBallSize" x="1460" y="540" width="120" height="120">
+  <object name="zBallSize" x="1560" y="540" width="120" height="120">
    <ellipse/>
   </object>
-  <object name="lift" type="lift" x="640" y="700" width="40" height="160">
+  <object name="lift" type="lift" x="740" y="700" width="40" height="160">
    <properties>
     <property name="speed" value="50"/>
     <property name="start" value="1"/>
     <property name="w" value="4"/>
    </properties>
   </object>
-  <object name="lift" type="lift" x="560" y="580" width="40" height="160">
+  <object name="lift" type="lift" x="660" y="580" width="40" height="160">
    <properties>
     <property name="speed" value="50"/>
     <property name="start" value="0"/>
     <property name="w" value="4"/>
    </properties>
   </object>
-  <object name="lift" type="lift" x="640" y="460" width="40" height="160">
+  <object name="lift" type="lift" x="740" y="460" width="40" height="160">
    <properties>
     <property name="speed" value="50"/>
     <property name="start" value="1"/>
     <property name="w" value="4"/>
    </properties>
   </object>
-  <object name="lift" type="lift" x="720" y="820" width="40" height="160">
+  <object name="lift" type="lift" x="820" y="820" width="40" height="160">
    <properties>
     <property name="speed" value="50"/>
     <property name="start" value="0"/>
     <property name="w" value="4"/>
    </properties>
   </object>
-  <object name="lift" type="lift" x="720" y="340" width="40" height="160">
+  <object name="lift" type="lift" x="820" y="340" width="40" height="160">
    <properties>
     <property name="speed" value="50"/>
     <property name="start" value="0"/>
     <property name="w" value="4"/>
    </properties>
   </object>
-  <object name="lift" type="lift" x="2240" y="280" width="80" height="640">
+  <object name="lift" type="lift" x="2340" y="280" width="80" height="640">
    <properties>
     <property name="speed" value="120"/>
     <property name="w" value="4"/>
    </properties>
   </object>
-  <object name="door2" x="1000" y="920" width="40" height="40"/>
-  <object name="comOut" type="com" x="1140" y="920" width="20" height="40">
+  <object name="door2" x="1100" y="920" width="40" height="40"/>
+  <object name="comOut" type="com" x="1240" y="920" width="20" height="40">
    <properties>
     <property name="on" value="0"/>
    </properties>
   </object>
-  <object name="comLock1" type="com" x="1620" y="800" width="20" height="40">
+  <object name="comLock1" type="com" x="1720" y="800" width="20" height="40">
    <properties>
     <property name="on" value="0"/>
    </properties>
   </object>
-  <object name="comLock2" type="com" x="1700" y="800" width="20" height="40">
+  <object name="comLock2" type="com" x="1800" y="800" width="20" height="40">
    <properties>
     <property name="on" value="0"/>
    </properties>
   </object>
-  <object name="comLock4" type="com" x="1700" y="900" width="20" height="40">
+  <object name="comLock4" type="com" x="1800" y="900" width="20" height="40">
    <properties>
     <property name="on" value="0"/>
    </properties>
   </object>
-  <object name="comLock3" type="com" x="1620" y="900" width="20" height="40">
+  <object name="comLock3" type="com" x="1720" y="900" width="20" height="40">
    <properties>
     <property name="on" value="0"/>
    </properties>
   </object>
-  <object name="door1" x="220" y="380" width="40" height="40"/>
-  <object name="comIn" type="com" x="180" y="380" width="20" height="40">
+  <object name="door1" x="320" y="380" width="40" height="40"/>
+  <object name="comIn" type="com" x="280" y="380" width="20" height="40">
    <properties>
     <property name="on" value="1"/>
    </properties>
   </object>
-  <object name="end" x="1000" y="1100" width="40" height="40"/>
-  <object name="warn" x="2080" y="820" width="40" height="100"/>
-  <object name="border" type="border" x="20" y="20" width="2380" height="1440"/>
-  <object name="hp" type="hp" x="640" y="1320" width="20" height="20"/>
-  <object name="hp" type="hp" x="660" y="200" width="20" height="20"/>
-  <object name="hp" type="hp" x="2340" y="160" width="20" height="20"/>
-  <object name="lift" type="lift" x="920" y="240" width="120" height="20">
+  <object name="end" x="1100" y="1100" width="40" height="40"/>
+  <object name="warn" x="2180" y="820" width="40" height="100"/>
+  <object name="border" type="border" x="120" y="20" width="2380" height="1440"/>
+  <object name="hp" type="hp" x="740" y="1320" width="20" height="20"/>
+  <object name="hp" type="hp" x="760" y="200" width="20" height="20"/>
+  <object name="hp" type="hp" x="2440" y="160" width="20" height="20"/>
+  <object name="lift" type="lift" x="1020" y="240" width="120" height="20">
    <properties>
     <property name="speed" value="50"/>
     <property name="start" value="1"/>
     <property name="w" value="2"/>
    </properties>
   </object>
-  <object name="lift" type="lift" x="1120" y="240" width="120" height="20">
+  <object name="lift" type="lift" x="1220" y="240" width="120" height="20">
    <properties>
     <property name="speed" value="50"/>
     <property name="start" value="0"/>
     <property name="w" value="2"/>
    </properties>
   </object>
-  <object name="4 lock left to open the door" type="sign" x="920" y="840" width="200" height="20">
+  <object name="4 lock left to open the door" type="sign" x="1020" y="840" width="200" height="20">
    <properties>
     <property name="text" value="4 lock left to open the door"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy" width="120" height="74">
-  <object type="ac" x="380" y="600" width="20" height="40">
+ <objectgroup name="enemy" width="130" height="74">
+  <object type="ac" x="480" y="600" width="20" height="40">
    <properties>
     <property name="hang" value="right"/>
    </properties>
   </object>
-  <object type="gpMid" x="1920" y="140" width="60" height="60"/>
-  <object name="laser" type="laser" x="40" y="720" width="400" height="40">
+  <object type="gpMid" x="2020" y="140" width="60" height="60"/>
+  <object name="laser" type="laser" x="140" y="720" width="400" height="40">
    <properties>
     <property name="offTime" value="2.5"/>
     <property name="onTime" value="2.5"/>
     <property name="start" value="0"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="40" y="840" width="400" height="40">
+  <object name="laser" type="laser" x="140" y="840" width="400" height="40">
    <properties>
     <property name="offTime" value="2.5"/>
     <property name="onTime" value="2.5"/>
     <property name="start" value="2.5"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="460" y="1120" width="380" height="40">
+  <object name="laser" type="laser" x="560" y="1120" width="380" height="40">
    <properties>
     <property name="offTime" value="2"/>
     <property name="onTime" value="2"/>
     <property name="start" value="0"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="460" y="1240" width="380" height="40">
+  <object name="laser" type="laser" x="560" y="1240" width="380" height="40">
    <properties>
     <property name="offTime" value="2"/>
     <property name="onTime" value="2"/>
     <property name="start" value="0"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="460" y="1000" width="380" height="40">
+  <object name="laser" type="laser" x="560" y="1000" width="380" height="40">
    <properties>
     <property name="offTime" value="2"/>
     <property name="onTime" value="2"/>
     <property name="start" value="0"/>
    </properties>
   </object>
-  <object type="ac" x="500" y="820" width="20" height="40">
+  <object type="ac" x="600" y="820" width="20" height="40">
    <properties>
     <property name="hang" value="left"/>
    </properties>
   </object>
-  <object type="ac" x="500" y="340" width="20" height="40">
+  <object type="ac" x="600" y="340" width="20" height="40">
    <properties>
     <property name="hang" value="left"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="1660" y="40" width="40" height="340">
+  <object name="laser" type="laser" x="1760" y="40" width="40" height="340">
    <properties>
     <property name="offTime" value="2"/>
     <property name="onTime" value="2"/>
     <property name="start" value="0"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="2040" y="40" width="40" height="340">
+  <object name="laser" type="laser" x="2140" y="40" width="40" height="340">
    <properties>
     <property name="offTime" value="1.5"/>
     <property name="onTime" value="1.5"/>
     <property name="start" value="0"/>
    </properties>
   </object>
-  <object type="bg" x="2260" y="140" width="60" height="40"/>
-  <object type="guard" x="220" y="500" width="40" height="40"/>
-  <object type="bg" x="820" y="640" width="60" height="40"/>
-  <object name="bWalk" type="bWalk" x="100" y="1040" width="40" height="40">
+  <object type="bg" x="2360" y="140" width="60" height="40"/>
+  <object type="guard" x="320" y="500" width="40" height="40"/>
+  <object type="bg" x="920" y="640" width="60" height="40"/>
+  <object name="bWalk" type="bWalk" x="200" y="1040" width="40" height="40">
    <properties>
     <property name="dir" value="right"/>
     <property name="sense" value="300"/>
    </properties>
   </object>
-  <object name="bWalk" type="bWalk" x="340" y="1160" width="40" height="40">
+  <object name="bWalk" type="bWalk" x="440" y="1160" width="40" height="40">
    <properties>
     <property name="dir" value="left"/>
     <property name="sense" value="300"/>
    </properties>
   </object>
-  <object name="laser" type="laser" x="1060" y="40" width="40" height="340">
+  <object name="laser" type="laser" x="1160" y="40" width="40" height="340">
    <properties>
     <property name="offTime" value="2"/>
     <property name="onTime" value="2"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="60" height="22" tilewidth="20" tileheight="20" backgroundcolor="#303030">
+<map version="1.0" orientation="orthogonal" width="70" height="27" tilewidth="20" tileheight="20" backgroundcolor="#303030">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
   <image source="../img/defTile.png" width="360" height="280"/>
   <terraintypes>
@@ -21,45 +21,45 @@
   <tile id="79" terrain="0,,0,0"/>
   <tile id="80" terrain=",0,0,0"/>
  </tileset>
- <layer name="bgFar" width="60" height="22">
+ <layer name="bgFar" width="70" height="27">
   <data encoding="base64" compression="zlib">
-   eJztz7ENACAMA8FMwh7svxgNJQhq506y5Par3sblp9KbTW82vdn0ZuvYO/e69J5+Kr0AAP8WK+gDuw==
+   eJzt0rEJwDAQBEFV4j7Uf2PCYFCySpxqBg4+Xn6Mf57DfTtdmi5Nl6ZL06Xp0nRpujRdmi7tbTG/6bL5l6ZL0wUAAOAOC99RA/c=
   </data>
  </layer>
- <layer name="bg" width="60" height="22">
+ <layer name="bg" width="70" height="27">
   <data encoding="base64" compression="zlib">
-   eJztl8sKwjAQRe9P1IWPL9Dsi1a79929j///Cy9UccA01hrSTMnA2Q3THEiHmxxA7iDDZ2WO/pFgTRYRUIgzuVz/9Z2QeQSYwL4nMu6BY0++xjIjRMnvJ9/km3zrSr7JV4tvl0xUQK9vl0xkoN+3TSaS+UW7b5szyt4h+U7JkqzIrGHekHy3ZE8OZPdlnmbf166+kBu5kyvee7l69p5h39sVdPn6er9q8d3Azzu0DCFnqV98m+6oJuT/5DNvxI7L19cdjolS+D0AxjGBag==
+   eJztmDkOwjAQRecSoWA5AbhHEEjPnp7l/rfgF0GZYkJMYshgz5Ne58jxkyxbJjJ8WbaYCd9kb8aPmBu4UGDO/klDlwmcK9Ap7XKG4wE8Ke/iPvifkPD5rUuNdZGxLjLWRca6yFgXmZBdutxRc4q/S5c7qqN0uvjcUfl9MpUuPmvhY1PsMoUruIazhnlT7LKDB3iE+5Z5U+jyOpuu8A4f8Eb1OVRWYy8kn1Mlxdkl1PtJbF22FOYdpOizuB58o0vT3vgn+T4e4l6n3RBdQu0dTRZsfYZhGL/kCX5xgWo=
   </data>
  </layer>
- <layer name="tile" width="60" height="22">
+ <layer name="tile" width="70" height="27">
   <data encoding="base64" compression="zlib">
-   eJzt1ssJACEMRdE0YQ3236EFiFHjJwbvhbcbhLNxzCKSlbVqfZ8en2bFa/N6hhcv3jq8ePHer+dd/Y/j9W3UO3seXrwenfJq8wyv7rXe11G90cO7570RZb95C43BQCE=
+   eJzt1sEJwCAQBdFtwhrsv8MUkAmyiWLUGfi3wMK7mBoRNbkS90rj+78va0B7ShddRrnMTBdOF04XThdOF04XTheul8vXfyVdznTJ3tWF7+rCd3Vp39XlXJe379PuLqunC9fbZefpMt9lJVdddBntcuIusJ6GLw==
   </data>
  </layer>
- <layer name="js" width="60" height="22">
+ <layer name="js" width="70" height="27">
   <data encoding="base64" compression="zlib">
-   eJzt1LEKACAIRVG3/v+PWwriUVNpSfdAgw3q8NAMANCV9rTW/53eqxkZzHbNtP+PTmb45gxg5JU3cowo0Vkj21DeNzRTbwBvqEV3AUM=
+   eJzt1TEKwCAMBVA373/jLk6iU6um8T1w0CEhkI+lAMC9ajv9vX9/U3vWI5PRTBnnZO7L7JzsARGs2nP5IbvdOy5TRLH6z/hTbQCAaB4JbwFD
   </data>
  </layer>
- <objectgroup name="misc" width="60" height="22">
-  <object name="mislPos" x="760" y="300" width="80" height="100"/>
-  <object name="bossLaunchMark" x="920" y="220" width="80" height="100"/>
-  <object name="energy" x="760" y="280" width="100" height="120"/>
-  <object name="energy" x="760" y="280" width="100" height="120"/>
-  <object name="fightArea" x="500" y="40" width="620" height="360"/>
-  <object name="boss" x="920" y="300" width="80" height="100"/>
-  <object name="trigger" x="500" y="360" width="160" height="40"/>
-  <object name="start" x="200" y="80" width="40" height="40"/>
-  <object name="door" x="200" y="300" width="40" height="40"/>
-  <object name="door1" x="200" y="300" width="40" height="40"/>
-  <object name="gate" x="480" y="360" width="20" height="40"/>
-  <object name="cam1" type="cam" x="540" y="40" width="540" height="400"/>
-  <object name="posBcrL" x="620" y="200" width="80" height="100"/>
-  <object name="posSnap" x="760" y="150" width="80" height="100"/>
-  <object name="posBcrR" x="900" y="200" width="80" height="100"/>
-  <object name="posMslL" x="620" y="300" width="80" height="100"/>
-  <object name="posMslR" x="900" y="300" width="80" height="100"/>
-  <object name="hp" type="hp" x="500" y="80" width="20" height="20"/>
-  <object name="hp" type="hp" x="1100" y="80" width="20" height="20"/>
+ <objectgroup name="misc" width="70" height="27">
+  <object name="mislPos" x="860" y="320" width="80" height="100"/>
+  <object name="bossLaunchMark" x="1020" y="240" width="80" height="100"/>
+  <object name="energy" x="860" y="300" width="100" height="120"/>
+  <object name="energy" x="860" y="300" width="100" height="120"/>
+  <object name="fightArea" x="500" y="0" width="820" height="520"/>
+  <object name="boss" x="1020" y="320" width="80" height="100"/>
+  <object name="trigger" x="600" y="380" width="160" height="40"/>
+  <object name="start" x="300" y="100" width="40" height="40"/>
+  <object name="door" x="300" y="320" width="40" height="40"/>
+  <object name="door1" x="300" y="320" width="40" height="40"/>
+  <object name="gate" x="580" y="380" width="20" height="40"/>
+  <object name="cam1" type="cam" x="640" y="60" width="540" height="400"/>
+  <object name="posBcrL" x="720" y="220" width="80" height="100"/>
+  <object name="posSnap" x="860" y="170" width="80" height="100"/>
+  <object name="posBcrR" x="1000" y="220" width="80" height="100"/>
+  <object name="posMslL" x="720" y="320" width="80" height="100"/>
+  <object name="posMslR" x="1000" y="320" width="80" height="100"/>
+  <object name="hp" type="hp" x="600" y="100" width="20" height="20"/>
+  <object name="hp" type="hp" x="1200" y="100" width="20" height="20"/>
  </objectgroup>
 </map>
