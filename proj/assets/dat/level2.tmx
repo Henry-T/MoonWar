@@ -52,7 +52,7 @@
   </data>
  </layer>
  <objectgroup name="misc" width="200" height="30">
-  <object name="spawn" x="428" y="140" width="32" height="30"/>
+  <object name="start" x="420" y="180" width="40" height="40"/>
   <object name="bee1" type="posBee" x="3140" y="140" width="40" height="40"/>
   <object name="posBIn" x="3200" y="200" width="80" height="100"/>
   <object name="bee2" type="posBee" x="3040" y="140" width="40" height="40"/>
@@ -139,6 +139,7 @@
     <property name="group" value="1"/>
    </properties>
   </object>
+  <object name="sBase" x="500" y="140" width="60" height="80"/>
  </objectgroup>
  <objectgroup name="boss" width="200" height="30">
   <object name="appear" x="605" y="559" width="133" height="14"/>
