@@ -152,8 +152,10 @@ class GameMap extends GameScreen
 			cast(b, FlxButton).label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_normalButton, 0xffffffff, "center");
 		}
 		SwitchLevel(0);
+		#if !FLX_NO_KEYBOARD
 		curMenuSel = 0;
 		SwitchMenu(curMenuSel);
+		#end
 	}
 
 	public override function update(){

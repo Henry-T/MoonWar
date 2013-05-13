@@ -128,8 +128,10 @@ class EndScreen extends GameScreen
 	public override function update(){
 		super.update();
 
+		#if !FLX_NO_KEYBOARD
 		if(exitEnabled && GameStatic.useKeyboard && FlxG.keys.justPressed("X")){
 			FlxG.switchState(new GameMap());
 		}
+		#end
 	}
 }

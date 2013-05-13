@@ -56,7 +56,12 @@ class Input extends FlxGroup {
 
 		gamePad.visible = false;
 		analog.visible = false;
-		#if android
+		#if !FLX_NO_MOUSE
+		gamePad.visible = true;
+		analog.visible = true;
+		#end
+
+		#if !FLX_NO_TOUCH
 		gamePad.visible = true;
 		analog.visible = true;
 		#end
