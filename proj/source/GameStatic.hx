@@ -59,6 +59,7 @@ class GameStatic
 	public static var button_mainHeight:Int = 30;
 	public static var border_mainWidth:Int = 152;
 	public static var border_mainHeight:Int = 32;
+	public static var offset_border:Int = -1;
 
 	public static var base_txtSize_normalButton:Int = 8;
 	public static var base_txtSize_menuButton:Int = 12;
@@ -76,8 +77,8 @@ class GameStatic
 	public static var base_button_mainHeight:Int = 30;
 	public static var base_border_mainWidth:Int = 152;
 	public static var base_border_mainHeight:Int = 32;
+	public static var base_offset_border:Int = -1;
 	
-	public static var offset_border:Int = -1;
 
 	public static var width:Int;
 	public static var height:Int;
@@ -117,7 +118,7 @@ class GameStatic
 			screenDensity = 2;
 		else
 			screenDensity = 3;
-		//screenDensity = 2;
+		screenDensity = 2;
 
 		// Check ratio mode 
 		ratioValue = nme.system.Capabilities.pixelAspectRatio;
@@ -154,6 +155,7 @@ class GameStatic
 		button_mainHeight	= screenDensity * base_button_mainHeight;
 		border_mainWidth	= screenDensity * base_border_mainWidth;
 		border_mainHeight	= screenDensity * base_border_mainHeight;
+		offset_border 		= screenDensity * base_offset_border;
 	}
 
 	public static function Load():Void
