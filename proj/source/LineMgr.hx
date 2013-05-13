@@ -8,7 +8,7 @@ import org.flixel.FlxPoint;
 class LineMgr extends FlxSprite
 {
 	public var heads:Array<FlxSprite>;
-	public var line:FlxText;
+	public var line:MyText;
 	public var headBg:SliceShape;
 	public var lineBg:SliceShape;
 	
@@ -37,12 +37,12 @@ class LineMgr extends FlxSprite
 		headBg.visible = false;
 		headBg.scrollFactor.make(0, 0);
 
-		lineBg = new SliceShape(10, 70, 350, 40, "assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
+		lineBg = new SliceShape(80, 70, 350, 40, "assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
 		lineBg.visible = false;
 		lineBg.scrollFactor.make(0, 0);
 
-		line = new FlxText(100, 80, 400, ""); 
-		line.setFormat("assets/fnt/pixelex.ttf", 8, 0xff000000);
+		line = new MyText(100, 80, FlxG.width - 150, ""); 
+		line.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_dialog, 0xff000000);
 		line.visible = false;
 		line.scrollFactor.make(0, 0);
 
@@ -112,9 +112,11 @@ class LineMgr extends FlxSprite
 
 	override public function draw(){
 		if(!isEnd){
-			var newWidth = 120 + Math.round(line.text.length * 6);
+			//var newWidth = 20 + Math.round(line.text.length * 6 * GameStatic.screenDensity);
+			var newWidth:Int = 30 + line.GetTextWidth();
 			if(newWidth < 180) newWidth = 180;
-			lineBg.setSize(newWidth, 40);
+			if(newWidth > FlxG.width - 90)	newWidth = FlxG.width - 90;
+			lineBg.setSize(newWidth, 25 + line.GetTextHeight());
 			pressSpace.x = lineBg.x + lineBg.width - 3 - pressSpace.width;
 			switch(curHeadId){
 				case 0:
