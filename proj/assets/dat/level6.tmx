@@ -81,7 +81,7 @@
     <property name="on" value="1"/>
    </properties>
   </object>
-  <object name="border" type="border" x="140" y="40" width="4960" height="920"/>
+  <object name="border" type="border" x="40" y="20" width="5140" height="1040"/>
   <object name="hp" type="hp" x="4000" y="660" width="20" height="20"/>
   <object name="lift" type="lift" x="3140" y="560" width="40" height="240">
    <properties>

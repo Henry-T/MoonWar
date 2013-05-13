@@ -151,7 +151,7 @@
   </object>
   <object name="end" x="1100" y="1100" width="40" height="40"/>
   <object name="warn" x="2180" y="820" width="40" height="100"/>
-  <object name="border" type="border" x="120" y="20" width="2380" height="1440"/>
+  <object name="border" type="border" x="40" y="20" width="2540" height="1440"/>
   <object name="hp" type="hp" x="740" y="1320" width="20" height="20"/>
   <object name="hp" type="hp" x="760" y="200" width="20" height="20"/>
   <object name="hp" type="hp" x="2440" y="160" width="20" height="20"/>
