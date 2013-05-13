@@ -10,7 +10,7 @@ import nme.events.MouseEvent;
 import nme.Lib;
 import nme.text.TextField;
 
-@:bitmap("assets/img/bgStar_.png") class BackgroundBD extends BitmapData {}
+@:bitmap("assets/img/star2.png") class BackgroundBD extends BitmapData {}
 @:bitmap("assets/img/miniMoon.png") class BDmoon extends BitmapData {}
 @:bitmap("assets/img/miniBoss.png") class BDboss extends BitmapData {}
 @:bitmap("assets/img/miniGuard.png") class BDguard extends BitmapData {}
@@ -19,7 +19,7 @@ import nme.text.TextField;
 
 class Preloader extends NMEPreloader
 {
-	private var background:Bitmap;
+	private var background:Sprite;
 	private var moon:Bitmap;
 	private var boss:Bitmap;
 	private var troopAry:Array<Bitmap>;
@@ -61,7 +61,14 @@ class Preloader extends NMEPreloader
 		stageWidth = Lib.current.stage.stageWidth;
 		stageHeight = Lib.current.stage.stageHeight;
 
-		background = new Bitmap(new BackgroundBD(550, 400));
+		//background = new Bitmap(new BackgroundBD(550, 400));
+		background = new Sprite();
+		background.graphics.beginFill(0x000000, 0xff);
+		background.graphics.drawRect(0, 0, stageWidth, stageHeight);
+		background.graphics.endFill();
+		background.graphics.beginBitmapFill(new BackgroundBD(550, 400));
+		background.graphics.drawRect(0, 0, stageWidth, stageHeight);
+		background.graphics.endFill();
 		moon = new Bitmap(new BDmoon(64, 64, true, 0x00000000)); moon.x = 550 - span - moon.width / 2; moon.y = 400 - yToBottom - moon.height / 2;
 		//moon = new Bitmap(Assets.getBitmapData("assets/img/miniMoon.png"));
 		//moon.x = FlxG.width - span - moon.width / 2; moon.y = FlxG.height - yToBottom - moon.height / 2;
