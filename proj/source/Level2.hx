@@ -32,12 +32,6 @@ class Level2 extends Level
 	public var brLeg:FlxSprite;
 	public var brHandL:FlxSprite;
 
-	// Boss Fighting Constant
-	public static var bossX:Float = 464 - 77;
-	public static var bossY:Float = 360 - 95 - 8;//304 - 77;
-	public static var bossBury:Float = 200;
-	public static var bossPreDashSpeed :Float = 5;
-
 	// Camera Constant
 	public static var camMoveTime:Float = 1*75;
 
@@ -112,14 +106,13 @@ class Level2 extends Level
 		
 		GameStatic.CurLvl = 2;
 		lvlState = 0;
-		bossBury = 300;
 		
 		// Load Tiles
 		tileUp 		= GetTile("tileUp", FlxObject.UP); 
 		tileBreak 	= GetTile("break", FlxObject.ANY); 
 		//tileBreak.setTileProperties(0, FlxObject.ANY , onBreak, null, tileBreak._tileObjects.length);	// set all breakable to handle collision
 		
-		boss1 = new Boss1(bossX, bossY + 300/* + bossBury*/, this); 	// final pos 10, 230
+		boss1 = new Boss1(-100, -100, this); 	// final pos 10, 230
 		
 		smokeEmt1 = new FlxEmitter(550, 375);
 		smokeEmt1.x = 0;			// x pos for preDash;
@@ -376,12 +369,12 @@ class Level2 extends Level
 		}
 
 		if(dashDone  && !fightDone){
-			if(Math.abs(FlxG.camera.scroll.x - posCam3.x) > 3){
-				FlxG.camera.scroll.x -= 5;
-			}
-			else{
-				FlxG.camera.scroll = posCam3;
-			}
+			//if(Math.abs(FlxG.camera.scroll.x - posCam3.x) > 3){
+			//	FlxG.camera.scroll.x -= 5;
+			//}
+			//else{
+			//	FlxG.camera.scroll = posCam3;
+			//}
 		}
 
 		// handle guards
