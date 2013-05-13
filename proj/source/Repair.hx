@@ -23,6 +23,7 @@ class Repair extends FlxSprite
 
 	public override function update()
 	{
+		super.update();
 		if(waitOn){
 			waitTimer += FlxG.elapsed;
 			if(waitTimer > waitCD){
