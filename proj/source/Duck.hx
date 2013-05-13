@@ -32,15 +32,6 @@ class Duck extends Enemy
 		if (x < FlxG.camera.scroll.x -20 || x > FlxG.camera.scroll.x + FlxG.width + 20 || y > FlxG.camera.scroll.y + FlxG.height+20)
 		super.kill();
 		
-		// hack speed
-		if (velocity.y == 0 || velocity.x == 0)
-		{
-		if (x > FlxG.camera.scroll.x + FlxG.width/2)
-			velocity.x = -80;
-		else
-			velocity.x = 80;
-		}
-		
 		// rotate to motion direction
 		var agl:Float = Math.atan2(velocity.y, velocity.x);
 		angle = agl * 180 / Math.PI + 90;

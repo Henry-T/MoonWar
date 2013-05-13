@@ -70,6 +70,8 @@ class Boss1 extends Enemy
 	public var floatTimer:Float;
 	public var floating:Bool;
 
+	public var landHeight:Float;
+
 	public function new(x:Float, y:Float, game:Level2)
 	{
 		super(x, y, null);
@@ -84,6 +86,8 @@ class Boss1 extends Enemy
 		this.height = 95;
 		this.offset.x = 42;
 		this.offset.y = 30;
+
+		landHeight = 400;
 		
 		addAnimation("idle",[0],1,true);
 		addAnimation("walk",[1,2,3,4,5,6,7,8],10,true);
@@ -182,15 +186,15 @@ class Boss1 extends Enemy
 		
 		if(state == 0)
 		{
-			if(this.y <= 360 - 95 - 8)
+			if(this.y <= landHeight-height)
 			{
-				this.y = 360 - 95 - 8;
+				this.y = landHeight-height;
 				switchState(1);
 			}
 		}
 		else if(state == 5)
 		{
-			if(this.y >= 360 - 95 - 7)
+			if(this.y >= landHeight-height+1)
 			{
 				this.acceleration.y = 0;
 				this.velocity.y = 50;

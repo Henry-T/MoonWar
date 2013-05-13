@@ -114,20 +114,6 @@ class Level2 extends Level
 		
 		boss1 = new Boss1(-100, -100, this); 	// final pos 10, 230
 		
-		smokeEmt1 = new FlxEmitter(550, 375);
-		smokeEmt1.x = 0;			// x pos for preDash;
-		smokeEmt1.y = 265 + 100;
-		smokeEmt1.makeParticles("assets/img/smoke.png", 10, 5, true, 0);
-		smokeEmt1.start(false, 0.5, 0.03, 0);
-		smokeEmt1.setXSpeed(0, 50);
-		smokeEmt1.setYSpeed(80, -180);
-		
-		smokeEmt2 = new FlxEmitter(-100, 0);
-		smokeEmt2.width = 65; smokeEmt2.height = 10;
-		smokeEmt2.makeParticles("assets/img/smoke.png", 10, 5, true, 0);
-		smokeEmt2.setXSpeed(-50, 50);
-		smokeEmt2.setYSpeed(-30, -10);
-		
 		breakers = new FlxGroup();
 		brGP = new FlxSprite();
 		brGP.makeGraphic(72,26, 0x00ffffff);
@@ -175,8 +161,10 @@ class Level2 extends Level
 				posCam2 = new FlxPoint(td.x+td.width*0.5, td.y+td.height*0.5);
 			else if(td.name == "cam3")
 				posCam3 = new FlxPoint(td.x+td.width*0.5, td.y+td.height*0.5);
-			else if(td.name == "landHeight")
+			else if(td.name == "landHeight"){
 				landHeight = td.y;
+				boss1.landHeight = landHeight;
+			}
 			else if(td.name == "explo1")
 				exploPos1 = new FlxPoint(td.x, td.y);
 			else if(td.name == "explo2")
@@ -187,8 +175,26 @@ class Level2 extends Level
 				sBase.offset = new FlxPoint(121, 42);
 				sBase.width = 60; sBase.height = 75;
 				sBase.health = BaseMaxLife;
+				boss1.appearLL = sBase.getMidpoint().x - 215;
+				boss1.appearRL = sBase.getMidpoint().x + 215;
 			}
 		}
+
+		smokeEmt1 = new FlxEmitter(550, 375);
+		smokeEmt1.x = 0;			// x pos for preDash;
+		smokeEmt1.y = landHeight - smokeEmt1.height * 0.5;
+		smokeEmt1.makeParticles("assets/img/smoke.png", 10, 5, true, 0);
+		smokeEmt1.start(false, 0.5, 0.03, 0);
+		smokeEmt1.setXSpeed(0, 50);
+		smokeEmt1.setYSpeed(80, -180);
+		
+		smokeEmt2 = new FlxEmitter(-100, 0);
+		smokeEmt2.width = 65; smokeEmt2.height = 10;
+		smokeEmt2.y = landHeight - smokeEmt2.height * 0.5;
+		smokeEmt2.makeParticles("assets/img/smoke.png", 10, 5, true, 0);
+		smokeEmt2.setXSpeed(-50, 50);
+		smokeEmt2.setYSpeed(-30, -10);
+		
 		
 		// Addings
 		add(breakers);
@@ -389,7 +395,7 @@ class Level2 extends Level
 		// smoke
 		if(dash){
 			smokeEmt1.x = boss1.x;
-			smokeEmt1.y = 360 - 5;
+			smokeEmt1.y = landHeight - smokeEmt1.height * 0.5;
 		}
 
 		//tileBreak.overlapsWithCallback(boss, onBreak);
@@ -412,7 +418,13 @@ class Level2 extends Level
 		//tileBreak.overlaps(breakers);
 		FlxG.overlap(boss1, bullets, function(b:FlxObject, bul:FlxObject){b.hurt(1);bul.kill();});	// bullet
 		FlxG.collide(tile, ducks, duckHitTile);							// duck
-		FlxG.collide(tileUp, ducks);		
+		FlxG.collide(tileUp, ducks, function(t:FlxObject, d:FlxObject){
+			if(Math.abs(d.velocity.x)<1) 
+				if(d.x > FlxG.camera.scroll.x + FlxG.width * 0.5)
+					d.velocity.x = -80;
+				else 
+					d.velocity.x = 80;
+		});		
 		FlxG.overlap(sBase, ducks, function(b:FlxObject, d:FlxObject) { if (boss1.health > 0) { b.hurt(5); } d.kill(); } );
 		
 		// tile breaker follows boss
@@ -439,7 +451,7 @@ class Level2 extends Level
 		}
 		
 		smokeEmt2.x = boss1.x;
-		smokeEmt2.y = 360 - 5;
+		smokeEmt2.y = landHeight - smokeEmt2.height * 0.5;
 	}
 
 	private function duckHitTile(tile:FlxObject, duck:FlxObject):Void
