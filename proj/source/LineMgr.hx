@@ -4,6 +4,9 @@ import org.flixel.FlxSprite;
 import org.flixel.FlxText;
 import org.flixel.FlxG;
 import org.flixel.FlxPoint;
+import org.flixel.tweens.FlxTween;
+import org.flixel.tweens.util.Ease;
+import org.flixel.tweens.misc.ColorTween;
 
 class LineMgr extends FlxSprite
 {
@@ -12,7 +15,7 @@ class LineMgr extends FlxSprite
 	public var headBg:SliceShape;
 	public var lineBg:SliceShape;
 	
-	public var pressSpace:FlxText;
+	public var pressSpace:MyText;
 	public var roleName:FlxText;
 
 	public var finishCall:Void->Void;
@@ -25,6 +28,8 @@ class LineMgr extends FlxSprite
 	private var isEnd:Bool;
 
 	private static var  headPos:FlxPoint = new FlxPoint(8, 62);
+	private var _pressColor:Int;
+	private var _pressTween : ColorTween;
 
 	public function new():Void{ 	
 		super(0,0,null);
@@ -60,8 +65,8 @@ class LineMgr extends FlxSprite
 		h.x = headBg.getMidpoint().x - h.width/2; h.y = headBg.getMidpoint().y - h.height/2;
 		heads.push(h);
 		
-		pressSpace = new FlxText(100, 94, 80,"PRESS ANY KEY");
-		pressSpace.setFormat("assets/fnt/pixelex.ttf", 8, 0xffffffff);
+		pressSpace = new MyText(100, 94, 400,"PRESS X");
+		pressSpace.setFormat("assets/fnt/pixelex.ttf", 8, 0xff000000, "right");
 		pressSpace.visible = false;
 		pressSpace.scrollFactor.make(0, 0);
 
@@ -69,6 +74,10 @@ class LineMgr extends FlxSprite
 		roleName.setFormat("assets/fnt/pixelex.ttf", 8, 0xff000000, "center");
 		roleName.visible = false;
 		roleName.scrollFactor.make(0, 0);
+
+		_pressTween = new ColorTween(null, FlxTween.PINGPONG);
+		_pressTween.tween(1, 0x000000, 0x666666, 0, 1, Ease.quadInOut);
+		addTween(_pressTween);
 	}
 
 	public function Start(lines:Array<Line>, finCall:Void->Void=null):Void{
@@ -107,6 +116,7 @@ class LineMgr extends FlxSprite
 		for (hd in heads)
 			hd.updateAnimation();
 
+		_pressColor = _pressTween.color;
 		super.update();
 	}
 
@@ -116,8 +126,10 @@ class LineMgr extends FlxSprite
 			var newWidth:Int = 30 + line.GetTextWidth();
 			if(newWidth < 180) newWidth = 180;
 			if(newWidth > FlxG.width - 90)	newWidth = FlxG.width - 90;
-			lineBg.setSize(newWidth, 25 + line.GetTextHeight());
+			lineBg.setSize(newWidth, 25 + line.GetTextHeight() + pressSpace.GetTextHeight());
+			pressSpace.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, _pressColor, "right");
 			pressSpace.x = lineBg.x + lineBg.width - 3 - pressSpace.width;
+			pressSpace.y = lineBg.y + lineBg.height - pressSpace.GetTextHeight() - 4;
 			switch(curHeadId){
 				case 0:
 					roleName.text = "Dr.Cube";
