@@ -27,11 +27,15 @@ class Level1 extends Level
 		lines1 = [
 			new Line(0, "CubeBot, it will be battle field soon outside the laboratory."),
 			new Line(0, "We will have some test to ensure you are in good condition."),
-			new Line(0, "Your tips are printed on screens, go for it now."),
-			new Line(1, "OK.")
+			new Line(0, "Open each computer with x key"),
+			new Line(0, "You will receive a tip to follow like this ..."),
 		];
 
 		lines2 = [
+			new Line(1, "Get it")
+		];
+
+		lines3 = [
 			new Line(0, "Well, the war comes in advance."),
 			new Line(1, "I can use them to warm up.")
 		];
@@ -79,8 +83,14 @@ class Level1 extends Level
 		AddAll();
 		TimerPool.Get().start(2, 1, function(t:FlxTimer){
 			lineMgr.Start(lines1, function(){
-				bot.On = true;
-				hpBar.visible = true;
+				tipManager.ShowTip(TipManager.Tip_Action); 
+				confirm.ShowConfirm(Confirm.Mode_OK, true,"press x to close","Close","", false, function(){
+					tipManager.HideTip(); 
+					lineMgr.Start(lines2, function(){
+						bot.On = true;
+						hpBar.visible = true;
+					});
+				});
 			});
 		});
 		ShowSceneName("Moon Laboratory");
@@ -113,7 +123,7 @@ class Level1 extends Level
 
 					FlxG.camera.follow(null);
 					TweenCamera(camPos1.x ,camPos1.y, 2, true, function(){
-						lineMgr.Start(lines2, function(){
+						lineMgr.Start(lines3, function(){
 							bot.On = true;
 							theGuard.velocity.x = -100;
 						});

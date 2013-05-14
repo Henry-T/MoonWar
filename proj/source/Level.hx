@@ -800,10 +800,12 @@ class Level extends MWState
 				onCamTweenDone();
 		}
 
+		// computer trigger
 		FlxG.overlap(bot, coms, function(b:FlxObject, c:FlxObject){
 			var com:Com = cast(c, Com);
-			if(input.JustDown_Action/* && com.onTig!=null*/)
-				com.onTig();
+			if(bot.On && lineMgr.isEnd && input.JustDown_Action/* && com.onTig!=null*/){
+				com.ToggleOn();
+			}
 		});
 
 		FlxG.collide(bigGuns, bot);
@@ -824,14 +826,6 @@ class Level extends MWState
 		// tile that collides enemy only
 		FlxG.collide(tileEO,guards);
 
-		// computer trigger
-		FlxG.overlap(coms, bot, function(c:FlxObject, b:FlxObject) { 
-			if (input.JustDown_Action)
-			{
-				cast(c, Com).ToggleOn();
-			}
-		});
-		
 		// zball hurt bot
 		if(zball!=null)
 			FlxG.overlap(zball, bot, function(z:FlxObject, bot:FlxObject) { bot.hurt(30); } );

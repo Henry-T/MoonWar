@@ -53,7 +53,6 @@ class MWState extends FlxState
 		confirm = new Confirm();
 
 		// initial
-		confirm.visible = true;
 	}
 
 	public override function update(){

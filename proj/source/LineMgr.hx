@@ -25,7 +25,7 @@ class LineMgr extends FlxSprite
 	private var curHeadId:Int;
 	private var lineCnt:Int;
 
-	private var isEnd:Bool;
+	public var isEnd:Bool;
 
 	private static var  headPos:FlxPoint = new FlxPoint(8, 62);
 	private var _pressColor:Int;
