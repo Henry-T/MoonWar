@@ -60,7 +60,7 @@
   <object name="life" x="498" y="118"/>
  </objectgroup>
  <objectgroup name="misc" width="125" height="24">
-  <object name="start" x="100" y="220" width="40" height="40"/>
+  <object name="start" x="108" y="220" width="40" height="40"/>
   <object name="end" x="2360" y="280" width="40" height="40"/>
   <object type="cube" x="760" y="260" width="40" height="40"/>
   <object name="nail" type="sign_" x="340" y="180" width="180" height="20">
