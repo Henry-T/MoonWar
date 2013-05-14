@@ -4,6 +4,7 @@ import org.flixel.FlxSprite;
 import org.flixel.FlxText;
 import org.flixel.FlxGroup;
 import org.flixel.FlxG;
+import nme.display.BitmapData;
 
 class Confirm extends FlxGroup{
 	public static var Mode_TextOnly 	: Int = 0;
@@ -29,6 +30,9 @@ class Confirm extends FlxGroup{
 
 	public var isModel:Bool;	// if true block anything else and handle input
 
+	private var _bgTextOnly : BitmapData;
+	private var _bgFull : BitmapData;
+
 	public function new(){
 		super();
 
@@ -37,12 +41,15 @@ class Confirm extends FlxGroup{
 		confirmMask.alpha = 0.5;
 		confirmMask.scrollFactor.make(0,0);
 
-		confirmBg = new SliceShape(0, FlxG.height*0.91,FlxG.width, Std.int(FlxG.height * 0.08), "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
+		confirmBg = new SliceShape(0, FlxG.height*0.91,FlxG.width, Std.int(FlxG.height * 0.08), ResUtil.IMG_ui_barh_yellow, SliceShape.MODE_HERT, 1);
 		confirmBg.scrollFactor.make(0,0);
 
-		note = new MyText(10, FlxG.height*0.95 - 6, Std.int(FlxG.width * 0.6), "choose yes or no ?");
+		note = new MyText(10, FlxG.height*0.95 - 6, FlxG.width - 20, "word");	// !Don't change text here for it will be used to masure height of bg bar
 		note.scrollFactor.make(0,0);
 		note.setFormat(ResUtil.FNT_Pixelex,GameStatic.txtSize_menuButton, 0xff000000, "left");
+
+		_bgTextOnly = new SliceShape(0,0,FlxG.width, note.GetTextHeight() + 6, ResUtil.IMG_ui_barh_blue, SliceShape.MODE_HERT, 1).pixels.clone();
+		_bgFull = new SliceShape(0,0,FlxG.width, FlxG.height * 0.08, ResUtil.IMG_ui_barh_blue, SliceShape.MODE_HERT, 1).pixels.clone();
 
 		btnCancel = new MyButton(FlxG.width*0.6+15, FlxG.height*0.95-ResUtil.bmpBtnBMenuNormal.height*0.5, "Cancel", onConfirm);
 		btnCancel.loadGraphic(ResUtil.bmpBtnYMenuNormal);
@@ -131,16 +138,25 @@ class Confirm extends FlxGroup{
 
 		switch (_mode) {
 			case Mode_TextOnly:
+				confirmBg.loadGraphic(_bgTextOnly);
+				confirmBg.y = FlxG.height * 0.95 - confirmBg.height * 0.5;
+				note.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_dialog, 0xffffffff, "center");
 				imgConfirm.visible = false;
 				btnConfirm.visible = false;
 				imgCancel.visible = false;
 				btnCancel.visible = false;
 			case Mode_OK:
+				confirmBg.loadGraphic(_bgFull);
+				confirmBg.y = FlxG.height * 0.95 - confirmBg.height * 0.5;
+				note.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_dialog, 0xffffffff, "left");
 				imgConfirm.visible = true;
 				btnConfirm.visible = true;
 				imgCancel.visible = false;
 				btnCancel.visible = false;
 			case Mode_YesNo:
+				confirmBg.loadGraphic(_bgFull);
+				confirmBg.y = FlxG.height * 0.95 - confirmBg.height * 0.5;
+				note.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_dialog, 0xffffffff, "left");
 				imgConfirm.visible = true;
 				btnConfirm.visible = true;
 				imgCancel.visible = true;

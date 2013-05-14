@@ -19,7 +19,7 @@ class MainMenu extends MWState
 	public var btnMap:MyButton;
 	public var btnClearData:MyButton;
 
-	public var txtCreator:FlxText;
+	public var txtCreator:MyText;
 
 	#if !FLX_NO_KEYBOARD
 	public var selector:FlxSprite;
@@ -79,9 +79,10 @@ class MainMenu extends MWState
 		selector = new FlxSprite(ResUtil.bmpSelMain);
 		#end
 
-		txtCreator = new FlxText(0, FlxG.height-15, FlxG.width, "Created By Lolofinil\t\tMusic By www.nosoapradio.us");
+		txtCreator = new MyText(0, FlxG.height-15, FlxG.width, "Created By Lolofinil\t\tMusic By www.nosoapradio.us");
 		txtCreator.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffffff, "center");
 		txtCreator.scrollFactor.make(0, 0);
+		txtCreator.y = FlxG.height - txtCreator.GetTextHeight() - 1;
 		
 		#if !FLX_NO_KEYBOARD
 		add(selector);
