@@ -100,9 +100,6 @@
   <object name="start" x="200" y="-20" width="40" height="40"/>
   <object name="hp" type="hp" x="2080" y="420" width="20" height="20"/>
   <object name="hp" type="hp" x="3260" y="180" width="20" height="20"/>
-  <object type="cube" x="4480" y="220" width="40" height="40"/>
-  <object type="cube" x="4520" y="220" width="40" height="40"/>
-  <object type="cube" x="4560" y="220" width="40" height="40"/>
   <object name="Spare Way" type="sign" x="4480" y="220" width="120" height="20">
    <properties>
     <property name="text" value="Spare Way"/>
