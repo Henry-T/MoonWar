@@ -8,6 +8,7 @@ import org.flixel.system.input.FlxGamePad;
 import org.flixel.FlxGroup;
 import org.flixel.FlxText;
 import org.flixel.FlxSprite;
+import nme.display.BitmapData;
 
 class MWState extends FlxState
 {
@@ -56,17 +57,17 @@ class MWState extends FlxState
 		// gui - confirm panel
 		confirmGroup = new FlxGroup();
 
-		confirmBg = new SliceShape(0,0,FlxG.width, Std.int(FlxG.height * 0.1), "assets/img/ui_barv_y.png", SliceShape.MODE_VERTICLE, 1);
+		confirmBg = new SliceShape(0, FlxG.height*0.91,FlxG.width, Std.int(FlxG.height * 0.08), "assets/img/ui_barv_y.png", SliceShape.MODE_VERTICLE, 1);
 		confirmBg.scrollFactor.make(0,0);
 
 		note_confirm = new FlxText(10, 0, Std.int(FlxG.width * 0.6), "choose yes or no ?");
 		note_confirm.scrollFactor.make(0,0);
 
-		btnConfirm_confirm = new MyButton();
-		btnConfirm_confirm.scrollFactor.make(0,0);
-
-		btnCancel_confirm = new MyButton();
+		btnCancel_confirm = new MyButton(FlxG.width*0.6+15, FlxG.height*0.95-ResUtil.bmpBtnBMenuNormal.height*0.5, "Cancel", CloseConfirm);
 		btnCancel_confirm.scrollFactor.make(0,0);
+
+		btnConfirm_confirm = new MyButton(FlxG.width*0.6+15 + 5 + btnCancel_confirm.width, FlxG.height*0.95-ResUtil.bmpBtnBMenuNormal.height*0.5, "Confirm", null);
+		btnConfirm_confirm.scrollFactor.make(0,0);
 
 		imgConfirm_confirm = new FlxSprite();	imgConfirm_confirm.scrollFactor.make(0,0);
 		imgCancel_confirm = new FlxSprite();	imgCancel_confirm.scrollFactor.make(0,0);

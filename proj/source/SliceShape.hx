@@ -7,7 +7,7 @@ import org.flixel.FlxAssets;
 import org.flixel.FlxSprite;
 import nme.geom.Matrix;
 
-// slice bimmap and extract to shape like panels or buttons
+// slice bitmap and extract to shape like panels or buttons
 class SliceShape extends FlxSprite
 {
 	public static var MODE_BOX		 = 0;
@@ -34,11 +34,11 @@ class SliceShape extends FlxSprite
 
 	private var mode:Int;
 
-	public function new(x:Int=0, y:Int=0, width:Int=80, height:Int=60, sourceGraphic:Dynamic=null, mode:Int=0, paddin=0){
+	public function new(x:Float=0, y:Float=0, width:Float=80, height:Float=60, sourceGraphic:Dynamic=null, mode:Int=0, paddin=0){
 		super(x, y);
 
-		this.width = width;
-		this.height = height;
+		this.width = Std.int(width);
+		this.height = Std.int(height);
 		this.paddin = paddin;
 		this.mode = mode;
 		scratchLen = _pixels.width - paddin * 2;

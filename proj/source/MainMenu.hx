@@ -19,10 +19,6 @@ class MainMenu extends GameScreen
 	public var btnMap:MyButton;
 	public var btnClearData:MyButton;
 
-	public var btnGNormal:BitmapData;
-	public var btnGOver:BitmapData;
-	public var selHighLight:BitmapData;
-
 	public var txtCreator:FlxText;
 
 	#if !FLX_NO_KEYBOARD
@@ -41,10 +37,6 @@ class MainMenu extends GameScreen
 
 		this.bgColor = 0xff000000;
 
-		btnGNormal = new SliceShape(0, 0 ,GameStatic.button_mainWidth, GameStatic.button_mainHeight, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone(); 
-		btnGOver =  new SliceShape(0, 0 , GameStatic.button_mainWidth, GameStatic.button_mainHeight, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone(); 
-		selHighLight = new SliceShape(0, 0 ,GameStatic.border_mainWidth, GameStatic.border_mainHeight, "assets/img/ui_boxact_border.png", SliceShape.MODE_BOX, 2).pixels.clone(); 
-
 		bgImage = new FlxSprite(0, 0, "assets/img/title.png");
 		bdSky = new FlxBackdrop("assets/img/bgSky.png", 0, 0, true, true);
 		imgBoss = new FlxSprite(0, 0,"assets/img/titleBoss.png");
@@ -60,31 +52,31 @@ class MainMenu extends GameScreen
 		add(imgTitleTxt);
 
 		startBtn = new MyButton(0 ,0,"START",function(){FlxG.switchState(new IntroScreen());});
-		startBtn.loadGraphic(btnGNormal);
+		startBtn.loadGraphic(ResUtil.bmpBtnBMainNormal);
 		startBtn.x = GameStatic.widthH - startBtn.width*0.5;
 		startBtn.y = GameStatic.heightH - startBtn.height*1.4;
 		startBtn.label.setFormat("assets/fnt/pixelex.ttf", 24, 0xffffff, "center");
-		startBtn.onOver = function() { startBtn.loadGraphic(btnGOver); FlxG.play("sel1"); };
-		startBtn.onOut = function(){startBtn.loadGraphic(btnGNormal);};
+		startBtn.onOver = function() { startBtn.loadGraphic(ResUtil.bmpBtnBMainOver); FlxG.play("sel1"); };
+		startBtn.onOut = function(){startBtn.loadGraphic(ResUtil.bmpBtnBMainNormal);};
 		
 		btnMap = new MyButton(0, 0, "LEVEL", function():Void { FlxG.switchState(new GameMap()); } );
-		btnMap.loadGraphic(btnGNormal); btnMap.x = FlxG.width / 2 - btnMap.width / 2;
+		btnMap.loadGraphic(ResUtil.bmpBtnBMainNormal); btnMap.x = FlxG.width / 2 - btnMap.width / 2;
 		btnMap.x = GameStatic.widthH - startBtn.width*0.5;
 		btnMap.y = GameStatic.heightH;
 		btnMap.label.setFormat("assets/fnt/pixelex.ttf", 24, 0xffffff, "center");
-		btnMap.onOver = function(){btnMap.loadGraphic(btnGOver); FlxG.play("sel1");};
-		btnMap.onOut = function(){btnMap.loadGraphic(btnGNormal);};
+		btnMap.onOver = function(){btnMap.loadGraphic(ResUtil.bmpBtnBMainOver); FlxG.play("sel1");};
+		btnMap.onOut = function(){btnMap.loadGraphic(ResUtil.bmpBtnBMainNormal);};
 		
 		btnClearData = new MyButton(0, 0, "HELP", function() { FlxG.switchState(new HelpScreen()); } );
-		btnClearData.loadGraphic(btnGNormal); btnClearData.x = FlxG.width / 2 - btnClearData.width / 2;
+		btnClearData.loadGraphic(ResUtil.bmpBtnBMainNormal); btnClearData.x = FlxG.width / 2 - btnClearData.width / 2;
 		btnClearData.x = GameStatic.widthH - btnClearData.width*0.5;
 		btnClearData.y = GameStatic.heightH + btnClearData.height*1.4;
 		btnClearData.label.setFormat("assets/fnt/pixelex.ttf", 24, 0xffffff, "center");
-		btnClearData.onOver = function(){btnClearData.loadGraphic(btnGOver); FlxG.play("sel1");};
-		btnClearData.onOut = function(){btnClearData.loadGraphic(btnGNormal);};
+		btnClearData.onOver = function(){btnClearData.loadGraphic(ResUtil.bmpBtnBMainOver); FlxG.play("sel1");};
+		btnClearData.onOut = function(){btnClearData.loadGraphic(ResUtil.bmpBtnBMainNormal);};
 
 		#if !FLX_NO_KEYBOARD
-		selector = new FlxSprite(selHighLight);
+		selector = new FlxSprite(ResUtil.bmpSelMain);
 		#end
 
 		txtCreator = new FlxText(0, FlxG.height-15, FlxG.width, "Created By Lolofinil\t\tMusic By www.nosoapradio.us");

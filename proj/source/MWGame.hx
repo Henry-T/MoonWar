@@ -33,6 +33,7 @@ class MWGame extends FlxGame
 
 		GameStatic.Initial();
 		GameStatic.Load();
+		ResUtil.Initial();
 		#if debug
 		GameStatic.ProcLvl = 9;
 		#end
