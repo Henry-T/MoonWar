@@ -23,7 +23,7 @@
  </tileset>
  <layer name="bg" width="125" height="24">
   <data encoding="base64" compression="zlib">
-   eJztmGFuwjAMhf1j4wj7MY4wdoBJBW4wtvtfhkaqJWM5jUOdtrTvk54QIXFbv8RJIQI1fC99A2B2ojw/BsUBcfwoJY++KNZzjqevBZYBnu+PLXv+8QI69zo1UFdxDy09fyYnU1jaz5p8R6sm31vyvMX6iV6DnJ9Lr89B115vvd4dOohxPHZNnus61qk2qx5NocX6iVyD6dn/h7ZILM+ZuT3XdUy3JbTvU0gxb+RfM9a6KY2t6X+gRz/0s0exZs9bE/kcEeh9Tnuuc+KpGVb/NM+v5KvrstZE5eoyxPsTsffqucxF2stSPmSNsDy8qT6s30x/Gb90jpd+p+tE5orvrzRPo9HP34nfzkbbHJTWqf6eO4sdM/1zsuaB9Jso1vM0vy3fPXulhTXO6uupjVYurDkyB1M95zE14rM+ic9XxqqJVn3MSeZgbP9sxTOe753Se7I+X+RqANGjv3qsda1SbM98GatDLd7xoon4j3Gs1sr4TG2d83rUIi7kWwclSrUdWqcAAAAAAAAA2+YOL8mGww==
+   eJztmOGNwjAMhT0FP44R4AZAKnQD4PZf5rDUSMZymqS1W2jfJz0BobiNX+ymEIEWfte+ALA4Xp4fneIAPy5K7NGJfD1P8fS5wDrA8/2xZc8PX6DrS+cAdQ3XEOn5lJzMYW0/W/LtrZZ8b8nziPrxrsGUn9tLP4N68b5VPX2W57qPdWrM6kdziKgfzxrkuf8NY55YnieW9lz3MT3GaN/nwDEfNL1mvHWndz/03L34ZM+j8ZyHB/o+pz3XOanpGdbxvM57quvrstd45eo2xHuK2Hv1XOaC72WcD9kHLA9zfeqeOV7GL+3jpd98Hs9cpesrrVNv9Pw78d3VGFuCUp3qz7m92DFzfE7WOpB+E/l6zuvb8j2amt5o5cJaI0sw1/P0mxalvT6J12+mdk+Vk8zB2P0ziime753Sc7LeX+R6ANG7v/q31rlKsWvWy1gfinjG88bjP8axXivjJ1r7XK1HEXGhujoosfbzODRNAAAAAAAAgG3zD+qwifQ=
   </data>
  </layer>
  <layer name="tile" width="125" height="24">
@@ -63,22 +63,22 @@
   <object name="start" x="100" y="220" width="40" height="40"/>
   <object name="end" x="2360" y="280" width="40" height="40"/>
   <object type="cube" x="760" y="260" width="40" height="40"/>
-  <object name="nail" type="sign" x="340" y="180" width="180" height="20">
+  <object name="nail" type="sign_" x="340" y="180" width="180" height="20">
    <properties>
     <property name="text" value="beware of the nails"/>
    </properties>
   </object>
-  <object name="jump" type="sign" x="40" y="180" width="240" height="20">
+  <object name="jump" type="sign_" x="40" y="180" width="240" height="20">
    <properties>
     <property name="text" value="arrow keys to move, z to jump"/>
    </properties>
   </object>
-  <object name="knock" type="sign" x="940" y="140" width="220" height="20">
+  <object name="knock" type="sign_" x="940" y="140" width="220" height="20">
    <properties>
     <property name="text" value="Hold Down and Press z to Jump Down"/>
    </properties>
   </object>
-  <object name="shoot" type="sign" x="580" y="180" width="160" height="20">
+  <object name="shoot" type="sign_" x="580" y="180" width="160" height="20">
    <properties>
     <property name="text" value="X to shoot up the cube"/>
    </properties>
@@ -96,12 +96,12 @@
     <property name="tip" value="0"/>
    </properties>
   </object>
-  <object name="pick" type="sign" x="2020" y="240" width="180" height="20">
+  <object name="pick" type="sign_" x="2020" y="240" width="180" height="20">
    <properties>
     <property name="text" value="Pick up to repair"/>
    </properties>
   </object>
-  <object name="exit" type="sign" x="2300" y="240" width="120" height="20">
+  <object name="exit" type="sign_" x="2300" y="240" width="120" height="20">
    <properties>
     <property name="text" value="Exit Ahead"/>
    </properties>

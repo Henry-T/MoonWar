@@ -31,7 +31,7 @@
  </layer>
  <layer name="bg" width="265" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2d1NwzAYheFcABsgLoDesgNIDMDPBi0UGAAqaAcJszADMzBDl+iJakshStI4BOdL+j7SkVrXVQPxdwRqktT7VL6UhZK6x36tLmnhuX/PsrAn3fH5AGwrm/9FxXqW15rXqhLqu/VPA6BrofPu8xGwNxQdAdjTtiu67AaPjgDsaDLrbw33te2KYieslZ+aAIjnP/5++GtHALAjP8vvCR0B4Lcuu6DqO49d6AjALv7XAAAAbcyVJ2WlPCsvI9qL4TlQDgNy1M9l7p15sp25JvM2tL0Yr9O+L2DPrEa8F8Nykot3plwqV8q5W6Mj4rIwy3QEMmUdcaPcKffKrVujI+KyMMt0BDJlHTFVHpRHZebWriNfFwBg2C56DrZi/96PlUnu8ydure/zwDmyh3trAx3BObKKe2sDHcE5sop7awMdMb5ztAH8CgRp
+   eJzt2e9NwkAcxvEuQXwh8NYdNGEA0Q38gzoAEpRB6izO4AzO4BI+DXdJbdrSHuX6a/1+kieB40gLvXsCaZLU+1A+lY2Susd+rC5p4bl/z3thTnrg+ABsK9v/m4rxLOua16rS1lfwpwHQtbb73eetxdy26AjAntCu6LIbPDoCsKPJXn9tOC+0K4qd8KN81wRAPKf4/XBsRwCwI7+XtwkdAeCvLrug6p7HIXQEYBf/NQAAQIiV8qTslGflZURzMTyTgOD0Vsl+zzXZb0Obi/E67/sE/pndiOdiWM5y8abKpXKlzNwYHRGXhb1MRyBT1hHXyo1yqyzdGB0Rl4W9TEcgU9YRd8qD8qjcu7FF5PMCAAzbRc/BXuzvPbt3Mc8df+7G+l4PrCN7uLY20BGsI6u4tjbQEawjq7i2NtAR41tHv2NaBTk=
   </data>
  </layer>
  <layer name="tile" width="265" height="20">
@@ -55,7 +55,7 @@
   </object>
   <object name="door2" x="3560" y="260" width="40" height="40"/>
   <object name="cam2" type="cam" x="3160" y="0" width="540" height="400"/>
-  <object name="SPACE to open Console and Enter Lift" type="sign" x="3420" y="200" width="260" height="20">
+  <object name="SPACE to open Console and Enter Lift" type="sign_" x="3420" y="200" width="260" height="20">
    <properties>
     <property name="text" value="SPACE to open Console and Enter Lift"/>
    </properties>
