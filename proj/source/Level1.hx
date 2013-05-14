@@ -86,9 +86,12 @@ class Level1 extends Level
 				tipManager.ShowTip(TipManager.Tip_Action); 
 				confirm.ShowConfirm(Confirm.Mode_OK, true,"press x to close","Close","", false, function(){
 					tipManager.HideTip(); 
-					lineMgr.Start(lines2, function(){
-						bot.On = true;
-						hpBar.visible = true;
+					lineMgr.Start(lines2, function() {
+						// Hack Well force fix
+						TimerPool.Get().start(0.5, 1, function(t:FlxTimer){
+							bot.On = true;
+							hpBar.visible = true;
+						});
 					});
 				});
 			});

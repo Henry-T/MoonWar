@@ -16,6 +16,8 @@ class TipManager extends FlxGroup{
 	public var bg:SliceShape;
 	public var image:FlxSprite;
 
+	private var _firstFrame : Bool;	// fix event skip with same key press
+
 	public function new(){
 		super();
 
@@ -35,7 +37,10 @@ class TipManager extends FlxGroup{
 	}
 
 	public override function update(){
-		super.update();
+		if(_firstFrame)
+			_firstFrame = false;
+		else
+			super.update();
 	}
 
 	public override function draw(){
@@ -48,6 +53,7 @@ class TipManager extends FlxGroup{
 		image.y = FlxG.height * 0.5 - image.height * 0.5;
 
 		visible = true;
+		_firstFrame = true;
 	}
 
 	public function HideTip(){

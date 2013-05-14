@@ -31,6 +31,8 @@ class LineMgr extends FlxSprite
 	private var _pressColor:Int;
 	private var _pressTween : ColorTween;
 
+	private var _firstFrame : Bool;
+
 	public function new():Void{ 	
 		super(0,0,null);
 
@@ -86,6 +88,7 @@ class LineMgr extends FlxSprite
 		lineCnt = lines.length;
 		finishCall = finCall;
 		isEnd = false;
+		_firstFrame = true;
 		Next();
 	}
 
@@ -110,8 +113,15 @@ class LineMgr extends FlxSprite
 	}
 
 	override public function update(){
-		if(!isEnd && cast(FlxG.state, Level).input.JustDown_Anykey){
+		if(_firstFrame){
+			_firstFrame = false;
+			return;
+		}
+
+		if(!isEnd && cast(FlxG.state, Level).input.JustDown_Action){
 			Next();
+			// eat key event
+			cast(FlxG.state, Level).input.JustDown_Action = false;
 		}
 		for (hd in heads)
 			hd.updateAnimation();

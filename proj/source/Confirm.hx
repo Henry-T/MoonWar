@@ -32,6 +32,7 @@ class Confirm extends FlxGroup{
 
 	private var _bgTextOnly : BitmapData;
 	private var _bgFull : BitmapData;
+	private var _firstFrame : Bool;
 
 	public function new(){
 		super();
@@ -112,13 +113,25 @@ class Confirm extends FlxGroup{
 	}
 
 	public override function update(){
+		if(!visible)	return;
+		if(_firstFrame){
+			_firstFrame = false;
+			return;
+		}
+
 		super.update();
 
 		#if !FLX_NO_KEYBOARD
-		if(cast(FlxG.state, MWState).input.JustDown_Shoot)
+		if(cast(FlxG.state, MWState).input.JustDown_Shoot && (_mode==Mode_OK||_mode==Mode_YesNo)){
 			onConfirm();
-		else if(cast(FlxG.state, MWState).input.JustDown_Jump)
+			// eat key event
+			cast(FlxG.state, Level).input.JustDown_Shoot = false;
+		}
+		else if(cast(FlxG.state, MWState).input.JustDown_Jump && _mode==Mode_YesNo){
 			onCancel();
+			// eat key event
+			cast(FlxG.state, Level).input.JustDown_Jump = false;
+		}
 		#end
 	}
 
@@ -164,17 +177,24 @@ class Confirm extends FlxGroup{
 		}
 
 		visible = true;
+		_firstFrame = true;
 	}
 
 	private function onConfirm(){
 		visible = false;
+		isModel = false;
 		if(_confirmCall != null)
 			_confirmCall();
+		_confirmCall = null;
+		_cancelCall = null;
 	}
 
 	private function onCancel(){
 		visible = false;
+		isModel = false;
 		if(_cancelCall != null)
 			_cancelCall();
+		_confirmCall = null;
+		_cancelCall = null;
 	}
 }
