@@ -9,6 +9,10 @@ import org.flixel.FlxG;
 
 class GameStatic 
 {
+	public static var Density_S:Float = 1;
+	public static var Density_M:Float = 1.5;
+	public static var Density_L:Float = 2;
+
 	public static var RATIO_MODE_Narrow	:Int = 0;
 	public static var RATIO_MODE_4_3	:Int = 1;
 	public static var RATIO_MODE_Middle	:Int = 2;
@@ -120,7 +124,7 @@ class GameStatic
 			screenDensity = 1.5;
 		else
 			screenDensity = 2;
-		screenDensity = 1.5;
+		//screenDensity = 1.5;
 
 		// Check ratio mode 
 		ratioValue = nme.system.Capabilities.pixelAspectRatio;
