@@ -94,7 +94,6 @@ class Level1 extends Level
 	override public function update():Void
 	{
 		super.update();
-		if(confirmReady) return;
 		if(confirmReady || FlxG.paused || endPause)	return;
 
 		FlxG.overlap(bot, end, function(b:FlxObject, e:FlxObject) { 
