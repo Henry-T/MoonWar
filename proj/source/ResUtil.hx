@@ -32,6 +32,10 @@ class ResUtil
 	public static var bmpSelItem:BitmapData;
 
 	public static function Initial() : Void{
+	}
+
+	// Junk Function ..
+	public static function BuildBitmaps(){
 		bmpBtnBMainNormal 	= new SliceShape(0, 0 ,GameStatic.button_mainWidth, GameStatic.button_mainHeight, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone(); 
 		bmpBtnBMainOver 	= new SliceShape(0, 0 ,GameStatic.button_mainWidth, GameStatic.button_mainHeight, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone(); 
 		bmpBtnBMenuNormal 	= new SliceShape(0, 0 ,GameStatic.button_menuWidth, GameStatic.button_menuHeight, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone(); 
