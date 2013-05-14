@@ -120,7 +120,8 @@ class Level7 extends Level
 	override public function update():Void 
 	{
 		super.update();
-		if(confirmReady || FlxG.paused || endPause)	return;
+		if((confirm.visible&&confirm.isModel)
+		 || FlxG.paused || endPause)	return;
 
 		if (!lock1 || !lock2 || !lock3 || !lock4)
 			lastCom.SetOn(false);

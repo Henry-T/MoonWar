@@ -722,8 +722,7 @@ class Level extends MWState
 
 	override public function update():Void 
 	{
-		if(confirmReady)
-			return;
+		super.update();
 
 		if(FlxG.paused){
 			pauseGroup.update();
@@ -761,6 +760,9 @@ class Level extends MWState
 			#end
 			return;
 		}
+
+		if((confirm.visible&&confirm.isModel)
+		 || FlxG.paused || endPause)	return;
 
 		// handle skip
 		if(toSkip.visible){
@@ -1138,5 +1140,11 @@ class Level extends MWState
 	public function Pause(pause:Bool){
 		FlxG.paused = pause;
 		ShowPause(pause);
+	}
+
+	public override function draw(){
+		super.draw();
+		// I am so lucky havn't override draw() in Level*, so one postSuperDraw() here is enough
+		postSuperDraw();
 	}
 }

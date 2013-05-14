@@ -72,7 +72,8 @@ class Level5 extends Level
 	override public function update():Void 
 	{
 		super.update();
-		if(confirmReady || FlxG.paused || endPause)	return;
+		if((confirm.visible&&confirm.isModel)
+		 || FlxG.paused || endPause)	return;
 		
 		if (botRighting)
 		{

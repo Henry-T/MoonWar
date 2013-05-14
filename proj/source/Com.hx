@@ -55,7 +55,7 @@ class Com extends FlxSprite
 		onTig = function(){
 			var lvl:Level = cast(FlxG.state, Level);
 			lvl.tipManager.ShowTip(tipId); 
-			lvl.ShowConfirm("press x to close", lvl.tipManager.HideTip, lvl.tipManager.HideTip, false);
+			lvl.confirm.ShowConfirm(Confirm.Mode_OK, true,"press x to close","Close","", true, lvl.tipManager.HideTip, lvl.tipManager.HideTip);
 		}
 	}
 }

@@ -119,7 +119,8 @@ class Level8 extends Level
 	override public function update():Void 
 	{
 		super.update();
-		if(confirmReady || FlxG.paused || endPause)	return;
+		if((confirm.visible&&confirm.isModel)
+		 || FlxG.paused || endPause)	return;
 
 		FlxG.overlap(missles, bullets, function(m:FlxObject, b:FlxObject){m.hurt(1); b.kill();});
 

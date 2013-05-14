@@ -236,7 +236,8 @@ class Level3 extends Level
 	override public function update():Void
 	{
 		super.update();
-		if(confirmReady || FlxG.paused || endPause)	return;
+		if((confirm.visible&&confirm.isModel)
+		 || FlxG.paused || endPause)	return;
 
 		FlxG.collide(bot, t);
 

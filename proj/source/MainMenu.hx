@@ -93,11 +93,12 @@ class MainMenu extends MWState
 		add(btnMute);
 		add(txtCreator);
 
+		// Initial
 		ResUtil.playTitle();
-		ShowConfirm("well", null, false);
 		#if !FLX_NO_KEYBOARD
 		selId = 0;
 		ChangeSel(0);
+		confirm.ShowConfirm(Confirm.Mode_TextOnly, false, "Arrow UP/DOWN to Select, X to Start", "", "", false, null, null);
 		#end
 	}
 
