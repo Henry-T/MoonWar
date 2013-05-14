@@ -119,11 +119,11 @@ class GameStatic
 		// Get Screen Density
 		var dpi = Capabilities.screenDPI;
 		if (dpi < 100)
-			screenDensity = 1;
+			screenDensity = Density_S
 		else if (dpi < 200)
-			screenDensity = 1.5;
+			screenDensity = Density_M;
 		else
-			screenDensity = 2;
+			screenDensity = Density_L;
 		//screenDensity = 1.5;
 
 		// Check ratio mode 
