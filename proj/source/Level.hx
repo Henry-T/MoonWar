@@ -194,9 +194,6 @@ class Level extends MWState
 	private var camTweening:Bool;
 	private var onCamTweenDone:Void->Void;
 
-	// Input
-	public var input:Input;
-
 	// misc
 	public static var maxSelPause:Int = 3;
 	public static var maxSelEnd:Int = 3;
@@ -213,8 +210,6 @@ class Level extends MWState
 	{
 		super.create();
 		this.bgColor = 0xff000000;
-
-		input = new Input();
 
 		bgStar = new FlxSprite(0, 0, "assets/img/bgStar.png");	bgStar.scrollFactor = new FlxPoint(0, 0);
 		bgMetal = new FlxSprite(0, 0, "assets/img/metal.png");	bgMetal.scrollFactor = new FlxPoint(0, 0);
@@ -723,8 +718,6 @@ class Level extends MWState
 		add(sceneName);
 
 		add(btnMute);
-
-		add(input);
 	}
 
 	override public function update():Void 

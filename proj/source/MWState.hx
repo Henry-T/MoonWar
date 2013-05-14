@@ -29,6 +29,9 @@ class MWState extends FlxState
 	public var confirmCallBack:Void->Void;
 	public var cancelCallBack:Void->Void;
 
+	// Input
+	public var input:Input;
+
 	public function new (){
 		super();
 	}
@@ -57,6 +60,8 @@ class MWState extends FlxState
 		else
 			btnMute.loadGraphic("assets/img/mute.png");
 
+
+		input = new Input();
 
 		// gui - confirm panel
 		confirmGroup = new FlxGroup();
@@ -103,12 +108,12 @@ class MWState extends FlxState
 
 		#if !FLX_NO_TOUCH
 		if(GameStatic.screenDensity == GameStatic.Density_S){
-			imgConfirm_confirm.loadGraphic("assets/img/key_X_A.png");
-			imgCancel_confirm.loadGraphic("assets/img/key_Z_A.png");
-		}
-		else if(GameStatic.screenDensity == GameStatic.Density_M){
 			imgConfirm_confirm.loadGraphic("assets/img/key_X_B.png");
 			imgCancel_confirm.loadGraphic("assets/img/key_Z_B.png");
+		}
+		else if(GameStatic.screenDensity == GameStatic.Density_M){
+			imgConfirm_confirm.loadGraphic("assets/img/key_X_M.png");
+			imgCancel_confirm.loadGraphic("assets/img/key_Z_M.png");
 		}
 		#end
 
@@ -127,6 +132,7 @@ class MWState extends FlxState
 
 	public override function update(){
 		super.update();
+		input.update();
 		#if !FLX_NO_KEYBOARD
 		if(FlxG.keys.justPressed("M")){
 			FlxG.mute = !FlxG.mute;
@@ -135,12 +141,22 @@ class MWState extends FlxState
 		#end
 		if(confirmReady){
 			confirmGroup.update();
+			#if !FLX_NO_KEYBOARD
+			if(input.JustDown_Shoot)
+				onConfirm();
+			else if(input.JustDown_Jump)
+				onCancel();
+			#end
 		}
 	}
 
 	public override function draw(){
 		super.draw();
+	}
+
+	public function postSuperDraw(){
 		confirmGroup.draw();
+		input.draw();
 	}
 
 	private function updateMuteButton(){
