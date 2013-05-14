@@ -59,7 +59,7 @@
  <objectgroup name="bonus" width="125" height="24" visible="0">
   <object name="life" x="498" y="118"/>
  </objectgroup>
- <objectgroup name="misc" width="125" height="24" visible="0">
+ <objectgroup name="misc" width="125" height="24">
   <object name="start" x="100" y="220" width="40" height="40"/>
   <object name="end" x="2360" y="280" width="40" height="40"/>
   <object type="cube" x="760" y="260" width="40" height="40"/>
@@ -91,7 +91,11 @@
   <object name="fightArea" x="1520" y="40" width="380" height="280"/>
   <object name="border" type="border" x="20" y="0" width="2420" height="480"/>
   <object name="cam1" type="cam" x="1440" y="40" width="540" height="400"/>
-  <object name="com1" type="com" x="160" y="220" width="20" height="40"/>
+  <object name="com1" type="com" x="120" y="220" width="20" height="40">
+   <properties>
+    <property name="tip" value="0"/>
+   </properties>
+  </object>
   <object name="pick" type="sign" x="2020" y="240" width="180" height="20">
    <properties>
     <property name="text" value="Pick up to repair"/>
@@ -100,6 +104,16 @@
   <object name="exit" type="sign" x="2300" y="240" width="120" height="20">
    <properties>
     <property name="text" value="Exit Ahead"/>
+   </properties>
+  </object>
+  <object name="com1" type="com" x="280" y="240" width="20" height="40">
+   <properties>
+    <property name="tip" value="1"/>
+   </properties>
+  </object>
+  <object name="com1" type="com" x="680" y="260" width="20" height="40">
+   <properties>
+    <property name="tip" value="2"/>
    </properties>
   </object>
  </objectgroup>

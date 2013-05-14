@@ -164,6 +164,9 @@ class Level extends MWState
 	public var btnShowHelp:FlxButton;
 	public var sceneName:FlxText;
 
+	// gui - tip
+	public var tipManager:TipManager;
+
 	// Utility
 	public var timer1:FlxTimer;
 	public var timer2:FlxTimer;
@@ -421,6 +424,9 @@ class Level extends MWState
 		sceneName.scrollFactor.make(0,0);
 		sceneName.alpha = 0;
 
+		// gui - tip
+		tipManager = new TipManager();
+
 		// Dialogs
 		// try load tile layers
 		tileBgFar = GetTile("bgFar", FlxObject.NONE);
@@ -473,7 +479,15 @@ class Level extends MWState
 				}
 				else if (o.type == "com")
 				{
-					// do nothing.. com will be load by levels themself
+					// load indiependent consoles
+					// level related coms are defined with a name like "comIn" or "comOut"
+					// level related coms(with a name) are likely to get override by subclasses!!
+					var tipData:String = o.custom.resolve("tip");
+					if(tipData != null && tipData != ""){
+						var com:Com = cast(coms.recycle(Com), Com);
+						com.reset(o.x, o.y);
+						com.SetTip(Std.parseInt(tipData));
+					}
 				}
 				else if(o.type =="border"){
 					FlxG.camera.setBounds(o.x, o.y, o.width, o.height, true);
@@ -583,6 +597,7 @@ class Level extends MWState
 		ShowPause(false);
 		FlxG.paused = false;
 		endPause = false;
+		tipManager.HideTip();
 	}
 
 	public function AddAll():Void
@@ -702,6 +717,8 @@ class Level extends MWState
 		pauseGroup.add(add(btnQuit_Pause));
 		pauseGroup.add(add(lbPaused));
 
+		add(tipManager);
+
 		add(toSkip);
 		add(sceneName);
 
@@ -774,6 +791,12 @@ class Level extends MWState
 			if(onCamTweenDone!=null)
 				onCamTweenDone();
 		}
+
+		FlxG.overlap(bot, coms, function(b:FlxObject, c:FlxObject){
+			var com:Com = cast(c, Com);
+			if(input.JustDown_Action/* && com.onTig!=null*/)
+				com.onTig();
+		});
 
 		FlxG.collide(bigGuns, bot);
 		FlxG.collide(aCatchs, bot);

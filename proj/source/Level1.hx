@@ -66,11 +66,6 @@ class Level1 extends Level
 			else if(td.name == "cam1"){
 				camPos1 = new FlxPoint(td.x + td.width * 0.5, td.y + td.height * 0.5);
 			}
-			else if (td.name == "com1")
-			{
-				var com:Com = cast(coms.recycle(Com), Com);
-				com.make(td);
-			}
 		}
 		
 		bd1 = new FlxBackdrop("assets/img/metal.png", 0.2, 0.2, true, true);
