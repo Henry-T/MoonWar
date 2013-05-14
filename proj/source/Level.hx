@@ -804,7 +804,6 @@ class Level extends MWState
 		FlxG.overlap(bot, coms, function(b:FlxObject, c:FlxObject){
 			var com:Com = cast(c, Com);
 			if(bot.On && lineMgr.isEnd && input.JustDown_Action && com.onTig!=null){
-				trace("shit");
 				com.ToggleOn();
 			}
 		});

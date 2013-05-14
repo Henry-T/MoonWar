@@ -9,6 +9,7 @@ class Com extends FlxSprite
 	public var On:Bool;
 	public var name:String;
 	public var tipId:Int;
+	public var AutoReset:Bool;
 
 	public function new(x:Float=0, y:Float=0, on:Bool = false )
 	{
@@ -28,6 +29,12 @@ class Com extends FlxSprite
 			SetOn(false);
 		else
 			SetOn(true);
+	}
+
+	public override function update(){
+		super.update();
+		if(AutoReset && !FlxG.overlap(this, cast(FlxG.state, Level).bot) && On)
+			SetOn(false);
 	}
 
 	public function SetOn(on:Bool):Void 
@@ -57,5 +64,7 @@ class Com extends FlxSprite
 			lvl.tipManager.ShowTip(tipId); 
 			lvl.confirm.ShowConfirm(Confirm.Mode_OK, true,"press x to close","Close","", false, lvl.tipManager.HideTip, lvl.tipManager.HideTip);
 		}
+		// if a console is tip provider, set it as autoreset
+		AutoReset = true;
 	}
 }
