@@ -10,7 +10,7 @@ import org.flixel.tweens.motion.LinearMotion;
 import org.flixel.tweens.misc.VarTween;
 import org.flixel.addons.FlxBackdrop;
 
-class EndScreen extends GameScreen 
+class EndScreen extends MWState 
 {
 	public var txtTheEnd:FlxSprite;
 	public var txtThanks:FlxSprite;

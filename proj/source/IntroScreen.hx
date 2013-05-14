@@ -4,7 +4,7 @@ import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxText;
 
-class IntroScreen extends GameScreen
+class IntroScreen extends MWState
 {
 	public var id:Int;
 	public var imgAry:Array<FlxSprite>;

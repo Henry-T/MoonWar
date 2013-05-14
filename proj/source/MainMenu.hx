@@ -8,7 +8,7 @@ import mochi.as3.MochiAd;
 import mochi.as3.MochiServices;
 import org.flixel.addons.FlxBackdrop;
 
-class MainMenu extends GameScreen
+class MainMenu extends MWState
 {
 	public var bdSky:FlxBackdrop;
 	public var bgImage:FlxSprite;
@@ -94,7 +94,7 @@ class MainMenu extends GameScreen
 		add(txtCreator);
 
 		ResUtil.playTitle();
-
+		ShowConfirm("well", null, false);
 		#if !FLX_NO_KEYBOARD
 		selId = 0;
 		ChangeSel(0);

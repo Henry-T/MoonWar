@@ -9,7 +9,7 @@ import nme.display.BitmapData;
 import org.flixel.addons.FlxBackdrop;
 
 
-class GameMap extends GameScreen 
+class GameMap extends MWState 
 {
 	public var lvlBtns:FlxGroup;
 	public var btnIntro:MyButton;
