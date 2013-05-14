@@ -27,6 +27,8 @@ class IntroScreen extends GameScreen
 
 	override public function create():Void
 	{
+		super.create();
+
 		imgAry = new Array<FlxSprite>();
 		for (i in 0...4) {
 			var name = "assets/img/intro" + i + ".png";
