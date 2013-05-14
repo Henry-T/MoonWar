@@ -32,7 +32,7 @@ class GameStatic
 	public static var endViewed:Bool = false;	// turn this on when end screen shown
 	public static var score:Int = 0;		//
 
-	public static var AllLevelCnt:Int = 10;
+	public static var AllLevelCnt:Int = 8;
 
 	//public static var ProcLvl:Int;
 	public static var ProcLvl(getProcLvl, setProcLvl):Int;
@@ -205,24 +205,22 @@ class GameStatic
 		switch(id)
 		{
 		case 0:
-			return new IntroScreen();
-		case 1:
 			return new Level1();
-		case 2:
+		case 1:
 			return new Level2();
-		case 3:
+		case 2:
 			return new Level3();
-		case 4:
+		case 3:
 			return new Level4();
-		case 5:
+		case 4:
 			return new Level5();
-		case 6:
+		case 5:
 			return new Level6();
-		case 7:
+		case 6:
 			return new Level7();
-		case 8:
+		case 7:
 			return new Level8();
-		case 9:
+		case 8:
 			return new EndScreen();
 		}
 		return null;
@@ -236,25 +234,21 @@ class GameStatic
 	{
 		switch (id) {
 			case 0:
-				return "INVADER";
-			case 1:
 				return "FIRST BLOOD";
-			case 2:
+			case 1:
 				return "TEAM DEFENCE";
-			case 3:
+			case 2:
 				return "BREAK OUT";
-			case 4:
+			case 3:
 				return "BROKEN INSIDE";
-			case 5:
+			case 4:
 				return "SPARE CHANNEL";
-			case 6:
+			case 5:
 				return "BASE ENTRANCE";
-			case 7:
+			case 6:
 				return "INNER BASE";
-			case 8:
+			case 7:
 				return "MOON CORE";
-			case 9:
-				return "IT'S OVER";
 		}
 		return "MISSION UNKNOWN";
 	}
@@ -263,25 +257,21 @@ class GameStatic
 	{
 		switch (id) {
 			case 0:
-				return "RageMetal leads its force to conquer Moon\rPeople in Surface Base are on emergency meeting";
-			case 1:
 				return "While RageMetal's pioneers approaching\rCubeBot is under it's launch test";
-			case 2:
+			case 1:
 				return "RageMetal lands near Surface Base\rDr.Cube has gifts for it";
-			case 3:
+			case 2:
 				return "Transport station is needed to find RageMetal\nBut we spoted the air blocked by it's force";
-			case 4:
+			case 3:
 				return "RageMetal's force is filling the tunnel\nMain Tunnel is shortcut Moon Core";
-			case 5:
+			case 4:
 				return "Lift in Main Tunnel is destroied by RageMetal\nWell we still have a spare channel";
-			case 6:
+			case 5:
 				return "Inner Base is surrounded\nThe situation is not so good";
-			case 7:
+			case 6:
 				return "Inner Base is a huge facility\nMoon Gate to Moon Core is locked";
-			case 8:
+			case 7:
 				return "RageMetal absorbed energy in Moon Core\nWe will have to bury it here";
-			case 9:
-				return "Moon is in peace again";
 		}
 		return "No Description";
 	}

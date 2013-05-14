@@ -104,7 +104,7 @@ class Level2 extends Level
 	{
 		super.create();
 		
-		GameStatic.CurLvl = 2;
+		GameStatic.CurLvl = 1;
 		lvlState = 0;
 		
 		// Load Tiles

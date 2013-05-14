@@ -42,7 +42,7 @@ class Level7 extends Level
 	{
 		super.create();
 		
-		GameStatic.CurLvl = 7;
+		GameStatic.CurLvl = 6;
 		
 		var mG:TmxObjectGroup = tmx.getObjectGroup("misc");
 		for (o in mG.objects) 

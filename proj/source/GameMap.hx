@@ -12,7 +12,6 @@ import org.flixel.addons.FlxBackdrop;
 class GameMap extends MWState 
 {
 	public var lvlBtns:FlxGroup;
-	public var btnIntro:MyButton;
 	public var btnLvl1:MyButton;
 	public var btnLvl2:MyButton;
 	public var btnLvl3:MyButton;
@@ -21,7 +20,6 @@ class GameMap extends MWState
 	public var btnLvl6:MyButton;
 	public var btnLvl7:MyButton;
 	public var btnLvl8:MyButton;
-	public var btnEnd:MyButton;
 	public var btnMenu:MyButton;
 	public var btnStart:MyButton;
 
@@ -71,7 +69,7 @@ class GameMap extends MWState
 		bgStar = new FlxBackdrop("assets/img/star2.png");
 
 		var lvlBtnX : Int = Std.int(FlxG.width * 0.165  - btnGLvlNormal.width * 0.5);
-		var lvlBtnYOffset : Int = Std.int((FlxG.height * 0.9 - 10)/10);
+		var lvlBtnYOffset : Int = Std.int((FlxG.height * 0.9 - GameStatic.AllLevelCnt)/GameStatic.AllLevelCnt);
 
 		leftPnl = new SliceShape(lvlBtnX-3, 0, btnGLvlNormal.width + 6, FlxG.height, "assets/img/ui_barv_b.png", SliceShape.MODE_VERTICLE, 1);
 		bottomPnl = new SliceShape(0, Std.int(FlxG.height * 0.905), FlxG.width, Std.int(FlxG.height * 0.09), "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
@@ -81,19 +79,14 @@ class GameMap extends MWState
 		picPnl = new SliceShape(Math.round(FlxG.width * 0.36), Math.round(FlxG.height * 0.1), picPnlWidth, picPnlHeight, "assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
 
 		lvlBtns = new FlxGroup();
-		btnIntro = new MyButton(lvlBtnX, 5, "INTRO", function() { SwitchLevel(0); FlxG.play("sel1");}); lvlBtns.add(btnIntro);
-		// btnIntro.label.setFormat(null, 8, 0xffffaa40);
-		btnIntro.label.shadow = 2;//= new FlxText();
-		
-		btnLvl1 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 1, "LEVEL1", function() { SwitchLevel(1); FlxG.play("sel1");} ); lvlBtns.add(btnLvl1);
-		btnLvl2 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 2, "LEVEL2", function() { SwitchLevel(2); FlxG.play("sel1");} ); lvlBtns.add(btnLvl2);
-		btnLvl3 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 3, "LEVEL3", function() { SwitchLevel(3); FlxG.play("sel1");} ); lvlBtns.add(btnLvl3);
-		btnLvl4 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 4, "LEVEL4", function() { SwitchLevel(4); FlxG.play("sel1");} ); lvlBtns.add(btnLvl4);
-		btnLvl5 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 5, "LEVEL5", function() { SwitchLevel(5); FlxG.play("sel1");} ); lvlBtns.add(btnLvl5);
-		btnLvl6 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 6, "LEVEL6", function() { SwitchLevel(6); FlxG.play("sel1");} ); lvlBtns.add(btnLvl6);
-		btnLvl7 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 7, "LEVEL7", function() { SwitchLevel(7); FlxG.play("sel1");} ); lvlBtns.add(btnLvl7);
-		btnLvl8 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 8, "LEVEL8", function() { SwitchLevel(8); FlxG.play("sel1");} ); lvlBtns.add(btnLvl8);
-		btnEnd = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 9, "END", function() { SwitchLevel(9); FlxG.play("sel1");} ); lvlBtns.add(btnEnd);
+		btnLvl1 = new MyButton(lvlBtnX, 5, "LEVEL1", function() { SwitchLevel(1); FlxG.play("sel1");} ); lvlBtns.add(btnLvl1);
+		btnLvl2 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 1, "LEVEL2", function() { SwitchLevel(2); FlxG.play("sel1");} ); lvlBtns.add(btnLvl2);
+		btnLvl3 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 2, "LEVEL3", function() { SwitchLevel(3); FlxG.play("sel1");} ); lvlBtns.add(btnLvl3);
+		btnLvl4 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 3, "LEVEL4", function() { SwitchLevel(4); FlxG.play("sel1");} ); lvlBtns.add(btnLvl4);
+		btnLvl5 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 4, "LEVEL5", function() { SwitchLevel(5); FlxG.play("sel1");} ); lvlBtns.add(btnLvl5);
+		btnLvl6 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 5, "LEVEL6", function() { SwitchLevel(6); FlxG.play("sel1");} ); lvlBtns.add(btnLvl6);
+		btnLvl7 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 6, "LEVEL7", function() { SwitchLevel(7); FlxG.play("sel1");} ); lvlBtns.add(btnLvl7);
+		btnLvl8 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 7, "LEVEL8", function() { SwitchLevel(8); FlxG.play("sel1");} ); lvlBtns.add(btnLvl8);
 
 		pic = new FlxSprite();
 
@@ -237,8 +230,8 @@ class GameMap extends MWState
 				selectorMenu.x = btnStart.x + GameStatic.offset_border;
 				selectorMenu.y = btnStart.y + GameStatic.offset_border;
 			case 1:
-				selectorMenu.x = btnEnd.x + GameStatic.offset_border;
-				selectorMenu.y = btnEnd.y + GameStatic.offset_border;
+				selectorMenu.x = btnMenu.x + GameStatic.offset_border;
+				selectorMenu.y = btnMenu.y + GameStatic.offset_border;
 		}
 	}
 

@@ -75,7 +75,7 @@ class Level1 extends Level
 		bd1 = new FlxBackdrop("assets/img/metal.png", 0.2, 0.2, true, true);
 
 		// Initial
-		GameStatic.CurLvl = 1;
+		GameStatic.CurLvl = 0;
 		bot.x = start.x; bot.y = start.y; bot.On = false;
 		FlxG.camera.follow(bot);
 		inFight = false;

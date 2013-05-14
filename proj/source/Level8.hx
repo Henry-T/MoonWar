@@ -51,7 +51,7 @@ class Level8 extends Level
 	{
 		super.create();
 		
-		GameStatic.CurLvl = 8;
+		GameStatic.CurLvl = 7;
 		
 		// load misc
 		var mG:TmxObjectGroup = tmx.getObjectGroup("misc");

@@ -63,7 +63,7 @@ class Level3 extends Level
 	{
 		super.create();
 		
-		GameStatic.CurLvl = 3;
+		GameStatic.CurLvl = 2;
 		
 		lvlState = 0;
 		preWalking = true;
