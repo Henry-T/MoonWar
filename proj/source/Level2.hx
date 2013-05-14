@@ -365,7 +365,7 @@ class Level2 extends Level
 	override public function update():Void
 	{
 		super.update();
-		if(FlxG.paused || endPause)	return;
+		if(confirmReady || FlxG.paused || endPause)	return;
 
 		// remove cubes when out of view range
 		for (c in cubes.members) {

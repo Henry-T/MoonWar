@@ -712,6 +712,9 @@ class Level extends MWState
 
 	override public function update():Void 
 	{
+		if(confirmReady)
+			return;
+
 		if(FlxG.paused){
 			pauseGroup.update();
 
