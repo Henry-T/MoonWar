@@ -40,7 +40,7 @@ class GameStatic
 	public static function setCurLvl(val:Int):Int { Save.data.CurLvl = val; return val; }
 	public static function getCurLvl():Int { return Save.data.CurLvl; }
 
-	public static var screenDensity : Int;
+	public static var screenDensity : Float;
 
 	// Layout 
 	public static var txtSize_normalButton:Int;
@@ -117,10 +117,10 @@ class GameStatic
 		if (dpi < 100)
 			screenDensity = 1;
 		else if (dpi < 200)
-			screenDensity = 2;
+			screenDensity = 1.5;
 		else
-			screenDensity = 3;
-		//screenDensity = 2;
+			screenDensity = 2;
+		screenDensity = 1.5;
 
 		// Check ratio mode 
 		ratioValue = nme.system.Capabilities.pixelAspectRatio;
@@ -141,25 +141,25 @@ class GameStatic
 		heightH = Std.int(FlxG.height * 0.5);
 
 		// set layout size based on device screen
-		txtSize_normalButton= screenDensity * base_txtSize_normalButton;
-		txtSize_menuButton	= screenDensity * base_txtSize_menuButton;
-		txtSize_mainButton	= screenDensity * base_txtSize_mainButton;
-		txtSize_dialog		= screenDensity * base_txtSize_dialog;
-		button_itemWidth	= screenDensity * base_button_itemWidth;
-		button_itemHeight	= screenDensity * base_button_itemHeight;
-		border_itemWidth	= screenDensity * base_border_itemWidth;
-		border_itemHeight	= screenDensity * base_border_itemHeight;
-		button_menuWidth	= screenDensity * base_button_menuWidth;
-		button_menuHeight	= screenDensity * base_button_menuHeight;
-		//button_menuWidth 	= screenDensity * base_button_menuWidth;
+		txtSize_normalButton= Std.int(screenDensity * base_txtSize_normalButton);
+		txtSize_menuButton	= Std.int(screenDensity * base_txtSize_menuButton);
+		txtSize_mainButton	= Std.int(screenDensity * base_txtSize_mainButton);
+		txtSize_dialog		= Std.int(screenDensity * base_txtSize_dialog);
+		button_itemWidth	= Std.int(screenDensity * base_button_itemWidth);
+		button_itemHeight	= Std.int(screenDensity * base_button_itemHeight);
+		border_itemWidth	= Std.int(screenDensity * base_border_itemWidth);
+		border_itemHeight	= Std.int(screenDensity * base_border_itemHeight);
+		button_menuWidth	= Std.int(screenDensity * base_button_menuWidth);
+		button_menuHeight	= Std.int(screenDensity * base_button_menuHeight);
+		//button_menuWidth 	= Std.int(screenDensity * base_button_menuWidth);
 		//button_menuHeight 	= Std.int(FlxG.height * 0.08);
-		border_menuWidth	= screenDensity * base_border_menuWidth;
-		border_menuHeight	= screenDensity * base_border_menuHeight;
-		button_mainWidth	= screenDensity * base_button_mainWidth;
-		button_mainHeight	= screenDensity * base_button_mainHeight;
-		border_mainWidth	= screenDensity * base_border_mainWidth;
-		border_mainHeight	= screenDensity * base_border_mainHeight;
-		offset_border 		= screenDensity * base_offset_border;
+		border_menuWidth	= Std.int(screenDensity * base_border_menuWidth);
+		border_menuHeight	= Std.int(screenDensity * base_border_menuHeight);
+		button_mainWidth	= Std.int(screenDensity * base_button_mainWidth);
+		button_mainHeight	= Std.int(screenDensity * base_button_mainHeight);
+		border_mainWidth	= Std.int(screenDensity * base_border_mainWidth);
+		border_mainHeight	= Std.int(screenDensity * base_border_mainHeight);
+		offset_border 		= Std.int(screenDensity * base_offset_border);
 	}
 
 	public static function Load():Void
