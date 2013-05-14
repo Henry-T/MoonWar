@@ -337,6 +337,11 @@ class Boss1 extends Enemy
 		game.eExplo.visible = true;
 		game.eExplo.play("expl", true);
 		timer.start(3, 1, function(t:FlxTimer):Void{game.switchState(3);});
+		// kill all ducks
+		for (d in cast(FlxG.state, Level).ducks.members) {
+			if(d.alive)
+				d.kill();
+		}
 		}
 		else if(state == STdefDisp)
 		{
