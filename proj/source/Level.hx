@@ -382,7 +382,7 @@ class Level extends MWState
 		selector_Pause = new FlxSprite(ResUtil.bmpSelMenu);
 		selector_Pause.scrollFactor.make(0,0);
 
-		btnResume_Pause = new MyButton(0, 0, "RESUME", function() { FlxG.switchState(GameStatic.GetCurLvlInst()); } );
+		btnResume_Pause = new MyButton(0, 0, "RESUME", function() { Pause(false); } );
 		btnResume_Pause.loadGraphic(ResUtil.bmpBtnBMenuNormal);
 		btnResume_Pause.x = FlxG.width/2 - btnResume_Pause.width/2;
 		btnResume_Pause.y = FlxG.height/2 - 50;
@@ -718,6 +718,7 @@ class Level extends MWState
 		add(sceneName);
 
 		add(btnMute);
+		add(btnPause);
 		add(input);
 		add(confirm);
 	}
@@ -773,9 +774,11 @@ class Level extends MWState
 		super.update();
 
 		// Pause game by player
+		#if !FLX_NO_KEYBOARD
 		if(FlxG.keys.justPressed("P")){
 			Pause(true);
 		}
+		#end
 
 		// handle skip
 		if(toSkip.visible){
@@ -983,7 +986,6 @@ class Level extends MWState
 	public function ActionPause(id:Int){
 		switch (id) {
 			case 0:
-			// TODO resume the game
 			Pause(false);
 			case 1:
 			confirm.ShowConfirm(Confirm.Mode_YesNo, true, "Current Process Will Be Lost, Continue?", "Yes", "No", true,
@@ -1144,8 +1146,16 @@ class Level extends MWState
 			Pause(true);
 	}
 
-	public function Pause(pause:Bool){
-		FlxG.paused = pause;
-		ShowPause(pause);
+	public override function Pause(pause:Bool){
+		if(pause && !(confirm.visible && confirm.isModel) && !isEnd){
+			FlxG.paused = true;
+			ShowPause(true);
+		}
+		if(!pause){
+			FlxG.paused = false;
+			ShowPause(false);
+		}
+
+		super.Pause(pause);	// just update pause button
 	}
 }

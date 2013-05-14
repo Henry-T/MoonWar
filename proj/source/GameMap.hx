@@ -144,7 +144,7 @@ class GameMap extends MWState
 		for (b in lvlBtns.members) {
 			cast(b, FlxButton).label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_normalButton, 0xffffffff, "center");
 		}
-		SwitchLevel(0);
+		SwitchLevel(GameStatic.CurLvl);
 		#if !FLX_NO_KEYBOARD
 		curMenuSel = 0;
 		SwitchMenu(curMenuSel);
