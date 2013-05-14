@@ -718,12 +718,22 @@ class Level extends MWState
 		add(sceneName);
 
 		add(btnMute);
+		add(input);
+		add(confirm);
 	}
 
 	override public function update():Void 
 	{
-		super.update();
+		// well this is too basic and have to get updated even game is paused
+		input.update();
 
+		// Block Prority #1 Confirm
+		if(confirm.visible && confirm.isModel){
+			confirm.update();
+			return;
+		}
+
+		// Block Prority #2 Pause
 		if(FlxG.paused){
 			pauseGroup.update();
 
@@ -742,13 +752,11 @@ class Level extends MWState
 			return;
 		}
 
+		// Block Prority #2 End
 		if(endPause){
 			endGroup.update();
 
 			#if !FLX_NO_KEYBOARD
-			if(FlxG.keys.justPressed("P") && !isEnd){
-				Pause(true);
-			}
 			if(endBg.visible){
 				if(FlxG.keys.justPressed("UP"))
 					ChangeSelEnd(curSelEnd-1);
@@ -761,8 +769,13 @@ class Level extends MWState
 			return;
 		}
 
-		if((confirm.visible&&confirm.isModel)
-		 || FlxG.paused || endPause)	return;
+		// return above this line to pause default flixel game hehavior
+		super.update();
+
+		// Pause game by player
+		if(FlxG.keys.justPressed("P")){
+			Pause(true);
+		}
 
 		// handle skip
 		if(toSkip.visible){
@@ -921,8 +934,6 @@ class Level extends MWState
 		}
 		
 		// update boss health bar
-		
-		super.update();
 	}
 
 	#if !FLX_NO_KEYBOARD
@@ -981,11 +992,11 @@ class Level extends MWState
 			// TODO resume the game
 			Pause(false);
 			case 1:
-			// TODO show confirm
-			FlxG.switchState(GameStatic.GetCurLvlInst());
+			confirm.ShowConfirm(Confirm.Mode_YesNo, true, "Current Process Will Be Lost, Continue?", "Yes", "No", true,
+				function(){FlxG.switchState(GameStatic.GetCurLvlInst());}, null);
 			case 2:
-			// TODO show confirm
-			FlxG.switchState(new GameMap());
+			confirm.ShowConfirm(Confirm.Mode_YesNo, true, "Current Process Will Be Lost, Continue?", "Yes", "No", true,
+				function(){FlxG.switchState(new GameMap());}, null);
 		}
 	}
 	#end
@@ -1134,17 +1145,13 @@ class Level extends MWState
 	}
 
 	public override function onFocusLost(){
-		Pause(true);
+		// there are situations there's no need to pause even focus lost
+		if(!isEnd && !(confirm.visible&&confirm.isModel))
+			Pause(true);
 	}
 
 	public function Pause(pause:Bool){
 		FlxG.paused = pause;
 		ShowPause(pause);
-	}
-
-	public override function draw(){
-		super.draw();
-		// I am so lucky havn't override draw() in Level*, so one postSuperDraw() here is enough
-		postSuperDraw();
 	}
 }

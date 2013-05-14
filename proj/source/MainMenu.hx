@@ -92,6 +92,7 @@ class MainMenu extends MWState
 		add(btnClearData);
 		add(btnMute);
 		add(txtCreator);
+		add(confirm);
 
 		// Initial
 		ResUtil.playTitle();

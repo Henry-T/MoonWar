@@ -13,7 +13,7 @@ class Confirm extends FlxGroup{
 	// gui - confirm panel
 	public var confirmMask:FlxSprite;
 	public var confirmBg:SliceShape;
-	public var note:FlxText;
+	public var note:MyText;
 	public var btnConfirm:MyButton;
 	public var btnCancel:MyButton;
 	public var imgUp:FlxSprite;
@@ -40,7 +40,7 @@ class Confirm extends FlxGroup{
 		confirmBg = new SliceShape(0, FlxG.height*0.91,FlxG.width, Std.int(FlxG.height * 0.08), "assets/img/ui_barh_y.png", SliceShape.MODE_HERT, 1);
 		confirmBg.scrollFactor.make(0,0);
 
-		note = new FlxText(10, FlxG.height*0.95 - 6, Std.int(FlxG.width * 0.6), "choose yes or no ?");
+		note = new MyText(10, FlxG.height*0.95 - 6, Std.int(FlxG.width * 0.6), "choose yes or no ?");
 		note.scrollFactor.make(0,0);
 		note.setFormat(ResUtil.FNT_Pixelex,GameStatic.txtSize_menuButton, 0xff000000, "left");
 
@@ -91,6 +91,17 @@ class Confirm extends FlxGroup{
 			imgCancel.loadGraphic("assets/img/key_Z_M.png");
 		}
 		#end
+
+		add(confirmMask);
+		add(confirmBg);
+		add(note);
+		add(btnConfirm);
+		add(btnCancel);
+		add(imgConfirm);
+		add(imgCancel);
+
+		isModel = false;
+		visible = false;
 	}
 
 	public override function update(){
@@ -125,9 +136,13 @@ class Confirm extends FlxGroup{
 				imgCancel.visible = false;
 				btnCancel.visible = false;
 			case Mode_OK:
+				imgConfirm.visible = true;
+				btnConfirm.visible = true;
 				imgCancel.visible = false;
 				btnCancel.visible = false;
 			case Mode_YesNo:
+				imgConfirm.visible = true;
+				btnConfirm.visible = true;
 				imgCancel.visible = true;
 				btnCancel.visible = true;
 		}

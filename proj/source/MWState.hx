@@ -24,7 +24,7 @@ class MWState extends FlxState
 
 	public override function create(){
 		super.create();
-		
+
 		// something force game to mute at the beginning, so I have to force it back
 		if(GameStatic.justStart){
 			FlxG.mute = false;
@@ -53,31 +53,18 @@ class MWState extends FlxState
 		confirm = new Confirm();
 
 		// initial
-		confirm.visible = false;
+		confirm.visible = true;
 	}
 
 	public override function update(){
 		super.update();
 
-		input.update();
 		#if !FLX_NO_KEYBOARD
 		if(FlxG.keys.justPressed("M")){
 			FlxG.mute = !FlxG.mute;
 			updateMuteButton();
 		}
 		#end
-
-		confirm.update();
-	}
-
-	public override function draw(){
-		super.draw();
-	}
-
-	// Call this at end of final draw() override to draw stuff over game elements
-	public function postSuperDraw(){
-		input.draw();
-		confirm.draw();
 	}
 
 	private function updateMuteButton(){
