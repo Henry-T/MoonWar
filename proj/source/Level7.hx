@@ -114,7 +114,7 @@ class Level7 extends Level
 		lock3 = false;
 		lock4 = false;
 		
-		ShowSceneName("GATE OF MOON CORE");
+		ShowSceneName("7 - GATE OF MOON CORE");
 	}
 
 	override public function update():Void 

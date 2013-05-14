@@ -96,7 +96,7 @@ class Level1 extends Level
 				});
 			});
 		});
-		ShowSceneName("Moon Laboratory");
+		ShowSceneName("1 - Moon Laboratory");
 	}
 
 	override public function update():Void

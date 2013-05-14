@@ -66,7 +66,7 @@ class Level5 extends Level
 		ResUtil.playGame1();
 		bot.facing = FlxObject.RIGHT;
 		botRighting = true;
-		ShowSceneName("SPARE CHANNEL");
+		ShowSceneName("5 - SPARE CHANNEL");
 	}
 
 	override public function update():Void 

@@ -112,7 +112,7 @@ class Level8 extends Level
 		FlxG.flash(0xff000000, 2);
 		ResUtil.playGame1();
 		endTalkHappened = false;
-		ShowSceneName("MOON CORE");
+		ShowSceneName("8 - MOON CORE");
 	}
 
 	private var endTalkHappened:Bool;

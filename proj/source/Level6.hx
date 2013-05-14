@@ -83,7 +83,7 @@ class Level6 extends Level
 		FlxG.flash(0xff000000, 2);
 		ResUtil.playGame1();
 		camFixOn = false;
-		ShowSceneName("LASER PATH");
+		ShowSceneName("6 - LASER PATH");
 	}
 
 	override public function update():Void 

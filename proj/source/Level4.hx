@@ -111,7 +111,7 @@ class Level4 extends Level
 		downing = true;
 		downing2 = false;
 		FlxG.flash(0xff000000, 2);
-		ShowSceneName("MAIN CHANNEL");
+		ShowSceneName("4 - MAIN CHANNEL");
 	}
 
 	override public function update():Void
