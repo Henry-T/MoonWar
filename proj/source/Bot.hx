@@ -329,12 +329,12 @@ class Bot extends FlxSprite
 
 		// forbid more than one bullet in one frame
 		shootTimer += FlxG.elapsed;
-		while(shootTimer >= shootCold * 2){
-			shootTimer -= shootCold;
+		while(shootTimer > shootCold){
+			shootTimer = shootCold;
 		}
 
 		if(On && lvl.input.Shoot){
-			if(shootTimer > shootCold){
+			if(shootTimer >= shootCold){
 				getMidpoint(_point);
 				cast(_bullets.recycle(Bullet),Bullet).shoot(_point,_aim);
 				shootTimer -= shootCold;
