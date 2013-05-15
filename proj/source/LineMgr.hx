@@ -49,7 +49,7 @@ class LineMgr extends FlxSprite
 		lineBg.scrollFactor.make(0, 0);
 
 		line = new MyText(100, 80, FlxG.width - 150, ""); 
-		line.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_dialog, 0xff000000);
+		line.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_dialog, 0x000000);
 		line.visible = false;
 		line.scrollFactor.make(0, 0);
 
@@ -68,12 +68,12 @@ class LineMgr extends FlxSprite
 		heads.push(h);
 		
 		pressSpace = new MyText(100, 94, 400,"PRESS X");
-		pressSpace.setFormat("assets/fnt/pixelex.ttf", 8, 0xff000000, "right");
+		pressSpace.setFormat("assets/fnt/pixelex.ttf", 8, 0x000000, "right");
 		pressSpace.visible = false;
 		pressSpace.scrollFactor.make(0, 0);
 
 		roleName = new FlxText(0, headBg.y + headBg.height - 13, 90, "");
-		roleName.setFormat("assets/fnt/pixelex.ttf", 8, 0xff000000, "center");
+		roleName.setFormat("assets/fnt/pixelex.ttf", 8, 0x000000, "center");
 		roleName.visible = false;
 		roleName.scrollFactor.make(0, 0);
 

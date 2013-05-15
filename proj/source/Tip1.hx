@@ -23,7 +23,7 @@ class Tip1 extends FlxSprite
 		
 		graphic = new FlxText(x + 5, y + 5, Math.round(width));
 		graphic.text = text;
-		graphic.setFormat("assets/fnt/pixelex.ttf", 8, 0xff000000, "center");
+		graphic.setFormat("assets/fnt/pixelex.ttf", 8, 0x000000, "center");
 		shown = true;
 	}
 

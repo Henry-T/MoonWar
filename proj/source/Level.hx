@@ -396,7 +396,7 @@ class Level extends MWState
 		btnQuit_Pause.scrollFactor.make(0, 0);
 
 		lbPaused = new FlxText(0, 0, 200, "PAUSED", 26);
-		lbPaused.setFormat(ResUtil.FNT_Pixelex, 26, 0xffffffff, "center");
+		lbPaused.setFormat(ResUtil.FNT_Pixelex, 26, 0xffffff, "center");
 		lbPaused.x = FlxG.width*0.5 - lbPaused.width/2;
 		lbPaused.y = FlxG.height*0.5 - 120;
 		lbPaused.scrollFactor.make(0,0);
@@ -407,7 +407,7 @@ class Level extends MWState
 		toSkip.visible = false;
 
 		sceneName = new FlxText(0, 10, FlxG.width, "SceneName", 22);
-		sceneName.setFormat("assets/fnt/pixelex.ttf", 22, 0xffffffff, "center");
+		sceneName.setFormat("assets/fnt/pixelex.ttf", 22, 0xffffff, "center");
 		sceneName.scrollFactor.make(0,0);
 		sceneName.alpha = 0;
 

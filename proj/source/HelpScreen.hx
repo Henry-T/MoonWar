@@ -120,7 +120,7 @@ class HelpScreen extends MWState
 		txtCreated.y = FlxG.height * 0.5 - 50;
 
 		txtCreatedBy = new FlxText(0,0,120, "Lolofinil");
-		txtCreatedBy.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffffff, "left");
+		txtCreatedBy.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffff, "left");
 		txtCreatedBy.x = FlxG.width * 0.5 + 10;
 		txtCreatedBy.y = FlxG.height * 0.5 - 50;
 
@@ -130,18 +130,18 @@ class HelpScreen extends MWState
 		txtMusic.y = FlxG.height * 0.5 + 50;
 
 		txtMusicBy = new FlxText(0,0, 150, "www.nosoapradio.us");
-		txtMusicBy.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffffff, "left");
+		txtMusicBy.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffff, "left");
 		txtMusicBy.x = FlxG.width * 0.5 + 10;
 		txtMusicBy.y = FlxG.height * 0.5 + 50;
 
 		txtTitle = new FlxText(0, FlxG.height * 0.06, FlxG.width, "Title");
-		txtTitle.setFormat("assets/fnt/pixelex.ttf", 15, 0xffffffff, "center");
+		txtTitle.setFormat("assets/fnt/pixelex.ttf", 15, 0xffffff, "center");
 
 		txtNum = new FlxText(0, FlxG.height * 0.1, FlxG.width, "Num");
-		txtNum.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffffff, "center");
+		txtNum.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffff, "center");
 
 		txtDesc = new FlxText(0, FlxG.height * 0.8, FlxG.width, "Desc");
-		txtDesc.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffffff, "center");
+		txtDesc.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffff, "center");
 
 		add(bg);
 		add(mainPnl);

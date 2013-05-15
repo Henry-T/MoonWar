@@ -52,7 +52,7 @@ class IntroScreen extends MWState
 
 
 		text = new FlxText(FlxG.width/2 - 250, 15, 500, lines[0], 10);
-		text.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffffff, "center");
+		text.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffff, "center");
 
 		add(lastBtn);
 		add(nextBtn);

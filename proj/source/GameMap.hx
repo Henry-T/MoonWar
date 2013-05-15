@@ -113,13 +113,13 @@ class GameMap extends MWState
 
 
 		missionTxt = new FlxText(0, 0, 400, "");
-		missionTxt.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_mainButton, 0xffffffff, "center");
+		missionTxt.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_mainButton, 0xffffff, "center");
 		missionTxt.x = FlxG.width * 0.66 - 200;
 		missionTxt.y = 5;
 		//missionTxt.font = "assets/fnt/pixelex";
 
 		descTxt = new FlxText(0, 0, Std.int(FlxG.width * 0.6), "");
-		descTxt.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_dialog, 0xffffffff, "left");
+		descTxt.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_dialog, 0xffffff, "left");
 		descTxt.x = FlxG.width * 0.36;
 		descTxt.y = FlxG.height * 0.70 + 5;
 
@@ -142,7 +142,7 @@ class GameMap extends MWState
 		// init
 		ResUtil.playTitle();
 		for (b in lvlBtns.members) {
-			cast(b, FlxButton).label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_normalButton, 0xffffffff, "center");
+			cast(b, FlxButton).label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_normalButton, 0xffffff, "center");
 		}
 		SwitchLevel(GameStatic.CurLvl);
 		#if !FLX_NO_KEYBOARD

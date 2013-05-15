@@ -95,7 +95,7 @@ class MainMenu extends MWState
 		#end
 
 		txtCreator = new MyText(0, FlxG.height-15, FlxG.width, "Created By Lolofinil      Music By www.nosoapradio.us");
-		txtCreator.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_dialog, 0xffffffff, "center");
+		txtCreator.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_dialog, 0xffffff, "center");
 		txtCreator.scrollFactor.make(0, 0);
 		txtCreator.y = FlxG.height - txtCreator.GetTextHeight() - 1;
 		
