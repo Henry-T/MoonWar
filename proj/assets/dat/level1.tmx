@@ -23,7 +23,7 @@
  </tileset>
  <layer name="bg" width="125" height="24">
   <data encoding="base64" compression="zlib">
-   eJztmOGNwjAMhT0FP44R4AZAKnQD4PZf5rDUSMZymqS1W2jfJz0BobiNX+ymEIEWfte+ALA4Xp4fneIAPy5K7NGJfD1P8fS5wDrA8/2xZc8PX6DrS+cAdQ3XEOn5lJzMYW0/W/LtrZZ8b8nziPrxrsGUn9tLP4N68b5VPX2W57qPdWrM6kdziKgfzxrkuf8NY55YnieW9lz3MT3GaN/nwDEfNL1mvHWndz/03L34ZM+j8ZyHB/o+pz3XOanpGdbxvM57quvrstd45eo2xHuK2Hv1XOaC72WcD9kHLA9zfeqeOV7GL+3jpd98Hs9cpesrrVNv9Pw78d3VGFuCUp3qz7m92DFzfE7WOpB+E/l6zuvb8j2amt5o5cJaI0sw1/P0mxalvT6J12+mdk+Vk8zB2P0ziime753Sc7LeX+R6ANG7v/q31rlKsWvWy1gfinjG88bjP8axXivjJ1r7XK1HEXGhujoosfbzODRNAAAAAAAAgG3zD+qwifQ=
+   eJztmG9ugzAMxf1h3RH2oT1CtwNMouUGbXf/ywxLRHIth/zBgRbeT3oqTYMhfokJJQIl/Kx9A2BxvDw/OcUBfvwqsUdn8vU8xNPXAusAz/fHlj3/egNdBn03UFdwDy09r8nJHNb2syTf3irJ95Y8b7F+vNdgyM910HFUL45L1dNrea7rWKfarHo0hxbrx3MN8tj/xjZPLM8DS3uu65huY7Tvc+CYd6pfM9660bMfeuxevLLnrfEchwf6Oac91znJqRlWf57nPeXVdVlrvHJ1HeM9ROy9ei5zwc8yzoesA5aHsTp1i/SX8VP7eOk3X8czV+H+UvPUGz3+Tvx2MdqWILVO9ffYXuwU6R+TNQ+k30S+nvP8tnyv5WPQQenT6JdTG61cWHNkCeZ6Hs4pUdjrk/h8Z3L3VDHJHEw9P1tR4/neSb0n6/1FrAYQPfurz7WulYqdM1+m6lCLdzxvPP5jnKq1Mn6gtM7letQiLpS3DlKs/T4O1QkAAAAAAACwbf4BctWKEg==
   </data>
  </layer>
  <layer name="tile" width="125" height="24">
@@ -101,7 +101,7 @@
     <property name="text" value="Pick up to repair"/>
    </properties>
   </object>
-  <object name="exit" type="sign_" x="2300" y="240" width="120" height="20">
+  <object name="exit" type="sign" x="2300" y="240" width="120" height="20">
    <properties>
     <property name="text" value="Exit Ahead"/>
    </properties>
