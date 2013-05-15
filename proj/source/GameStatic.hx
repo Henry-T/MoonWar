@@ -151,19 +151,17 @@ class GameStatic
 		txtSize_dialog		= Std.int(screenDensity * base_txtSize_dialog);
 		button_itemWidth	= Std.int(screenDensity * base_button_itemWidth);
 		button_itemHeight	= Std.int(screenDensity * base_button_itemHeight);
-		border_itemWidth	= Std.int(screenDensity * base_border_itemWidth);
-		border_itemHeight	= Std.int(screenDensity * base_border_itemHeight);
+		border_itemWidth	= button_itemWidth + 2;
+		border_itemHeight	= button_itemHeight + 2;
 		button_menuWidth	= Std.int(screenDensity * base_button_menuWidth);
 		button_menuHeight	= Std.int(screenDensity * base_button_menuHeight);
-		//button_menuWidth 	= Std.int(screenDensity * base_button_menuWidth);
-		//button_menuHeight 	= Std.int(FlxG.height * 0.08);
-		border_menuWidth	= Std.int(screenDensity * base_border_menuWidth);
-		border_menuHeight	= Std.int(screenDensity * base_border_menuHeight);
+		border_menuWidth	= button_menuWidth + 2;
+		border_menuHeight	= button_menuHeight + 2;
 		button_mainWidth	= Std.int(screenDensity * base_button_mainWidth);
 		button_mainHeight	= Std.int(screenDensity * base_button_mainHeight);
-		border_mainWidth	= Std.int(screenDensity * base_border_mainWidth);
-		border_mainHeight	= Std.int(screenDensity * base_border_mainHeight);
-		offset_border 		= Std.int(screenDensity * base_offset_border);
+		border_mainWidth	= button_mainWidth + 2;
+		border_mainHeight	= button_mainHeight + 2;
+		offset_border 		= base_offset_border;
 	}
 
 	public static function Load():Void
