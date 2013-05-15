@@ -94,8 +94,8 @@ class MainMenu extends MWState
 		selector = new FlxSprite(ResUtil.bmpSelMain);
 		#end
 
-		txtCreator = new MyText(0, FlxG.height-15, FlxG.width, "Created By Lolofinil\t\tMusic By www.nosoapradio.us");
-		txtCreator.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffffff, "center");
+		txtCreator = new MyText(0, FlxG.height-15, FlxG.width, "Created By Lolofinil      Music By www.nosoapradio.us");
+		txtCreator.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_dialog, 0xffffffff, "center");
 		txtCreator.scrollFactor.make(0, 0);
 		txtCreator.y = FlxG.height - txtCreator.GetTextHeight() - 1;
 		
