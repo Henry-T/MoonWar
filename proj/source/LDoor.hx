@@ -13,10 +13,10 @@ public function new(x:Float=0, y:Float=0, locked:Bool=true)
 	super(x, y+2);
 	
 	loadGraphic("assets/img/lDoor.png", true, false, 40, 40, false);
-	addAnimation("g2r", [3, 4], 1, false);
-	addAnimation("r2g", [4, 3], 1, false);
-	addAnimation("open", [3, 2, 1, 0], 5, false );
-	addAnimation("close", [0, 1, 2, 3], 5, false );
+	addAnimation("g2r", [3, 4], 2, false);
+	addAnimation("r2g", [4, 3], 2, false);
+	addAnimation("open", [3, 2, 1, 0], 6, false );
+	addAnimation("close", [0, 1, 2, 3], 6, false );
 	addAnimation("opened", [0], 1, false);
 	addAnimation("closed", [4], 1, false);
 	addAnimationCallback(onAnim);

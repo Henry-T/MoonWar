@@ -104,7 +104,7 @@ class Level8 extends Level
 		// initial scene
 		bot.On = false;
 		bot.facing = FlxObject.RIGHT;
-		bInLift.velocity.y = 30;
+		bInLift.velocity.y = Level.liftSpeed;
 		downing = true;
 		righting = false;
 		triggered = false;

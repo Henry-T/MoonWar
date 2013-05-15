@@ -351,7 +351,7 @@ class Level3 extends Level
 		if (door2Up.locked)
 		{
 		 	bInLift2.visible = true;
-		 	bInLift2.velocity.y = 30;
+		 	bInLift2.velocity.y = Level.liftSpeed;
 		 	bot.active = false;
 		}
 		

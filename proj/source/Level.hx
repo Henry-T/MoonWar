@@ -199,6 +199,7 @@ class Level extends MWState
 	public static var maxSelEnd:Int = 3;
 	public var curSelPause:Int;
 	public var curSelEnd:Int;
+	public static var liftSpeed:Float = 45;
 
 	public function new()
 	{

@@ -107,7 +107,7 @@ class Level4 extends Level
 		bot.On = false;
 		bot.facing = FlxObject.RIGHT;
 
-		bInLift.velocity.y = 30;
+		bInLift.velocity.y = Level.liftSpeed;
 		downing = true;
 		downing2 = false;
 		FlxG.flash(0xff000000, 2);

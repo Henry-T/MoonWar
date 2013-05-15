@@ -76,7 +76,7 @@ class Level6 extends Level
 		bot.On = false;
 		bot.facing = FlxObject.LEFT;
 
-		bInLift.velocity.y = 30;
+		bInLift.velocity.y = Level.liftSpeed;
 		downing = true;
 		downing2 = false;
 
@@ -132,7 +132,7 @@ class Level6 extends Level
 		if (!downing2 && door2Up.locked)
 		{
 			downing2 = true;
-			bInLift2.velocity.y = 30;
+			bInLift2.velocity.y = Level.liftSpeed;
 		}
 		if (!isEnd && bInLift2.y > end.y){
 			EndLevel(true);

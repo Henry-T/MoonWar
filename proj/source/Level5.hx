@@ -98,7 +98,7 @@ class Level5 extends Level
 		if (!downing2 && door2Up.locked)
 		{
 			downing2 = true;
-			bInLift2.velocity.y = 30;
+			bInLift2.velocity.y = Level.liftSpeed;
 			bot.active = false;
 		}
 		
