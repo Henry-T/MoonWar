@@ -63,7 +63,7 @@
   <object name="cam2" type="cam" x="2980" y="40" width="540" height="400"/>
   <object name="cam1" type="cam" x="2360" y="40" width="540" height="400"/>
   <object name="cam3" type="cam" x="240" y="40" width="540" height="400"/>
-  <object name="posBStart" x="680" y="300" width="80" height="100"/>
+  <object name="posBStart" x="670" y="300" width="80" height="100"/>
   <object name="grd3" type="posGuard" x="3420" y="360" width="40" height="40"/>
   <object name="grd4" type="posGuard" x="3040" y="360" width="40" height="40"/>
   <object name="posBInSrc" x="3620" y="-100" width="80" height="100"/>
@@ -139,7 +139,8 @@
     <property name="group" value="1"/>
    </properties>
   </object>
-  <object name="sBase" x="500" y="140" width="60" height="80"/>
+  <object name="sBase" x="490" y="140" width="60" height="80"/>
+  <object name="landHeight" x="840" y="400" width="480" height="20"/>
  </objectgroup>
  <objectgroup name="boss" width="200" height="30">
   <object name="appear" x="605" y="559" width="133" height="14"/>

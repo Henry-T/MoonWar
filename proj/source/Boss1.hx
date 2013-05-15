@@ -113,9 +113,9 @@ class Boss1 extends Enemy
 		//this.play("walk");
 		  
 		lastAppearLeft = false;
-		appearLL = 80;
+		appearLL = 0;	// This value is set in level2 based on surface base position
 		appearLW = 1;	//140
-		appearRL = 550-80;	// 360
+		appearRL = 0;	// 360
 		appearRW = 1;
 		appearY = 540;
 		moveUpLen = 160;
@@ -250,105 +250,107 @@ class Boss1 extends Enemy
 		this.state = state;
 		if(state == STappear)
 		{
-		// find appear x
-		if(lastAppearLeft)
-		{
-			appearX = FlxG.random() * appearRW + appearRL;
-			facing = FlxObject.LEFT;
-			slash.facing = FlxObject.LEFT;
-		}
-		else
-		{
-			appearX = FlxG.random() * appearLW + appearLL;
-			facing = FlxObject.RIGHT;
-			slash.facing = FlxObject.RIGHT;
-		}
-		lastAppearLeft = !lastAppearLeft;
-		this.x = appearX - width/2;
-		this.y = 500;
-		this.velocity = new FlxPoint(0, -50);
-		game.smokeEmt2.start(false, 0.5, 0.2, 15); 
+			// find appear x
+			if(lastAppearLeft)
+			{
+				appearX = FlxG.random() * appearRW + appearRL;
+				facing = FlxObject.LEFT;
+				slash.facing = FlxObject.LEFT;
+			}
+			else
+			{
+				appearX = FlxG.random() * appearLW + appearLL;
+				facing = FlxObject.RIGHT;
+				slash.facing = FlxObject.RIGHT;
+			}
+			lastAppearLeft = !lastAppearLeft;
+			this.x = appearX - width/2;
+			this.y = 500;
+			this.velocity = new FlxPoint(0, -50);
+			game.smokeEmt2.start(false, 0.5, 0.2, 15); 
+			game.smokeEmt2.on = true;
 		}
 		else if(state == STpreShoot)
 		{
-		// wait
-		play("idle", true);
-		this.velocity = new FlxPoint(0,0);
-		timer.start(3,1, function(t:FlxTimer){switchState(2);});
+			// wait
+			play("idle", true);
+			this.velocity = new FlxPoint(0,0);
+			timer.start(3,1, function(t:FlxTimer){switchState(2);});
 		}
 		else if(state == STshoot)
 		{
-		// shoot
-		play("shot", true);
-		timerPShot.start(0.3, 3, perShot);
-		shotCnt++;
-		if(shotCnt < 2)
-		{
-			timer.start(3,1, function(t:FlxTimer){switchState(3);});
-		}
-		else
-		{
-			shotCnt = 0;
-			timer.start(3,1, function(t:FlxTimer){switchState(4);});
-		}
+			// shoot
+			play("shot", true);
+			timerPShot.start(0.3, 3, perShot);
+			shotCnt++;
+			if(shotCnt < 2)
+			{
+				timer.start(3,1, function(t:FlxTimer){switchState(3);});
+			}
+			else
+			{
+				shotCnt = 0;
+				timer.start(3,1, function(t:FlxTimer){switchState(4);});
+			}
 		}
 		else if(state == STstopShot)
 		{
-		// turnEnd
-		play("idle", true);
-		timer.start(3,1, function(t:FlxTimer){switchState(6);});
+			// turnEnd
+			play("idle", true);
+			timer.start(3,1, function(t:FlxTimer){switchState(6);});
 		}
 		else if(state == STpreJump)
 		{
-		// prepjump
-		play("preJump", true);
-		timer.start(1,1, function(t:FlxTimer){switchState(5);});
+			// prepjump
+			play("preJump", true);
+			timer.start(1,1, function(t:FlxTimer){switchState(5);});
 		}
 		else if(state == STjumpAtk)
 		{
-		// jumpattack
-		play("slash", true);
-		if(facing == FlxObject.RIGHT)
-			velocity = new FlxPoint(300, -500);
-		else 
-			velocity = new FlxPoint(-300, -500);
-		acceleration.y = 1000;
-		timer.start(3,1,function(t:FlxTimer):Void{switchState(6);});
-		lastAppearLeft = !lastAppearLeft;		// change site!
-		// jump over!!!!!
-		// use second timer to produce an light
-		slash.play("slash", true);
-		// use third timer to produce damage box
+			// jumpattack
+			play("slash", true);
+			if(facing == FlxObject.RIGHT)
+				velocity = new FlxPoint(300, -500);
+			else 
+				velocity = new FlxPoint(-300, -500);
+			acceleration.y = 1000;
+			timer.start(3,1,function(t:FlxTimer):Void{switchState(6);});
+			lastAppearLeft = !lastAppearLeft;		// change site!
+			// jump over!!!!!
+			// use second timer to produce an light
+			slash.play("slash", true);
+			// use third timer to produce damage box
 		}
 		else if(state == STdisappear)
 		{
-		// disappear
-		play("idle", true);
-		this.acceleration.y = 0;
-		timer.start(4, 1, function(t:FlxTimer):Void{switchState(0);});
-		this.velocity.y = 50;
-		game.smokeEmt2.start(false, 0.5, 0.2, 15); 
+			// disappear
+			play("idle", true);
+			this.acceleration.y = 0;
+			timer.start(4, 1, function(t:FlxTimer):Void{switchState(0);});
+			this.velocity.y = 50;
+			game.smokeEmt2.start(false, 0.5, 0.2, 15); 
+			game.smokeEmt2.on = true;
 		}
 		else if(state == STdefeat)
 		{
-		velocity.x = 0;
-		velocity.y = 30;
-		acceleration = new FlxPoint(0,0);
-		game.eExplo.visible = true;
-		game.eExplo.play("expl", true);
-		timer.start(3, 1, function(t:FlxTimer):Void{game.switchState(3);});
-		// kill all ducks
-		for (d in cast(FlxG.state, Level).ducks.members) {
-			if(d.alive)
-				d.kill();
-		}
+			velocity.x = 0;
+			velocity.y = 30;
+			acceleration = new FlxPoint(0,0);
+			game.eExplo.visible = true;
+			game.eExplo.play("expl", true);
+			timer.start(3, 1, function(t:FlxTimer):Void{game.switchState(3);});
+			// kill all ducks
+			for (d in cast(FlxG.state, Level).ducks.members) {
+				if(d.alive)
+					d.kill();
+			}
 		}
 		else if(state == STdefDisp)
 		{
-		velocity.x = 0;
-		velocity.y = 30;
-		acceleration = new FlxPoint(0,0);
-		timer.start(2, 1, function(t:FlxTimer):Void{game.switchState(5);});
+			velocity.x = 0;
+			velocity.y = 30;
+			acceleration = new FlxPoint(0,0);
+			timer.start(2, 1, function(t:FlxTimer):Void{game.switchState(5);});
 		}
 	}
 
@@ -357,12 +359,12 @@ class Boss1 extends Enemy
 		var gOrg:FlxPoint = new FlxPoint(getMidpoint().x+bowPos.x, getMidpoint().y+bowPos.y);
 		for (i in 0...3) 
 		{
-		var agl:Float = Math.PI / 2 + (facing==FlxObject.RIGHT?bowRotR:bowRotL) + (i-1)*bowArrawRotStep;
-		var pos:FlxPoint = new FlxPoint(gOrg.x+Math.cos(agl)*bowStartLen, gOrg.y+Math.sin(agl)*bowStartLen);
-		
-		var d:Duck = cast(game.ducks.recycle(Duck) , Duck);
-		d.reset(pos.x-d.width/2, pos.y-d.height/2);
-		d.velocity = new FlxPoint(bowPower*Math.cos(agl) , -bowPower*Math.sin(agl));
+			var agl:Float = Math.PI / 2 + (facing==FlxObject.RIGHT?bowRotR:bowRotL) + (i-1)*bowArrawRotStep;
+			var pos:FlxPoint = new FlxPoint(gOrg.x+Math.cos(agl)*bowStartLen, gOrg.y+Math.sin(agl)*bowStartLen);
+			
+			var d:Duck = cast(game.ducks.recycle(Duck) , Duck);
+			d.reset(pos.x-d.width/2, pos.y-d.height/2);
+			d.velocity = new FlxPoint(bowPower*Math.cos(agl) , -bowPower*Math.sin(agl));
 		}
 	}
 }

@@ -175,25 +175,26 @@ class Level2 extends Level
 				sBase.offset = new FlxPoint(121, 42);
 				sBase.width = 60; sBase.height = 75;
 				sBase.health = BaseMaxLife;
-				boss1.appearLL = sBase.getMidpoint().x - 215;
-				boss1.appearRL = sBase.getMidpoint().x + 215;
+				boss1.appearLL = sBase.getMidpoint().x - 205;
+				boss1.appearRL = sBase.getMidpoint().x + 205;
 			}
 		}
-
-		smokeEmt1 = new FlxEmitter(550, 375);
-		smokeEmt1.x = 0;			// x pos for preDash;
+		
+		// Emitter for predash
+		smokeEmt1 = new FlxEmitter(0, 0);
+		smokeEmt1.x = 0;
 		smokeEmt1.y = landHeight - smokeEmt1.height * 0.5;
 		smokeEmt1.makeParticles("assets/img/smoke.png", 10, 5, true, 0);
-		smokeEmt1.start(false, 0.5, 0.03, 0);
 		smokeEmt1.setXSpeed(0, 50);
 		smokeEmt1.setYSpeed(80, -180);
 		
-		smokeEmt2 = new FlxEmitter(-100, 0);
+		// Emitter for fight
+		smokeEmt2 = new FlxEmitter(0, 0);
 		smokeEmt2.width = 65; smokeEmt2.height = 10;
-		smokeEmt2.y = landHeight - smokeEmt2.height * 0.5;
 		smokeEmt2.makeParticles("assets/img/smoke.png", 10, 5, true, 0);
 		smokeEmt2.setXSpeed(-50, 50);
 		smokeEmt2.setYSpeed(-30, -10);
+		smokeEmt2.start(false, 0.5, 0.2, 15); 
 		
 		
 		// Addings
@@ -209,8 +210,6 @@ class Level2 extends Level
 		roam = true;
 		boss1.play("air");
 		//ShowSkip(true, initForGame);
-		smokeEmt1.on = false;
-		smokeEmt2.on = false;
 
 		ShowSceneName("2 - Moon Surface Base");
 
@@ -293,6 +292,7 @@ class Level2 extends Level
 									lineMgr.Start(lines2, function(){
 										dash = true;
 										boss1.play("walk");
+										smokeEmt1.start(false, 0.5, 0.03, 0);
 										smokeEmt1.on = true;
 										FlxG.camera.follow(boss1, FlxCamera.STYLE_LOCKON, null, 0.5);
 										var bDashTween:LinearMotion = new LinearMotion(function(){
@@ -393,11 +393,12 @@ class Level2 extends Level
 			}
 		}
 
-		// smoke
-		if(dash){
-			smokeEmt1.x = boss1.x;
-			smokeEmt1.y = landHeight - smokeEmt1.height * 0.5;
-		}
+		smokeEmt1.x = boss1.x;
+		smokeEmt1.y = boss1.y + boss1.height;
+
+		smokeEmt2.x = boss1.getMidpoint().x;
+		smokeEmt2.y = landHeight;
+		trace(landHeight);
 
 		//tileBreak.overlapsWithCallback(boss, onBreak);
 		//tileBreak.overlaps(boss);
@@ -450,9 +451,6 @@ class Level2 extends Level
 		if(sBase.health <= 0){
 			EndLevel(false);
 		}
-		
-		smokeEmt2.x = boss1.x;
-		smokeEmt2.y = landHeight - smokeEmt2.height * 0.5;
 	}
 
 	private function duckHitTile(tile:FlxObject, duck:FlxObject):Void
