@@ -79,14 +79,14 @@ class GameMap extends MWState
 		picPnl = new SliceShape(Math.round(FlxG.width * 0.36), Math.round(FlxG.height * 0.1), picPnlWidth, picPnlHeight, "assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
 
 		lvlBtns = new FlxGroup();
-		btnLvl1 = new MyButton(lvlBtnX, 5, "LEVEL1", function() { SwitchLevel(1); FlxG.play("sel1");} ); lvlBtns.add(btnLvl1);
-		btnLvl2 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 1, "LEVEL2", function() { SwitchLevel(2); FlxG.play("sel1");} ); lvlBtns.add(btnLvl2);
-		btnLvl3 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 2, "LEVEL3", function() { SwitchLevel(3); FlxG.play("sel1");} ); lvlBtns.add(btnLvl3);
-		btnLvl4 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 3, "LEVEL4", function() { SwitchLevel(4); FlxG.play("sel1");} ); lvlBtns.add(btnLvl4);
-		btnLvl5 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 4, "LEVEL5", function() { SwitchLevel(5); FlxG.play("sel1");} ); lvlBtns.add(btnLvl5);
-		btnLvl6 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 5, "LEVEL6", function() { SwitchLevel(6); FlxG.play("sel1");} ); lvlBtns.add(btnLvl6);
-		btnLvl7 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 6, "LEVEL7", function() { SwitchLevel(7); FlxG.play("sel1");} ); lvlBtns.add(btnLvl7);
-		btnLvl8 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 7, "LEVEL8", function() { SwitchLevel(8); FlxG.play("sel1");} ); lvlBtns.add(btnLvl8);
+		btnLvl1 = new MyButton(lvlBtnX, 5, "LEVEL1", function() { SwitchLevel(0); FlxG.play("sel1");} ); lvlBtns.add(btnLvl1);
+		btnLvl2 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 1, "LEVEL2", function() { SwitchLevel(1); FlxG.play("sel1");} ); lvlBtns.add(btnLvl2);
+		btnLvl3 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 2, "LEVEL3", function() { SwitchLevel(2); FlxG.play("sel1");} ); lvlBtns.add(btnLvl3);
+		btnLvl4 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 3, "LEVEL4", function() { SwitchLevel(3); FlxG.play("sel1");} ); lvlBtns.add(btnLvl4);
+		btnLvl5 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 4, "LEVEL5", function() { SwitchLevel(4); FlxG.play("sel1");} ); lvlBtns.add(btnLvl5);
+		btnLvl6 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 5, "LEVEL6", function() { SwitchLevel(5); FlxG.play("sel1");} ); lvlBtns.add(btnLvl6);
+		btnLvl7 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 6, "LEVEL7", function() { SwitchLevel(6); FlxG.play("sel1");} ); lvlBtns.add(btnLvl7);
+		btnLvl8 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 7, "LEVEL8", function() { SwitchLevel(7); FlxG.play("sel1");} ); lvlBtns.add(btnLvl8);
 
 		pic = new FlxSprite();
 
