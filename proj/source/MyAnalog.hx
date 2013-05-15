@@ -11,7 +11,7 @@ class MyAnalog extends FlxAnalog {
 	}
 
 	private override function createBase():Void{
-		_base = new FlxSprite(x, y).loadGraphic(GameStatic.screenDensity==1?"assets/img/tbBaseS.png":"assets/img/tbBaseM.png");
+		_base = new FlxSprite(x, y).loadGraphic(GameStatic.screenDensity==GameStatic.Density_S?"assets/img/tbBaseS.png":"assets/img/tbBaseM.png");
 		_base.cameras = [FlxG.camera];
 		_base.x += -_base.width * .5;
 		_base.y += -_base.height * .5;
@@ -26,7 +26,7 @@ class MyAnalog extends FlxAnalog {
 	}
 
 	private override function createThumb():Void{
-		_stick = new FlxSprite(x, y).loadGraphic(GameStatic.screenDensity==1?"assets/img/tbStickS.png":"assets/img/tbStickM.png");
+		_stick = new FlxSprite(x, y).loadGraphic(GameStatic.screenDensity==GameStatic.Density_S?"assets/img/tbStickS.png":"assets/img/tbStickM.png");
 		_stick.cameras = [FlxG.camera];
 		_stick.scrollFactor.x = _stick.scrollFactor.y = 0;
 		_stick.solid = false;

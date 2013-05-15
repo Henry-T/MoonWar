@@ -230,13 +230,13 @@ class Input extends FlxGroup {
 			((gamePad.buttonB.status == FlxButton.PRESSED&&(lastBtnBStatus==FlxButton.NORMAL||lastBtnBStatus==FlxButton.HIGHLIGHT))))
 			JustDown_Anykey = true;
 
-		if(keyboardLeftJustUp || (AnalogJustReleased&&(AnalogAngle<-120||AnalogAngle>120)))
+		if(keyboardLeftJustUp || (AnalogJustReleased&&(lastAnalogAngle<-120||lastAnalogAngle>120)))
 			JustUp_Left = true;
-		if(keyboardRightJustUp || (AnalogJustReleased&&(AnalogAngle<60&&AnalogAngle>-60)))
+		if(keyboardRightJustUp || (AnalogJustReleased&&(lastAnalogAngle<60&&lastAnalogAngle>-60)))
 			JustUp_Right = true;
-		if(keyboardUpJustUp || (AnalogJustReleased&&(AnalogAngle<-30&&AnalogAngle>-150)))
+		if(keyboardUpJustUp || (AnalogJustReleased&&(lastAnalogAngle<-30&&lastAnalogAngle>-150)))
 			JustUp_Up = true;
-		if(keyboardDownJustUp || (AnalogJustReleased&&(AnalogAngle>30&&AnalogAngle<150)))
+		if(keyboardDownJustUp || (AnalogJustReleased&&(lastAnalogAngle>30&&lastAnalogAngle<150)))
 			JustUp_Down = true;
 		if(keyboardZJustUp ||
 			(lastBtnBStatus == FlxButton.PRESSED&&
@@ -258,6 +258,7 @@ class Input extends FlxGroup {
 		#if !FLX_NO_KEYBOARD
 		lastKeyboardAnykeyDown = FlxG.keys.any();
 		#end
+		lastAnalogAngle = AnalogAngle;
 
 	    // var touches:Array<FlxTouch> = FlxG.touchManager.touches;
 	    // var touch:FlxTouch;
@@ -290,6 +291,8 @@ class Input extends FlxGroup {
 	private var lastBtnBStatus:Int;
 
 	private var lastKeyboardAnykeyDown:Bool;
+
+	private var lastAnalogAngle:Float;
 
 	private var keyboardLeftDown:Bool;
 	private var keyboardRightDown:Bool;
