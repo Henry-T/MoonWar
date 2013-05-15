@@ -129,6 +129,7 @@ class Boss1 extends Enemy
 		
 		slash = new FlxSprite(0,0);
 		slash.loadGraphic("assets/img/slash.png", true, true, 160, 120);
+		//slash.makeGraphic(160, 120, 0x88ffffff);
 		slash.addAnimation("slash", [0,1,2,3,4,5,6,7], 10, false);
 		
 		health = maxLife;

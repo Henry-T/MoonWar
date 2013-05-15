@@ -124,7 +124,7 @@ class GameStatic
 			screenDensity = Density_M;
 		else
 			screenDensity = Density_L;
-		//screenDensity = 1.5;
+		//screenDensity = Density_M;
 
 		// Check ratio mode 
 		ratioValue = nme.system.Capabilities.pixelAspectRatio;

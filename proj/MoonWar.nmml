@@ -73,12 +73,11 @@
 	<haxeflag name="-debug" />
 	<!--Optimise Flags of Flixel-->
     <!--<set name="FLX_NO_DEBUG" />-->
-    <set name="FLX_NO_RECORD" />
-    <set name="FLX_NO_MOUSE"/>
-    <!--set name="FLX_NO_KEYBOARD"/-->
-    <set name="FLX_NO_JOYSTICK" />
+    <!--set name="FLX_NO_MOUSE"/-->
     <set name="FLX_NO_KEYBOARD" if="mobile" />
     <set name="FLX_NO_TOUCH" unless="mobile" />
+    <set name="FLX_NO_RECORD" />
+    <set name="FLX_NO_JOYSTICK" />
 
     <!-- Set preloader just at the end of this file as someone said on HaxeFlixel forum-->
     <app preloader="Preloader"/>

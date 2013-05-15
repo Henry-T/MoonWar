@@ -398,7 +398,6 @@ class Level2 extends Level
 
 		smokeEmt2.x = boss1.getMidpoint().x;
 		smokeEmt2.y = landHeight;
-		trace(landHeight);
 
 		//tileBreak.overlapsWithCallback(boss, onBreak);
 		//tileBreak.overlaps(boss);
