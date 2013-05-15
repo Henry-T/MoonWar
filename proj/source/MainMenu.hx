@@ -39,11 +39,26 @@ class MainMenu extends MWState
 
 		bgImage = new FlxSprite(0, 0, "assets/img/title.png");
 		bdSky = new FlxBackdrop("assets/img/bgSky.png", 0, 0, true, true);
-		imgBoss = new FlxSprite(0, 0,"assets/img/titleBoss.png");
+		imgBoss = new FlxSprite();
+		imgMoon = new FlxSprite();
+		imgTitleTxt = new FlxSprite();
+		if(GameStatic.screenDensity == GameStatic.Density_S){
+			imgBoss.loadGraphic("assets/img/s_boss_S.png");
+			imgMoon.loadGraphic("assets/img/s_moon_S.png");
+			imgTitleTxt.loadGraphic("assets/img/s_ttxt_S.png");
+		}
+		else if(GameStatic.screenDensity == GameStatic.Density_M){
+			imgBoss.loadGraphic("assets/img/s_boss_M.png");
+			imgMoon.loadGraphic("assets/img/s_moon_M.png");
+			imgTitleTxt.loadGraphic("assets/img/s_ttxt_M.png");
+		}
+		else if(GameStatic.screenDensity == GameStatic.Density_L){
+			imgBoss.loadGraphic("assets/img/s_boss_L.png");
+			imgMoon.loadGraphic("assets/img/s_moon_L.png");
+			imgTitleTxt.loadGraphic("assets/img/s_ttxt_L.png");
+		}
 		imgBoss.x = FlxG.width * 0.5 - imgBoss.width * 0.5; imgBoss.y = 5;
-		imgMoon = new FlxSprite(0, 0,"assets/img/titleMoon.png");
 		imgMoon.x = FlxG.width * 0.5 - imgMoon.width * 0.5; imgMoon.y = FlxG.height - imgMoon.height + 5;
-		imgTitleTxt = new FlxSprite(0, 0,"assets/img/titleText.png");
 		imgTitleTxt.x = FlxG.width * 0.5 - imgTitleTxt.width * 0.5; imgTitleTxt.y = 5;
 		//add(bgImage);
 		add(bdSky);
