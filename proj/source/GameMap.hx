@@ -201,7 +201,11 @@ class GameMap extends MWState
 			}
 		}
 
+		#if FLX_NO_KEYBOARD
 		cast(lvlBtns.members[id], FlxButton).loadGraphic(btnGLvlOver);
+		#else
+		cast(lvlBtns.members[id], FlxButton).loadGraphic(btnGLvlNormal);
+		#end
 		//btnIntro.loadGraphic("assets/img/bLvlSel.png");
 
 		// set text
