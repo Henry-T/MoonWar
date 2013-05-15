@@ -295,15 +295,6 @@ class Level extends MWState
 		hbBg = new FlxSprite(FlxG.width * 0.5 - 155, FlxG.height-30, "assets/img/hbBg.png"); hbBg.origin = new FlxPoint(0, 0); hbBg.scale = new FlxPoint(31, 1); hbBg.scrollFactor = new FlxPoint(0, 0); hbBg.visible = false;
 		hbH = new FlxSprite(FlxG.width * 0.5 -155, FlxG.height-30, "assets/img/hbH.png"); hbH.origin = new FlxPoint(0, 0);  hbH.scrollFactor = new FlxPoint(0, 0); hbH.visible = false;
 
-		baseHPBg = new FlxSprite(FlxG.width/2 - 2, 80, "assets/img/baseHPBg.png");
-		baseHPBg.scrollFactor.make(0, 0);
-		baseHPBg.visible = false;
-
-		baseHPBar = new FlxSprite(FlxG.width/2 - 1, 81);
-		baseHPBar.makeGraphic(30, 6, 0xff02da88);
-		baseHPBar.origin.make(0,0);
-		baseHPBar.visible = false;
-		
 		// gui
 		btnShowHelp = new MyButton(FlxG.width - 44, 4, "", function() { FlxG.mute = !FlxG.mute; } );
 		btnShowHelp.scrollFactor.make(0,0);

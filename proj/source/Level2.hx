@@ -196,6 +196,21 @@ class Level2 extends Level
 		smokeEmt2.setYSpeed(-30, -10);
 		smokeEmt2.start(false, 0.5, 0.2, 15); 
 		
+		// ui
+		baseHPBg = new FlxSprite(0, 0, "assets/img/baseHPBg.png");
+		baseHPBg.x = sBase.getMidpoint().x - baseHPBg.width * 0.5;
+		baseHPBg.y = sBase.y - 50; 
+		if(baseHPBg.y < 20)	baseHPBg.y = 20;
+		baseHPBg.visible = false;
+
+		baseHPBar = new FlxSprite(0, 0);
+		baseHPBar.makeGraphic(30, 6, 0xff02da88);
+		baseHPBar.origin.make(0,0);
+		baseHPBar.x = baseHPBg.x + 1;
+		baseHPBar.y = baseHPBg.y + 1; 
+		if(baseHPBar.y < 20)	baseHPBar.y = 20;
+		baseHPBar.visible = false;
+		
 		
 		// Addings
 		add(breakers);
