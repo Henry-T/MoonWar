@@ -348,14 +348,14 @@ class Level extends MWState
 		btnHelp.visible = false;
 
 		lbMission = new FlxText(0, 0, 200, "MISSION", 26);
-		lbMission.setFormat(ResUtil.FNT_Pixelex, 26, 0xffffffff, "center");
+		lbMission.setFormat(ResUtil.FNT_Pixelex, 26, 0xffffff, "center");
 		lbMission.x = FlxG.width*0.5 - lbMission.width/2;
 		lbMission.y = FlxG.height*0.5 - 120;
 		lbMission.scrollFactor.make(0,0);
 		lbMission.visible = false;
 
 		lbResult = new FlxText(0, 0, 200, "ACCOMPLISHED", 18);
-		lbResult.setFormat(ResUtil.FNT_Pixelex, 18, 0xffffffff, "center");
+		lbResult.setFormat(ResUtil.FNT_Pixelex, 18, 0xffffff, "center");
 		lbResult.x = FlxG.width*0.5 - lbMission.width/2;
 		lbResult.y = FlxG.height*0.5 - 90;
 		lbResult.scrollFactor.make(0,0);
