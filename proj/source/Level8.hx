@@ -126,6 +126,8 @@ class Level8 extends Level
 
 		FlxG.overlap(boss3Buls, bot, function(bul:FlxObject, b:FlxObject){bul.kill(); b.hurt(15);});
 
+		FlxG.overlap(boss3, bot, function(boss:FlxObject, bot:FlxObject){bot.hurt(20);});
+
 		// gate
 		FlxG.collide(bot, gates);
 		FlxG.overlap(gates, missles, function(g:FlxObject, msl:FlxObject):Void { msl.kill(); } );
@@ -145,7 +147,8 @@ class Level8 extends Level
 		// bul on boss
 		FlxG.overlap(bullets, boss3, function(bul:FlxObject, boss3:FlxObject):Void { 
 			bul.kill();
-			boss3.hurt(1);
+			if(!cast(boss3, Boss3).immu)
+				boss3.hurt(1);
 		});
 		
 		// boss life gui
@@ -207,6 +210,7 @@ class Level8 extends Level
 					lineMgr.Start(lines1, function(){
 						//cast(gates.members[0], FlxSprite).y  += 100;
 						gates.members[0].visible = true;
+						boss3.immu = false;
 						boss3.ChangeState("launching");
 						hbL.visible = true;
 						hbR.visible = true;

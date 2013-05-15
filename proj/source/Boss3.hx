@@ -51,6 +51,8 @@ class Boss3 extends Enemy
 	public var moveTween:LinearMotion;
 	public var deathPingTween:LinearMotion;
 
+	public var immu:Bool;
+
 	public function new(x:Float, y:Float) 
 	{
 		super(x, y);
@@ -61,7 +63,7 @@ class Boss3 extends Enemy
 		bulletTimer = new FlxTimer();
 		bouncerTimer = new FlxTimer();
 		
-		loadGraphic("assets/img/hm.png", true, true, 150);
+		loadGraphic("assets/img/hm_red.png", true, true, 150);
 		offset.x = 35;
 		offset.y = 30;
 		width = 80;
@@ -127,6 +129,7 @@ class Boss3 extends Enemy
 		moveTween.setObject(this);
 		lastBcrRight = false;
 		realKill = false;
+		immu = true;
 	}
 
 	override public function update():Void 
