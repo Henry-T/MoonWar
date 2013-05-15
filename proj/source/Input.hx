@@ -48,7 +48,17 @@ class Input extends FlxGroup {
 
 	public function new(){
 		super();
-		analog = new MyAnalog(50 * GameStatic.screenDensity, FlxG.height-50* GameStatic.screenDensity);
+		var anaX:Int=0;
+		var anaY:Int=0;
+		if(GameStatic.screenDensity==GameStatic.Density_S){
+			anaX = 50;
+			anaY = FlxG.height - 50;
+		}
+		else {
+			anaX = 100;
+			anaY = FlxG.height - 100;
+		}
+		analog = new MyAnalog(anaX, anaY);
 		add(analog);
 		
 		gamePad = new MyGamePad();

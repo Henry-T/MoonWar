@@ -6,18 +6,35 @@ import org.flixel.FlxG;
 import org.flixel.FlxButton;
 import org.flixel.FlxTypedGroup;
 
+// override
 class MyGamePad extends FlxTypedGroup<FlxButton>
 {
 	public var buttonA:FlxButton;
 	public var buttonB:FlxButton;
-	public var actions:FlxTypedGroup<FlxButton>;
 
 	public function new(){
 		super();
-		actions = new FlxTypedGroup<FlxButton>();
-		var mag:Int = GameStatic.screenDensity == 1?1:2;
-		actions.add(add(buttonA = createButton(FlxG.width - 44*mag, FlxG.height - 45*mag, 44*mag, 45*mag, (GameStatic.screenDensity==1?"assets/img/gpAS.png":"assets/img/gpAM.png"))));
-		actions.add(add(buttonB = createButton(FlxG.width - 96*mag, FlxG.height - 45*mag, 44*mag, 45*mag, (GameStatic.screenDensity==1?"assets/img/gpBS.png":"assets/img/gpBM.png"))));
+
+		var btnWidth:Int = 0;
+		var btnHeight:Int = 0;
+		var imgA:String = "";
+		var imgB:String = "";
+		if(GameStatic.screenDensity == GameStatic.Density_S){
+			btnWidth = 44;
+			btnHeight = 45;
+			imgA = "assets/img/gpAS.png";
+			imgB = "assets/img/gpBS.png";
+		}
+		else if(GameStatic.screenDensity == GameStatic.Density_M || GameStatic.screenDensity == GameStatic.Density_L){
+			btnWidth = 88;
+			btnHeight = 90;
+			imgA = "assets/img/gpAM.png";
+			imgB = "assets/img/gpBM.png";
+		}
+		buttonA = add(createButton(FlxG.width - btnWidth - 5, FlxG.height - btnHeight - 5, btnWidth, btnHeight, imgA));
+		buttonB = add(createButton(FlxG.width - btnWidth * 2 - 10, FlxG.height - btnHeight - 5, btnWidth, btnHeight, imgB));
+		// buttonA = add(createButton(FlxG.width - btnWidth - 5, FlxG.height - btnHeight - 5, btnWidth, btnHeight, imgA));
+		// buttonB = add(createButton(FlxG.width - btnWidth * 2 - 10, FlxG.height - btnHeight - 5, btnWidth, btnHeight, imgB));
 	}
 
 	public function createButton(X:Float, Y:Float, Width:Int, Height:Int, Image:String, OnClick:Void->Void = null):FlxButton
