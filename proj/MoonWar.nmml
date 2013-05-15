@@ -3,9 +3,9 @@
 	<meta title="Moon War" description="Cubebot fight back RageMetal with Dr.Cube." package="com.lolofinil.moonwar" version="1.0.0" company="lolofinil" />
 	<app title="MoonWar" file="MoonWar" main="Main" version="0.0.1" path="export" company="Lolofinil"/>
 	
-	<window width="550" height="400" fps="30" orientation="portrait" resizable="false" if="web" />
+	<window width="800" height="480" fps="30" orientation="portrait" resizable="false" if="web" />
 	<window width="0" height="0" fps="30" orientation="landscape" fullscreen="true" if="mobile" />
-	<window width="550" height="400" fps="30" orientation="landscape" fullscreen="false" if="desktop" />
+	<window width="800" height="480" fps="30" orientation="landscape" fullscreen="false" if="desktop" />
  	
 	<classpath name="source" />
 	
@@ -74,6 +74,7 @@
 	<!--Optimise Flags of Flixel-->
     <!--<set name="FLX_NO_DEBUG" />-->
     <!--set name="FLX_NO_MOUSE"/-->
+    <set name="FLX_NO_MOUSE" if="mobile" />
     <set name="FLX_NO_KEYBOARD" if="mobile" />
     <set name="FLX_NO_TOUCH" unless="mobile" />
     <set name="FLX_NO_RECORD" />

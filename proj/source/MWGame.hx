@@ -39,7 +39,7 @@ class MWGame extends FlxGame
 
 		FlxG.framerate = 30;
 		FlxG.flashFramerate = 30;
-		nme.ui.Mouse.hide();
+		nme.ui.Mouse.show();
 
 		// preload all sound for android
 		#if android

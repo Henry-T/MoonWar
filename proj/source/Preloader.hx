@@ -127,8 +127,6 @@ class Preloader extends NMEPreloader
 		
 		Lib.current.addEventListener(Event.ENTER_FRAME, update);
 		Lib.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, function(e:KeyboardEvent){
-			trace(loaded );
-			trace(e.keyCode);
 			if(loaded && e.keyCode == 88)
 				dispatchEvent(new Event (Event.COMPLETE));
 		});
