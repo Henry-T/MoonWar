@@ -87,7 +87,7 @@
   <object name="border" type="border" x="20" y="0" width="4420" height="480" visible="0"/>
   <object name="com1" type="com" x="118" y="280" width="20" height="40">
    <properties>
-    <property name="tip" value="0"/>
+    <property name="tip" value="1"/>
    </properties>
   </object>
   <object name="pick" type="sign_" x="3800" y="220" width="180" height="20">
@@ -102,17 +102,17 @@
   </object>
   <object name="com1" type="com" x="340" y="280" width="20" height="40">
    <properties>
-    <property name="tip" value="1"/>
+    <property name="tip" value="2"/>
    </properties>
   </object>
   <object name="com1" type="com" x="2040" y="280" width="20" height="40">
    <properties>
-    <property name="tip" value="4"/>
+    <property name="tip" value="5"/>
    </properties>
   </object>
   <object name="com1" type="com" x="3820" y="280" width="20" height="40">
    <properties>
-    <property name="tip" value="7"/>
+    <property name="tip" value="8"/>
    </properties>
   </object>
   <object name="grd1" type="posGuard" x="3080" y="280" width="40" height="40"/>
@@ -123,18 +123,18 @@
   <object name="warn" x="2860" y="220" width="120" height="100"/>
   <object name="com1" type="com" x="1700" y="160" width="20" height="40">
    <properties>
-    <property name="tip" value="3"/>
+    <property name="tip" value="4"/>
    </properties>
   </object>
   <object name="com1" type="com" x="880" y="280" width="20" height="40">
    <properties>
-    <property name="tip" value="2"/>
+    <property name="tip" value="3"/>
    </properties>
   </object>
   <object type="cube" x="2320" y="240" width="40" height="40"/>
   <object name="com1" type="com" x="2220" y="280" width="20" height="40">
    <properties>
-    <property name="tip" value="5"/>
+    <property name="tip" value="6"/>
    </properties>
   </object>
  </objectgroup>
