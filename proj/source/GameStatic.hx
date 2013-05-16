@@ -68,7 +68,7 @@ class GameStatic
 	public static var base_txtSize_normalButton:Int = 8;
 	public static var base_txtSize_menuButton:Int = 12;
 	public static var base_txtSize_mainButton:Int = 18;
-	public static var base_txtSize_dialog:Int = 8;
+	public static var base_txtSize_dialog:Int = 10;
 	public static var base_button_itemWidth:Int = 100;
 	public static var base_button_itemHeight:Int = 18;
 	public static var base_border_itemWidth:Int = 102;
@@ -124,7 +124,7 @@ class GameStatic
 			screenDensity = Density_M;
 		else
 			screenDensity = Density_L;
-		screenDensity = Density_M;
+		//screenDensity = Density_M;
 
 		// Check ratio mode 
 		ratioValue = nme.system.Capabilities.pixelAspectRatio;
