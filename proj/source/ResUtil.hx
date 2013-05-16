@@ -6,6 +6,7 @@ import nme.display.BitmapData;
 class ResUtil 
 {
 	public static var FNT_Pixelex:String = "assets/fnt/pixelex.ttf";
+	public static var FNT_Amble:String = "assets/fnt/amble.ttf";
 
 	public static var IMG_ui_box_yellow = "assets/img/ui_box_y.png";
 	public static var IMG_ui_box_act_yellow = "assets/img/ui_boxact_y.png";
