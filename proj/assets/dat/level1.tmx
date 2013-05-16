@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="125" height="24" tilewidth="20" tileheight="20" backgroundcolor="#0b0b0b">
+<map version="1.0" orientation="orthogonal" width="225" height="24" tilewidth="20" tileheight="20" backgroundcolor="#0b0b0b">
  <tileset firstgid="1" name="defTile" tilewidth="20" tileheight="20">
   <image source="../img/defTile.png" width="360" height="280"/>
   <terraintypes>
@@ -21,48 +21,48 @@
   <tile id="79" terrain="0,,0,0"/>
   <tile id="80" terrain=",0,0,0"/>
  </tileset>
- <layer name="bg" width="125" height="24">
+ <layer name="bg" width="225" height="24">
   <data encoding="base64" compression="zlib">
-   eJztmG9ugzAMxf1h3RH2oT1CtwNMouUGbXf/ywxLRHIth/zBgRbeT3oqTYMhfokJJQIl/Kx9A2BxvDw/OcUBfvwqsUdn8vU8xNPXAusAz/fHlj3/egNdBn03UFdwDy09r8nJHNb2syTf3irJ95Y8b7F+vNdgyM910HFUL45L1dNrea7rWKfarHo0hxbrx3MN8tj/xjZPLM8DS3uu65huY7Tvc+CYd6pfM9660bMfeuxevLLnrfEchwf6Oac91znJqRlWf57nPeXVdVlrvHJ1HeM9ROy9ei5zwc8yzoesA5aHsTp1i/SX8VP7eOk3X8czV+H+UvPUGz3+Tvx2MdqWILVO9ffYXuwU6R+TNQ+k30S+nvP8tnyv5WPQQenT6JdTG61cWHNkCeZ6Hs4pUdjrk/h8Z3L3VDHJHEw9P1tR4/neSb0n6/1FrAYQPfurz7WulYqdM1+m6lCLdzxvPP5jnKq1Mn6gtM7letQiLpS3DlKs/T4O1QkAAAAAAACwbf4BctWKEg==
+   eJzt1bEJgEAMQNEU6ggWrqC7uP82XmFlk0MIB/oe/OpSpAkXAQAAAADwP2tnQI2jM6DGfpfNADXO1pbMZO/AO/43GMsNAvAVU2t+tAzdCAAAAAAAAAAAACIuCE8EDQ==
   </data>
  </layer>
- <layer name="tile" width="125" height="24">
+ <layer name="tile" width="225" height="24">
   <data encoding="base64" compression="zlib">
-   eJztWdEOwyAI7Eds8Rf2/1+4pyaGKAU8EBsuuayrjuKdWOO+13V9i2IisXssxfK8GOt5c8y5Ocd/M9vUPRt2j2c0PkubtT+qjyU/DZGI9q1o0wiJN/iIzo3G+0yutdT8luaARAadfx13tD/1QYJ7NqeRdw6WnLj5kHmNkBCJkbY3qMa9bl45jPbWXE6ZtEQgm+e76lzj+c59CQKafLXj6+/T93r02i7ZV2jX9lM9p3s12tbj1oX7pP1X6gQJtI+zuXyC5091OupLa6H/zsXW+O3peQQkc+S+zoSRh4g6l9YPeiwZPF/RgKsrL0TX5slAvTtGMZ/u0fbZ+0eyzpTncqA8z8pTziKkZ4LceFbOJE9hBj9XcsiQv3d+lhhR/6GdXCM75g7qmdY47RqfWc7iemgUoTti/T+VUm936jLzJ4sfWfLIxkhdMs3XYrH4Hv4Bsf26Yw==
+   eJztmguOwyAMRHOIXfUKe7k9Xu5XVWqkCIExYOyBzJOsqh+Bx3hISnsc5Mn8Nkbk3LPysGAnLaiM1Bh5DehBG3bSggo9SA9KtOT++gaqFlToQXpQYictqEg1/FcE6hrQgzZI17zVtKBS86AEPWgzN0rNcoxoQdXvramma2YPRkIP2oDUq6tqogeP4+8bSB4s5YRGKf/0XlRzb6rt1dn9H+HBUZ+2ko4Zkfu91y8kH1pSy1fKacZ8I+tusT6nIu75fB41ZxHa84qSJqs5Rs5MPD04U5+Uw1M8aFk7SUvP9e6szFHy4Cg1D6Ig9aJmHUtj/STPczXNjVEi91ntHuN9L5pq782pJVp7tmV/Ho0WD/bq6dG4AlevSI/acSI9qAlLvHrbw4Oj915kjPuene7hFjVu8SBZB3rQDqvrYAl6cE88Pbi7173v4STo13WY2R/puLXnq0MPkh7SHjkVYfE9tPV3gdYzR+1r6fsR5wNW3+1HaxwZmrPR6PpGjrtK3NG+lr7v3QsMxhW9zM4DrS6Ia2DBqnsPGp+cev+HhgraGu/aT9F11kRun0Ajl7fWk+TZePhlt30rR6+OV0SyBIroa9zTPYiohfgS7aVd+nYnLcSXaC/t0rcjWt4vrAKs
   </data>
  </layer>
- <layer name="js" width="125" height="24">
+ <layer name="js" width="225" height="24">
   <data encoding="base64" compression="zlib">
-   eJzt1CEKAAAIBEGb//+xVTArhhnYdvkiAAAAAACmbG3sAbjn2wEAAACA7wrt0QBV
+   eJzt1qENAAAIA0Ec+2+MRUCCwd0l7zpAIwAAAAAAAAAAAGbZ+tgDAMDGFwUAAAAAAAAAALgrUQoAVQ==
   </data>
  </layer>
- <layer name="nail" width="125" height="24">
+ <layer name="nail" width="225" height="24">
   <data encoding="base64" compression="zlib">
-   eJztyaERAAAIAzHWYP9FsQgEAkdy96aNAAAAAAAAAOBatrbb9AMAAAB8Ulj8AS0=
+   eJztyaENAAAIA0HWYP9FsZAgMLi75E0bAQAAAAAAAAAAAAAAAAAAMGXrum0/AAAAAADwrwAhpAEt
   </data>
  </layer>
- <layer name="eo" width="125" height="24">
+ <layer name="eo" width="225" height="24">
   <data encoding="base64" compression="zlib">
-   eJztzDENAAAIA7Dd+BeMh12QtAKaAAAAAAAAAEBvjn8AAADAHwtz7wAV
+   eJztzDEBAAAMAiDv9Q+8GHpAABIAAAAAAAAAAAAAAAAA6LnxDwAAAAAAAGDdA56+ABU=
   </data>
  </layer>
- <layer name="light" width="125" height="24">
+ <layer name="light" width="225" height="24">
   <data encoding="base64" compression="zlib">
-   eJzt0ssJwzAURUHV4bRgt5JP/81Y6iALQQJnBu5ej6PXGOOwr7fL40fvf85dG+/g/62/pnmL5j2a92jeo3mP5j2a92jeo3mP5j2a92jeo3mP5j2a92jeo3mP5j2a92jeo3nPav6eOy2zz9wN20YnPg==
+   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAAAAAAAAAIBXA1RgAAE=
   </data>
  </layer>
- <layer name="cover" width="125" height="24">
+ <layer name="cover" width="225" height="24">
   <data encoding="base64" compression="zlib">
-   eJzt2csNgCAQRVGW1qAtaAfSgmj/zYg7FqPRQGYmck8y+5c8SPiEAAAAAOiIeebKWdVTw9piHQDq6Lw/dN4fOsdfpDyjMJtlKJiYrANAndR5Uk8BTVLnX840sVUQqJE638P7N6xDJyYa8tTZ3VrzlNE79ibwTLrL1gz34D6U/3xDaLuG4FN5JuZNtw9l59eZlL95AJZOaQgRgg==
+   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAAAAAAAAAIBXA1RgAAE=
   </data>
  </layer>
- <objectgroup name="bonus" width="125" height="24" visible="0">
+ <objectgroup name="bonus" width="225" height="24" visible="0">
   <object name="life" x="498" y="118"/>
  </objectgroup>
- <objectgroup name="misc" width="125" height="24">
-  <object name="start" x="108" y="220" width="40" height="40"/>
-  <object name="end" x="2360" y="280" width="40" height="40"/>
-  <object type="cube" x="760" y="260" width="40" height="40"/>
+ <objectgroup name="misc" width="225" height="24">
+  <object name="start" x="106" y="278" width="40" height="40"/>
+  <object name="end" x="4340" y="280" width="40" height="40"/>
+  <object type="cube" x="2100" y="280" width="40" height="40"/>
   <object name="nail" type="sign_" x="340" y="180" width="180" height="20">
    <properties>
     <property name="text" value="beware of the nails"/>
@@ -73,7 +73,7 @@
     <property name="text" value="arrow keys to move, z to jump"/>
    </properties>
   </object>
-  <object name="knock" type="sign_" x="940" y="140" width="220" height="20">
+  <object name="jumpDown" type="sign_" x="1600" y="120" width="220" height="20">
    <properties>
     <property name="text" value="Hold Down and Press z to Jump Down"/>
    </properties>
@@ -83,40 +83,61 @@
     <property name="text" value="X to shoot up the cube"/>
    </properties>
   </object>
-  <object name="grd1" type="posGuard" x="1800" y="280" width="40" height="40"/>
-  <object name="bee2" type="posBee" x="1580" y="120" width="40" height="40"/>
-  <object name="bee1" type="posBee" x="1800" y="120" width="40" height="40"/>
-  <object name="warn" x="1580" y="220" width="120" height="100"/>
-  <object name="hp" type="hp" x="2100" y="300" width="20" height="20"/>
-  <object name="fightArea" x="1520" y="40" width="380" height="280"/>
-  <object name="border" type="border" x="20" y="0" width="2420" height="480"/>
-  <object name="cam1" type="cam" x="1440" y="40" width="540" height="400"/>
-  <object name="com1" type="com" x="120" y="220" width="20" height="40">
+  <object name="hp" type="hp" x="3940" y="300" width="20" height="20"/>
+  <object name="border" type="border" x="20" y="0" width="4420" height="480" visible="0"/>
+  <object name="com1" type="com" x="118" y="280" width="20" height="40">
    <properties>
     <property name="tip" value="0"/>
    </properties>
   </object>
-  <object name="pick" type="sign_" x="2020" y="240" width="180" height="20">
+  <object name="pick" type="sign_" x="3800" y="220" width="180" height="20">
    <properties>
     <property name="text" value="Pick up to repair"/>
    </properties>
   </object>
-  <object name="exit" type="sign" x="2300" y="240" width="120" height="20">
+  <object name="exit" type="sign" x="4240" y="240" width="120" height="20">
    <properties>
     <property name="text" value="Exit Ahead"/>
    </properties>
   </object>
-  <object name="com1" type="com" x="280" y="240" width="20" height="40">
+  <object name="com1" type="com" x="340" y="280" width="20" height="40">
    <properties>
     <property name="tip" value="1"/>
    </properties>
   </object>
-  <object name="com1" type="com" x="680" y="260" width="20" height="40">
+  <object name="com1" type="com" x="2040" y="280" width="20" height="40">
+   <properties>
+    <property name="tip" value="4"/>
+   </properties>
+  </object>
+  <object name="com1" type="com" x="3820" y="280" width="20" height="40">
+   <properties>
+    <property name="tip" value="7"/>
+   </properties>
+  </object>
+  <object name="grd1" type="posGuard" x="3080" y="280" width="40" height="40"/>
+  <object name="bee2" type="posBee" x="2860" y="120" width="40" height="40"/>
+  <object name="bee1" type="posBee" x="3080" y="120" width="40" height="40"/>
+  <object name="fightArea" x="2800" y="40" width="380" height="280"/>
+  <object name="cam1" type="cam" x="2720" y="40" width="540" height="400"/>
+  <object name="warn" x="2860" y="220" width="120" height="100"/>
+  <object name="com1" type="com" x="1700" y="160" width="20" height="40">
+   <properties>
+    <property name="tip" value="3"/>
+   </properties>
+  </object>
+  <object name="com1" type="com" x="880" y="280" width="20" height="40">
    <properties>
     <property name="tip" value="2"/>
    </properties>
   </object>
+  <object type="cube" x="2320" y="240" width="40" height="40"/>
+  <object name="com1" type="com" x="2220" y="280" width="20" height="40">
+   <properties>
+    <property name="tip" value="5"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="army" width="125" height="24" visible="0"/>
- <objectgroup name="enemy" width="125" height="24"/>
+ <objectgroup name="army" width="225" height="24" visible="0"/>
+ <objectgroup name="enemy" width="225" height="24"/>
 </map>
