@@ -586,7 +586,6 @@ class Level extends MWState
 		ShowPause(false);
 		FlxG.paused = false;
 		endPause = false;
-		tipManager.HideTip();
 	}
 
 	public function AddAll():Void
@@ -747,13 +746,13 @@ class Level extends MWState
 			return;
 		}
 
-		// Block Prority #2 Tip Pause
-		if(FlxG.paused && tipManager.visible){
-			input.update();
-			if(FlxG.keys.justPressed("X"))
-				tipManager.HideTip();
-			return;
-		}
+		// Block Prority #2 Tip Pause ~ Tip is now behind Confirm, no need to handle it anymore
+		// if(FlxG.paused && tipManager.visible){
+		// 	input.update();
+		// 	if(FlxG.keys.justPressed("X"))
+		// 		tipManager.HideTip();
+		// 	return;
+		// }
 
 		// Block Prority #2 End Pause
 		if(endPause){
@@ -1087,6 +1086,7 @@ class Level extends MWState
 				btnHelp.visible = true;
 				lbResult.text = "FAILED";
 			}
+			confirm.ShowConfirm(Confirm.Mode_TextOnly, false, "UP/DOWN to Select, X to Confirm", "", "", false, null, null);
 			#if !FLX_NO_MOUSE
 			FlxG.mouse.show(); 
 			#end

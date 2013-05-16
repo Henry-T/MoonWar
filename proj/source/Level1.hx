@@ -86,7 +86,7 @@ class Level1 extends Level
 				tipManager.ShowTip(TipManager.Tip_InterCom, function(){
 					lineMgr.Start(lines2, function() {
 						// Hack Well force fix
-						TimerPool.Get().start(0.5, 1, function(t:FlxTimer){
+						TimerPool.Get().start(0.2, 1, function(t:FlxTimer){
 							bot.On = true;
 							hpBar.visible = true;
 						});

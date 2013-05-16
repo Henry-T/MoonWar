@@ -118,7 +118,7 @@ class TipManager extends FlxGroup{
 		txtDesc.text = descs[id];
 
 		hideCall = call;
-		cast(FlxG.state, MWState).confirm.ShowConfirm(Confirm.Mode_OK,true,"Press X to Dismiss","OK", "",false, function(){
+		cast(FlxG.state, MWState).confirm.ShowConfirm(Confirm.Mode_OK,true,"Dismiss the Tip?","OK", "",false, function(){
 			 HideTip();
 			 if(hideCall!=null) hideCall(); 
 		});

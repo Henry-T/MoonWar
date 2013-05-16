@@ -69,7 +69,7 @@ class GameStatic
 	public static var base_txtSize_itemButton:Int = 10;
 	public static var base_txtSize_menuButton:Int = 12;
 	public static var base_txtSize_mainButton:Int = 18;
-	public static var base_txtSize_dialog:Int = 10;
+	public static var base_txtSize_dialog:Int = 12;
 	public static var base_txtSize_desc:Int = 16;
 	public static var base_button_itemWidth:Int = 100;
 	public static var base_button_itemHeight:Int = 18;

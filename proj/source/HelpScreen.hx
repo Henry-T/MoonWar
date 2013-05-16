@@ -136,12 +136,15 @@ class HelpScreen extends MWState
 
 		txtTitle = new FlxText(0, FlxG.height * 0.06, FlxG.width, "Title");
 		txtTitle.setFormat(ResUtil.FNT_Pixelex, 15, 0xffffff, "center");
+		txtTitle.scrollFactor.make(0,0);
 
 		txtNum = new FlxText(0, FlxG.height * 0.1, FlxG.width, "Num");
 		txtNum.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_dialog, 0xffffff, "center");
+		txtNum.scrollFactor.make(0,0);
 
 		txtDesc = new FlxText(0, FlxG.height * 0.8, FlxG.width, "Desc");
 		txtDesc.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_desc, 0xffffff, "center");
+		txtDesc.scrollFactor.make(0,0);
 
 		add(bg);
 		add(mainPnl);
