@@ -44,6 +44,10 @@ class GameStatic
 	public static function setCurLvl(val:Int):Int { Save.data.CurLvl = val; return val; }
 	public static function getCurLvl():Int { return Save.data.CurLvl; }
 
+	public static var TipShown(getTipShown, setTipShown):Int;
+	public static function setTipShown(val:Int):Int { Save.data.TipShown = val; return val; }
+	public static function getTipShown():Int { return Save.data.TipShown; }
+
 	public static var screenDensity : Float;
 
 	// Layout 
@@ -183,6 +187,8 @@ class GameStatic
 		Save.data.EndViewed = false;
 		if (Save.data.Score == null)
 		Save.data.Score = 0;
+		if (Save.data.TipShown == null)
+		Save.data.TipShown = 0;
 	}
 
 	public static function ClearSavedData():Void
@@ -196,6 +202,14 @@ class GameStatic
 		Save.data.IntroViewed = false;
 		Save.data.EndViewed = false;
 		Save.data.Score = 0;
+		Save.data.TipShown = 0;
+	}
+
+	public static function CheckTipShown(id:Int) : Bool {
+		var data:Int = Save.data.TipShown;
+		var shown:Bool = (data>>id & 0x1) == 0x1;
+		trace(shown);
+		return shown;
 	}
 
 	public static function GetCurLvlInst() : FlxState{
