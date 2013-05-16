@@ -30,6 +30,6 @@ class Cube extends Enemy
 	override public function reset(X:Float, Y:Float):Void 
 	{
 		super.reset(X, Y);
-		health = 5;
+		health = 3;
 	}
 }
