@@ -10,6 +10,7 @@ import nme.events.MouseEvent;
 import nme.events.KeyboardEvent;
 import nme.Lib;
 import nme.text.TextField;
+import nme.text.TextFieldAutoSize;
 
 @:bitmap("assets/img/star2.png") class BackgroundBD extends BitmapData {}
 @:bitmap("assets/img/miniMoon.png") class BDmoon extends BitmapData {}
@@ -164,7 +165,7 @@ class Preloader extends NMEPreloader
 	
 	public function update(_)
 	{
-		infoTxt.x = stageWidth * 0.5 - infoTxt.textWidth/2;
+		infoTxt.x = 550 * 0.5 - infoTxt.textWidth * 0.5;	// No idea why stageWidth is 640
 		infoTxt.y = barMid - 10 - infoTxt.textHeight;
 		
 		var deltaTime:Float = 0;
