@@ -704,10 +704,11 @@ class Level extends MWState
 		pauseGroup.add(add(btnQuit_Pause));
 		pauseGroup.add(add(lbPaused));
 
+		add(sceneName);
+
 		add(tipManager);
 
 		add(toSkip);
-		add(sceneName);
 
 		add(btnMute);
 		add(btnPause);
@@ -726,8 +727,8 @@ class Level extends MWState
 			return;
 		}
 
-		// Block Prority #2 Pause
-		if(FlxG.paused){
+		// Block Prority #2 Pause-Normal
+		if(FlxG.paused && pauseBg.visible){
 			pauseGroup.update();
 
 			#if !FLX_NO_KEYBOARD
@@ -745,7 +746,14 @@ class Level extends MWState
 			return;
 		}
 
-		// Block Prority #2 End
+		// Block Prority #2 Tip Pause
+		if(FlxG.paused && tipManager.visible){
+			if(FlxG.keys.justPressed("X"))
+				tipManager.HideTip();
+			return;
+		}
+
+		// Block Prority #2 End Pause
 		if(endPause){
 			endGroup.update();
 
@@ -1134,7 +1142,7 @@ class Level extends MWState
 
 	public override function onFocusLost(){
 		// there are situations there's no need to pause even focus lost
-		if(!isEnd && !(confirm.visible&&confirm.isModel))
+		if(!FlxG.paused && !isEnd && !(confirm.visible&&confirm.isModel))
 			Pause(true);
 	}
 
