@@ -339,7 +339,9 @@ class Level extends MWState
 		btnNext.scrollFactor.make(0, 0);
 		btnNext.visible = false;
 
-		btnHelp = new MyButton(275 + 80, 350, "Help", function(){nme.Lib.getURL(new URLRequest("www.youtube.com"));});
+		btnHelp = new MyButton(275 + 80, 350, "Help", function(){
+			ActionEnd(0);
+		});
 		btnHelp.loadGraphic(ResUtil.bmpBtnBMenuNormal);
 		btnHelp.x = FlxG.width/2 - btnAgain.width/2;
 		btnHelp.y = FlxG.height/2 - 50;
@@ -960,6 +962,7 @@ class Level extends MWState
 				FlxG.switchState(GameStatic.GetNextInst());
 			else
 				nme.Lib.getURL(new URLRequest(GameStatic.helpLink));	// TODO link to help page
+				confirm.ShowConfirm(Confirm.Mode_OK, true, "A walk-through will be opened in your browser.", "OK", "", true, null, null);
 			case 1:
 			FlxG.switchState(new GameMap());
 			case 2:
