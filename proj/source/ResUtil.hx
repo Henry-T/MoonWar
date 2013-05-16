@@ -12,6 +12,8 @@ class ResUtil
 	public static var IMG_ui_box_blue = "assets/img/ui_box_b.png";
 	public static var IMG_ui_box_act_blue = "assets/img/ui_boxact_b.png";
 	public static var IMG_ui_box_border = "assets/img/ui_boxact_border.png";
+	public static var IMG_ui_pnl_blue = "assets/img/ui_slice_b.png";
+	public static var IMG_ui_pnl_yellow = "assets/img/ui_slice_y.png";
 	public static var IMG_ui_barh_yellow = "assets/img/ui_barh_y.png";
 	public static var IMG_ui_barh_blue = "assets/img/ui_barh_b.png";
 	public static var IMG_ui_barv_yellow = "assets/img/ui_barv_y.png";
