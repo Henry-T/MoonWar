@@ -83,7 +83,7 @@ class Level1 extends Level
 		AddAll();
 		TimerPool.Get().start(2, 1, function(t:FlxTimer){
 			lineMgr.Start(lines1, function(){
-				tipManager.ShowTip(TipManager.Tip_Action); 
+				tipManager.ShowTip(TipManager.Tip_InterCom); 
 				confirm.ShowConfirm(Confirm.Mode_OK, true,"press x to close","Close","", false, function(){
 					tipManager.HideTip(); 
 					lineMgr.Start(lines2, function() {
@@ -145,6 +145,9 @@ class Level1 extends Level
 					bee.target = bot;
 					Bees.add(bee);
 				}
+				TimerPool.Get().start(1, 1, function(t:FlxTimer){
+					tipManager.ShowTip(TipManager.Tip_UpShoot);
+				});
 			}
 
 			if(bot.x < fightArea.x)
