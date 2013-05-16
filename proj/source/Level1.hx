@@ -83,9 +83,7 @@ class Level1 extends Level
 		AddAll();
 		TimerPool.Get().start(2, 1, function(t:FlxTimer){
 			lineMgr.Start(lines1, function(){
-				tipManager.ShowTip(TipManager.Tip_InterCom); 
-				confirm.ShowConfirm(Confirm.Mode_OK, true,"press x to close","Close","", false, function(){
-					tipManager.HideTip(); 
+				tipManager.ShowTip(TipManager.Tip_InterCom, function(){
 					lineMgr.Start(lines2, function() {
 						// Hack Well force fix
 						TimerPool.Get().start(0.5, 1, function(t:FlxTimer){
@@ -93,7 +91,7 @@ class Level1 extends Level
 							hpBar.visible = true;
 						});
 					});
-				});
+				}); 
 			});
 		});
 		ShowSceneName("1 - Moon Laboratory");

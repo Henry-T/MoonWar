@@ -276,9 +276,10 @@ class Level3 extends Level
 
 			preMoveEnd = true;
 			lineMgr.Start(lines2, function(){
-				tipManager.ShowTip(TipManager.Tip_Master2);
-				battling = true;
-				bot.On = true;
+				tipManager.ShowTip(TipManager.Tip_Master2, function(){
+					battling = true;
+					bot.On = true;
+				});
 			});
 		}
 		

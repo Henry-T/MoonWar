@@ -327,13 +327,14 @@ class Level2 extends Level
 											FlxG.camera.follow(null);
 											TweenCamera(posCam3.x, posCam3.y, 2, true, function(){
 												lineMgr.Start(lines3, function(){
-													tipManager.ShowTip(TipManager.Tip_Master1);
-													bot.On = true;
-													boss1.switchState(1);
-													ShowBossHP(true);
-													baseHPBg.visible = true;
-													baseHPBar.visible = true;
-													hpBar.visible = true;
+													tipManager.ShowTip(TipManager.Tip_Master1, function(){
+														bot.On = true;
+														boss1.switchState(1);
+														ShowBossHP(true);
+														baseHPBg.visible = true;
+														baseHPBar.visible = true;
+														hpBar.visible = true;
+													});
 												});
 											});
 										}, FlxTween.ONESHOT);

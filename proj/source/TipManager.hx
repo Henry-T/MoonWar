@@ -55,7 +55,8 @@ class TipManager extends FlxGroup{
 		super.draw();
 	}
 
-	public function ShowTip(id:Int){
+	private var  hideCall:Void->Void;
+	public function ShowTip(id:Int, call:Void->Void=null){
 		image.loadGraphic("assets/img/tip" + id + ".png");
 		image.x = FlxG.width * 0.5 - image.width * 0.5;
 		image.y = FlxG.height * 0.5 - image.height * 0.5;
@@ -63,6 +64,12 @@ class TipManager extends FlxGroup{
 		visible = true;
 		_firstFrame = true;
 		FlxG.paused = true;
+
+		hideCall = call;
+		cast(FlxG.state, MWState).confirm.ShowConfirm(Confirm.Mode_OK,true,"Press X to Dismiss","OK", "",false, function(){
+			 	HideTip();
+			 	if(hideCall!=null) hideCall(); 
+			});
 	}
 
 	public function HideTip(){

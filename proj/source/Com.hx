@@ -61,8 +61,7 @@ class Com extends FlxSprite
 		tipId = id;
 		onTig = function(){
 			var lvl:Level = cast(FlxG.state, Level);
-			lvl.tipManager.ShowTip(tipId); 
-			lvl.confirm.ShowConfirm(Confirm.Mode_OK, true,"press x to close","Close","", false, lvl.tipManager.HideTip, lvl.tipManager.HideTip);
+			lvl.tipManager.ShowTip(tipId);
 		}
 		// if a console is tip provider, set it as autoreset
 		AutoReset = true;
