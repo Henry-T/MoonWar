@@ -132,7 +132,7 @@ class GameMap extends MWState
 		//missionTxt.font = "assets/fnt/pixelex";
 
 		descTxt = new FlxText(0, 0, Std.int(FlxG.width * 0.6), "");
-		descTxt.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_dialog, 0xffffff, "left");
+		descTxt.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_desc, 0xffffff, "left");
 		descTxt.x = FlxG.width * 0.36;
 		descTxt.y = FlxG.height * 0.70 + 5;
 
@@ -151,16 +151,24 @@ class GameMap extends MWState
 		add(missionTxt);
 		add(descTxt);
 		add(btnMute);
+		add(confirm);
 
 		// init
 		ResUtil.playTitle();
 		for (b in lvlBtns.members) {
-			cast(b, FlxButton).label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_normalButton, 0xffffff, "center");
+			cast(b, FlxButton).label.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_itemButton, 0xffffff, "center");
 		}
 		SwitchLevel(GameStatic.CurLvl<=GameStatic.ProcLvl?GameStatic.CurLvl:0);
 		#if !FLX_NO_KEYBOARD
 		curMenuSel = 0;
 		SwitchMenu(curMenuSel);
+
+		bottomPnl.visible = false;
+		btnMenu.visible = false;
+		btnStart.visible = false;
+		selectorMenu.visible = false;
+
+		confirm.ShowConfirm(Confirm.Mode_TextOnly, false, "X to Start Level, z for Back to Menu", "", "", false,null, null);
 		#end
 	}
 

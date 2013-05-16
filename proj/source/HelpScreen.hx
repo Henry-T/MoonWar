@@ -138,10 +138,10 @@ class HelpScreen extends MWState
 		txtTitle.setFormat(ResUtil.FNT_Pixelex, 15, 0xffffff, "center");
 
 		txtNum = new FlxText(0, FlxG.height * 0.1, FlxG.width, "Num");
-		txtNum.setFormat(ResUtil.FNT_Amble, 10, 0xffffff, "center");
+		txtNum.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_dialog, 0xffffff, "center");
 
 		txtDesc = new FlxText(0, FlxG.height * 0.8, FlxG.width, "Desc");
-		txtDesc.setFormat(ResUtil.FNT_Amble, 10, 0xffffff, "center");
+		txtDesc.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_desc, 0xffffff, "center");
 
 		add(bg);
 		add(mainPnl);
@@ -160,11 +160,21 @@ class HelpScreen extends MWState
 		add(txtTitle);
 		add(txtNum);
 		add(txtDesc);
+		add(confirm);
 
 		selector.x = btnBack.x + GameStatic.offset_border;
 		selector.y = btnBack.y + GameStatic.offset_border;
 
 		UpdateDesc();
+
+		#if !FLX_NO_KEYBOARD
+		bottomPnl.visible = false;
+		btnBack.visible = false;
+		btnLast.visible = false;
+		btnNext.visible = false;
+		selector.visible = false;
+		confirm.ShowConfirm( Confirm.Mode_TextOnly , false , "Left/Right to Navigate, X for Back to Menu" , "", "", false , null, null );
+		#end
 	}
 
 	public override function update(){
