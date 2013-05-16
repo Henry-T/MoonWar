@@ -63,5 +63,10 @@
   <object type="border" x="400" y="-160" width="4220" height="520"/>
   <object name="cam1" type="cam" x="1040" y="-40" width="540" height="400"/>
   <object name="ground" x="1060" y="300" width="480" height="20"/>
+  <object name="tip" type="com" x="3460" y="260" width="20" height="40">
+   <properties>
+    <property name="tip" value="11"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

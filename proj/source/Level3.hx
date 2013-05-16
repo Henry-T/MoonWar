@@ -26,6 +26,7 @@ class Level3 extends Level
 	public var botWalkSpd:Float = 80;
 	public var preWalking:Bool;
 	public var preWalking2:Bool;
+	public var preMoveEnd:Bool;
 	public var battling:Bool;
 	public var battleEnd:Bool;
 	public var onBoard:Bool;
@@ -52,6 +53,11 @@ class Level3 extends Level
 		];
 
 		lines2 = [
+			new Line(1, "They are near, Dr.Cube."),
+			new Line(0, "You can handle them! I will give you a tip."),
+		];
+
+		lines3 = [
 			new Line(0, "Here we are, this is transport station."),
 			new Line(0, "Take the lift to go under ground.")
 		];
@@ -68,6 +74,7 @@ class Level3 extends Level
 		lvlState = 0;
 		preWalking = true;
 		preWalking2 = false;
+		preMoveEnd = false;
 		battling = false;
 		battleEnd = false;
 		
@@ -232,7 +239,6 @@ class Level3 extends Level
 		}
 	}
 
-
 	override public function update():Void
 	{
 		super.update();
@@ -258,10 +264,8 @@ class Level3 extends Level
 		// 	}
 		// }
 		
-		if (!battling && !battleEnd && t.x > battlePos.x)
+		if (!preMoveEnd && !battling && !battleEnd && t.x > battlePos.x)
 		{
-			battling = true;
-
 			t.velocity.x = 0;
 			bot.velocity.x = 0;
 			//bg1.velocity.x = -300;
@@ -269,7 +273,13 @@ class Level3 extends Level
 			bd1.velocity.x = -33;
 			bd2.velocity.x = -100;
 			bd3.velocity.x = -300;
-			bot.On = true;
+
+			preMoveEnd = true;
+			lineMgr.Start(lines2, function(){
+				tipManager.ShowTip(TipManager.Tip_Master2);
+				battling = true;
+				bot.On = true;
+			});
 		}
 		
 		if (battling)
@@ -333,7 +343,7 @@ class Level3 extends Level
 			t.velocity.x = 0;
 			FlxG.camera.follow(null);
 			TweenCamera(posCam2.x, posCam2.y, 1,true, function(){
-				lineMgr.Start(lines2, function(){
+				lineMgr.Start(lines3, function(){
 					onBoard = false;
 					bot.On = true;
 				});

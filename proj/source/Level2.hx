@@ -80,7 +80,8 @@ class Level2 extends Level
 
 		lines3 = [
 			new Line(0, "CubeBot, RageMetal still have the ability to ruin us."), 
-			new Line(0, "Protect the Surface Base and try defeat it.")
+			new Line(0, "Protect the Surface Base and try defeat it."),
+			new Line(0, "I have a tip for you.")
 		];
 
 		lines4 = [
@@ -326,6 +327,7 @@ class Level2 extends Level
 											FlxG.camera.follow(null);
 											TweenCamera(posCam3.x, posCam3.y, 2, true, function(){
 												lineMgr.Start(lines3, function(){
+													tipManager.ShowTip(TipManager.Tip_Master1);
 													bot.On = true;
 													boss1.switchState(1);
 													ShowBossHP(true);
