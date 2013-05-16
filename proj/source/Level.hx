@@ -959,9 +959,10 @@ class Level extends MWState
 			case 0:
 			if(isWin)
 				FlxG.switchState(GameStatic.GetNextInst());
-			else
+			else{
 				nme.Lib.getURL(new URLRequest(GameStatic.helpLink));	// TODO link to help page
 				confirm.ShowConfirm(Confirm.Mode_OK, true, "A walk-through will be opened in your browser.", "OK", "", true, null, null);
+			}
 			case 1:
 			FlxG.switchState(new GameMap());
 			case 2:
@@ -992,10 +993,10 @@ class Level extends MWState
 			case 0:
 			Pause(false);
 			case 1:
-			confirm.ShowConfirm(Confirm.Mode_YesNo, true, "Current Process Will Be Lost, Continue?", "Yes", "No", true,
+			confirm.ShowConfirm(Confirm.Mode_YesNo, true, "Current Process Will Lost, Continue?", "Yes", "No", true,
 				function(){FlxG.switchState(GameStatic.GetCurLvlInst());}, null);
 			case 2:
-			confirm.ShowConfirm(Confirm.Mode_YesNo, true, "Current Process Will Be Lost, Continue?", "Yes", "No", true,
+			confirm.ShowConfirm(Confirm.Mode_YesNo, true, "Current Process Will Lost, Continue?", "Yes", "No", true,
 				function(){FlxG.switchState(new GameMap());}, null);
 		}
 	}

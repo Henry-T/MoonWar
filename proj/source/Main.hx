@@ -35,7 +35,8 @@ class Main extends Sprite
 		
 		initialize();
 
-		//MochiServices.connect("2d8d1d2659355cf2", root);
+		var _mochiads_game_id:String = "8c1974c3dc338c76";
+		MochiServices.connect("8c1974c3dc338c76", root);
 		//MochiAd.showPreGameAd({clip:root, id:"2d8d1d2659355cf2", res:"550x400"});
 		var game:FlxGame = new MWGame();
 		addChild(game);
