@@ -108,6 +108,8 @@ class Bot extends FlxSprite
 	public var keyUpSustain:Bool;
 	public var keyDownSustain:Bool;
 
+	// Do not shoot when trigger something with shoot key
+	private var gunJamed:Bool;
 
 	public function new(X:Float, Y:Float, Bullets:FlxGroup)
 	{
@@ -124,6 +126,7 @@ class Bot extends FlxSprite
 		gunHand.width = 18;
 
 		On = true;
+		gunJamed = false;
 		
 		this.loadGraphic("assets/img/bot.png", true, true, 26, 30);
 		
@@ -333,7 +336,7 @@ class Bot extends FlxSprite
 			shootTimer = shootCold;
 		}
 
-		if(On && lvl.input.Shoot){
+		if(On && !gunJamed && lvl.input.Shoot){
 			if(shootTimer >= shootCold){
 				getMidpoint(_point);
 				cast(_bullets.recycle(Bullet),Bullet).shoot(_point,_aim);
@@ -385,5 +388,13 @@ class Bot extends FlxSprite
 			super.kill();
 			cast(FlxG.state , Level).EndLevel(false);
 		}
+	}
+
+	// prevent bot from shoot with a very very short period
+	public function JamShoot():Void{
+		gunJamed = true;
+		TimerPool.Get().start(0.20, 1, function(t:FlxTimer){
+			gunJamed = false;
+		});
 	}
 }

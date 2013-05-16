@@ -718,17 +718,16 @@ class Level extends MWState
 
 	override public function update():Void 
 	{
-		// well this is too basic and have to get updated even game is paused
-		input.update();
-
 		// Block Prority #1 Confirm
 		if(confirm.visible && confirm.isModel){
+			input.update();
 			confirm.update();
 			return;
 		}
 
 		// Block Prority #2 Pause-Normal
 		if(FlxG.paused && pauseBg.visible){
+			input.update();
 			pauseGroup.update();
 
 			#if !FLX_NO_KEYBOARD
@@ -748,6 +747,7 @@ class Level extends MWState
 
 		// Block Prority #2 Tip Pause
 		if(FlxG.paused && tipManager.visible){
+			input.update();
 			if(FlxG.keys.justPressed("X"))
 				tipManager.HideTip();
 			return;
@@ -755,6 +755,7 @@ class Level extends MWState
 
 		// Block Prority #2 End Pause
 		if(endPause){
+			input.update();
 			endGroup.update();
 
 			#if !FLX_NO_KEYBOARD
@@ -808,6 +809,7 @@ class Level extends MWState
 			var com:Com = cast(c, Com);
 			if(bot.On && lineMgr.isEnd && input.JustDown_Action && com.onTig!=null){
 				com.ToggleOn();
+				bot.JamShoot();
 			}
 		});
 
