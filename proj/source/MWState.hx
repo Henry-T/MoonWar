@@ -19,6 +19,13 @@ class MWState extends FlxState
 
 	public var input:Input;
 
+	private var _img_mute_normal:String;
+	private var _img_mute_over:String;
+	private var _img_mute_dis:String;
+	private var _img_pause_normal:String;
+	private var _img_pause_over:String;
+	private var _img_pause_dis:String;
+
 	public function new (){
 		super();
 	}
@@ -34,33 +41,61 @@ class MWState extends FlxState
 
 		ResUtil.BuildBitmaps();
 
+		#if web
+		_img_mute_normal = "assets/img/ui_f_mute.png";
+		_img_mute_over = "assets/img/ui_f_mute_act.png";
+		_img_mute_dis = "assets/img/ui_f_mute_dis.png";
+		_img_pause_normal = "assets/img/ui_f_pause.png";
+		_img_pause_over = "assets/img/ui_f_pause_act.png";
+		_img_pause_dis = "assets/img/ui_f_pause_dis.png";
+		#end
+
+		#if mobile
+		if(GameStatic.screenDensity == GameStatic.Density_S){
+			_img_mute_normal = "assets/img/ui_t_mute_S.png";
+			_img_mute_over = "assets/img/ui_t_mute_act_S.png";
+			_img_mute_dis = "assets/img/ui_t_mute_dis_S.png";
+			_img_pause_normal = "assets/img/ui_t_pause_S.png";
+			_img_pause_over = "assets/img/ui_t_pause_act_S.png";
+			_img_pause_dis = "assets/img/ui_t_pause_dis_S.png";
+		}
+		else{
+			_img_mute_normal = "assets/img/ui_t_mute_M.png";
+			_img_mute_over = "assets/img/ui_t_mute_act_M.png";
+			_img_mute_dis = "assets/img/ui_t_mute_dis_M.png";
+			_img_pause_normal = "assets/img/ui_t_pause_M.png";
+			_img_pause_over = "assets/img/ui_t_pause_act_M.png";
+			_img_pause_dis = "assets/img/ui_t_pause_dis_M.png";
+		}
+		#end
+
 		btnMute = new FlxButton(0, 0, "", function() { FlxG.mute = !FlxG.mute; } );
 		btnMute.scrollFactor.make(0,0);
-		btnMute.onOver = function(){btnMute.loadGraphic("assets/img/mute_act.png");};
+		btnMute.onOver = function(){btnMute.loadGraphic(_img_mute_over);};
 		btnMute.onOut = function(){
 			if(FlxG.mute)
-				btnMute.loadGraphic("assets/img/mute_dis.png");
+				btnMute.loadGraphic(_img_mute_dis);
 			else
-				btnMute.loadGraphic("assets/img/mute.png");
+				btnMute.loadGraphic(_img_mute_normal);
 		};
 
 		if(FlxG.mute)
-			btnMute.loadGraphic("assets/img/mute_dis.png");
+			btnMute.loadGraphic(_img_mute_dis);
 		else
-			btnMute.loadGraphic("assets/img/mute.png");
+			btnMute.loadGraphic(_img_mute_normal);
 
 		btnMute.x = FlxG.width - btnMute.width - 5;
 		btnMute.y = 5;
 
 		btnPause = new FlxButton(0,0,"", function(){Pause(true);});
 		btnPause.scrollFactor.make(0,0);
-		btnPause.loadGraphic("assets/img/pause.png");
-		btnPause.onOver = function(){btnPause.loadGraphic("assets/img/pause_act.png");};
+		btnPause.loadGraphic(_img_pause_normal);
+		btnPause.onOver = function(){btnPause.loadGraphic(_img_pause_over);};
 		btnPause.onOut = function(){
 			if(FlxG.paused)
-				btnPause.loadGraphic("assets/img/pause_dis.png");
+				btnPause.loadGraphic(_img_pause_dis);
 			else
-				btnPause.loadGraphic("assets/img/pause.png");
+				btnPause.loadGraphic(_img_pause_normal);
 		};
 
 		btnPause.x = btnMute.x - btnPause.width - 5;
@@ -89,16 +124,16 @@ class MWState extends FlxState
 
 	private function updateMuteButton(){
 		if(FlxG.mute)
-			btnMute.loadGraphic("assets/img/mute_dis.png");
+			btnMute.loadGraphic(_img_mute_dis);
 		else 
-			btnMute.loadGraphic("assets/img/mute.png");
+			btnMute.loadGraphic(_img_mute_normal);
 	}
 
 	private function updatePauseButton(){
 		if(FlxG.paused)
-			btnPause.loadGraphic("assets/img/pause_dis.png");
+			btnPause.loadGraphic(_img_pause_dis);
 		else
-			btnPause.loadGraphic("assets/img/pause.png");
+			btnPause.loadGraphic(_img_pause_normal);
 	}
 
 	// pause interface
