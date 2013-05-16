@@ -7,6 +7,7 @@ import org.flixel.FlxGroup;
 import org.flixel.FlxText;
 import nme.display.BitmapData;
 import org.flixel.addons.FlxBackdrop;
+import nme.geom.Matrix;
 
 
 class GameMap extends MWState 
@@ -37,6 +38,8 @@ class GameMap extends MWState
 	public var btnGLvlNormal:BitmapData;
 	public var btnGLvlOver:BitmapData;
 	public var btnGLvlDown:BitmapData;
+	public var bmpLock:BitmapData;
+	public var btnGLvlLock:BitmapData;
 
 	public var btnGBigNormal:BitmapData;
 	public var btnGBigOver:BitmapData;
@@ -61,6 +64,16 @@ class GameMap extends MWState
 
 		btnGLvlNormal = new SliceShape(0,0, GameStatic.button_itemWidth, GameStatic.button_itemHeight, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
 		btnGLvlOver = new SliceShape(0,0, GameStatic.button_itemWidth, GameStatic.button_itemHeight, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
+
+		if(GameStatic.screenDensity == GameStatic.Density_S)
+			bmpLock = FlxG.addBitmap("assets/img/ui_lock_S.png");
+		else
+			bmpLock = FlxG.addBitmap("assets/img/ui_lock_M.png");
+		btnGLvlLock = btnGLvlNormal.clone();
+		var mat:Matrix = new Matrix();
+		mat.translate(btnGLvlLock.width * 0.5 - bmpLock.width * 0.5, btnGLvlLock.height * 0.5 - bmpLock.height * 0.5);
+		btnGLvlLock.draw(bmpLock,mat);
+
 		selHighLight = new SliceShape(0, 0 ,GameStatic.border_itemWidth, GameStatic.border_itemHeight, "assets/img/ui_boxact_border.png", SliceShape.MODE_BOX, 2).pixels.clone(); 
 
 		btnGBigNormal = new SliceShape(0,0, GameStatic.button_menuWidth, GameStatic.button_menuHeight, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
@@ -144,7 +157,7 @@ class GameMap extends MWState
 		for (b in lvlBtns.members) {
 			cast(b, FlxButton).label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_normalButton, 0xffffff, "center");
 		}
-		SwitchLevel(GameStatic.CurLvl);
+		SwitchLevel(GameStatic.CurLvl<=GameStatic.ProcLvl?GameStatic.CurLvl:0);
 		#if !FLX_NO_KEYBOARD
 		curMenuSel = 0;
 		SwitchMenu(curMenuSel);
@@ -181,8 +194,8 @@ class GameMap extends MWState
 
 	public function SwitchLevel(id:Int)
 	{
-		while(id < 0) id+=GameStatic.AllLevelCnt;
-		while(id >= GameStatic.AllLevelCnt) id -= GameStatic.AllLevelCnt;
+		while(id < 0) id+=GameStatic.ProcLvl+1;
+		while(id >= GameStatic.ProcLvl+1) id -= GameStatic.ProcLvl+1;
 		GameStatic.CurLvl = id;
 		pic.loadGraphic("assets/img/map"+ id+".png");
 		pic.x = FlxG.width * 0.66 - pic.width / 2;
@@ -190,11 +203,10 @@ class GameMap extends MWState
 
 		for (i in 0...lvlBtns.length) {
 			if(i <= GameStatic.ProcLvl)
-				//cast(lvlBtns.members[i],FlxButton).loadGraphic("assets/img/bLvlNot.png");
 				cast(lvlBtns.members[i],FlxButton).loadGraphic(btnGLvlNormal);
 			else
 			{
-				cast(lvlBtns.members[i],FlxButton).loadGraphic("assets/img/bLvlLock.png");
+				cast(lvlBtns.members[i],FlxButton).loadGraphic(btnGLvlLock);
 				cast(lvlBtns.members[i],FlxButton).label.text = "";
 				cast(lvlBtns.members[i],FlxButton).onDown = null;
 				cast(lvlBtns.members[i],FlxButton).onUp = null;

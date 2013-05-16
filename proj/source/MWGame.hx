@@ -34,7 +34,7 @@ class MWGame extends FlxGame
 		GameStatic.Initial();
 		GameStatic.Load();
 		#if debug
-		GameStatic.ProcLvl = 9;
+		GameStatic.ProcLvl = GameStatic.AllLevelCnt-1;
 		#end
 
 		FlxG.framerate = 30;

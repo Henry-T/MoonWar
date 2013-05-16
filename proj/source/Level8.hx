@@ -161,7 +161,6 @@ class Level8 extends Level
 			endTalkHappened = true;
 			TimerPool.Get().start(0.5, 1, function(t:FlxTimer){
 				lineMgr.Start(lines2, function(){
-					if (GameStatic.ProcLvl < 9) GameStatic.ProcLvl = 9;	// increase to Ending
 					EndLevel(true);
 				});
 			});

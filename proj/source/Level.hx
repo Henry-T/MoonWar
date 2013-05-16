@@ -1055,8 +1055,11 @@ class Level extends MWState
 		this.isEnd = true;
 		bot.On = false;
 
-		if(isWin && GameStatic.ProcLvl < GameStatic.CurLvl)
-			GameStatic.ProcLvl = GameStatic.CurLvl;
+		if(isWin && GameStatic.ProcLvl == GameStatic.CurLvl){
+			GameStatic.ProcLvl++;
+			if(GameStatic.ProcLvl>=GameStatic.AllLevelCnt)
+				GameStatic.ProcLvl = GameStatic.AllLevelCnt-1;
+		}
 
 		endMask.visible = true;
 		endMask.alpha = 0;
