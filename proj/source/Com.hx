@@ -66,5 +66,10 @@ class Com extends FlxSprite
 		}
 		// if a console is tip provider, set it as autoreset
 		AutoReset = true;
+
+		// load a different image
+		loadGraphic("assets/img/comTip.png", true, false, 20, 40);
+		addAnimation("off", [0], 1, false);
+		addAnimation("on", [1], 1, false);
 	}
 }
