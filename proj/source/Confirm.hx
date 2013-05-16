@@ -53,12 +53,12 @@ class Confirm extends FlxGroup{
 		_bgFull = new SliceShape(0,0,FlxG.width, FlxG.height * 0.08, ResUtil.IMG_ui_barh_blue, SliceShape.MODE_HERT, 1).pixels.clone();
 
 		btnCancel = new MyButton(FlxG.width*0.6+15, FlxG.height*0.95-ResUtil.bmpBtnBMenuNormal.height*0.5, "Cancel", onConfirm);
-		btnCancel.loadGraphic(ResUtil.bmpBtnYMenuNormal);
+		btnCancel.loadGraphic(ResUtil.bmpBtnBMenuNormal);
 		btnCancel.label.setFormat(ResUtil.FNT_Pixelex,GameStatic.txtSize_menuButton, 0xffffff, "center");
 		btnCancel.scrollFactor.make(0,0);
 
 		btnConfirm = new MyButton(FlxG.width*0.6+15 + 5 + btnCancel.width, FlxG.height*0.95-ResUtil.bmpBtnBMenuNormal.height*0.5, "Confirm", onCancel);
-		btnConfirm.loadGraphic(ResUtil.bmpBtnYMenuNormal);
+		btnConfirm.loadGraphic(ResUtil.bmpBtnBMenuNormal);
 		btnConfirm.label.setFormat(ResUtil.FNT_Pixelex,GameStatic.txtSize_menuButton, 0xffffff, "center");
 		btnConfirm.scrollFactor.make(0,0);
 
