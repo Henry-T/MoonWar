@@ -101,7 +101,7 @@ class GameMap extends MWState
 		btnMenu.onOut = function(){btnMenu.loadGraphic(btnGBigNormal);};
 		btnMenu.x = FlxG.width * 0.66 - btnMenu.width - 50;
 		btnMenu.y = FlxG.height * 0.95 - btnMenu.height * 0.5;
-		btnMenu.label.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_menuButton, 0xffffff, "center");
+		btnMenu.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
 
 		btnStart = new MyButton(0, 0, "START", function(){FlxG.switchState(GameStatic.GetCurLvlInst());});
 		btnStart.loadGraphic(btnGBigNormal);
@@ -109,17 +109,17 @@ class GameMap extends MWState
 		btnStart.onOut = function(){btnStart.loadGraphic(btnGBigNormal);};
 		btnStart.x = FlxG.width * 0.66 + 50;
 		btnStart.y = FlxG.height * 0.95 - btnStart.height * 0.5;
-		btnStart.label.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_menuButton, 0xffffff, "center");
+		btnStart.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
 
 
 		missionTxt = new FlxText(0, 0, 400, "");
-		missionTxt.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_mainButton, 0xffffff, "center");
+		missionTxt.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_mainButton, 0xffffff, "center");
 		missionTxt.x = FlxG.width * 0.66 - 200;
 		missionTxt.y = 5;
 		//missionTxt.font = "assets/fnt/pixelex";
 
 		descTxt = new FlxText(0, 0, Std.int(FlxG.width * 0.6), "");
-		descTxt.setFormat("assets/fnt/pixelex.ttf", GameStatic.txtSize_dialog, 0xffffff, "left");
+		descTxt.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_dialog, 0xffffff, "left");
 		descTxt.x = FlxG.width * 0.36;
 		descTxt.y = FlxG.height * 0.70 + 5;
 

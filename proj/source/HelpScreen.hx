@@ -96,7 +96,7 @@ class HelpScreen extends MWState
 		btnBack.onOut = function(){btnBack.loadGraphic(btnGBigNormal);};
 		btnBack.x = FlxG.width * 0.5 - btnBack.width/2;
 		btnBack.y = FlxG.height * 0.90;
-		btnBack.label.setFormat("assets/fnt/pixelex.ttf", 16, 0xffffff, "center");
+		btnBack.label.setFormat(ResUtil.FNT_Pixelex, 16, 0xffffff, "center");
 
 		btnLast = new FlxButton(0, 0, "LAST", function() {UpdateDesc(-1);} );
 		btnLast.loadGraphic(btnGBigNormal);
@@ -104,7 +104,7 @@ class HelpScreen extends MWState
 		btnLast.onOut = function(){btnLast.loadGraphic(btnGBigNormal);};
 		btnLast.x = 20;
 		btnLast.y = FlxG.height * 0.90;
-		btnLast.label.setFormat("assets/fnt/pixelex.ttf", 16, 0xffffff, "center");
+		btnLast.label.setFormat(ResUtil.FNT_Pixelex, 16, 0xffffff, "center");
 
 		btnNext= new FlxButton(0, 0, "NEXT", function() {UpdateDesc(1);} );
 		btnNext.loadGraphic(btnGBigNormal);
@@ -112,36 +112,36 @@ class HelpScreen extends MWState
 		btnNext.onOut = function(){btnNext.loadGraphic(btnGBigNormal);};
 		btnNext.x = FlxG.width - btnNext.width - 20;
 		btnNext.y = FlxG.height * 0.90;
-		btnNext.label.setFormat("assets/fnt/pixelex.ttf", 16, 0xffffff, "center");
+		btnNext.label.setFormat(ResUtil.FNT_Pixelex, 16, 0xffffff, "center");
 
 		txtCreated = new FlxText(0,0,120, "Created By");
-		txtCreated.setFormat("assets/fnt/pixelex.ttf", 10, 0xffdddddd, "right");
+		txtCreated.setFormat(ResUtil.FNT_Amble, 10, 0xffdddddd, "right");
 		txtCreated.x = FlxG.width * 0.5 - txtCreated.width - 10;
 		txtCreated.y = FlxG.height * 0.5 - 50;
 
 		txtCreatedBy = new FlxText(0,0,120, "Lolofinil");
-		txtCreatedBy.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffff, "left");
+		txtCreatedBy.setFormat(ResUtil.FNT_Amble, 10, 0xffffff, "left");
 		txtCreatedBy.x = FlxG.width * 0.5 + 10;
 		txtCreatedBy.y = FlxG.height * 0.5 - 50;
 
 		txtMusic = new FlxText(0,0,120, "Music By");
-		txtMusic.setFormat("assets/fnt/pixelex.ttf", 10, 0xffdddddd, "right");
+		txtMusic.setFormat(ResUtil.FNT_Amble, 10, 0xffdddddd, "right");
 		txtMusic.x = FlxG.width * 0.5 - txtMusic.width - 10;
 		txtMusic.y = FlxG.height * 0.5 + 50;
 
 		txtMusicBy = new FlxText(0,0, 150, "www.nosoapradio.us");
-		txtMusicBy.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffff, "left");
+		txtMusicBy.setFormat(ResUtil.FNT_Amble, 10, 0xffffff, "left");
 		txtMusicBy.x = FlxG.width * 0.5 + 10;
 		txtMusicBy.y = FlxG.height * 0.5 + 50;
 
 		txtTitle = new FlxText(0, FlxG.height * 0.06, FlxG.width, "Title");
-		txtTitle.setFormat("assets/fnt/pixelex.ttf", 15, 0xffffff, "center");
+		txtTitle.setFormat(ResUtil.FNT_Pixelex, 15, 0xffffff, "center");
 
 		txtNum = new FlxText(0, FlxG.height * 0.1, FlxG.width, "Num");
-		txtNum.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffff, "center");
+		txtNum.setFormat(ResUtil.FNT_Amble, 10, 0xffffff, "center");
 
 		txtDesc = new FlxText(0, FlxG.height * 0.8, FlxG.width, "Desc");
-		txtDesc.setFormat("assets/fnt/pixelex.ttf", 10, 0xffffff, "center");
+		txtDesc.setFormat(ResUtil.FNT_Amble, 10, 0xffffff, "center");
 
 		add(bg);
 		add(mainPnl);

@@ -63,7 +63,7 @@ class EndScreen extends MWState
 		btnBack.onOut = function(){btnBack.loadGraphic(btnGBigNormal);};
 		btnBack.x = FlxG.width * 0.5 - btnBack.width/2;
 		btnBack.y = FlxG.height * 1.10;
-		btnBack.label.setFormat("assets/fnt/pixelex.ttf", 16, 0xffffff, "center");
+		btnBack.label.setFormat(ResUtil.FNT_Pixelex, 16, 0xffffff, "center");
 
 		add(bg);
 		add(txtTheEnd);

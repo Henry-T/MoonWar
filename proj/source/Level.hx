@@ -407,7 +407,7 @@ class Level extends MWState
 		toSkip.visible = false;
 
 		sceneName = new FlxText(0, 10, FlxG.width, "SceneName", 22);
-		sceneName.setFormat("assets/fnt/pixelex.ttf", 22, 0xffffff, "center");
+		sceneName.setFormat(ResUtil.FNT_Pixelex, 22, 0xffffff, "center");
 		sceneName.scrollFactor.make(0,0);
 		sceneName.alpha = 0;
 
