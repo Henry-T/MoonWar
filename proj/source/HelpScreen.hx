@@ -81,7 +81,7 @@ class HelpScreen extends MWState
 		}
 
 		bg = new FlxBackdrop("assets/img/star2.png", 0, 0, true, true);
-		mainPnl = new SliceShape(0,0, 350, 280, "assets/img/ui_box_b.png", SliceShape.MODE_BOX, 3);
+		mainPnl = new SliceShape(0,0, 350, 280, ResUtil.IMG_ui_pnl_blue, SliceShape.MODE_BOX, 5);
 		mainPnl.x = FlxG.width*0.5 - mainPnl.width*0.5;
 		mainPnl.y = FlxG.height*0.4 - mainPnl.height*0.5;
 
