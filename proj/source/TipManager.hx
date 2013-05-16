@@ -3,6 +3,7 @@ package ;
 import org.flixel.FlxGroup;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
+import org.flixel.FlxText;
 
 class TipManager extends FlxGroup{
 
@@ -24,10 +25,46 @@ class TipManager extends FlxGroup{
 	public var bg:SliceShape;
 	public var image:FlxSprite;
 
+	public var txtTitle:FlxText;
+	public var txtDesc:FlxText;
+
 	private var _firstFrame : Bool;	// fix event skip with same key press
+
+	public var titles:Array<String>;
+	public var descs:Array<String>;
 
 	public function new(){
 		super();
+
+		titles = [
+			"A Tip A Console",
+			"Go! Go! Go!",
+			"Jump Is Handy",
+			"Jump Is Handier",
+			"Jump Down",
+			"Hold Shoots Faster Than Press",
+			"Jump Then Shoot",
+			"Shoot At 8-Directions",
+			"When Injured",
+			"Go-Pro: Shoot And Run",
+			"Master Tip: Jump! Move! Shoot!",
+			"Use Lifts"
+		];
+
+		descs = [
+			"Press X to poll tip on a console",
+			"Press Left and Right to run around",
+			"Press Z to jump over things",
+			"Run-Jump is usual way to avoid spikes",
+			"Hold Down then press Z to jump down",
+			"Hold X to shoot a decent amount of bullets!",
+			"Z to Jump then X to Shoot",
+			"Hold X with any arrow keys, try it out!",
+			"Grub the blue cage to get full repaired",
+			"Keep moving to avoid bullets then shoot back",
+			"Move in air to avoid bunches of bullets while shooting back",
+			"Press X to open gates or get into lifts"
+		];
 
 		mask = new FlxSprite(0,0);
 		mask.makeGraphic(FlxG.width, FlxG.height, 0xff000000);
@@ -42,6 +79,18 @@ class TipManager extends FlxGroup{
 		image = new FlxSprite(0,0);
 		image.scrollFactor.make(0,0);
 		add(image);
+
+		txtTitle = new FlxText(0, FlxG.height * 0.06, FlxG.width, "Title");
+		txtTitle.setFormat(ResUtil.FNT_Pixelex, 15, 0xffffff, "center");
+		txtTitle.scrollFactor.make(0,0);
+		add(txtTitle);
+
+		txtDesc = new FlxText(0, FlxG.height * 0.8, FlxG.width, "Desc");
+		txtDesc.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_desc, 0xffffff, "center");
+		txtDesc.scrollFactor.make(0,0);
+		add(txtDesc);
+
+		visible = false;
 	}
 
 	public override function update(){
@@ -65,14 +114,17 @@ class TipManager extends FlxGroup{
 		_firstFrame = true;
 		FlxG.paused = true;
 
+		txtTitle.text = titles[id];
+		txtDesc.text = descs[id];
+
 		hideCall = call;
 		cast(FlxG.state, MWState).confirm.ShowConfirm(Confirm.Mode_OK,true,"Press X to Dismiss","OK", "",false, function(){
-			 	HideTip();
-			 	if(hideCall!=null) hideCall(); 
-			});
+			 HideTip();
+			 if(hideCall!=null) hideCall(); 
+		});
 	}
 
-	public function HideTip(){
+	private function HideTip(){
 		visible = false;
 		FlxG.paused = false;
 	}
