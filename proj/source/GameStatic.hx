@@ -47,10 +47,11 @@ class GameStatic
 	public static var screenDensity : Float;
 
 	// Layout 
-	public static var txtSize_normalButton:Int;
+	public static var txtSize_itemButton:Int;
 	public static var txtSize_menuButton:Int;
 	public static var txtSize_mainButton:Int;
 	public static var txtSize_dialog:Int;
+	public static var txtSize_desc:Int;
 	public static var button_itemWidth:Int;
 	public static var button_itemHeight:Int;
 	public static var border_itemWidth:Int;
@@ -65,10 +66,11 @@ class GameStatic
 	public static var border_mainHeight:Int;
 	public static var offset_border:Int;
 
-	public static var base_txtSize_normalButton:Int = 8;
+	public static var base_txtSize_itemButton:Int = 10;
 	public static var base_txtSize_menuButton:Int = 12;
 	public static var base_txtSize_mainButton:Int = 18;
 	public static var base_txtSize_dialog:Int = 10;
+	public static var base_txtSize_desc:Int = 16;
 	public static var base_button_itemWidth:Int = 100;
 	public static var base_button_itemHeight:Int = 18;
 	public static var base_border_itemWidth:Int = 102;
@@ -145,10 +147,11 @@ class GameStatic
 		heightH = Std.int(FlxG.height * 0.5);
 
 		// set layout size based on device screen
-		txtSize_normalButton= Std.int(screenDensity * base_txtSize_normalButton);
+		txtSize_itemButton= Std.int(screenDensity * base_txtSize_itemButton);
 		txtSize_menuButton	= Std.int(screenDensity * base_txtSize_menuButton);
 		txtSize_mainButton	= Std.int(screenDensity * base_txtSize_mainButton);
 		txtSize_dialog		= Std.int(screenDensity * base_txtSize_dialog);
+		txtSize_desc 		= Std.int(screenDensity * base_txtSize_desc);
 		button_itemWidth	= Std.int(screenDensity * base_button_itemWidth);
 		button_itemHeight	= Std.int(screenDensity * base_button_itemHeight);
 		border_itemWidth	= button_itemWidth + 2;
