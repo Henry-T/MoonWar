@@ -25,9 +25,26 @@ class Main extends Sprite
 		else 
 			addEventListener(Event.ADDED_TO_STAGE, init);
 	}
+
+	private function AllowDomain():Bool{
+		if(loaderInfo == null)
+			return false;	// don't allow local play
+		var curUrl:String = this.loaderInfo.url;
+		var siteUrl = curUrl.split("://")[1].split("/")[0];
+		if(siteUrl == "www.flashgamelicense.com" || siteUrl == "www.flashgamelicense.com")
+			return true;
+		return false;
+	}
 	
 	private function init(?e:Event = null):Void 
 	{
+		#if flash
+		if(!AllowDomain()){
+			this.alpha = 0;
+			return;
+		}
+		#end
+
 		if (hasEventListener(Event.ADDED_TO_STAGE))
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
@@ -35,8 +52,8 @@ class Main extends Sprite
 		
 		initialize();
 
-		var _mochiads_game_id:String = "8c1974c3dc338c76";
-		MochiServices.connect("8c1974c3dc338c76", root);
+		//var _mochiads_game_id:String = "8c1974c3dc338c76";
+		//MochiServices.connect("8c1974c3dc338c76", root);
 		//MochiAd.showPreGameAd({clip:root, id:"2d8d1d2659355cf2", res:"550x400"});
 		var game:FlxGame = new MWGame();
 		addChild(game);
