@@ -114,7 +114,7 @@ class Preloader extends NMEPreloader
 		sDis.graphics.endFill();
 
 		infoTxt = new TextField();
-		infoTxt.text="Please Wait While Loading";
+		infoTxt.text="Now Loading";
 		infoTxt.textColor = 0xffffffff;
 		infoTxt.mouseEnabled = false;
 
