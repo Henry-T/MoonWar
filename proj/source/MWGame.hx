@@ -35,6 +35,7 @@ class MWGame extends FlxGame
 		
 		//super(550,400,TestBed);
 
+		#if feedback
 		BallBat.Initial("https://rulerbat.appspot.com");
 		//BallBat.Initial("http://localhost:8080");
 		BallBat.StartSession(GameStatic.GameName, GameStatic.GameVersion);
@@ -44,6 +45,7 @@ class MWGame extends FlxGame
 			BallBat.Palse(GameStatic.CurStateName, GameStatic.ExtraStr);
 		});
 		palseTimer.start();
+		#end
 
 		GameStatic.Initial();
 		GameStatic.Load();
