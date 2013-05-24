@@ -20,7 +20,7 @@ import flash.events.UncaughtErrorEvent;
  */
 class Main extends Sprite 
 {
-	private static var ErrorSendNumber : Int = 5;
+	private static var ErrorSendNumber : Int = 1;
 	
 	public function new () 
 	{
