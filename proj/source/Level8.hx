@@ -27,6 +27,7 @@ class Level8 extends Level
 
 	public var testPos1:FlxPoint;
 	public var camPos1:FlxPoint;
+	public var fightRect:FlxRect;
 
 	public function new() 
 	{
@@ -83,6 +84,9 @@ class Level8 extends Level
 			}
 			else if(o.name == "cam1"){
 				camPos1 = new FlxPoint(o.x + o.width * 0.5, o.y + o.height * 0.5);
+			}
+			else if(o.name == "fightArea"){
+				fightRect = new FlxRect(o.x, o.y, o.width, o.height);
 			}
 		}
 		
@@ -188,7 +192,7 @@ class Level8 extends Level
 			righting = true;
 			FlxG.camera.follow(null);
 			TweenCamera(camPos1.x, camPos1.y, 3.5, false, function(){
-				FlxG.camera.bounds.make(20*24, 20*1, 20*34, 20*21);
+				FlxG.camera.bounds.make(fightRect.x, fightRect.y, fightRect.width, fightRect.height);
 			});
 
 			var gate:FlxSprite = cast(gates.members[0], FlxSprite);
