@@ -721,7 +721,7 @@ class Level extends MWState
 	{
 		// Trace current bot position for analysis
 		if(bot != null)
-			GameStatic.ExtraStr = "botX="+Math.round(bot.x) + "&botY="+Math.round(bot.y);
+			GameStatic.ExtraStr = "botX="+Math.round(bot.x) + ";botY="+Math.round(bot.y);
 
 		// Block Prority #1 Confirm
 		if(confirm.visible && confirm.isModel){
