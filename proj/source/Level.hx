@@ -719,6 +719,10 @@ class Level extends MWState
 
 	override public function update():Void 
 	{
+		// Trace current bot position for analysis
+		if(bot != null)
+			GameStatic.ExtraStr = "botX="+bot.x + "&botY="+bot.y;
+
 		// Block Prority #1 Confirm
 		if(confirm.visible && confirm.isModel){
 			input.update();

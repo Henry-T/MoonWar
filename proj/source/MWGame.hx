@@ -1,13 +1,17 @@
 package;
 
 import nme.Lib;
+import nme.events.Event;
+import nme.utils.Timer;
+import nme.events.TimerEvent;
 import org.flixel.FlxGame;
 import org.flixel.FlxG;
-import nme.events.Event;
 import org.flixel.system.input.FlxInputs;
 	
 class MWGame extends FlxGame
 {	
+	var palseTimer:Timer;
+
 	public function new()
 	{
 		var stageWidth:Int = Lib.current.stage.stageWidth;
@@ -30,6 +34,16 @@ class MWGame extends FlxGame
 		//super(550, 400, GameOver, 1);
 		
 		//super(550,400,TestBed);
+
+		BallBat.Initial("https://rulerbat.appspot.com");
+		//BallBat.Initial("http://localhost:8080");
+		BallBat.StartSession(GameStatic.GameName, GameStatic.GameVersion);
+
+		palseTimer = new Timer(5000, 0);
+		palseTimer.addEventListener("timer", function(param:Dynamic){
+			BallBat.Palse(GameStatic.CurStateName, GameStatic.ExtraStr);
+		});
+		palseTimer.start();
 
 		GameStatic.Initial();
 		GameStatic.Load();

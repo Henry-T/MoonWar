@@ -9,6 +9,12 @@ import org.flixel.FlxG;
 
 class GameStatic 
 {
+	public static var GameName:String = "MoonWar";
+	public static var GameVersion:String = "1.01.001";
+	
+	public static var CurStateName:String = "";
+	public static var ExtraStr : String = "";
+
 	public static var Density_S:Float = 1;
 	public static var Density_M:Float = 1.5;
 	public static var Density_L:Float = 2;
