@@ -290,7 +290,7 @@ class Level extends MWState
 		tips = new FlxGroup();
 		hpBar = new HPBar(); hpBar.visible = false;
 		
-		hbL = new FlxSprite(FlxG.width * 0.5 - 75, FlxG.height-30, "assets/img/hbL.png"); hbL.scrollFactor = new FlxPoint(0, 0); hbL.visible = false;
+		hbL = new FlxSprite(FlxG.width * 0.5 - 175, FlxG.height-30, "assets/img/hbL.png"); hbL.scrollFactor = new FlxPoint(0, 0); hbL.visible = false;
 		hbR = new FlxSprite(FlxG.width * 0.5 + 155, FlxG.height-30, "assets/img/hbR.png"); hbR.scrollFactor = new FlxPoint(0, 0); hbR.visible = false;
 		hbBg = new FlxSprite(FlxG.width * 0.5 - 155, FlxG.height-30, "assets/img/hbBg.png"); hbBg.origin = new FlxPoint(0, 0); hbBg.scale = new FlxPoint(31, 1); hbBg.scrollFactor = new FlxPoint(0, 0); hbBg.visible = false;
 		hbH = new FlxSprite(FlxG.width * 0.5 -155, FlxG.height-30, "assets/img/hbH.png"); hbH.origin = new FlxPoint(0, 0);  hbH.scrollFactor = new FlxPoint(0, 0); hbH.visible = false;
@@ -721,7 +721,7 @@ class Level extends MWState
 	{
 		// Trace current bot position for analysis
 		if(bot != null)
-			GameStatic.ExtraStr = "botX="+bot.x + "&botY="+bot.y;
+			GameStatic.ExtraStr = "botX="+Math.round(bot.x) + "&botY="+Math.round(bot.y);
 
 		// Block Prority #1 Confirm
 		if(confirm.visible && confirm.isModel){
