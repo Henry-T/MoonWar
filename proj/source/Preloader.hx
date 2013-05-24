@@ -125,12 +125,16 @@ class Preloader extends NMEPreloader
 		addChild(infoTxt);
 		
 		Lib.current.addEventListener(Event.ENTER_FRAME, update);
-		Lib.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, function(e:KeyboardEvent){
-			if(loaded && e.keyCode == 88)
-				dispatchEvent(new Event (Event.COMPLETE));
-		});
+		Lib.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyPress);
 		
 		nme.ui.Mouse.show();
+	}
+
+	private function keyPress(e:KeyboardEvent){
+		if(loaded && e.keyCode == 88){
+			dispatchEvent(new Event (Event.COMPLETE));
+			Lib.current.stage.removeEventListener(KeyboardEvent.KEY_DOWN, keyPress);
+		}
 	}
 
 	public override function onLoaded()
