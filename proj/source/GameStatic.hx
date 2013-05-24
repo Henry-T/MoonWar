@@ -10,7 +10,7 @@ import org.flixel.FlxG;
 class GameStatic 
 {
 	public static var GameName:String = "MoonWar";
-	public static var GameVersion:String = "1.01.003";
+	public static var GameVersion:String = "1.01.004";
 	
 	public static var CurStateName:String = "";
 	public static var ExtraStr : String = "";
