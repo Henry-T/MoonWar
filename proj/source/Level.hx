@@ -964,7 +964,9 @@ class Level extends MWState
 			if(isWin)
 				FlxG.switchState(GameStatic.GetNextInst());
 			else{
+				#if helplink
 				nme.Lib.getURL(new URLRequest(GameStatic.helpLink));	// TODO link to help page
+				#end
 				confirm.ShowConfirm(Confirm.Mode_OK, true, "A walk-through will be opened in your browser.", "OK", "", true, null, null);
 			}
 			case 1:

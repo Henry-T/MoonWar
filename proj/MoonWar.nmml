@@ -71,6 +71,7 @@
     <set name="SWF_VERSION" value="10.1" />
 	<set name="network-sandbox" />
 	<!--set name="feedback" /-->
+	<!--set name="helplink" /-->
 	<haxeflag name="-debug" />
 	<!--<haxeflag name="-release" />-->
 	<!--Optimise Flags of Flixel-->
