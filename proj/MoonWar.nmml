@@ -70,9 +70,10 @@
 	<set name="BUILD_DIR" value="export" />
     <set name="SWF_VERSION" value="10.1" />
 	<set name="network-sandbox" />
-	<!--set name="feedback" /-->
+	<set name="feedback" />
+	<!--<set name="test" />-->
 	<!--set name="helplink" /-->
-	<haxeflag name="-debug" />
+	<!--haxeflag name="-debug" /-->
 	<!--<haxeflag name="-release" />-->
 	<!--Optimise Flags of Flixel-->
     <!--<set name="FLX_NO_DEBUG" />-->

@@ -177,7 +177,7 @@ class Bot extends FlxSprite
 	override public function update():Void
 	{
 		// hack
-		#if debug
+		#if test
 		#if !FLX_NO_KEYBOARD
 		if (FlxG.keys.Q)
 			hurt(99999);
