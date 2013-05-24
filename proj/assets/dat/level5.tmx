@@ -79,7 +79,7 @@
    </properties>
   </object>
   <object name="end" x="4921" y="417" width="37" height="34"/>
-  <object name="border" type="border" x="60" y="0" width="5100" height="560"/>
+  <object name="border" type="border" x="120" y="0" width="5040" height="560"/>
   <object name="lift" type="lift" x="2440" y="160" width="260" height="20">
    <properties>
     <property name="speed" value="50"/>
