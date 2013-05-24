@@ -39,10 +39,12 @@ class Main extends Sprite
 	private function init(?e:Event = null):Void 
 	{
 		#if flash
+		#if !debug
 		if(!AllowDomain()){
 			this.alpha = 0;
 			return;
 		}
+		#end
 		#end
 
 		if (hasEventListener(Event.ADDED_TO_STAGE))
