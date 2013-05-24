@@ -41,8 +41,6 @@ class Preloader extends NMEPreloader
 	private var s2:Sprite;
 	private var sDis:Sprite;
 	
-	private var isForbid:Bool;
-
 	private var stageWidth:Int;
 	private var stageHeight:Int;
 
@@ -132,26 +130,6 @@ class Preloader extends NMEPreloader
 				dispatchEvent(new Event (Event.COMPLETE));
 		});
 		
-		//isForbid = false;
-		
-		// check for site locking
-		if(loaderInfo != null){
-			var allowed_site:String = "flashgamelicense.com";
-			var domain:String = this.loaderInfo.url.split("/")[2];
-			if (domain.indexOf(allowed_site) == (domain.length - allowed_site.length))
-				isForbid = false;
-			else
-				isForbid = true;
-		}
-		else
-			isForbid = false;
-		
-		#if debug
-		//isForbid = true;
-		#end
-
-		// HACK
-		//isForbid = true;
 		nme.ui.Mouse.show();
 	}
 
