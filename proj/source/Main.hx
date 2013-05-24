@@ -3,23 +3,28 @@ import nme.display.StageAlign;
 import nme.display.StageScaleMode;
 import nme.display.Sprite;
 import nme.events.Event;
+import nme.events.ErrorEvent;
 import nme.events.KeyboardEvent;
 import nme.Lib;
 import nme.ui.Keyboard;
 import org.flixel.FlxGame;
 import mochi.as3.MochiAd;
 import mochi.as3.MochiServices;
+import nme.errors.Error;
+#if flash
+import flash.events.UncaughtErrorEvent;
+#end
  
 /**
  * @author Joshua Granick
  */
 class Main extends Sprite 
 {
+	private static var ErrorSendNumber : Int = 5;
 	
 	public function new () 
 	{
 		super();
-		
 		if (stage != null) 
 			init();
 		else 
@@ -39,11 +44,17 @@ class Main extends Sprite
 	private function init(?e:Event = null):Void 
 	{
 		#if flash
-		#if !debug
+		#if !test
 		if(!AllowDomain()){
 			this.alpha = 0;
 			return;
 		}
+		#end
+		#end
+		
+		#if flash
+		#if feedback
+		loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, handleGlobalErrors);
 		#end
 		#end
 
@@ -65,7 +76,39 @@ class Main extends Sprite
 		#end
 
 	}
-	
+
+	#if flash
+	function handleGlobalErrors( event : UncaughtErrorEvent ):Void
+	{
+		var info:String = "";
+		if (Std.is(event.error,Error))
+		{
+			var error:Error = cast(event.error,Error);
+			info += error.errorID;
+			info += error.message;
+			info += error.getStackTrace();
+		}
+		else if (Std.is(event.error,ErrorEvent))
+		{
+			var errorEvent:ErrorEvent = cast(event.error, ErrorEvent);
+			info += errorEvent.errorID;
+			info += errorEvent.text;
+		}
+		else
+		{
+			info += event.toString();
+		}
+
+		// Send Error Report to Server
+		if(ErrorSendNumber>0){
+			ErrorSendNumber--;
+			BallBat.ReportError(info);
+		}
+
+		//event.preventDefault();
+	}
+	#end
+
 	#if (cpp || neko)
 	private function onKeyUP(e:KeyboardEvent):Void 
 	{
