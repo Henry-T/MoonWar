@@ -1,0 +1,90 @@
+<svg width="1960" height="834" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient xlink:href="#imagebot_65" id="imagebot_49" x1="1.00377" y1="0.59602" x2="0.02838" y2="0.59602"/>
+  <linearGradient xlink:href="#imagebot_68" id="imagebot_51" x1="1" y1="0.59322" x2="-0.05146" y2="0.34848"/>
+  <linearGradient xlink:href="#imagebot_74" id="imagebot_53" x1="1" y1="0.71311" x2="-0.02012" y2="0.26975"/>
+  <linearGradient xlink:href="#imagebot_71" id="imagebot_55" x1="0.57821" y1="0" x2="0.41662" y2="1.01641"/>
+  <linearGradient id="imagebot_74">
+   <stop stop-color="#179907" offset="0" id="imagebot_76"/>
+   <stop stop-color="#0f7402" offset="1" id="imagebot_75"/>
+  </linearGradient>
+  <linearGradient id="imagebot_71">
+   <stop stop-color="#1b611f" offset="0" id="imagebot_73"/>
+   <stop stop-color="#103f14" offset="1" id="imagebot_72"/>
+  </linearGradient>
+  <linearGradient id="imagebot_68">
+   <stop stop-color="#56d760" stop-opacity="0.58863" offset="0" id="imagebot_70"/>
+   <stop stop-color="#18b01f" stop-opacity="0.39216" offset="1" id="imagebot_69"/>
+  </linearGradient>
+  <linearGradient id="imagebot_65">
+   <stop stop-color="#3ec549" stop-opacity="0.50836" id="imagebot_67" offset="0"/>
+   <stop stop-color="#4fe756" stop-opacity="0.11706" id="imagebot_66" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g id="imagebot_2" label="Capa 1">
+  <g transform="translate(0.0000100142 2.5433) matrix(13.9939 0 0 13.9939 1265.16 278.709)" label="Calque 1" id="imagebot_46">
+   <g id="imagebot_47" transform="translate(3.2245634e-8,-12)">
+    <path fill="url(#imagebot_55)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" id="imagebot_54" d="M32.47068,18.59098C30.8877,18.59098 19.30692,18.59098 18.40818,18.59098C18.35938,17.59098 18.40818,13.59098 18.40818,13.59098C18.39904,13.14373 18.29085,12.76062 17.87693,12.59098C17.463,12.42134 17.00981,12.49753 16.68943,12.80973L0.68943,28.80973C0.26762,29.24516 0.26762,29.93679 0.68943,30.37223L16.68943,46.37223C17.00981,46.68443 17.463,46.79187 17.87693,46.62223C18.29086,46.45258 18.39904,46.03823 18.40818,45.59098C18.40818,45.59098 18.40818,41.59098 18.40818,40.59098C18.99059,40.59098 22.18637,40.59098 26.34568,40.59098C28.62693,40.43473 29.62693,41.43473 29.62693,44.43473C29.62693,47.43473 29.62693,50.49723 29.62693,50.49723C29.62693,50.49723 29.62693,51.49723 30.62693,51.49723C36.62693,51.49723 42.62693,51.43473 48.62693,51.43473C49.62693,51.43473 49.62693,50.43473 49.62693,50.43473C49.62693,50.43473 49.62693,38.8409 49.62693,37.93473C49.62693,23.43473 41.62693,18.43473 32.47068,18.59098z"/>
+    <path fill="url(#imagebot_53)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" id="imagebot_52" d="M48.22068,37.87223C48.22068,30.86931 46.30449,26.42701 43.47068,23.68473C40.63687,20.94245 36.76643,19.79839 32.43943,19.87223C32.42901,19.87235 32.41859,19.87235 32.40818,19.87223C30.82521,19.87223 19.24442,19.87223 18.34568,19.87223C17.62726,19.87306 17.03529,19.30862 17.00193,18.59098C16.95162,17.55998 16.99038,15.15233 17.00193,14.27848L1.75193,29.52848L17.00193,44.80973C17.00187,43.97707 17.00193,41.39011 17.00193,40.52848C17.00187,39.78632 17.60352,39.18467 18.34568,39.18473C18.92122,39.18473 22.10197,39.18473 26.18943,39.18473C26.22126,39.18255 26.25134,39.18649 26.28318,39.18473C27.6006,39.11193 28.92024,39.39591 29.78318,40.37223C30.66697,41.37214 30.90818,42.72295 30.90818,44.37223C30.90818,47.20213 30.90818,49.77285 30.90818,50.09098C36.67038,50.08873 42.44122,50.03073 48.22068,50.02848C48.22068,49.42474 48.22068,38.75348 48.22068,37.87223z"/>
+    <path fill="url(#imagebot_51)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" id="imagebot_50" d="M47.39063,38.05391C47.39063,31.20495 45.53374,27.0179 42.89063,24.46016C40.2485,21.90337 36.62284,20.8265 32.45313,20.89766C32.43618,20.89786 32.43883,20.89786 32.42188,20.89766C30.83891,20.89766 19.25812,20.89766 18.35938,20.89766C17.19835,20.899 16.22579,19.96368 16.17188,18.80391C16.14289,18.20979 16.16532,17.38271 16.17188,16.49141L2.95313,29.71016L16.17188,42.96016C16.17189,42.05935 16.17188,41.16297 16.17188,40.71016C16.17179,39.51182 17.16104,38.52256 18.35938,38.52266C18.93033,38.52266 22.10018,38.52266 26.14063,38.52266C26.20921,38.51796 26.18572,38.52212 26.20313,38.52266C26.22054,38.5232 26.29898,38.52082 26.26563,38.52266C27.73479,38.44147 29.32996,38.75602 30.42188,39.99141C31.505,41.21684 31.76563,42.82234 31.76563,44.55391C31.76563,46.96628 31.76563,48.62808 31.76563,49.42891C36.96251,49.42221 42.17084,49.37311 47.39063,49.36641C47.39063,47.59306 47.39063,38.874 47.39063,38.05391z"/>
+    <path fill="url(#imagebot_49)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" id="imagebot_48" d="M47.36545,39.7902C47.63116,33.34993 46.77243,28.10902 43.01266,24.5435C40.33073,22.00014 37.50883,20.90062 32.39052,20.97198C32.3752,20.97219 32.37458,20.97216 32.35927,20.97198C30.77629,20.97198 19.19551,20.97198 18.29677,20.97198C17.16741,20.97329 16.22422,20.0691 16.17177,18.94073C16.14134,18.31728 16.16025,17.39643 16.17177,16.50323L2.95757,29.71743L12.75075,39.51062C14.68271,31.62836 21.83108,26.12107 30.70302,26.12107C37.85544,26.12107 43.0014,28.22582 47.36545,39.7902z"/>
+   </g>
+  </g>
+  <path transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" id="imagebot_45" d="M 66.9424 160.781 C 66.9424 160.781 130.318 198.107 73.9039 241.012"/>
+  <path transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" id="imagebot_44" d="M 102.986 229.168 C 102.102 230.115 79.8994 247.87 75.0547 245.017 C 70.21 242.164 75.5193 216.253 75.5193 216.253"/>
+  <path transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" d="M 281.103 92.0829 C 281.439 90.8974 292.674 66.4051 298.244 66.943 C 303.813 67.4809 311.166 92.2797 311.166 92.2797" id="imagebot_43"/>
+  <path transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" d="M 297.824 67.2357 C 297.824 67.2357 293.205 96.5758 299.168 143.678" id="imagebot_42"/>
+  <g transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" id="imagebot_39">
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" d="M258.11066,314.59515C258.44681,313.40967 269.68246,288.91742 275.25189,289.45526C280.82132,289.99313 288.17444,314.79196 288.17444,314.79196" id="imagebot_41"/>
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" d="M274.83215,289.74796C274.83215,289.74796 270.21295,319.08807 276.17557,366.19025" id="imagebot_40"/>
+  </g>
+  <g transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" id="imagebot_36">
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" id="imagebot_38" d="M80.10841,396.83517C80.10841,396.83517 143.48421,434.16113 87.06986,477.06656"/>
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" id="imagebot_37" d="M116.15219,465.22205C115.26795,466.16943 93.06544,483.92459 88.22074,481.07123C83.37605,478.2179 88.68527,452.30765 88.68527,452.30765"/>
+  </g>
+  <path transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" d="M 170.186 160.181 C 170.186 160.181 106.81 197.507 163.225 240.412" id="imagebot_35"/>
+  <path transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" d="M 134.142 228.568 C 135.027 229.515 157.229 247.27 162.074 244.417 C 166.919 241.564 161.609 215.653 161.609 215.653" id="imagebot_34"/>
+  <path transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" d="M 65.7424 142.127 C 65.7424 142.127 129.118 104.801 72.7039 61.8957" id="imagebot_33"/>
+  <path transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" d="M 101.786 73.7402 C 100.902 72.7928 78.6994 55.0376 73.8547 57.891 C 69.0101 60.7443 74.3193 86.6546 74.3193 86.6546" id="imagebot_32"/>
+  <path transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" id="imagebot_31" d="M 168.986 142.727 C 168.986 142.727 105.61 105.401 162.025 62.4957"/>
+  <path transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" id="imagebot_30" d="M 132.942 74.3402 C 133.827 73.3928 156.029 55.6376 160.874 58.491 C 165.719 61.3443 160.409 87.2546 160.409 87.2546"/>
+  <g label="Capa 1" transform="translate(0.0000100142 2.5433) matrix(0 1 -1 0 411.712 -248.763)" id="imagebot_27">
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" d="M286.05237,85.0118C286.38849,83.82629 297.62415,59.33405 303.19357,59.87191C308.763,60.40978 316.11615,85.20861 316.11615,85.20861" id="imagebot_29"/>
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" d="M302.77386,60.16459C302.77386,60.16459 298.15466,89.50469 304.11725,136.60689" id="imagebot_28"/>
+  </g>
+  <g label="Capa 1" transform="translate(0.0000100142 2.5433) matrix(0 -1 1 0 39.8799 393.004)" id="imagebot_24">
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" d="M228.06963,184.00674C228.40575,182.82124 239.6414,158.32899 245.21083,158.86687C250.78024,159.40472 258.13339,184.20357 258.13339,184.20357" id="imagebot_26"/>
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" d="M244.79111,159.15955C244.79111,159.15955 240.17191,188.49963 246.13451,235.60184" id="imagebot_25"/>
+  </g>
+  <g label="Capa 1" transform="translate(0.0000100142 2.5433) matrix(-1 0 0 -1 632.946 341.476)" id="imagebot_21">
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" id="imagebot_23" d="M288.8808,183.29964C289.21692,182.11414 300.45258,157.62189 306.022,158.15974C311.59143,158.69762 318.94458,183.49644 318.94458,183.49644"/>
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-miterlimit="4" id="imagebot_22" d="M305.60229,158.45242C305.60229,158.45242 300.98309,187.79253 306.94568,234.89473"/>
+  </g>
+  <g transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" id="imagebot_18">
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" d="M82.93684,368.95132C82.93684,368.95132 146.31264,331.62534 89.89829,288.71991" id="imagebot_20"/>
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" d="M118.98062,300.56442C118.09638,299.61703 95.89387,281.86188 91.04917,284.71524C86.20448,287.56857 91.5137,313.47882 91.5137,313.47882" id="imagebot_19"/>
+  </g>
+  <g transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" id="imagebot_15">
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" id="imagebot_17" d="M188.98419,367.53711C188.98419,367.53711 125.60841,330.21112 182.02275,287.30573"/>
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" id="imagebot_16" d="M152.94041,299.15021C153.82466,298.20282 176.02718,280.44766 180.87187,283.30103C185.71655,286.15436 180.40733,312.06461 180.40733,312.06461"/>
+  </g>
+  <g transform="translate(0.0000100142 2.5433) matrix(1 0 0 1 -61.8531 -53.6916)" label="Capa 1" id="imagebot_12">
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" d="M190.39841,396.12805C190.39841,396.12805 127.02262,433.45404 183.43697,476.35944" id="imagebot_14"/>
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" d="M154.35463,464.51495C155.23888,465.46234 177.44138,483.2175 182.28609,480.36414C187.13077,477.5108 181.82155,451.60056 181.82155,451.60056" id="imagebot_13"/>
+  </g>
+  <g label="Capa 1" transform="translate(0.0000100142 2.5433) matrix(0 1 -1 0 625.375 0.277161)" id="imagebot_9">
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" id="imagebot_11" d="M258.11066,314.59515C258.44681,313.40967 269.68246,288.91742 275.25189,289.45526C280.82132,289.99313 288.17444,314.79196 288.17444,314.79196"/>
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" id="imagebot_10" d="M274.83215,289.74796C274.83215,289.74796 270.21295,319.08807 276.17557,366.19025"/>
+  </g>
+  <g label="Capa 1" id="imagebot_6" transform="translate(0.0000100142 2.5433) matrix(-1 0 0 -1 589.871 697.769)">
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" d="M258.11066,314.59515C258.44681,313.40967 269.68246,288.91742 275.25189,289.45526C280.82132,289.99313 288.17444,314.79196 288.17444,314.79196" id="imagebot_8"/>
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" d="M274.83215,289.74796C274.83215,289.74796 270.21295,319.08807 276.17557,366.19025" id="imagebot_7"/>
+  </g>
+  <g label="Capa 1" transform="translate(0.0000100142 2.5433) matrix(0 -1 1 0 -95.3157 634.951)" id="imagebot_3">
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" id="imagebot_5" d="M258.11066,314.59515C258.44681,313.40967 269.68246,288.91742 275.25189,289.45526C280.82132,289.99313 288.17444,314.79196 288.17444,314.79196"/>
+   <path fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="7.77873" stroke-linecap="round" stroke-miterlimit="4" id="imagebot_4" d="M274.83215,289.74796C274.83215,289.74796 270.21295,319.08807 276.17557,366.19025"/>
+  </g>
+  <title>Capa 1</title>
+ </g>
+ <metadata>image/svg+xmlOpen Clip Art LibrarySet of simple arrow2008-11-18T17:14:39A set of arrow.Very basic, useful for beginners.http://openclipart.org/detail/20245/set-of-simple-arrow-by-rg1024-20245rg1024arrowarrowarrowsarrowsclip artclipartdirectiondirectionimagemediapngpublic domainsvg</metadata>
+</svg>
