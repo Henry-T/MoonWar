@@ -8,6 +8,7 @@
 	<window width="800" height="480" fps="30" orientation="landscape" fullscreen="false" if="desktop" />
  	
 	<classpath name="source" />
+	<classpath name="source/HFWrap" />
 	
 	<assets path="assets" include="*.png" type="image" />
 	<assets path="assets" include="*.ttf" type="font"/>
@@ -70,8 +71,8 @@
 	<set name="BUILD_DIR" value="export" />
     <set name="SWF_VERSION" value="10.1" />
 	<set name="network-sandbox" />
-	<set name="feedback" />
-	<!--<set name="test" />-->
+	<!--set name="feedback" /-->
+	<set name="test" />
 	<!--set name="helplink" /-->
 	<!--haxeflag name="-debug" /-->
 	<!--<haxeflag name="-release" />-->

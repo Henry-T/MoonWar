@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="defTile" tilewidth="32" tileheight="32">
+  <image source="../img/defTile.png" width="360" height="280"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJyzYmBgsKIyphagtXmU+g8bnxw30ds8UvxJrHnEugufedj8QMg8dDF84qSmW1xy5Jg3FPMHtcyjJgYAg40cGQ==
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="20" height="15">
+  <object x="288" y="32" width="64" height="64"/>
+  <object x="256" y="128" width="32" height="64"/>
+  <object x="352" y="128" width="32" height="64"/>
+  <object x="160" y="160" width="32" height="32"/>
+  <object x="448" y="160" width="32" height="32"/>
+  <object x="192" y="224" width="64" height="64"/>
+  <object x="32" y="256" width="32" height="64"/>
+  <object x="576" y="256" width="32" height="64"/>
+ </objectgroup>
+</map>
