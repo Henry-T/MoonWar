@@ -91,8 +91,8 @@ class Confirm extends FlxGroup{
 
 		#if !FLX_NO_TOUCH
 		if(GameStatic.screenDensity == GameStatic.Density_S){
-			imgConfirm.loadGraphic("assets/img/key_X_B.png");
-			imgCancel.loadGraphic("assets/img/key_Z_B.png");
+			imgConfirm.loadGraphic("assets/img/key_X_S.png");
+			imgCancel.loadGraphic("assets/img/key_Z_S.png");
 		}
 		else if(GameStatic.screenDensity == GameStatic.Density_M){
 			imgConfirm.loadGraphic("assets/img/key_X_M.png");
