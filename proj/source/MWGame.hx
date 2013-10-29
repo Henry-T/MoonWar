@@ -1,9 +1,9 @@
 package;
 
-import nme.Lib;
-import nme.events.Event;
-import nme.utils.Timer;
-import nme.events.TimerEvent;
+import flash.Lib;
+import flash.events.Event;
+import flash.utils.Timer;
+import flash.events.TimerEvent;
 import org.flixel.FlxGame;
 import org.flixel.FlxG;
 import org.flixel.system.input.FlxInputs;
@@ -55,7 +55,7 @@ class MWGame extends FlxGame
 
 		FlxG.framerate = 30;
 		FlxG.flashFramerate = 30;
-		nme.ui.Mouse.show();
+		flash.ui.Mouse.show();
 
 		// preload all sound for android
 		#if android

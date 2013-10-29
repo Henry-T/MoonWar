@@ -1,7 +1,7 @@
 package ;
 
 import org.flixel.FlxText;
-import nme.text.TextField;
+import flash.text.TextField;
 
 class MyText extends FlxText {
 	public function GetTextWidth():Int{

@@ -4,7 +4,7 @@ import org.flixel.FlxSprite;
 import org.flixel.FlxText;
 import org.flixel.FlxGroup;
 import org.flixel.FlxG;
-import nme.display.BitmapData;
+import flash.display.BitmapData;
 
 class Confirm extends FlxGroup{
 	public static var Mode_TextOnly 	: Int = 0;

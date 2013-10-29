@@ -3,7 +3,7 @@ import org.flixel.FlxButton;
 import org.flixel.FlxG;
 import org.flixel.FlxText;
 import org.flixel.FlxSprite;
-import nme.display.BitmapData;
+import flash.display.BitmapData;
 import mochi.as3.MochiAd;
 import mochi.as3.MochiServices;
 import org.flixel.addons.FlxBackdrop;

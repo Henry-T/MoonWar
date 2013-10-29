@@ -9,7 +9,7 @@ import org.flixel.tweens.util.Ease;
 class LevelTest extends Level{
 	public function new(){
 		super();
-		tileXML = nme.Assets.getText("assets/dat/levelTest.tmx");
+		tileXML = openfl.Assets.getText("assets/dat/levelTest.tmx");
 	}
 
 	public override function create(){

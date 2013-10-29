@@ -3,7 +3,7 @@ import org.flixel.system.FlxTile;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxObject;
-import org.flixel.FlxPoint;
+import org.flixel.util.FlxPoint;
 import org.flixel.system.FlxTile;
 import org.flixel.tmx.TmxObjectGroup;
 import org.flixel.addons.FlxBackdrop;
@@ -28,7 +28,7 @@ class Level7 extends Level
 	public function new()
 	{
 		super();
-		tileXML = nme.Assets.getText("assets/dat/level7.tmx");
+		tileXML = openfl.Assets.getText("assets/dat/level7.tmx");
 		zBallSpeed = 1.0;
 		zBallAngle = 0;
 

@@ -1,9 +1,9 @@
 package ;
 import org.flixel.FlxSprite;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxTimer;
 
 import org.flixel.FlxSprite;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxTimer;
 
 class Bouncer extends FlxSprite 
 {

@@ -1,8 +1,8 @@
 package ;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
-import org.flixel.FlxU;
-import org.flixel.FlxPoint;
+import org.flixel.util.FlxAngle;
+import org.flixel.util.FlxPoint;
 import org.flixel.tmx.TmxObject;
 
 class ACatch extends Enemy 
@@ -67,7 +67,7 @@ class ACatch extends Enemy
 	{
 		if (onScreen())
 		{
-			var rad:Float = FlxU.getAngle(getMidpoint(), cast(FlxG.state , Level).bot.getMidpoint()) * Math.PI / 180 - Math.PI/2;
+			var rad:Float = FlxAngle.getAngle(getMidpoint(), cast(FlxG.state , Level).bot.getMidpoint()) * Math.PI / 180 - Math.PI/2;
 			var agl:Float = rad * 180 / Math.PI;
 			while(agl > 180)	agl -= 360;
 			while(agl < -180)	agl += 360;

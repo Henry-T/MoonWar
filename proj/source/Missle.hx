@@ -2,9 +2,9 @@ package ;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxObject;
-import org.flixel.FlxU;
-import org.flixel.FlxPoint;
-
+import org.flixel.util.FlxAngle;
+import org.flixel.util.FlxPoint;
+import org.flixel.util.FlxMath;
 
 
 class Missle extends Enemy 
@@ -38,13 +38,13 @@ class Missle extends Enemy
 		super.update();
 		
 		// set angle alone tangent
-		angle = FlxU.getAngle(new FlxPoint(0, 0), velocity);
+		angle = FlxAngle.getAngle(new FlxPoint(0, 0), velocity);
 		
 		// get angle to target
-		//var ang:Float = FlxU.getAngle(new FlxPoint(x, y), new FlxPoint(tgt.x, tgt.y));
+		//var ang:Float = FlxAngle.getAngle(new FlxPoint(x, y), new FlxPoint(tgt.x, tgt.y));
 		
 		// make a new angle near target angle
-		var len:Float = FlxU.getDistance(new FlxPoint(x, y), new FlxPoint(tgt.x, tgt.y));
+		var len:Float = FlxMath.getDistance(new FlxPoint(x, y), new FlxPoint(tgt.x, tgt.y));
 		var ang:Float = Math.acos((tgt.x - x) / (len));
 		if (tgt.y -y < 0)	ang = -ang;	// fix to -PI~PI
 		curRad = ((ang - curRad > 0)?1: -1) * ((Math.abs(ang - curRad) < Math.PI)?1: -1) * angSpd * Math.PI / 180 * FlxG.elapsed + curRad;

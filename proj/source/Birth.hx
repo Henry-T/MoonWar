@@ -1,7 +1,7 @@
 package ;
 import org.flixel.FlxG;
 import org.flixel.FlxObject;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxTimer;
 
 
 

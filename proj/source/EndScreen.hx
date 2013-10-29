@@ -1,9 +1,9 @@
 package ;
-import nme.display.BitmapData;
+import flash.display.BitmapData;
 import org.flixel.FlxButton;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxTimer;
 import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 import org.flixel.tweens.motion.LinearMotion;

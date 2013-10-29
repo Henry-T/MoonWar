@@ -1,10 +1,10 @@
 package;
-import nme.Assets;
+import openfl.Assets;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxGroup;
-import org.flixel.FlxPoint;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxPoint;
+import org.flixel.util.FlxTimer;
 import org.flixel.system.FlxTile;
 import org.flixel.tmx.TmxObjectGroup;
 import org.flixel.addons.FlxBackdrop;
@@ -62,7 +62,7 @@ class Level3 extends Level
 			new Line(0, "Take the lift to go under ground.")
 		];
 		
-		tileXML = nme.Assets.getText("assets/dat/level3.tmx");
+		tileXML = openfl.Assets.getText("assets/dat/level3.tmx");
 	}
 
 	override public function create():Void

@@ -5,9 +5,9 @@ import org.flixel.FlxEmitter;
 import org.flixel.FlxSprite;
 import org.flixel.FlxGroup;
 import org.flixel.FlxObject;
-import org.flixel.FlxPoint;
+import org.flixel.util.FlxPoint;
 import org.flixel.system.FlxTile;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxTimer;
 import org.flixel.tmx.TmxObjectGroup;
 import org.flixel.tweens.motion.QuadMotion;
 import org.flixel.tweens.motion.LinearMotion;
@@ -67,7 +67,7 @@ class Level2 extends Level
 	{
 		super();
 		
-		tileXML = nme.Assets.getText("assets/dat/level2.tmx");
+		tileXML = openfl.Assets.getText("assets/dat/level2.tmx");
 		
 		lines1 = [
 			new Line(2, "Proceed!Crash them to ash!"), 

@@ -3,7 +3,7 @@ package;
 import org.flixel.FlxSprite;
 import org.flixel.FlxText;
 import org.flixel.FlxG;
-import org.flixel.FlxPoint;
+import org.flixel.util.FlxPoint;
 import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.util.Ease;
 import org.flixel.tweens.misc.ColorTween;

@@ -8,8 +8,8 @@ import org.flixel.system.input.FlxGamePad;
 import org.flixel.FlxGroup;
 import org.flixel.FlxText;
 import org.flixel.FlxSprite;
-import org.flixel.FlxU;
-import nme.display.BitmapData;
+import org.flixel.util.FlxAngle;
+import flash.display.BitmapData;
 
 class MWState extends FlxState
 {
@@ -34,7 +34,7 @@ class MWState extends FlxState
 	public override function create(){
 		super.create();
 
-		GameStatic.CurStateName = FlxU.getClassName(this, true);
+		GameStatic.CurStateName = org.flixel.util.FlxString.getClassName(this, true);
 
 		// something force game to mute at the beginning, so I have to force it back
 		if(GameStatic.justStart){

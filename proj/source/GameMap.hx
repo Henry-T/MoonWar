@@ -5,9 +5,9 @@ import org.flixel.FlxState;
 import org.flixel.FlxSprite;
 import org.flixel.FlxGroup;
 import org.flixel.FlxText;
-import nme.display.BitmapData;
+import flash.display.BitmapData;
 import org.flixel.addons.FlxBackdrop;
-import nme.geom.Matrix;
+import flash.geom.Matrix;
 
 
 class GameMap extends MWState 

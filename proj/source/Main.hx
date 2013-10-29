@@ -1,16 +1,16 @@
 package;
-import nme.display.StageAlign;
-import nme.display.StageScaleMode;
-import nme.display.Sprite;
-import nme.events.Event;
-import nme.events.ErrorEvent;
-import nme.events.KeyboardEvent;
-import nme.Lib;
-import nme.ui.Keyboard;
+import flash.display.StageAlign;
+import flash.display.StageScaleMode;
+import flash.display.Sprite;
+import flash.events.Event;
+import flash.events.ErrorEvent;
+import flash.events.KeyboardEvent;
+import flash.Lib;
+import flash.ui.Keyboard;
 import org.flixel.FlxGame;
 import mochi.as3.MochiAd;
 import mochi.as3.MochiServices;
-import nme.errors.Error;
+import flash.errors.Error;
 #if flash
 import flash.events.UncaughtErrorEvent;
 #end
@@ -36,7 +36,8 @@ class Main extends Sprite
 			return false;	// don't allow local play
 		var curUrl:String = this.loaderInfo.url;
 		var siteUrl = curUrl.split("://")[1].split("/")[0];
-		if(siteUrl == "www.flashgamelicense.com" || siteUrl == "www.flashgamelicense.com")
+		if(siteUrl == "www.flashgamelicense.com" || siteUrl == "www.flashgamelicense.com" ||
+			siteUrl == "rulerbat.appspot.com")
 			return true;
 		return false;
 	}

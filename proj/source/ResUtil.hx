@@ -1,6 +1,6 @@
 package ;
 import org.flixel.FlxG;
-import nme.display.BitmapData;
+import flash.display.BitmapData;
 
 
 class ResUtil 

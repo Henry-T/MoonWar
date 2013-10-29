@@ -2,8 +2,8 @@ package;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxGroup;
-import org.flixel.FlxPoint;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxPoint;
+import org.flixel.util.FlxTimer;
 import org.flixel.FlxObject;
 
 class Boss1 extends Enemy

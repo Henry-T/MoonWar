@@ -1,7 +1,7 @@
 package ;
 import org.flixel.FlxButton;
 import org.flixel.FlxText;
-import org.flixel.FlxPoint;
+import org.flixel.util.FlxPoint;
 
 class MyButton extends FlxButton {
 	public function new(X:Float = 0, Y:Float = 0, Label:String = null, OnClick:Void->Void = null){

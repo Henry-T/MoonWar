@@ -1,10 +1,10 @@
 package ;
-import nme.utils.ByteArray;
+import flash.utils.ByteArray;
 import org.flixel.FlxState;
 import org.flixel.FlxSave;
 import org.flixel.FlxSave;
 import org.flixel.FlxState;
-import nme.system.Capabilities;
+import flash.system.Capabilities;
 import org.flixel.FlxG;
 
 class GameStatic 
@@ -41,18 +41,18 @@ class GameStatic
 	public static var AllLevelCnt:Int = 8;
 
 	//public static var ProcLvl:Int;
-	public static var ProcLvl(getProcLvl, setProcLvl):Int;
-	public static function setProcLvl(val:Int):Int { Save.data.ProcLvl = val; return val; }
-	public static function getProcLvl():Int { return Save.data.ProcLvl; }
+	public static var ProcLvl(get, set):Int;
+	public static function set_ProcLvl(val:Int):Int { Save.data.ProcLvl = val; return val; }
+	public static function get_ProcLvl():Int { return Save.data.ProcLvl; }
 
 	//public static var CurLvl:Int;
-	public static var CurLvl(getCurLvl, setCurLvl):Int;
-	public static function setCurLvl(val:Int):Int { Save.data.CurLvl = val; return val; }
-	public static function getCurLvl():Int { return Save.data.CurLvl; }
+	public static var CurLvl(get, set):Int;
+	public static function set_CurLvl(val:Int):Int { Save.data.CurLvl = val; return val; }
+	public static function get_CurLvl():Int { return Save.data.CurLvl; }
 
-	public static var TipShown(getTipShown, setTipShown):Int;
-	public static function setTipShown(val:Int):Int { Save.data.TipShown = val; return val; }
-	public static function getTipShown():Int { return Save.data.TipShown; }
+	public static var TipShown(get, set):Int;
+	public static function set_TipShown(val:Int):Int { Save.data.TipShown = val; return val; }
+	public static function get_TipShown():Int { return Save.data.TipShown; }
 
 	public static var screenDensity : Float;
 
@@ -125,8 +125,8 @@ class GameStatic
 		useKeyboard = false;
 		#end
 
-		screenWidth = Std.int(nme.system.Capabilities.screenResolutionX);
-		screenHeight = Std.int(nme.system.Capabilities.screenResolutionY);
+		screenWidth = Std.int(flash.system.Capabilities.screenResolutionX);
+		screenHeight = Std.int(flash.system.Capabilities.screenResolutionY);
 
 		// Get Screen Density
 		var dpi = Capabilities.screenDPI;
@@ -139,7 +139,7 @@ class GameStatic
 		//screenDensity = Density_M;
 
 		// Check ratio mode 
-		ratioValue = nme.system.Capabilities.pixelAspectRatio;
+		ratioValue = flash.system.Capabilities.pixelAspectRatio;
 		if(ratioValue < 1.2)
 			ratioMode = RATIO_MODE_Narrow;
 		else if(ratioMode < 1.45)

@@ -1,16 +1,17 @@
-package;import org.flixel.FlxText;
+package;
+import org.flixel.FlxText;
 import org.flixel.FlxButton;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxState;
 import org.flixel.FlxSave;
-import org.flixel.FlxU;
+import org.flixel.util.FlxAngle;
 import org.flixel.FlxPath;
 
 
-import nme.Assets;
-import nme.geom.Rectangle;
-import nme.net.SharedObject;
+import openfl.Assets;
+import flash.geom.Rectangle;
+import flash.net.SharedObject;
 import org.flixel.FlxButton;
 import org.flixel.FlxG;
 import org.flixel.FlxPath;
@@ -18,7 +19,7 @@ import org.flixel.FlxSave;
 import org.flixel.FlxSprite;
 import org.flixel.FlxState;
 import org.flixel.FlxText;
-import org.flixel.FlxU;
+import org.flixel.util.FlxAngle;
 
 class MenuState extends FlxState
 {

@@ -1,6 +1,6 @@
 package ;
 
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxTimer;
 
 // Make it easier to use FlxTimer
 // 1. When in need of a FlxTimer, we will create a new instance manually.

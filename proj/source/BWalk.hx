@@ -1,9 +1,9 @@
 package ;
 import org.flixel.FlxG;
-import org.flixel.FlxU;
+import org.flixel.util.FlxAngle;
 import org.flixel.FlxSprite;
 import org.flixel.FlxObject;
-import org.flixel.FlxRect;
+import org.flixel.util.FlxRect;
 import org.flixel.tmx.TmxObject;
 
 class BWalk extends Enemy 

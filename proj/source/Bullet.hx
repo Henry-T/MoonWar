@@ -2,7 +2,7 @@ package;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.plugin.photonstorm.baseTypes.Bullet;
-import org.flixel.FlxPoint;
+import org.flixel.util.FlxPoint;
 import org.flixel.FlxObject;
 
 class Bullet extends FlxSprite

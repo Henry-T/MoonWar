@@ -2,7 +2,7 @@ package ;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.system.FlxDebugger;
-import org.flixel.FlxPoint;
+import org.flixel.util.FlxPoint;
 import org.flixel.system.FlxDebugger;
 import org.flixel.tmx.TmxObject;
 

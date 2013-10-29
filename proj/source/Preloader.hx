@@ -1,16 +1,16 @@
 package ;
 import haxe.Timer;
-import nme.Assets;
-import nme.display.Bitmap;
-import nme.display.BitmapData;
-import nme.display.SimpleButton;
-import nme.display.Sprite;
-import nme.events.Event;
-import nme.events.MouseEvent;
-import nme.events.KeyboardEvent;
-import nme.Lib;
-import nme.text.TextField;
-import nme.text.TextFieldAutoSize;
+import openfl.Assets;
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.display.SimpleButton;
+import flash.display.Sprite;
+import flash.events.Event;
+import flash.events.MouseEvent;
+import flash.events.KeyboardEvent;
+import flash.Lib;
+import flash.text.TextField;
+import flash.text.TextFieldAutoSize;
 
 @:bitmap("assets/img/star2.png") class BackgroundBD extends BitmapData {}
 @:bitmap("assets/img/miniMoon.png") class BDmoon extends BitmapData {}
@@ -127,7 +127,7 @@ class Preloader extends NMEPreloader
 		Lib.current.addEventListener(Event.ENTER_FRAME, update);
 		Lib.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyPress);
 		
-		nme.ui.Mouse.show();
+		flash.ui.Mouse.show();
 	}
 
 	private function keyPress(e:KeyboardEvent){

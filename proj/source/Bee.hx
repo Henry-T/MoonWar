@@ -3,9 +3,10 @@ import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxObject;
 import org.flixel.plugin.photonstorm.baseTypes.Bullet;
-import org.flixel.FlxU;
-import org.flixel.FlxPoint;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxAngle;
+import org.flixel.util.FlxPoint;
+import org.flixel.util.FlxTimer;
+import org.flixel.util.FlxMath;
 
 // Bee Class
 class Bee extends Enemy
@@ -136,7 +137,7 @@ class Bee extends Enemy
 					if(canShot){
 						var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
 						bgb.reset(getMidpoint().x, getMidpoint().y);
-						var agl:Float = FlxU.getAngle(getMidpoint(), cast(FlxG.state , Level).bot.getMidpoint());
+						var agl:Float = FlxAngle.getAngle(getMidpoint(), cast(FlxG.state , Level).bot.getMidpoint());
 						bgb.velocity.x = Math.cos((agl-90) / 180 * Math.PI) * 200;
 						bgb.velocity.y = Math.sin((agl-90) / 180 * Math.PI) * 200;
 					}
@@ -189,7 +190,7 @@ class Bee extends Enemy
 			}
 			
 			// checking lock
-			if (FlxU.getDistance(logPos, FinPos) < 2)
+			if (FlxMath.getDistance(logPos, FinPos) < 2)
 			{
 				locked = true;
 			}
@@ -203,7 +204,7 @@ class Bee extends Enemy
 				{
 				var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
 				bgb.reset(getMidpoint().x, getMidpoint().y);
-				var agl:Float = FlxU.getAngle(getMidpoint(), cast(FlxG.state , Level).bot.getMidpoint());
+				var agl:Float = FlxAngle.getAngle(getMidpoint(), cast(FlxG.state , Level).bot.getMidpoint());
 				bgb.velocity.x = 0;
 				bgb.velocity.y = 100;
 				});

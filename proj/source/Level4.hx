@@ -2,9 +2,9 @@ package ;
 import org.flixel.system.FlxTile;
 import org.flixel.FlxG;
 import org.flixel.FlxObject;
-import org.flixel.FlxPoint;
+import org.flixel.util.FlxPoint;
 import flash.geom.Point;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxTimer;
 import org.flixel.FlxSprite;
 import org.flixel.tmx.TmxObjectGroup;
 import org.flixel.addons.FlxBackdrop;
@@ -36,7 +36,7 @@ class Level4 extends Level
 	public function new()
 	{
 		super();
-		tileXML = nme.Assets.getText("assets/dat/level4.tmx");
+		tileXML = openfl.Assets.getText("assets/dat/level4.tmx");
 
 		lines1 = [
 			new Line(1,"Enemy spotted."),

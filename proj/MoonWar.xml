@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<meta title="Moon War" description="Cubebot fight back RageMetal with Dr.Cube." package="com.lolofinil.moonwar" version="1.0.0" company="lolofinil" />
+	<app title="MoonWar" file="MoonWar" main="Main" version="0.0.1" path="export" company="Lolofinil"/>
+	
+	<window width="550" height="400" fps="30" orientation="portrait" resizable="false" if="web" />
+	<window width="0" height="0" fps="30" orientation="landscape" fullscreen="true" if="mobile" />
+	<window width="800" height="480" fps="30" orientation="landscape" fullscreen="false" if="desktop" />
+ 	
+	<classpath name="source" />
+	<classpath name="source/HFWrap" />
+	
+	<assets path="assets" include="*.png" type="image" />
+	<assets path="assets" include="*.ttf" type="font"/>
+	<assets path="assets" include="*.tmx" />
+	<assets path="assets" include="*.tsx" />
+	<assets path="assets" include="*.xml" />
+
+	<assets path="assets" if="desktop" >
+		<sound path="data/beep.wav" id="Beep" />
+		<sound path="snd/birth1.wav" id="birth1" />
+		<sound path="snd/explo1.wav" id="explo1" />
+		<sound path="snd/hit1.wav" id="hit1" />
+		<sound path="snd/hit2.wav" id="hit2" />
+		<sound path="snd/jump2.wav" id="jump2" />
+		<sound path="snd/sel1.wav" id="sel1" />
+		<sound path="snd/shoot.wav" id="shoot" />
+		<sound path="snd/shoot1.wav" id="shoot1" />
+		<music path="snd/DST-Assembly2.mp3" id="game" />
+		<music path="snd/DST-MrMagic.mp3" id="title" />
+	</assets>
+
+	<assets path="assets" if="android" >
+		<sound path="data/beep.wav" id="Beep" />
+		<sound path="snd/birth1.wav" id="birth1" />
+		<sound path="snd/explo1.wav" id="explo1" />
+		<sound path="snd/hit1.wav" id="hit1" />
+		<sound path="snd/hit2.wav" id="hit2" />
+		<sound path="snd/jump2.wav" id="jump2" />
+		<sound path="snd/sel1.wav" id="sel1" />
+		<sound path="snd/shoot.wav" id="shoot" />
+		<sound path="snd/shoot1.wav" id="shoot1" />
+		<music path="snd/DST-Assembly2.wav" id="game" />
+		<music path="snd/DST-MrMagic.wav" id="title" />
+	</assets>
+	
+	<assets path="assets" if="flash" >
+		<sound path="data/beep.mp3" id="Beep" />
+		<sound path="snd/birth1.mp3" id="birth1" />
+		<sound path="snd/explo1.mp3" id="explo1" />
+		<sound path="snd/hit1.mp3" id="hit1" />
+		<sound path="snd/hit2.mp3" id="hit2" />
+		<sound path="snd/jump2.mp3" id="jump2" />
+		<sound path="snd/sel1.mp3" id="sel1" />
+		<sound path="snd/shoot.mp3" id="shoot" />
+		<sound path="snd/shoot1.mp3" id="shoot1" />
+		<music path="snd/DST-Assembly2.mp3" id="game" />
+		<music path="snd/DST-MrMagic.mp3" id="title" />
+	</assets>
+	
+	<icon name="assets/mw.png" if="flash"/>
+
+	<!--if certificate is set, the app on android seems to have to be uninstalled manually before you can test a new one-->
+	<!--<certificate path="release.keystore" password="and1dump" alias="MoonWar" alias-password="and1dump" if="android"/>-->
+
+	<!-- Change compilerflag to haxeflag -->
+	<haxeflag name="-swf-lib" value="lib/mochi.swf" if="flash" />
+	<haxedef name="no-pattern-matching" />
+
+	<haxelib name="openfl" />
+	<haxelib name="flixel" />
+
+	<set name="BUILD_DIR" value="export" />
+    <set name="SWF_VERSION" value="10.1" />
+	<set name="network-sandbox" />
+	<!--set name="feedback" /-->
+	<set name="test" />
+	<!--set name="helplink" /-->
+	<!--haxeflag name="-debug" /-->
+	<!--<haxeflag name="-release" />-->
+	<!--Optimise Flags of Flixel-->
+    <!--<set name="FLX_NO_DEBUG" />-->
+    <!--set name="FLX_NO_MOUSE"/-->
+    <set name="FLX_NO_MOUSE" />
+    <set name="FLX_NO_KEYBOARD" if="mobile" />
+    <set name="FLX_NO_TOUCH" unless="mobile" />
+    <set name="FLX_NO_RECORD" />
+    <set name="FLX_NO_JOYSTICK" />
+
+    <!-- Set preloader just at the end of this file as someone said on HaxeFlixel forum-->
+    <app preloader="Preloader"/>
+</project>

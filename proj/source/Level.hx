@@ -1,8 +1,8 @@
 package;
 import org.flixel.FlxText;
-import org.flixel.FlxRect;
+import org.flixel.util.FlxRect;
 import org.flixel.FlxG;
-import org.flixel.FlxU;
+import org.flixel.util.FlxAngle;
 import org.flixel.FlxTilemap;
 import org.flixel.FlxEmitter;
 import org.flixel.FlxSprite;
@@ -10,8 +10,8 @@ import org.flixel.FlxGroup;
 import org.flixel.FlxState;
 import org.flixel.FlxObject;
 import org.flixel.plugin.photonstorm.baseTypes.Bullet;
-import org.flixel.FlxPoint;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxPoint;
+import org.flixel.util.FlxTimer;
 import org.flixel.FlxButton;
 import org.flixel.system.FlxTile;
 import org.flixel.tmx.TmxMap;
@@ -19,14 +19,14 @@ import org.flixel.tmx.TmxLayer;
 import org.flixel.tmx.TmxObjectGroup;
 import org.flixel.tmx.TmxTileSet;
 import org.flixel.tmx.TmxObject;
-import nme.display.BitmapData;
+import flash.display.BitmapData;
 import org.flixel.tweens.FlxTween;
 import org.flixel.tweens.misc.VarTween;
 import org.flixel.tweens.util.Ease;
 import org.flixel.addons.FlxBackdrop;
-import nme.Assets;
-import nme.events.Event;
-import nme.net.URLRequest;
+import openfl.Assets;
+import flash.events.Event;
+import flash.net.URLRequest;
 
 class Level extends MWState
 {

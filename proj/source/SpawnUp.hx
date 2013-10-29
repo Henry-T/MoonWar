@@ -1,7 +1,7 @@
 package;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
-import org.flixel.FlxPoint;
+import org.flixel.util.FlxPoint;
 import flash.display.Graphics;
 
 

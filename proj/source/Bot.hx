@@ -1,13 +1,13 @@
 package;
-import org.flixel.FlxRect;
+import org.flixel.util.FlxRect;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxGroup;
-import org.flixel.FlxPoint;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxPoint;
+import org.flixel.util.FlxTimer;
 import org.flixel.FlxObject;
 import org.flixel.system.input.FlxTouch;
-import org.flixel.FlxU;
+import org.flixel.util.FlxAngle;
 
 class Bot extends FlxSprite
 {

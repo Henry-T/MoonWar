@@ -1,11 +1,11 @@
 package ;
-import org.flixel.FlxRect;
+import org.flixel.util.FlxRect;
 import org.flixel.FlxG;
 import org.flixel.FlxTilemap;
 import org.flixel.FlxSprite;
 import org.flixel.FlxObject;
-import org.flixel.FlxPoint;
-import org.flixel.FlxTimer;
+import org.flixel.util.FlxPoint;
+import org.flixel.util.FlxTimer;
 import org.flixel.tmx.TmxObjectGroup;
 import org.flixel.FlxCamera;
 import org.flixel.tweens.FlxTween;
@@ -32,7 +32,7 @@ class Level8 extends Level
 	public function new() 
 	{
 		super();
-		tileXML = nme.Assets.getText("assets/dat/level8.tmx");
+		tileXML = openfl.Assets.getText("assets/dat/level8.tmx");
 		
 		lines1 = [
 			new Line(0,"Dr.Cube:It's too bad, RageMetal take control of the energy."), 

@@ -1,11 +1,11 @@
 package;
-import nme.display.BitmapData;
-import nme.geom.Rectangle;
-import nme.geom.Point;
-import nme.Assets;
+import flash.display.BitmapData;
+import flash.geom.Rectangle;
+import flash.geom.Point;
+import openfl.Assets;
 import org.flixel.FlxAssets;
 import org.flixel.FlxSprite;
-import nme.geom.Matrix;
+import flash.geom.Matrix;
 
 // slice bitmap and extract to shape like panels or buttons
 class SliceShape extends FlxSprite

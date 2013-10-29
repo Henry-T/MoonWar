@@ -1,6 +1,6 @@
 package;
 import org.flixel.FlxSprite;
-import nme.display.BitmapData;
+import flash.display.BitmapData;
 import org.flixel.FlxButton;
 import org.flixel.FlxText;
 import org.flixel.FlxG;

@@ -1,6 +1,6 @@
 package;
 import org.flixel.FlxSprite;
-import org.flixel.FlxPoint;
+import org.flixel.util.FlxPoint;
 import org.flixel.FlxG;
 
 class HPBar extends FlxSprite{
