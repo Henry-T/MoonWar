@@ -9,8 +9,10 @@ import org.flixel.FlxButton;
 
 // Wrap up for all input situations and give a handy access to input for this game
 class Input extends FlxGroup {
+	#if !FLX_NO_TOUCH
 	public var analog:MyAnalog;
 	public var gamePad:MyGamePad;
+	#end
 
 	// access key down state
 	public var Left:Bool;
@@ -58,28 +60,20 @@ class Input extends FlxGroup {
 			anaX = 100;
 			anaY = FlxG.height - 100;
 		}
+		#if !FLX_NO_TOUCH
 		analog = new MyAnalog(anaX, anaY);
 		add(analog);
 		
 		gamePad = new MyGamePad();
 		add(gamePad);
-
-		gamePad.visible = false;
-		analog.visible = false;
-		#if !FLX_NO_MOUSE
-		gamePad.visible = true;
-		analog.visible = true;
-		#end
-
-		#if !FLX_NO_TOUCH
-		gamePad.visible = true;
-		analog.visible = true;
 		#end
 	}
 
-	public function showControl(isShow:Bool){
+	public function showControl(isShow:Bool) {
+		#if !FLX_NO_TOUCH
 		analog.visible = isShow;
 		gamePad.visible = isShow;
+		#end
 	}
 
 	public override function update(){
@@ -130,10 +124,12 @@ class Input extends FlxGroup {
 		AnalogJustReleased = false;
 
 		// Data from Input Source
+		#if !FLX_NO_TOUCH
 		AnalogAngle = analog.getAngle();
 		AnalogPressed = analog.pressed();
 		AnalogJustPressed = analog.justPressed();
 		AnalogJustReleased = analog.justReleased();
+		#end
 
 		#if !FLX_NO_KEYBOARD
 		keyboardLeftDown = FlxG.keys.LEFT;
@@ -199,13 +195,29 @@ class Input extends FlxGroup {
 			Up = true;
 		if(keyboardDownDown || (AnalogPressed&&(AnalogAngle>30&&AnalogAngle<150)))
 			Down = true;
-		if(keyboardZDown || gamePad.buttonB.status == FlxButton.PRESSED)
+		if (keyboardZDown 
+			#if !FLX_NO_TOUCH
+			|| gamePad.buttonB.status == FlxButton.PRESSED
+			#end
+			)
 			Jump = true;
-		if(keyboardXDown || gamePad.buttonA.status == FlxButton.PRESSED)
+		if (keyboardXDown
+			#if !FLX_NO_TOUCH
+			|| gamePad.buttonA.status == FlxButton.PRESSED
+			#end
+			)
 			Shoot = true;
-		if(keyboardXDown || gamePad.buttonA.status == FlxButton.PRESSED)
+		if (keyboardXDown
+			#if !FLX_NO_TOUCH
+			|| gamePad.buttonA.status == FlxButton.PRESSED
+			#end
+			)
 			Action = true;
-		if(keyboardAnykeyDown || AnalogPressed || gamePad.buttonA.status==FlxButton.PRESSED || gamePad.buttonB.status==FlxButton.PRESSED)
+		if (keyboardAnykeyDown || AnalogPressed 
+			#if !FLX_NO_TOUCH
+			|| gamePad.buttonA.status == FlxButton.PRESSED || gamePad.buttonB.status == FlxButton.PRESSED
+			#end
+			)
 			Anykey = true;
 
 		if(keyboardLeftJustDown || (AnalogJustPressed&&(AnalogAngle<-120||AnalogAngle>120)))
@@ -216,18 +228,27 @@ class Input extends FlxGroup {
 			JustDown_Up = true;
 		if(keyboardDownJustDown || (AnalogJustPressed&&(AnalogAngle>30&&AnalogAngle<150)))
 			JustDown_Down = true;
-		if(keyboardZJustDown || 
-			(gamePad.buttonB.status == FlxButton.PRESSED&&
-				(lastBtnBStatus==FlxButton.NORMAL||lastBtnBStatus==FlxButton.HIGHLIGHT)))
+		if (keyboardZJustDown 
+			#if !FLX_NO_TOUCH
+			|| (gamePad.buttonB.status == FlxButton.PRESSED&&
+				(lastBtnBStatus == FlxButton.NORMAL || lastBtnBStatus == FlxButton.HIGHLIGHT))
+			#end
+			)
 			JustDown_Jump = true;
-		if(keyboardXJustDown || 
-			(gamePad.buttonA.status == FlxButton.PRESSED&&
-			(lastBtnAStatus==FlxButton.NORMAL||lastBtnAStatus==FlxButton.HIGHLIGHT)))
+		if (keyboardXJustDown 
+			#if !FLX_NO_TOUCH
+			|| (gamePad.buttonA.status == FlxButton.PRESSED&&
+			(lastBtnAStatus == FlxButton.NORMAL || lastBtnAStatus == FlxButton.HIGHLIGHT))
+			#end
+			)
 			JustDown_Shoot = true;
 		JustDown_Action = JustDown_Shoot;
-		if(keyboardAnykeyJustDown||AnalogJustPressed||
-			((gamePad.buttonA.status == FlxButton.PRESSED&&(lastBtnAStatus==FlxButton.NORMAL||lastBtnAStatus==FlxButton.HIGHLIGHT)))||
-			((gamePad.buttonB.status == FlxButton.PRESSED&&(lastBtnBStatus==FlxButton.NORMAL||lastBtnBStatus==FlxButton.HIGHLIGHT))))
+		if (keyboardAnykeyJustDown || AnalogJustPressed
+			#if !FLX_NO_TOUCH
+			||((gamePad.buttonA.status == FlxButton.PRESSED&&(lastBtnAStatus==FlxButton.NORMAL||lastBtnAStatus==FlxButton.HIGHLIGHT)))||
+			((gamePad.buttonB.status == FlxButton.PRESSED && (lastBtnBStatus == FlxButton.NORMAL || lastBtnBStatus == FlxButton.HIGHLIGHT)))
+			#end
+			)
 			JustDown_Anykey = true;
 
 		if(keyboardLeftJustUp || (AnalogJustReleased&&(lastAnalogAngle<-120||lastAnalogAngle>120)))
@@ -238,23 +259,34 @@ class Input extends FlxGroup {
 			JustUp_Up = true;
 		if(keyboardDownJustUp || (AnalogJustReleased&&(lastAnalogAngle>30&&lastAnalogAngle<150)))
 			JustUp_Down = true;
-		if(keyboardZJustUp ||
-			(lastBtnBStatus == FlxButton.PRESSED&&
-			(gamePad.buttonB.status==FlxButton.NORMAL||gamePad.buttonB.status==FlxButton.HIGHLIGHT)))
+		if (keyboardZJustUp 
+			#if !FLX_NO_TOUCH
+			||(lastBtnBStatus == FlxButton.PRESSED&&
+			(gamePad.buttonB.status == FlxButton.NORMAL || gamePad.buttonB.status == FlxButton.HIGHLIGHT))
+			#end
+			)
 			JustUp_Jump = true;
-		if(keyboardXJustUp ||
-			(lastBtnAStatus == FlxButton.PRESSED&&
-			(gamePad.buttonA.status==FlxButton.NORMAL||gamePad.buttonA.status==FlxButton.HIGHLIGHT)))
+		if (keyboardXJustUp 
+			#if !FLX_NO_TOUCH
+			||(lastBtnAStatus == FlxButton.PRESSED&&
+			(gamePad.buttonA.status == FlxButton.NORMAL || gamePad.buttonA.status == FlxButton.HIGHLIGHT))
+			#end
+			)
 			JustUp_Shoot = true;
 		JustUp_Action = JustUp_Shoot;
-		if(keyboardAnykeyJustUp||AnalogJustReleased||
-			((lastBtnAStatus == FlxButton.PRESSED&&(gamePad.buttonA.status==FlxButton.NORMAL||gamePad.buttonA.status==FlxButton.HIGHLIGHT)))||
-			((lastBtnBStatus == FlxButton.PRESSED&&(gamePad.buttonB.status==FlxButton.NORMAL||gamePad.buttonB.status==FlxButton.HIGHLIGHT))))
+		if (keyboardAnykeyJustUp || AnalogJustReleased
+			#if !FLX_NO_TOUCH
+			||((lastBtnAStatus == FlxButton.PRESSED&&(gamePad.buttonA.status==FlxButton.NORMAL||gamePad.buttonA.status==FlxButton.HIGHLIGHT)))||
+			((lastBtnBStatus == FlxButton.PRESSED && (gamePad.buttonB.status == FlxButton.NORMAL || gamePad.buttonB.status == FlxButton.HIGHLIGHT)))
+			#end
+			)
 			JustUp_Anykey = true;
 
 		// update other data for this class
+		#if !FLX_NO_TOUCH
 		lastBtnAStatus = gamePad.buttonA.status;
 		lastBtnBStatus = gamePad.buttonB.status;
+		#end
 		#if !FLX_NO_KEYBOARD
 		lastKeyboardAnykeyDown = FlxG.keys.any();
 		#end
