@@ -4,7 +4,7 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="MoonWar.nmml" />
+    <movie path="MoonWar.xml" />
     <movie fps="30" />
     <movie width="550" />
     <movie height="400" />
@@ -16,20 +16,21 @@
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="source" />
-    <class path="C:\Motion-Twin\haxe\lib\nme/3,5,5/" />
-    <class path="export/flash/haxe" />
+    <class path="source\HFWrap" />
+    <class path="export\flash\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="nme_install_tool&#xA;web" />
+    <option directives="tools=1&#xA;no-pattern-matching&#xA;openfl_ver=1.0.10&#xA;openfl&#xA;display&#xA;web" />
     <option flashStrict="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="True" />
-    <option additional="-swf-lib lib/mochi.swf&#xA;-swf-version 11" />
+    <option additional="-swf-lib lib/mochi.swf&#xA;--no-output&#xA;-swf-version 10.1&#xA;#--remap nme:flash" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
-    <library name="nme" />
+    <library name="openfl" />
+    <library name="flixel" />
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
@@ -41,7 +42,7 @@
   </library>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
-    <!-- example: <hidden path="..." /> -->
+    <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
   <preBuildCommand />
