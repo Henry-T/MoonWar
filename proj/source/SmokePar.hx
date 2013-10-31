@@ -1,7 +1,7 @@
 package ;
-import org.flixel.FlxParticle;
+import flixel.effects.particles.FlxParticle;
 
-import org.flixel.FlxParticle;
+import flixel.effects.particles.FlxParticle;
 
 /**
  * ...

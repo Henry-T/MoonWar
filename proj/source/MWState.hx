@@ -1,14 +1,15 @@
 package;
 
-import org.flixel.FlxState;
-import org.flixel.FlxButton;
-import org.flixel.FlxG;
-import org.flixel.system.input.FlxAnalog;
-import org.flixel.system.input.FlxGamePad;
-import org.flixel.FlxGroup;
-import org.flixel.FlxText;
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxAngle;
+import flixel.FlxG;
+import flixel.FlxState;
+import flixel.FlxSprite;
+import flixel.group.FlxGroup;
+import flixel.ui.FlxButton;
+import flixel.text.FlxText;
+import flixel.util.FlxAngle;
+import flixel.util.FlxStringUtil;
+import flixel.plugin.TweenManager;
+import flixel.tweens.FlxTween;
 import flash.display.BitmapData;
 
 class MWState extends FlxState
@@ -17,6 +18,7 @@ class MWState extends FlxState
 	var btnMuteSnd : FlxButton;
 	var btnPause : FlxButton;
 	public var confirm : Confirm;
+	var tweenMgr:TweenManager;
 
 	public var input:Input;
 
@@ -34,11 +36,11 @@ class MWState extends FlxState
 	public override function create(){
 		super.create();
 
-		GameStatic.CurStateName = org.flixel.util.FlxString.getClassName(this, true);
+		GameStatic.CurStateName = FlxStringUtil.getClassName(this, true);
 
 		// something force game to mute at the beginning, so I have to force it back
 		if(GameStatic.justStart){
-			FlxG.mute = false;
+			FlxG.sound.muted = false;
 			GameStatic.justStart = false;
 		}
 
@@ -72,17 +74,17 @@ class MWState extends FlxState
 		}
 		#end
 
-		btnMute = new FlxButton(0, 0, "", function() { FlxG.mute = !FlxG.mute; } );
-		btnMute.scrollFactor.make(0,0);
-		btnMute.onOver = function(){btnMute.loadGraphic(_img_mute_over);};
-		btnMute.onOut = function(){
-			if(FlxG.mute)
+		btnMute = new FlxButton(0, 0, "", function() { FlxG.sound.muted = !FlxG.sound.muted; } );
+		btnMute.scrollFactor.set(0,0);
+		btnMute.setOnOverCallback(function(){btnMute.loadGraphic(_img_mute_over);});
+		btnMute.setOnOutCallback(function(){
+			if(FlxG.sound.muted)
 				btnMute.loadGraphic(_img_mute_dis);
 			else
 				btnMute.loadGraphic(_img_mute_normal);
-		};
+		});
 
-		if(FlxG.mute)
+		if(FlxG.sound.muted)
 			btnMute.loadGraphic(_img_mute_dis);
 		else
 			btnMute.loadGraphic(_img_mute_normal);
@@ -91,15 +93,15 @@ class MWState extends FlxState
 		btnMute.y = 5;
 
 		btnPause = new FlxButton(0,0,"", function(){Pause(true);});
-		btnPause.scrollFactor.make(0,0);
+		btnPause.scrollFactor.set(0,0);
 		btnPause.loadGraphic(_img_pause_normal);
-		btnPause.onOver = function(){btnPause.loadGraphic(_img_pause_over);};
-		btnPause.onOut = function(){
+		btnPause.setOnOverCallback(function(){btnPause.loadGraphic(_img_pause_over);});
+		btnPause.setOnOutCallback(function(){
 			if(FlxG.paused)
 				btnPause.loadGraphic(_img_pause_dis);
 			else
 				btnPause.loadGraphic(_img_pause_normal);
-		};
+		});
 
 		btnPause.x = btnMute.x - btnPause.width - 5;
 		btnPause.y = 5;
@@ -108,25 +110,27 @@ class MWState extends FlxState
 		confirm = new Confirm();
 
 		// initial
+		tweenMgr = new TweenManager();
 	}
 
 	public override function update(){
 		super.update();
 
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keys.justPressed("M")){
-			FlxG.mute = !FlxG.mute;
+		if(FlxG.keyboard.justPressed.M){
+			FlxG.sound.muted = !FlxG.sound.muted;
 			updateMuteButton();
 		}
-		if(FlxG.keys.justPressed("P")){
+		if(FlxG.keyboard.justPressed.P){
 			Pause(true);
 			updatePauseButton();
 		}
 		#end
+		tweenMgr.update();
 	}
 
 	private function updateMuteButton(){
-		if(FlxG.mute)
+		if(FlxG.sound.muted)
 			btnMute.loadGraphic(_img_mute_dis);
 		else 
 			btnMute.loadGraphic(_img_mute_normal);
@@ -142,5 +146,17 @@ class MWState extends FlxState
 	// pause interface
 	public function Pause(pause:Bool){
 		updatePauseButton();
+	}
+
+	public function addTween(tween:FlxTween){
+		tweenMgr.add(tween);
+	}
+
+	public function clearTweens(){
+		tweenMgr.clear();
+	}
+
+	public function removeTween(tween:FlxTween){
+		tweenMgr.remove(tween);
 	}
 }

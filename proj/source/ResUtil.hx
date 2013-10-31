@@ -1,5 +1,5 @@
 package ;
-import org.flixel.FlxG;
+import flixel.FlxG;
 import flash.display.BitmapData;
 
 
@@ -64,11 +64,11 @@ class ResUtil
 
 	public static function playTitle() : Void
 	{
-		FlxG.playMusic("title");
+		FlxG.sound.playMusic("title");
 	}
 
 	public static function playGame1() : Void
 	{
-		FlxG.playMusic("game");
+		FlxG.sound.playMusic("game");
 	}
 }

@@ -1,11 +1,10 @@
 package ;
-import flash.utils.ByteArray;
-import org.flixel.FlxState;
-import org.flixel.FlxSave;
-import org.flixel.FlxSave;
-import org.flixel.FlxState;
+import flixel.FlxG;
+import flixel.FlxState;
+import flixel.util.FlxSave;
+
 import flash.system.Capabilities;
-import org.flixel.FlxG;
+import flash.utils.ByteArray;
 
 class GameStatic 
 {

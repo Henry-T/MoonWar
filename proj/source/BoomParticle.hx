@@ -1,6 +1,6 @@
 package ;
 
-import org.flixel.FlxEmitter;
+import flixel.effects.particles.FlxEmitter;
 
 class BoomParticle extends FlxEmitter
 {

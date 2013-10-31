@@ -1,6 +1,6 @@
 package ;
 
-import org.flixel.FlxText;
+import flixel.text.FlxText;
 import flash.text.TextField;
 
 class MyText extends FlxText {

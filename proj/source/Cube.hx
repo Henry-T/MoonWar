@@ -1,6 +1,6 @@
 package ;
-import org.flixel.FlxSprite;
-import org.flixel.tmx.TmxObject;
+import flixel.FlxSprite;
+import flixel.addons.editors.tiled.TiledObject;
 
 
 class Cube extends Enemy 
@@ -15,7 +15,7 @@ class Cube extends Enemy
 		isBomb = false;
 	}
 
-	public function make(o:TmxObject){
+	public function make(o:TiledObject){
 		reset(o.x, o.y);
 		if(o.custom.resolve("type") == "death"){
 			isBomb = true;

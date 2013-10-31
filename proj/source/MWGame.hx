@@ -4,9 +4,8 @@ import flash.Lib;
 import flash.events.Event;
 import flash.utils.Timer;
 import flash.events.TimerEvent;
-import org.flixel.FlxGame;
-import org.flixel.FlxG;
-import org.flixel.system.input.FlxInputs;
+import flixel.FlxGame;
+import flixel.FlxG;
 	
 class MWGame extends FlxGame
 {	
@@ -55,34 +54,20 @@ class MWGame extends FlxGame
 
 		FlxG.framerate = 30;
 		FlxG.flashFramerate = 30;
+		#if !FLX_NO_MOUSE
 		flash.ui.Mouse.show();
+		#end
 
 		// preload all sound for android
 		#if android
-		FlxG.addSound("birth1");
-		FlxG.addSound("explo1");
-		FlxG.addSound("hit1");
-		FlxG.addSound("hit2");
-		FlxG.addSound("jump2");
-		FlxG.addSound("sel1");
-		FlxG.addSound("shoot");
-		FlxG.addSound("shoot1");
+		FlxG.sound.add("birth1");
+		FlxG.sound.add("explo1");
+		FlxG.sound.add("hit1");
+		FlxG.sound.add("hit2");
+		FlxG.sound.add("jump2");
+		FlxG.sound.add("sel1");
+		FlxG.sound.add("shoot");
+		FlxG.sound.add("shoot1");
 		#end
-	}
-
-	private override function onFocus(FlashEvent:Event = null):Void{
-		stage.frameRate = _flashFramerate;
-		FlxG.resumeSounds();
-		FlxInputs.onFocus();
-		
-		_state.onFocus();
-	}
-
-	private override function onFocusLost(FlashEvent:Event = null):Void{
-		stage.frameRate = 10;
-		FlxG.pauseSounds();
-		FlxInputs.onFocusLost();
-		
-		_state.onFocusLost();
 	}
 }

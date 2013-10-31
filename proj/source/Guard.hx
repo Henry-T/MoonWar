@@ -1,6 +1,6 @@
 package ;
-import org.flixel.FlxObject;
-import org.flixel.FlxSprite;
+import flixel.FlxObject;
+import flixel.FlxSprite;
 
 class Guard extends Enemy 
 {
@@ -8,8 +8,8 @@ class Guard extends Enemy
 	{
 		super(x, y, null);
 		loadGraphic("assets/img/guard.png", true, true);
-		addAnimation("def", [0], 1, true);
-		play("def");
+		animation.add("def", [0], 1, true);
+		animation.play("def");
 		acceleration.y = 100;
 		velocity.x = 100;
 	}

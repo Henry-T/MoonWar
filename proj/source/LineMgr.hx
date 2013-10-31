@@ -1,12 +1,12 @@
 package;
 
-import org.flixel.FlxSprite;
-import org.flixel.FlxText;
-import org.flixel.FlxG;
-import org.flixel.util.FlxPoint;
-import org.flixel.tweens.FlxTween;
-import org.flixel.tweens.util.Ease;
-import org.flixel.tweens.misc.ColorTween;
+import flixel.FlxSprite;
+import flixel.text.FlxText;
+import flixel.FlxG;
+import flixel.util.FlxPoint;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.tweens.misc.ColorTween;
 
 class LineMgr extends FlxSprite
 {
@@ -42,21 +42,21 @@ class LineMgr extends FlxSprite
 
 		headBg = new SliceShape(0, 50, 90, 90, "assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
 		headBg.visible = false;
-		headBg.scrollFactor.make(0, 0);
+		headBg.scrollFactor.set(0, 0);
 
 		lineBg = new SliceShape(80, 70, 350, 40, "assets/img/ui_slice_y.png", SliceShape.MODE_BOX, 5);
 		lineBg.visible = false;
-		lineBg.scrollFactor.make(0, 0);
+		lineBg.scrollFactor.set(0, 0);
 
 		line = new MyText(100, 80, FlxG.width - 150, ""); 
 		line.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_dialog, 0x000000);
 		line.visible = false;
-		line.scrollFactor.make(0, 0);
+		line.scrollFactor.set(0, 0);
 
 		var h:FlxSprite;
 		h = new FlxSprite(headPos.x,headPos.y);
 		h.loadGraphic("assets/img/drHead.png",true, false, 88, 88);
-		h.addAnimation("default",[1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1], 10, false); 
+		h.animation.add("default",[1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1], 10, false); 
 		h.scrollFactor = new FlxPoint(0,0);
 		h.x = headBg.getMidpoint().x - h.width/2; h.y = headBg.getMidpoint().y - h.height/2;
 		heads.push(h);
@@ -67,19 +67,23 @@ class LineMgr extends FlxSprite
 		h.x = headBg.getMidpoint().x - h.width/2; h.y = headBg.getMidpoint().y - h.height/2;
 		heads.push(h);
 		
+		#if !FLX_NO_TOUCH
+		pressSpace = new MyText(100, 94, 400,"PRESS B");
+		#else
 		pressSpace = new MyText(100, 94, 400,"PRESS X");
+		#end
 		pressSpace.setFormat(ResUtil.FNT_Pixelex, 8, 0x000000, "right");
 		pressSpace.visible = false;
-		pressSpace.scrollFactor.make(0, 0);
+		pressSpace.scrollFactor.set(0, 0);
 
 		roleName = new FlxText(0, headBg.y + headBg.height - 13, 90, "");
 		roleName.setFormat(ResUtil.FNT_Amble, 8, 0x000000, "center");
 		roleName.visible = false;
-		roleName.scrollFactor.make(0, 0);
+		roleName.scrollFactor.set(0, 0);
 
 		_pressTween = new ColorTween(null, FlxTween.PINGPONG);
-		_pressTween.tween(1, 0x000000, 0x666666, 0, 1, Ease.quadInOut);
-		addTween(_pressTween);
+		_pressTween.tween(1, 0x000000, 0x666666, 0, 1, FlxEase.quadInOut);
+		//addTween(_pressTween);
 	}
 
 	public function Start(lines:Array<Line>, finCall:Void->Void=null):Void{
@@ -98,7 +102,7 @@ class LineMgr extends FlxSprite
 			line.text = lines[curLineId].text;
 			curHeadId = lines[curLineId].headId;
 			if(curHeadId == 0)
-				heads[0].play("default", true);
+				heads[0].animation.play("default", true);
 			//lineBg.setSize(90 + Math.round(line.text.length * 4), 30);
 		}
 		else{
@@ -118,14 +122,15 @@ class LineMgr extends FlxSprite
 			return;
 		}
 
-		if(!isEnd && cast(FlxG.state, Level).input.JustDown_Action){
+		if(!isEnd && cast(FlxG.state, Level).input.JustDown_Jump){
 			Next();
 			// eat key event
-			cast(FlxG.state, Level).input.JustDown_Action = false;
+			cast(FlxG.state, Level).input.Jump = false;
 		}
 		for (hd in heads)
-			hd.updateAnimation();
+			hd.animation.update();
 
+		_pressTween.update();
 		_pressColor = _pressTween.color;
 		super.update();
 	}

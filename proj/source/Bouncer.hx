@@ -1,9 +1,9 @@
 package ;
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxTimer;
+import flixel.FlxSprite;
+import flixel.util.FlxTimer;
 
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxTimer;
+import flixel.FlxSprite;
+import flixel.util.FlxTimer;
 
 class Bouncer extends FlxSprite 
 {
@@ -14,7 +14,7 @@ class Bouncer extends FlxSprite
 	{
 		super(x, y, "assets/img/bouncer.png");
 		this.elasticity = 1;
-		timer = new FlxTimer();
+		timer = TimerPool.Get();
 	}
 
 	override public function reset(X:Float, Y:Float):Void 

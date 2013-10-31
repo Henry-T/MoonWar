@@ -1,7 +1,7 @@
 package;
-import org.flixel.FlxSprite;
-import org.flixel.FlxObject;
-import org.flixel.util.FlxPoint;
+import flixel.FlxSprite;
+import flixel.FlxObject;
+import flixel.util.FlxPoint;
 
 class Trans extends FlxSprite
 {

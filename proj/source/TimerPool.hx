@@ -1,6 +1,6 @@
 package ;
 
-import org.flixel.util.FlxTimer;
+import flixel.util.FlxTimer;
 
 // Make it easier to use FlxTimer
 // 1. When in need of a FlxTimer, we will create a new instance manually.
@@ -27,7 +27,7 @@ class TimerPool {
 		}
 
 		// create a new one
-		var timer:FlxTimer = new FlxTimer();
+		var timer:FlxTimer = TimerPool.Get();
 		timers.push(timer);
 
 		return timer;

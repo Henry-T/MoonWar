@@ -1,12 +1,12 @@
 package ;
-import org.flixel.util.FlxRect;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxPoint;
-import org.flixel.FlxObject;
-import org.flixel.tmx.TmxObjectGroup;
-import org.flixel.util.FlxTimer;
-import org.flixel.addons.FlxBackdrop;
+import flixel.util.FlxRect;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxPoint;
+import flixel.FlxObject;
+import flixel.addons.editors.tiled.TiledObjectGroup;
+import flixel.util.FlxTimer;
+import flixel.addons.display.FlxBackdrop;
 
 class Level6 extends Level 
 {
@@ -37,7 +37,7 @@ class Level6 extends Level
 		
 		GameStatic.CurLvl = 5;
 		
-		var os:TmxObjectGroup = tmx.getObjectGroup("misc");
+		var os:TiledObjectGroup = tmx.getObjectGroup("misc");
 		for(to in os.objects)
 		{
 			if (to.name == "bPos1")
@@ -80,7 +80,7 @@ class Level6 extends Level
 		downing = true;
 		downing2 = false;
 
-		FlxG.flash(0xff000000, 2);
+		FlxG.camera.flash(0xff000000, 2);
 		ResUtil.playGame1();
 		camFixOn = false;
 		ShowSceneName("6 - LASER PATH");
@@ -113,7 +113,7 @@ class Level6 extends Level
 		{
 			downing = false;
 			//bot.On = true;
-			TimerPool.Get().start(0.5, 1, function(t:FlxTimer){
+			TimerPool.Get().run(0.5, function(t:FlxTimer){
 				lineMgr.Start(lines1, function(){
 					bot.On = true;
 					hpBar.visible = true;

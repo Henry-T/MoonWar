@@ -1,13 +1,13 @@
 package ;
-import org.flixel.system.FlxTile;
-import org.flixel.FlxG;
-import org.flixel.FlxObject;
-import org.flixel.util.FlxPoint;
+import flixel.tile.FlxTile;
+import flixel.FlxG;
+import flixel.FlxObject;
+import flixel.util.FlxPoint;
 import flash.geom.Point;
-import org.flixel.util.FlxTimer;
-import org.flixel.FlxSprite;
-import org.flixel.tmx.TmxObjectGroup;
-import org.flixel.addons.FlxBackdrop;
+import flixel.util.FlxTimer;
+import flixel.FlxSprite;
+import flixel.addons.editors.tiled.TiledObjectGroup;
+import flixel.addons.display.FlxBackdrop;
 
 class Level4 extends Level 
 {
@@ -65,7 +65,7 @@ class Level4 extends Level
 		
 		GameStatic.CurLvl = 3;
 		
-		var os:TmxObjectGroup = tmx.getObjectGroup("misc");
+		var os:TiledObjectGroup = tmx.getObjectGroup("misc");
 		for (to in os.objects)
 		{
 			if (to.name == "door1")
@@ -110,7 +110,7 @@ class Level4 extends Level
 		bInLift.velocity.y = Level.liftSpeed;
 		downing = true;
 		downing2 = false;
-		FlxG.flash(0xff000000, 2);
+		FlxG.camera.flash(0xff000000, 2);
 		ShowSceneName("4 - MAIN CHANNEL");
 	}
 
@@ -128,7 +128,7 @@ class Level4 extends Level
 		{
 			breakShown = true;
 			bot.On = false;
-			TimerPool.Get().start(2, 1, function(t:FlxTimer){
+			TimerPool.Get().run(2, function(t:FlxTimer){
 				lineMgr.Start(lines2, function(){
 					coverOpen = true;
 					tileCoverD.visible = false;
@@ -146,7 +146,7 @@ class Level4 extends Level
 		if (door1Up.open && downing)
 		{
 			downing = false;
-			TimerPool.Get().start(1, 1, function(t:FlxTimer){
+			TimerPool.Get().run(1, function(t:FlxTimer){
 				lineMgr.Start(lines1, function(){
 					bot.On = true;
 					hpBar.visible = true;

@@ -1,12 +1,12 @@
 package ;
-import org.flixel.system.FlxTile;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.FlxObject;
-import org.flixel.util.FlxPoint;
-import org.flixel.system.FlxTile;
-import org.flixel.tmx.TmxObjectGroup;
-import org.flixel.addons.FlxBackdrop;
+import flixel.tile.FlxTile;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxObject;
+import flixel.util.FlxPoint;
+import flixel.tile.FlxTile;
+import flixel.addons.editors.tiled.TiledObjectGroup;
+import flixel.addons.display.FlxBackdrop;
 
 class Level7 extends Level 
 {
@@ -44,7 +44,7 @@ class Level7 extends Level
 		
 		GameStatic.CurLvl = 6;
 		
-		var mG:TmxObjectGroup = tmx.getObjectGroup("misc");
+		var mG:TiledObjectGroup = tmx.getObjectGroup("misc");
 		for (o in mG.objects) 
 		{
 			if (o.name == "door1")
@@ -106,7 +106,7 @@ class Level7 extends Level
 		downing = true;
 		downing2 = false;
 
-		FlxG.flash(0xff000000, 2);
+		FlxG.camera.flash(0xff000000, 2);
 		FlxG.camera.follow(bot);
 		ResUtil.playGame1();
 		lock1 = false;

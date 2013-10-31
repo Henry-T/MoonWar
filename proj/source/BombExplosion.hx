@@ -1,5 +1,5 @@
 package;
-import org.flixel.FlxSprite;
+import flixel.FlxSprite;
 
 class BombExplosion extends FlxSprite
 {
@@ -31,8 +31,8 @@ class BombExplosion extends FlxSprite
 		var tempFrameAry:Array<Int> = [0,1,2,3,4,5,6,7];
 		for (i in 0 ... 8)
 		{
-			bigSprite.addAnimation(Std.string(i), tempFrameAry.slice(0), 20, false);
-			smallSprite.addAnimation(Std.string(i), tempFrameAry.slice(0), 20, false);
+			bigSprite.animation.add(Std.string(i), tempFrameAry.slice(0), 20, false);
+			smallSprite.animation.add(Std.string(i), tempFrameAry.slice(0), 20, false);
 			for (j in 0...tempFrameAry.length) 
 				tempFrameAry[j] += 8;
 		}
@@ -51,13 +51,13 @@ class BombExplosion extends FlxSprite
 		{
 			bigSprite.x = this.x - bigSprite.width / 2;
 			bigSprite.y = this.y - bigSprite.height / 2;
-			bigSprite.play(Std.string(colour), true);
+			bigSprite.animation.play(Std.string(colour), true);
 		}
 		//else 
 		{
 			smallSprite.x = this.x - smallSprite.width / 2;
 			smallSprite.y = this.y - smallSprite.height / 2;
-			smallSprite.play(Std.string(colour), true);
+			smallSprite.animation.play(Std.string(colour), true);
 		}
 	}
 	
@@ -65,14 +65,14 @@ class BombExplosion extends FlxSprite
 		super.update();
 		//if (isBig)
 		{
-			bigSprite.updateAnimation();
-			if (bigSprite.finished)
+			bigSprite.animation.update();
+			if (bigSprite.animation.finished)
 				kill();
 		}
 		//else 
 		{
-			smallSprite.updateAnimation();
-			if (smallSprite.finished)
+			smallSprite.animation.update();
+			if (smallSprite.animation.finished)
 				kill();
 		}
 	}

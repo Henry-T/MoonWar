@@ -1,10 +1,10 @@
 package ;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.FlxObject;
-import org.flixel.util.FlxAngle;
-import org.flixel.util.FlxPoint;
-import org.flixel.util.FlxMath;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxObject;
+import flixel.util.FlxAngle;
+import flixel.util.FlxPoint;
+import flixel.util.FlxMath;
 
 
 class Missle extends Enemy 

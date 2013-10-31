@@ -1,8 +1,8 @@
 package;
-import org.flixel.FlxButton;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.FlxText;
+import flixel.ui.FlxButton;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.text.FlxText;
 
 class IntroScreen extends MWState
 {
@@ -41,15 +41,14 @@ class IntroScreen extends MWState
 		lastBtn = new FlxButton(0, FlxG.height - 25, "", onLast);
 		lastBtn.loadGraphic("assets/img/ui_introbtn_l.png");
 		lastBtn.x = 5; lastBtn.y = FlxG.height/2 - lastBtn.height/2;
-		lastBtn.onOver = function(){lastBtn.loadGraphic("assets/img/ui_introbtn_l_act.png");};
-		lastBtn.onOut = function(){lastBtn.loadGraphic("assets/img/ui_introbtn_l.png");};
+		lastBtn.setOnOverCallback(function(){lastBtn.loadGraphic("assets/img/ui_introbtn_l_act.png");});
+		lastBtn.setOnOutCallback(function(){lastBtn.loadGraphic("assets/img/ui_introbtn_l.png");});
 
 		nextBtn = new FlxButton(FlxG.width - 100, FlxG.height - 25, "", onNext);
 		nextBtn.loadGraphic("assets/img/ui_introbtn_r.png");
 		nextBtn.x = FlxG.width - 5 - nextBtn.width; nextBtn.y = FlxG.height/2 - nextBtn.height/2;
-		nextBtn.onOver = function(){nextBtn.loadGraphic("assets/img/ui_introbtn_r_act.png");};
-		nextBtn.onOut = function(){nextBtn.loadGraphic("assets/img/ui_introbtn_r.png");};
-
+		nextBtn.setOnOverCallback(function(){nextBtn.loadGraphic("assets/img/ui_introbtn_r_act.png");});
+		nextBtn.setOnOutCallback(function(){nextBtn.loadGraphic("assets/img/ui_introbtn_r.png");});
 
 		text = new FlxText(FlxG.width/2 - 250, 15, 500, lines[0], 10);
 		text.setFormat(ResUtil.FNT_Amble, 10, 0xffffff, "center");
@@ -66,10 +65,10 @@ class IntroScreen extends MWState
 	public override function update(){
 		super.update();
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keys.justPressed("RIGHT")){
+		if(FlxG.keyboard.justPressed.RIGHT){
 			onNext();
 		}
-		else if(FlxG.keys.justPressed("LEFT")){
+		else if(FlxG.keyboard.justPressed.LEFT){
 			onLast();
 		}
 		#end

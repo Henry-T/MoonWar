@@ -7,7 +7,6 @@ import flash.events.ErrorEvent;
 import flash.events.KeyboardEvent;
 import flash.Lib;
 import flash.ui.Keyboard;
-import org.flixel.FlxGame;
 import mochi.as3.MochiAd;
 import mochi.as3.MochiServices;
 import flash.errors.Error;
@@ -39,7 +38,7 @@ class Main extends Sprite
 		if(siteUrl == "www.flashgamelicense.com" || siteUrl == "www.flashgamelicense.com" ||
 			siteUrl == "rulerbat.appspot.com")
 			return true;
-		return false;
+		return true;
 	}
 	
 	private function init(?e:Event = null):Void 
@@ -69,7 +68,7 @@ class Main extends Sprite
 		//var _mochiads_game_id:String = "8c1974c3dc338c76";
 		//MochiServices.connect("8c1974c3dc338c76", root);
 		//MochiAd.showPreGameAd({clip:root, id:"2d8d1d2659355cf2", res:"550x400"});
-		var game:FlxGame = new MWGame();
+		var game:MWGame = new MWGame();
 		addChild(game);
 		
 		#if (cpp || neko)

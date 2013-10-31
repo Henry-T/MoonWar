@@ -1,10 +1,10 @@
 package ;
 
-import org.flixel.FlxSprite;
-import org.flixel.FlxAssets;
-import org.flixel.FlxG;
-import org.flixel.FlxButton;
-import org.flixel.FlxTypedGroup;
+import flixel.FlxSprite;
+import flixel.system.FlxAssets;
+import flixel.FlxG;
+import flixel.ui.FlxButton;
+import flixel.group.FlxTypedGroup;
 
 // override
 class MyGamePad extends FlxTypedGroup<FlxButton>

@@ -1,10 +1,10 @@
 package;
-import org.flixel.FlxSprite;
+import flixel.FlxSprite;
 import flash.display.BitmapData;
-import org.flixel.FlxButton;
-import org.flixel.FlxText;
-import org.flixel.FlxG;
-import org.flixel.addons.FlxBackdrop;
+import flixel.ui.FlxButton;
+import flixel.text.FlxText;
+import flixel.FlxG;
+import flixel.addons.display.FlxBackdrop;
 
 class HelpScreen extends MWState
 {
@@ -92,24 +92,24 @@ class HelpScreen extends MWState
 		btnGBigOver = new SliceShape(0,0, GameStatic.button_menuWidth, GameStatic.button_menuHeight, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
 		btnBack = new FlxButton(0, 0, "BACK", function() { FlxG.switchState(new MainMenu()); } );
 		btnBack.loadGraphic(btnGBigNormal);
-		btnBack.onOver = function(){btnBack.loadGraphic(btnGBigOver);};
-		btnBack.onOut = function(){btnBack.loadGraphic(btnGBigNormal);};
+		btnBack.setOnOverCallback(function(){btnBack.loadGraphic(btnGBigOver);});
+		btnBack.setOnOutCallback(function(){btnBack.loadGraphic(btnGBigNormal);});
 		btnBack.x = FlxG.width * 0.5 - btnBack.width/2;
 		btnBack.y = FlxG.height * 0.90;
 		btnBack.label.setFormat(ResUtil.FNT_Pixelex, 16, 0xffffff, "center");
 
 		btnLast = new FlxButton(0, 0, "LAST", function() {UpdateDesc(-1);} );
 		btnLast.loadGraphic(btnGBigNormal);
-		btnLast.onOver = function(){btnLast.loadGraphic(btnGBigOver);};
-		btnLast.onOut = function(){btnLast.loadGraphic(btnGBigNormal);};
+		btnLast.setOnOverCallback(function(){btnLast.loadGraphic(btnGBigOver);});
+		btnLast.setOnOutCallback(function(){btnLast.loadGraphic(btnGBigNormal);});
 		btnLast.x = 20;
 		btnLast.y = FlxG.height * 0.90;
 		btnLast.label.setFormat(ResUtil.FNT_Pixelex, 16, 0xffffff, "center");
 
 		btnNext= new FlxButton(0, 0, "NEXT", function() {UpdateDesc(1);} );
 		btnNext.loadGraphic(btnGBigNormal);
-		btnNext.onOver = function(){btnNext.loadGraphic(btnGBigOver);};
-		btnNext.onOut = function(){btnNext.loadGraphic(btnGBigNormal);};
+		btnNext.setOnOverCallback(function(){btnNext.loadGraphic(btnGBigOver);});
+		btnNext.setOnOutCallback(function(){btnNext.loadGraphic(btnGBigNormal);});
 		btnNext.x = FlxG.width - btnNext.width - 20;
 		btnNext.y = FlxG.height * 0.90;
 		btnNext.label.setFormat(ResUtil.FNT_Pixelex, 16, 0xffffff, "center");
@@ -136,15 +136,15 @@ class HelpScreen extends MWState
 
 		txtTitle = new FlxText(0, FlxG.height * 0.06, FlxG.width, "Title");
 		txtTitle.setFormat(ResUtil.FNT_Pixelex, 15, 0xffffff, "center");
-		txtTitle.scrollFactor.make(0,0);
+		txtTitle.scrollFactor.set(0,0);
 
 		txtNum = new FlxText(0, FlxG.height * 0.1, FlxG.width, "Num");
 		txtNum.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_dialog, 0xffffff, "center");
-		txtNum.scrollFactor.make(0,0);
+		txtNum.scrollFactor.set(0,0);
 
 		txtDesc = new FlxText(0, FlxG.height * 0.8, FlxG.width, "Desc");
 		txtDesc.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_desc, 0xffffff, "center");
-		txtDesc.scrollFactor.make(0,0);
+		txtDesc.scrollFactor.set(0,0);
 
 		add(bg);
 		add(mainPnl);
@@ -184,11 +184,11 @@ class HelpScreen extends MWState
 		super.update();
 
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keys.justPressed("LEFT"))
+		if(FlxG.keyboard.justPressed.LEFT)
 			UpdateDesc(-1);
-		if(FlxG.keys.justPressed("RIGHT"))
+		if(FlxG.keyboard.justPressed.RIGHT)
 			UpdateDesc(1);
-		if(FlxG.keys.justPressed("X"))
+		if(FlxG.keyboard.justPressed.X)
 			FlxG.switchState(new MainMenu());
 		#end
 	}

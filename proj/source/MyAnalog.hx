@@ -1,13 +1,13 @@
 package ;
-import org.flixel.FlxSprite;
-import org.flixel.FlxG;
-import org.flixel.FlxAssets;
+import flixel.FlxSprite;
+import flixel.FlxG;
+import flixel.system.FlxAssets;
 
-import org.flixel.system.input.FlxAnalog;
+import flixel.system.input.FlxAnalog;
 
 class MyAnalog extends FlxAnalog {
-	public function new(X:Float, Y:Float, Radius:Float = 0, Ease:Float = 0.25){
-		super(X, Y, Radius, Ease);
+	public function new(X:Float, Y:Float, Radius:Float = 0, FlxEase:Float = 0.25){
+		super(X, Y, Radius, FlxEase);
 	}
 
 	private override function createBase():Void{

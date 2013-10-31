@@ -1,7 +1,7 @@
 package ;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxPoint;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxPoint;
 
 
 
@@ -42,7 +42,7 @@ override public function update():Void
 		var vecTgt:FlxPoint = new FlxPoint(Math.cos(agl), Math.sin(agl));
 		var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
 		bgb.reset(shotOrg.x + x + vecTgt.x * shotLen - bgb.width / 2, shotOrg.y + y + vecTgt.y * shotLen - bgb.width / 2);
-		bgb.velocity.make(vecTgt.x * bulSpeed, vecTgt.y * bulSpeed);
+		bgb.velocity.set(vecTgt.x * bulSpeed, vecTgt.y * bulSpeed);
 	}
 	ShotTimer = 0;
 	}
@@ -52,7 +52,7 @@ override public function update():Void
 override public function hurt(Damage:Float):Void 
 {
 	super.hurt(Damage);
-	flicker(0.2);
+	flixel.util.FlxSpriteUtil.flicker(this, 0.2);
 }
 
 override public function kill():Void 

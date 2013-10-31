@@ -1,8 +1,8 @@
 package;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxPoint;
-import org.flixel.FlxObject;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxPoint;
+import flixel.FlxObject;
 
 class BigGun extends Enemy
 {
@@ -14,8 +14,8 @@ class BigGun extends Enemy
 		super(X, Y, null);
 		
 		loadGraphic("assets/img/bigGun.png", true, true, 60, 40);
-		addAnimation("idle", [0], 1, false);
-		play("idle");
+		animation.add("idle", [0], 1, false);
+		animation.play("idle");
 		
 		immovable = true;
 		ShotTimer = 0;

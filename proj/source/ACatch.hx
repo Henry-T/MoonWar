@@ -1,9 +1,9 @@
 package ;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxAngle;
-import org.flixel.util.FlxPoint;
-import org.flixel.tmx.TmxObject;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxAngle;
+import flixel.util.FlxPoint;
+import flixel.addons.editors.tiled.TiledObject;
 
 class ACatch extends Enemy 
 {
@@ -28,7 +28,7 @@ class ACatch extends Enemy
 		ShotTimer = 0;
 	}
 
-	public function make(o:TmxObject):Void
+	public function make(o:TiledObject):Void
 	{
 		reset(o.x, o.y);
 		width = o.width;

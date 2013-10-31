@@ -1,9 +1,8 @@
 package;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.plugin.photonstorm.baseTypes.Bullet;
-import org.flixel.util.FlxPoint;
-import org.flixel.FlxObject;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxPoint;
+import flixel.FlxObject;
 
 class Bullet extends FlxSprite
 {
@@ -20,8 +19,8 @@ class Bullet extends FlxSprite
 		offset.x = 1;
 		offset.y = 1;
 		
-		addAnimation("fly",[0]);
-		addAnimation("poof",[1,2,3,4],50,false);
+		animation.add("fly",[0]);
+		animation.add("poof",[1,2,3,4],50,false);
 
 		speed = 300;
 	}
@@ -31,7 +30,7 @@ class Bullet extends FlxSprite
 		super.update();
 		if(!alive)
 		{
-			if(finished)
+			if(animation.finished)
 				exists = false;
 		}
 		else if(touching!=0)
@@ -44,52 +43,52 @@ class Bullet extends FlxSprite
 		super.kill();
 		if(onScreen())
 		{
-			FlxG.play("hit2");
-			play("poof");
+			FlxG.sound.play("hit2");
+			animation.play("poof");
 		}
 	}
 
 	public function shoot(Location:FlxPoint, Aim:Int):Void
 	{
-		FlxG.play("shoot1");
+		FlxG.sound.play("shoot1");
 		super.reset(Location.x-width/2,Location.y-height/2);
 		solid = true;
 		switch(Aim)
 		{
 		case FlxObject.UP|FlxObject.RIGHT:
-			play("fly");
+			animation.play("fly");
 			velocity.y = -speed * Math.sqrt(2) * 0.5;
 			velocity.x = speed * Math.sqrt(2) * 0.8;// 0.5;
 			
 		case FlxObject.UP|FlxObject.LEFT:
-			play("fly");
+			animation.play("fly");
 			velocity.y = -speed * Math.sqrt(2)*0.5;
 			velocity.x = -speed * Math.sqrt(2) * 0.8;// 0.5;
 			
 		case FlxObject.DOWN|FlxObject.RIGHT:
-			play("fly");
+			animation.play("fly");
 			velocity.y = speed * Math.sqrt(2)*0.5;
 			velocity.x = speed * Math.sqrt(2) * 0.8;// 0.5;
 			
 		case FlxObject.DOWN|FlxObject.LEFT:
-			play("fly");
+			animation.play("fly");
 			velocity.y = speed * Math.sqrt(2)*0.5;
 			velocity.x = -speed * Math.sqrt(2) * 0.8;// 0.5;
 			
 		case FlxObject.UP:
-			play("fly");
+			animation.play("fly");
 			velocity.y = -speed;
 			
 		case FlxObject.DOWN:
-			play("fly");
+			animation.play("fly");
 			velocity.y = speed;
 			
 		case FlxObject.LEFT:
-			play("fly");
+			animation.play("fly");
 			velocity.x = -speed;
 			
 		case FlxObject.RIGHT:
-			play("fly");
+			animation.play("fly");
 			velocity.x = speed;
 			
 		default:

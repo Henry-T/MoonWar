@@ -1,10 +1,10 @@
 package ;
-import org.flixel.FlxG;
-import org.flixel.util.FlxAngle;
-import org.flixel.FlxSprite;
-import org.flixel.FlxObject;
-import org.flixel.util.FlxRect;
-import org.flixel.tmx.TmxObject;
+import flixel.FlxG;
+import flixel.util.FlxAngle;
+import flixel.FlxSprite;
+import flixel.FlxObject;
+import flixel.util.FlxRect;
+import flixel.addons.editors.tiled.TiledObject;
 
 class BWalk extends Enemy 
 {
@@ -17,8 +17,8 @@ class BWalk extends Enemy
 		super(X, Y, SimpleGraphic);
 		
 		loadGraphic("assets/img/bWalk.png", true, true);
-		addAnimation("def", [0], 1, true);
-		play("def");
+		animation.add("def", [0], 1, true);
+		animation.play("def");
 	}
 
 	override public function reset(X:Float, Y:Float):Void 
@@ -29,7 +29,7 @@ class BWalk extends Enemy
 		inAction = false;
 	}
 
-	public function make(o:TmxObject){
+	public function make(o:TiledObject){
 		reset(o.x, o.y);
 		var d:String = o.custom.resolve("dir");
 		dirRight = (d!="left");

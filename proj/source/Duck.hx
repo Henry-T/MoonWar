@@ -1,6 +1,6 @@
 package;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
+import flixel.FlxG;
+import flixel.FlxSprite;
 
 class Duck extends Enemy
 {

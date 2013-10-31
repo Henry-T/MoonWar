@@ -1,12 +1,12 @@
 package ;
-import org.flixel.FlxButton;
-import org.flixel.FlxG;
-import org.flixel.FlxState;
-import org.flixel.FlxSprite;
-import org.flixel.FlxGroup;
-import org.flixel.FlxText;
+import flixel.ui.FlxButton;
+import flixel.FlxG;
+import flixel.FlxState;
+import flixel.FlxSprite;
+import flixel.group.FlxGroup;
+import flixel.text.FlxText;
 import flash.display.BitmapData;
-import org.flixel.addons.FlxBackdrop;
+import flixel.addons.display.FlxBackdrop;
 import flash.geom.Matrix;
 
 
@@ -66,9 +66,9 @@ class GameMap extends MWState
 		btnGLvlOver = new SliceShape(0,0, GameStatic.button_itemWidth, GameStatic.button_itemHeight, "assets/img/ui_boxact_b.png", SliceShape.MODE_BOX, 3).pixels.clone();
 
 		if(GameStatic.screenDensity == GameStatic.Density_S)
-			bmpLock = FlxG.addBitmap("assets/img/ui_lock_S.png");
+			bmpLock = FlxG.bitmap.add("assets/img/ui_lock_S.png").bitmap;
 		else
-			bmpLock = FlxG.addBitmap("assets/img/ui_lock_M.png");
+			bmpLock = FlxG.bitmap.add("assets/img/ui_lock_M.png").bitmap;
 		btnGLvlLock = btnGLvlNormal.clone();
 		var mat:Matrix = new Matrix();
 		mat.translate(btnGLvlLock.width * 0.5 - bmpLock.width * 0.5, btnGLvlLock.height * 0.5 - bmpLock.height * 0.5);
@@ -92,14 +92,14 @@ class GameMap extends MWState
 		picPnl = new SliceShape(Math.round(FlxG.width * 0.36), Math.round(FlxG.height * 0.1), picPnlWidth, picPnlHeight, "assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
 
 		lvlBtns = new FlxGroup();
-		btnLvl1 = new MyButton(lvlBtnX, 5, "LEVEL1", function() { SwitchLevel(0); FlxG.play("sel1");} ); lvlBtns.add(btnLvl1);
-		btnLvl2 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 1, "LEVEL2", function() { SwitchLevel(1); FlxG.play("sel1");} ); lvlBtns.add(btnLvl2);
-		btnLvl3 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 2, "LEVEL3", function() { SwitchLevel(2); FlxG.play("sel1");} ); lvlBtns.add(btnLvl3);
-		btnLvl4 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 3, "LEVEL4", function() { SwitchLevel(3); FlxG.play("sel1");} ); lvlBtns.add(btnLvl4);
-		btnLvl5 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 4, "LEVEL5", function() { SwitchLevel(4); FlxG.play("sel1");} ); lvlBtns.add(btnLvl5);
-		btnLvl6 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 5, "LEVEL6", function() { SwitchLevel(5); FlxG.play("sel1");} ); lvlBtns.add(btnLvl6);
-		btnLvl7 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 6, "LEVEL7", function() { SwitchLevel(6); FlxG.play("sel1");} ); lvlBtns.add(btnLvl7);
-		btnLvl8 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 7, "LEVEL8", function() { SwitchLevel(7); FlxG.play("sel1");} ); lvlBtns.add(btnLvl8);
+		btnLvl1 = new MyButton(lvlBtnX, 5, "LEVEL1", function() { SwitchLevel(0); FlxG.sound.play("sel1");} ); lvlBtns.add(btnLvl1);
+		btnLvl2 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 1, "LEVEL2", function() { SwitchLevel(1); FlxG.sound.play("sel1");} ); lvlBtns.add(btnLvl2);
+		btnLvl3 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 2, "LEVEL3", function() { SwitchLevel(2); FlxG.sound.play("sel1");} ); lvlBtns.add(btnLvl3);
+		btnLvl4 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 3, "LEVEL4", function() { SwitchLevel(3); FlxG.sound.play("sel1");} ); lvlBtns.add(btnLvl4);
+		btnLvl5 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 4, "LEVEL5", function() { SwitchLevel(4); FlxG.sound.play("sel1");} ); lvlBtns.add(btnLvl5);
+		btnLvl6 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 5, "LEVEL6", function() { SwitchLevel(5); FlxG.sound.play("sel1");} ); lvlBtns.add(btnLvl6);
+		btnLvl7 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 6, "LEVEL7", function() { SwitchLevel(6); FlxG.sound.play("sel1");} ); lvlBtns.add(btnLvl7);
+		btnLvl8 = new MyButton(lvlBtnX, 5 + lvlBtnYOffset * 7, "LEVEL8", function() { SwitchLevel(7); FlxG.sound.play("sel1");} ); lvlBtns.add(btnLvl8);
 
 		pic = new FlxSprite();
 
@@ -110,16 +110,16 @@ class GameMap extends MWState
 
 		btnMenu = new MyButton(0, 0, "BACK", function() { FlxG.switchState(new MainMenu()); } );
 		btnMenu.loadGraphic(btnGBigNormal);
-		btnMenu.onOver = function(){btnMenu.loadGraphic(btnGBigOver);};
-		btnMenu.onOut = function(){btnMenu.loadGraphic(btnGBigNormal);};
+		btnMenu.setOnOverCallback(function(){btnMenu.loadGraphic(btnGBigOver);});
+		btnMenu.setOnOutCallback(function(){btnMenu.loadGraphic(btnGBigNormal);});
 		btnMenu.x = FlxG.width * 0.66 - btnMenu.width - 50;
 		btnMenu.y = FlxG.height * 0.95 - btnMenu.height * 0.5;
 		btnMenu.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
 
 		btnStart = new MyButton(0, 0, "START", function(){FlxG.switchState(GameStatic.GetCurLvlInst());});
 		btnStart.loadGraphic(btnGBigNormal);
-		btnStart.onOver = function(){btnStart.loadGraphic(btnGBigOver);};
-		btnStart.onOut = function(){btnStart.loadGraphic(btnGBigNormal);};
+		btnStart.setOnOverCallback(function(){btnStart.loadGraphic(btnGBigOver);});
+		btnStart.setOnOutCallback(function(){btnStart.loadGraphic(btnGBigNormal);});
 		btnStart.x = FlxG.width * 0.66 + 50;
 		btnStart.y = FlxG.height * 0.95 - btnStart.height * 0.5;
 		btnStart.label.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_menuButton, 0xffffff, "center");
@@ -175,27 +175,27 @@ class GameMap extends MWState
 	public override function update(){
 		super.update();
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keys.justPressed("UP")){
+		if(FlxG.keyboard.justPressed.UP){
 			SwitchLevel(GameStatic.CurLvl-1);
-			FlxG.play("sel1");
+			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keys.justPressed("DOWN")){
+		else if(FlxG.keyboard.justPressed.DOWN){
 			SwitchLevel(GameStatic.CurLvl+1);
-			FlxG.play("sel1");
+			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keys.justPressed("RIGHT")){
+		else if(FlxG.keyboard.justPressed.RIGHT){
 			SwitchMenu(1);
-			FlxG.play("sel1");
+			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keys.justPressed("LEFT")){
+		else if(FlxG.keyboard.justPressed.LEFT){
 			SwitchMenu(-1);
-			FlxG.play("sel1");
+			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keys.justPressed("X")){
+		else if(FlxG.keyboard.justPressed.X){
 			//MenuAction(curMenuSel);
 			FlxG.switchState(GameStatic.GetCurLvlInst());
 		}
-		else if(FlxG.keys.justPressed("Z"))
+		else if(FlxG.keyboard.justPressed.Z)
 			FlxG.switchState(new MainMenu());
 		#end
 	}
@@ -216,8 +216,8 @@ class GameMap extends MWState
 			{
 				cast(lvlBtns.members[i],FlxButton).loadGraphic(btnGLvlLock);
 				cast(lvlBtns.members[i],FlxButton).label.text = "";
-				cast(lvlBtns.members[i],FlxButton).onDown = null;
-				cast(lvlBtns.members[i],FlxButton).onUp = null;
+				cast(lvlBtns.members[i],FlxButton).setOnDownCallback(null);
+				cast(lvlBtns.members[i],FlxButton).setOnUpCallback(null);
 			}
 		}
 

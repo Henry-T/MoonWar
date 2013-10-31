@@ -1,7 +1,7 @@
 package;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxPoint;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxPoint;
 
 class Dumom extends FlxSprite
 {
@@ -28,8 +28,8 @@ override public function update():Void
 	//var duck:Duck = game.ducks.recycle(Duck) as Duck;
 	var duck:Duck = cast(game.ducks.add(new Duck()) , Duck);
 	duck.reset(SpawnPos.x, SpawnPos.y);
-	duck.velocity.x = -1000 + FlxG.random() * 2000;
-	duck.velocity.y = -100 + FlxG.random() * 200;
+	duck.velocity.x = -1000 + Math.random() * 2000;
+	duck.velocity.y = -100 + Math.random() * 200;
 	duckSpawnTime = 0;
 	}
 	else

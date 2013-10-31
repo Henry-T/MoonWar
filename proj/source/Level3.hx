@@ -1,13 +1,13 @@
 package;
 import openfl.Assets;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.FlxGroup;
-import org.flixel.util.FlxPoint;
-import org.flixel.util.FlxTimer;
-import org.flixel.system.FlxTile;
-import org.flixel.tmx.TmxObjectGroup;
-import org.flixel.addons.FlxBackdrop;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.group.FlxGroup;
+import flixel.util.FlxPoint;
+import flixel.util.FlxTimer;
+import flixel.tile.FlxTile;
+import flixel.addons.editors.tiled.TiledObjectGroup;
+import flixel.addons.display.FlxBackdrop;
 
 class Level3 extends Level
 {
@@ -87,7 +87,7 @@ class Level3 extends Level
 			eGroups.push(new EnemyGroup(eg));
 		}
 		
-		var os:TmxObjectGroup = tmx.getObjectGroup("misc");
+		var os:TiledObjectGroup = tmx.getObjectGroup("misc");
 		for (to in os.objects)
 		{
 			if (to.name == "door2"){
@@ -153,7 +153,7 @@ class Level3 extends Level
 		bot.On = false;
 		bot.x = botPos1.x;
 		bot.y = botPos1.y;
-		bot.gunHand.play("down");
+		bot.gunHand.animation.play("down");
 
 		onBoard = false;
 
@@ -192,31 +192,31 @@ class Level3 extends Level
 		case 0:	// pre
 			if(preWalking)
 			{
-				bot.play("walk", false);
+				bot.animation.play("walk", false);
 				bot.velocity.x = botWalkSpd;
 				if(bot.x > botPos2.x)
 				{
 					preWalking = false;
 					bot.velocity.x = 0;
-					bot.play("idle");
-					TimerPool.Get().start(0.5, 1, function(t:FlxTimer) { 
+					bot.animation.play("idle");
+					TimerPool.Get().run(0.5, function(t:FlxTimer) { 
 						lineMgr.Start(lines1, function() {
-							TimerPool.Get().start(0.5, 1, talkOver);
+							TimerPool.Get().run(0.5, talkOver);
 						});
 					});
 				}
 			}
 			if(preWalking2)
 			{
-				bot.play("walk", false);
+				bot.animation.play("walk", false);
 				bot.velocity.x = botWalkSpd;
 				if(bot.x >= botPos3.x)
 				{
 					preWalking2 = false;
 					bot.y -= 10;
 					bot.velocity.y = -bot._jumpPower;
-					bot.play("jump_up", true); 
-					TimerPool.Get().start(3, 1, preEnd);
+					bot.animation.play("jump_up", true); 
+					TimerPool.Get().run(3, preEnd);
 					onBoard = true;
 				}
 			}
@@ -291,7 +291,7 @@ class Level3 extends Level
 				if (egPointer < eGroups.length)
 				{
 					var eg:EnemyGroup = cast(eGroups[egPointer] , EnemyGroup);
-					TimerPool.Get().start(eg.timeSpan, 1, function(t:FlxTimer) { spawnBee(); spawnFlag=false;} );
+					TimerPool.Get().run(eg.timeSpan, function(t:FlxTimer) { spawnBee(); spawnFlag=false;} );
 					if(egPointer == 4 || egPointer == 7)
 						spawnRepair();
 					egPointer++;
@@ -303,7 +303,7 @@ class Level3 extends Level
 					for (r in hps.members) {
 						if(r!=null && r.alive) r.kill();
 					}
-					TimerPool.Get().start(2.5, 1, function(tmr:FlxTimer){
+					TimerPool.Get().run(2.5, function(tmr:FlxTimer){
 						// start trans again!
 						battling = false;
 						//bg1.velocity.x = 0;

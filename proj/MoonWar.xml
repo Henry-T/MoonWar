@@ -61,6 +61,7 @@
 
 	<haxelib name="openfl" />
 	<haxelib name="flixel" />
+	<haxelib name="flixel-addons" />
 
 	<!--if certificate is set, the app on android seems to have to be uninstalled manually before you can test a new one-->
 	<!--<certificate path="release.keystore" password="and1dump" alias="MoonWar" alias-password="and1dump" if="android"/>-->
@@ -87,7 +88,7 @@
     <haxedef name="FLX_NO_RECORD" />
     <haxedef name="FLX_NO_JOYSTICK" />
 	<haxedef name="FLX_NO_SOUND_TRAY" />
-	<!--<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />-->
+	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
 
     <!-- Set preloader just at the end of this file as someone said on HaxeFlixel forum-->
     <app preloader="Preloader" swf-version="10.1" />

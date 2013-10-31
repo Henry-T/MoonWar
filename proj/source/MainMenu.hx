@@ -1,12 +1,12 @@
 package;
-import org.flixel.FlxButton;
-import org.flixel.FlxG;
-import org.flixel.FlxText;
-import org.flixel.FlxSprite;
-import flash.display.BitmapData;
 import mochi.as3.MochiAd;
 import mochi.as3.MochiServices;
-import org.flixel.addons.FlxBackdrop;
+import flash.display.BitmapData;
+import flixel.ui.FlxButton;
+import flixel.FlxG;
+import flixel.text.FlxText;
+import flixel.FlxSprite;
+import flixel.addons.display.FlxBackdrop;
 
 class MainMenu extends MWState
 {
@@ -71,24 +71,24 @@ class MainMenu extends MWState
 		startBtn.x = GameStatic.widthH - startBtn.width*0.5;
 		startBtn.y = GameStatic.heightH - startBtn.height*1.4;
 		startBtn.label.setFormat(ResUtil.FNT_Pixelex, 24, 0xffffff, "center");
-		startBtn.onOver = function() { startBtn.loadGraphic(ResUtil.bmpBtnBMainOver); FlxG.play("sel1"); };
-		startBtn.onOut = function(){startBtn.loadGraphic(ResUtil.bmpBtnBMainNormal);};
+		startBtn.setOnOverCallback(function() { startBtn.loadGraphic(ResUtil.bmpBtnBMainOver); FlxG.sound.play("sel1"); });
+		startBtn.setOnOutCallback(function(){startBtn.loadGraphic(ResUtil.bmpBtnBMainNormal);});
 		
 		btnMap = new MyButton(0, 0, "LEVEL", function():Void { FlxG.switchState(new GameMap()); } );
 		btnMap.loadGraphic(ResUtil.bmpBtnBMainNormal); btnMap.x = FlxG.width / 2 - btnMap.width / 2;
 		btnMap.x = GameStatic.widthH - startBtn.width*0.5;
 		btnMap.y = GameStatic.heightH;
 		btnMap.label.setFormat(ResUtil.FNT_Pixelex, 24, 0xffffff, "center");
-		btnMap.onOver = function(){btnMap.loadGraphic(ResUtil.bmpBtnBMainOver); FlxG.play("sel1");};
-		btnMap.onOut = function(){btnMap.loadGraphic(ResUtil.bmpBtnBMainNormal);};
+		btnMap.setOnOverCallback(function(){btnMap.loadGraphic(ResUtil.bmpBtnBMainOver); FlxG.sound.play("sel1");});
+		btnMap.setOnOutCallback(function(){btnMap.loadGraphic(ResUtil.bmpBtnBMainNormal);});
 		
 		btnClearData = new MyButton(0, 0, "HELP", function() { FlxG.switchState(new HelpScreen()); } );
 		btnClearData.loadGraphic(ResUtil.bmpBtnBMainNormal); btnClearData.x = FlxG.width / 2 - btnClearData.width / 2;
 		btnClearData.x = GameStatic.widthH - btnClearData.width*0.5;
 		btnClearData.y = GameStatic.heightH + btnClearData.height*1.4;
 		btnClearData.label.setFormat(ResUtil.FNT_Pixelex, 24, 0xffffff, "center");
-		btnClearData.onOver = function(){btnClearData.loadGraphic(ResUtil.bmpBtnBMainOver); FlxG.play("sel1");};
-		btnClearData.onOut = function(){btnClearData.loadGraphic(ResUtil.bmpBtnBMainNormal);};
+		btnClearData.setOnOverCallback(function(){btnClearData.loadGraphic(ResUtil.bmpBtnBMainOver); FlxG.sound.play("sel1");});
+		btnClearData.setOnOutCallback(function(){btnClearData.loadGraphic(ResUtil.bmpBtnBMainNormal);});
 
 		#if !FLX_NO_KEYBOARD
 		selector = new FlxSprite(ResUtil.bmpSelMain);
@@ -96,7 +96,7 @@ class MainMenu extends MWState
 
 		txtCreator = new MyText(0, FlxG.height-15, FlxG.width, "Created By Lolofinil      Music By www.nosoapradio.us");
 		txtCreator.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_dialog, 0xffffff, "center");
-		txtCreator.scrollFactor.make(0, 0);
+		txtCreator.scrollFactor.set(0, 0);
 		txtCreator.y = FlxG.height - txtCreator.GetTextHeight() - 1;
 		
 		#if !FLX_NO_KEYBOARD
@@ -123,7 +123,7 @@ class MainMenu extends MWState
 		super.update();
 		#if debug 
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keys.T){
+		if(FlxG.keyboard.pressed.T){
 			FlxG.switchState(new LevelTest());
 		}
 		#end
@@ -131,15 +131,15 @@ class MainMenu extends MWState
 
 		// Handle Keyboard Input
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keys.justPressed("UP")){
+		if(FlxG.keyboard.justPressed.UP){
 			ChangeSel(-1);
-			FlxG.play("sel1");
+			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keys.justPressed("DOWN")){
+		else if(FlxG.keyboard.justPressed.DOWN){
 			ChangeSel(1);
-			FlxG.play("sel1");
+			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keys.justPressed("X")){
+		else if(FlxG.keyboard.justPressed.X){
 			SelAction(selId);
 		}
 		#end

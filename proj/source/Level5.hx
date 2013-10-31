@@ -1,11 +1,11 @@
 package ;
-import org.flixel.util.FlxRect;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxPoint;
-import org.flixel.FlxObject;
-import org.flixel.tmx.TmxObjectGroup;
-import org.flixel.addons.FlxBackdrop;
+import flixel.util.FlxRect;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxPoint;
+import flixel.FlxObject;
+import flixel.addons.editors.tiled.TiledObjectGroup;
+import flixel.addons.display.FlxBackdrop;
 
 class Level5 extends Level 
 {
@@ -29,7 +29,7 @@ class Level5 extends Level
 		
 		GameStatic.CurLvl = 4;
 		
-		var os:TmxObjectGroup = tmx.getObjectGroup("misc");
+		var os:TiledObjectGroup = tmx.getObjectGroup("misc");
 		for ( to in os.objects)
 		{
 			if (to.name == "bPos1")
@@ -61,7 +61,7 @@ class Level5 extends Level
 		AddAll();
 		
 		// initial
-		FlxG.flash(0xff000000, 2);
+		FlxG.camera.flash(0xff000000, 2);
 		FlxG.camera.follow(bot);
 		ResUtil.playGame1();
 		bot.facing = FlxObject.RIGHT;

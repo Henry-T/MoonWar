@@ -1,7 +1,7 @@
 package ;
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxPoint;
-import org.flixel.tmx.TmxObject;
+import flixel.FlxSprite;
+import flixel.util.FlxPoint;
+import flixel.addons.editors.tiled.TiledObject;
 
 
 class Mine extends Enemy 
@@ -16,7 +16,7 @@ class Mine extends Enemy
 		super.reset(X, Y);
 	}
 
-	public function make(o:TmxObject):Void
+	public function make(o:TiledObject):Void
 	{
 		reset(o.x, o.y);
 		offset = new FlxPoint(0, -10);

@@ -1,32 +1,24 @@
 package;
-import org.flixel.FlxText;
-import org.flixel.FlxButton;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.FlxState;
-import org.flixel.FlxSave;
-import org.flixel.util.FlxAngle;
-import org.flixel.FlxPath;
-
-
 import openfl.Assets;
+import flixel.text.FlxText;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxState;
+import flixel.ui.FlxButton;
+import flixel.text.FlxText;
+import flixel.util.FlxSave;
+import flixel.util.FlxAngle;
+import flixel.util.FlxPath;
+
 import flash.geom.Rectangle;
 import flash.net.SharedObject;
-import org.flixel.FlxButton;
-import org.flixel.FlxG;
-import org.flixel.FlxPath;
-import org.flixel.FlxSave;
-import org.flixel.FlxSprite;
-import org.flixel.FlxState;
-import org.flixel.FlxText;
-import org.flixel.util.FlxAngle;
 
 class MenuState extends FlxState
 {
 	override public function create():Void
 	{
 		#if !neko
-		FlxG.bgColor = 0xff131c1b;
+		FlxG.cameras.bgColor = 0xff131c1b;
 		#else
 		FlxG.camera.bgColor = {rgb: 0x131c1b, a: 0xff};
 		#end		

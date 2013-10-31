@@ -1,7 +1,7 @@
 package ;
-import org.flixel.FlxG;
-import org.flixel.FlxObject;
-import org.flixel.util.FlxTimer;
+import flixel.FlxG;
+import flixel.FlxObject;
+import flixel.util.FlxTimer;
 
 
 
@@ -17,13 +17,13 @@ public function new(X:Float=0, Y:Float=0, Width:Float=0, Height:Float=0)
 {
 	super(X, Y, Width, Height);
 	
-	timer1 = new FlxTimer();
+	timer1 = TimerPool.Get();
 	
 }
 
 public function Start():Void
 {
-	timer1.start(span, count, function(t:FlxTimer):Void {
+	timer1.run(span, function(t:FlxTimer):Void {
 		switch(type)
 		{
 			case "bWalk":
@@ -31,7 +31,7 @@ public function Start():Void
 				bWalk.reset(getMidpoint().x - bWalk.width/2, getMidpoint().y - bWalk.height/2);
 				bWalk.inAction = true;
 		}
-	});
+	}, count);
 }
 
 }

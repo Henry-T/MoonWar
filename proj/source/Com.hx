@@ -1,7 +1,7 @@
 package ;
-import org.flixel.FlxSprite;
-import org.flixel.tmx.TmxObject;
-import org.flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.addons.editors.tiled.TiledObject;
+import flixel.FlxG;
 
 class Com extends FlxSprite 
 {
@@ -16,12 +16,12 @@ class Com extends FlxSprite
 		super(x, y);
 		
 		loadGraphic("assets/img/com.png", true, false, 20, 40);
-		addAnimation("off", [0], 1, false);
-		addAnimation("on", [1], 1, false);
+		animation.add("off", [0], 1, false);
+		animation.add("on", [1], 1, false);
 		SetOn(on);
 	}
 
-	public function make(o:TmxObject)
+	public function make(o:TiledObject)
 	{
 		reset(o.x, o.y);
 		name = o.name;
@@ -41,9 +41,9 @@ class Com extends FlxSprite
 	{
 		On = on;
 		if (On)
-			play("on");
+			animation.play("on");
 		else
-			play("off");
+			animation.play("off");
 	}
 
 	public function ToggleOn():Void
@@ -68,7 +68,7 @@ class Com extends FlxSprite
 
 		// load a different image
 		loadGraphic("assets/img/comTip.png", true, false, 20, 40);
-		addAnimation("off", [0], 1, false);
-		addAnimation("on", [1], 1, false);
+		animation.add("off", [0], 1, false);
+		animation.add("on", [1], 1, false);
 	}
 }

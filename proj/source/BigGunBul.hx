@@ -1,5 +1,5 @@
 package;
-import org.flixel.FlxSprite;
+import flixel.FlxSprite;
 
 // enemy bul in fact
 class BigGunBul extends FlxSprite

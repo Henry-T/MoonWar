@@ -1,7 +1,6 @@
 package ;
-import org.flixel.FlxSprite;
-import org.flixel.plugin.photonstorm.baseTypes.Bullet;
-import org.flixel.util.FlxPoint;
+import flixel.FlxSprite;
+import flixel.util.FlxPoint;
 
 
 // Generic Bullet!

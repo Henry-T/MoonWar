@@ -1,12 +1,11 @@
 package ;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.FlxObject;
-import org.flixel.plugin.photonstorm.baseTypes.Bullet;
-import org.flixel.util.FlxAngle;
-import org.flixel.util.FlxPoint;
-import org.flixel.util.FlxTimer;
-import org.flixel.util.FlxMath;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxObject;
+import flixel.util.FlxAngle;
+import flixel.util.FlxPoint;
+import flixel.util.FlxTimer;
+import flixel.util.FlxMath;
 
 // Bee Class
 class Bee extends Enemy
@@ -41,8 +40,8 @@ class Bee extends Enemy
 		super(x, y);
 		
 		// makeGraphic(40, 40, 0xff448811);
-		timer1 = new FlxTimer();
-		timer2 = new FlxTimer();
+		timer1 = TimerPool.Get();
+		timer2 = TimerPool.Get();
 		canShot = true;
 	}
 
@@ -58,11 +57,11 @@ class Bee extends Enemy
 		{
 		case "Monk":
 			loadGraphic("assets/img/beeMonk.png", true, true);
-			addAnimation("idle", [0], 1, true);
-			offset.make(20, 20);
+			animation.add("idle", [0], 1, true);
+			offset.set(20, 20);
 			width = 40;
 			height = 40;
-			play("idle", true);
+			animation.play("idle", true);
 			
 			InitPos = new FlxPoint(FinPos.x, FinPos.y - 150);
 			
@@ -75,11 +74,11 @@ class Bee extends Enemy
 			
 		case "Fighter":
 			loadGraphic("assets/img/beeFighter.png", true, true);
-			addAnimation("idle", [0], 1, true);
-			offset.make(20, 20);
+			animation.add("idle", [0], 1, true);
+			offset.set(20, 20);
 			width = 40;
 			height = 40;
-			play("idle", true);
+			animation.play("idle", true);
 			
 			InitPos = new FlxPoint(((FinPos.x < (FlxG.camera.scroll.x + FlxG.width / 2))?-1:1) * 150 + FinPos.x, FinPos.y);
 			health = 5;
@@ -91,11 +90,11 @@ class Bee extends Enemy
 			
 		case "Bomb":
 			loadGraphic("assets/img/beeBomb.png", true, true);
-			addAnimation("idle", [0], 1, true);
-			offset.make(20, 20);
+			animation.add("idle", [0], 1, true);
+			offset.set(20, 20);
 			width = 40;
 			height = 40;
-			play("idle", true);
+			animation.play("idle", true);
 			
 			//initPos = new FlxPoint(FinPos.x + 300, -40);
 			//FinPos = new FlxPoint(FinPos.x, 100);
@@ -112,11 +111,11 @@ class Bee extends Enemy
 			
 		case "Blow":
 			loadGraphic("assets/img/beeBlow.png", true, true);
-			addAnimation("idle", [0], 1, true);
-			offset.make(20, 20);
+			animation.add("idle", [0], 1, true);
+			offset.set(20, 20);
 			width = 40;
 			height = 40;
-			play("idle", true);
+			animation.play("idle", true);
 			
 			InitPos = new FlxPoint(FinPos.x, FinPos.y - 100);
 			//initPos = new FlxPoint((FinPos.x < (FlxG.camera.scroll + FlxG.width / 2))?-1:1 * 100 + FinPos.x, FinPos.y);
@@ -132,8 +131,8 @@ class Bee extends Enemy
 		// Initialize shooting!
 		if (mode != "Bomb")
 		{
-			timer1.start(shotCold, 9999, function(t:FlxTimer){
-				timer2.start(shotSpan, shotCnt, function(t:FlxTimer) {
+			timer1.run(shotCold, function(t:FlxTimer){
+				timer2.run(shotSpan, function(t:FlxTimer) {
 					if(canShot){
 						var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
 						bgb.reset(getMidpoint().x, getMidpoint().y);
@@ -141,8 +140,8 @@ class Bee extends Enemy
 						bgb.velocity.x = Math.cos((agl-90) / 180 * Math.PI) * 200;
 						bgb.velocity.y = Math.sin((agl-90) / 180 * Math.PI) * 200;
 					}
-				}); 
-			} );
+				}, shotCnt); 
+			},9999);
 		}
 		
 		logPos = new FlxPoint(InitPos.x, InitPos.y);
@@ -198,16 +197,16 @@ class Bee extends Enemy
 		
 		if (locked && (timer1.finished||timer1.timeLeft==0) && mode == "Bomb")
 		{
-			timer1.start(shotCold, 1, function(t:FlxTimer) {
+			timer1.run(shotCold, function(t:FlxTimer) {
 				locked = false;
-				timer2.start(shotSpan, 10, function(t:FlxTimer)
+				timer2.run(shotSpan, function(t:FlxTimer)
 				{
-				var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
-				bgb.reset(getMidpoint().x, getMidpoint().y);
-				var agl:Float = FlxAngle.getAngle(getMidpoint(), cast(FlxG.state , Level).bot.getMidpoint());
-				bgb.velocity.x = 0;
-				bgb.velocity.y = 100;
-				});
+					var bgb:BigGunBul = cast(cast(FlxG.state , Level).bigGunBuls.recycle(BigGunBul) , BigGunBul);
+					bgb.reset(getMidpoint().x, getMidpoint().y);
+					var agl:Float = FlxAngle.getAngle(getMidpoint(), cast(FlxG.state , Level).bot.getMidpoint());
+					bgb.velocity.x = 0;
+					bgb.velocity.y = 100;
+				},10);
 			});
 		}
 		
@@ -231,26 +230,26 @@ class Bee extends Enemy
 	override public function hurt(val:Float):Void
 	{
 		super.hurt(val);
-		flicker(0.1);
+		flixel.util.FlxSpriteUtil.flicker(this, 0.1);
 	}
 
 	override public function kill():Void 
 	{
 		super.kill();
 		
-		timer1.stop();
-		timer2.stop();
+		timer1.abort();
+		timer2.abort();
 		
 		var ex:FlxSprite = cast(cast(FlxG.state , Level).explo2s.recycle(FlxSprite) , FlxSprite);
 		ex.loadGraphic("assets/img/explo2.png", true, false, 30, 30);
-		ex.addAnimation("explo", [0, 1, 2, 3, 4, 5, 6, 7], 25, false);
-		ex.addAnimationCallback(function(name:String, num:Int, id:Int) {
+		ex.animation.add("explo", [0, 1, 2, 3, 4, 5, 6, 7], 25, false);
+		ex.animation.callback = function(name:String, num:Int, id:Int) {
 		if (num == 7)
 			ex.kill();	// remeber use this!
-		} );
-		//ex.scale.make(2.5,2.5);
+		};
+		//ex.scale.set(2.5,2.5);
 		ex.reset(getMidpoint().x-ex.width/2, getMidpoint().y-ex.height/2);
-		ex.play("explo", true);
+		ex.animation.play("explo", true);
 	}
 
 	override public function draw():Void 

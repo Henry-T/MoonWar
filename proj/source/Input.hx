@@ -1,10 +1,10 @@
 package ;
 
-import org.flixel.FlxG;
-import org.flixel.system.input.FlxAnalog;
-import org.flixel.system.input.FlxGamePad;
-import org.flixel.FlxGroup;
-import org.flixel.FlxButton;
+import flixel.FlxG;
+import flixel.ui.FlxAnalog;
+import flixel.ui.FlxVirtualPad;
+import flixel.group.FlxGroup;
+import flixel.ui.FlxButton;
 
 
 // Wrap up for all input situations and give a handy access to input for this game
@@ -82,7 +82,7 @@ class Input extends FlxGroup {
 		// Input from Analog Pad
 		//if(On){
 		    // var lvl:Level = cast(FlxG.state, Level);
-		    // if(lvl.analog.pressed()){
+		    // if(lvl.analog.pressed){
 		    // 	var anaAgl:Float = lvl.analog.getAngle();
 		    // 	trace(anaAgl);
 		    // 	if(anaAgl > -90 && anaAgl < 90)
@@ -97,8 +97,8 @@ class Input extends FlxGroup {
 		keyboardRightDown = false;
 		keyboardUpDown = false;
 		keyboardDownDown = false;
-		keyboardZDown = false;
 		keyboardXDown = false;
+		keyboardCDown = false;
 		keyboardSpaceDown = false;
 		keyboardAnykeyDown = false;
 		keyboardLeftJustDown = false;
@@ -126,36 +126,36 @@ class Input extends FlxGroup {
 		// Data from Input Source
 		#if !FLX_NO_TOUCH
 		AnalogAngle = analog.getAngle();
-		AnalogPressed = analog.pressed();
-		AnalogJustPressed = analog.justPressed();
-		AnalogJustReleased = analog.justReleased();
+		AnalogPressed = analog.pressed;
+		AnalogJustPressed = analog.justPressed;
+		AnalogJustReleased = analog.justReleased;
 		#end
 
 		#if !FLX_NO_KEYBOARD
-		keyboardLeftDown = FlxG.keys.LEFT;
-		keyboardRightDown = FlxG.keys.RIGHT;
-		keyboardUpDown = FlxG.keys.UP;
-		keyboardDownDown = FlxG.keys.DOWN;
-		keyboardZDown = FlxG.keys.Z;
-		keyboardXDown = FlxG.keys.X;
-		keyboardSpaceDown = FlxG.keys.SPACE;
-		keyboardAnykeyDown = FlxG.keys.any();
-		keyboardLeftJustDown = FlxG.keys.justPressed("LEFT");
-		keyboardRightJustDown = FlxG.keys.justPressed("RIGHT");
-		keyboardUpJustDown = FlxG.keys.justPressed("UP");
-		keyboardDownJustDown = FlxG.keys.justPressed("DOWN");
-		keyboardZJustDown = FlxG.keys.justPressed("Z");
-		keyboardXJustDown = FlxG.keys.justPressed("X");
-		keyboardSpaceJustDown = FlxG.keys.justPressed("SPACE");
-		keyboardAnykeyJustDown = FlxG.keys.any() && !lastKeyboardAnykeyDown;
-		keyboardLeftJustUp = FlxG.keys.justReleased("LEFT");
-		keyboardRightJustUp = FlxG.keys.justReleased("RIGHT");
-		keyboardUpJustUp = FlxG.keys.justReleased("UP");
-		keyboardDownJustUp = FlxG.keys.justReleased("DOWN");
-		keyboardZJustUp = FlxG.keys.justReleased("Z");
-		keyboardXJustUp = FlxG.keys.justReleased("X");
-		keyboardSpaceJustUp = FlxG.keys.justReleased("SPACE");
-		keyboardAnykeyJustUp = !FlxG.keys.any() && lastKeyboardAnykeyDown;
+		keyboardLeftDown = FlxG.keyboard.pressed.LEFT;
+		keyboardRightDown = FlxG.keyboard.pressed.RIGHT;
+		keyboardUpDown = FlxG.keyboard.pressed.UP;
+		keyboardDownDown = FlxG.keyboard.pressed.DOWN;
+		keyboardXDown = FlxG.keyboard.pressed.X;
+		keyboardCDown = FlxG.keyboard.pressed.C;
+		keyboardSpaceDown = FlxG.keyboard.pressed.SPACE;
+		keyboardAnykeyDown = FlxG.keyboard.pressed.ANY;
+		keyboardLeftJustDown = FlxG.keyboard.justPressed.LEFT;
+		keyboardRightJustDown = FlxG.keyboard.justPressed.RIGHT;
+		keyboardUpJustDown = FlxG.keyboard.justPressed.UP;
+		keyboardDownJustDown = FlxG.keyboard.justPressed.DOWN;
+		keyboardZJustDown = FlxG.keyboard.justPressed.Z;
+		keyboardXJustDown = FlxG.keyboard.justPressed.X;
+		keyboardSpaceJustDown = FlxG.keyboard.justPressed.SPACE;
+		keyboardAnykeyJustDown = FlxG.keyboard.pressed.ANY && !lastKeyboardAnykeyDown;
+		keyboardLeftJustUp = FlxG.keyboard.justReleased.LEFT;
+		keyboardRightJustUp = FlxG.keyboard.justReleased.RIGHT;
+		keyboardUpJustUp = FlxG.keyboard.justReleased.UP;
+		keyboardDownJustUp = FlxG.keyboard.justReleased.DOWN;
+		keyboardZJustUp = FlxG.keyboard.justReleased.Z;
+		keyboardXJustUp = FlxG.keyboard.justReleased.X;
+		keyboardSpaceJustUp = FlxG.keyboard.justReleased.SPACE;
+		keyboardAnykeyJustUp = !FlxG.keyboard.pressed.ANY && lastKeyboardAnykeyDown;
 		#end
 
 		// Clean Up Before Roundup
@@ -195,19 +195,19 @@ class Input extends FlxGroup {
 			Up = true;
 		if(keyboardDownDown || (AnalogPressed&&(AnalogAngle>30&&AnalogAngle<150)))
 			Down = true;
-		if (keyboardZDown 
+		if (keyboardXDown 
 			#if !FLX_NO_TOUCH
 			|| gamePad.buttonB.status == FlxButton.PRESSED
 			#end
 			)
 			Jump = true;
-		if (keyboardXDown
+		if (keyboardCDown
 			#if !FLX_NO_TOUCH
 			|| gamePad.buttonA.status == FlxButton.PRESSED
 			#end
 			)
 			Shoot = true;
-		if (keyboardXDown
+		if (keyboardCDown
 			#if !FLX_NO_TOUCH
 			|| gamePad.buttonA.status == FlxButton.PRESSED
 			#end
@@ -288,16 +288,16 @@ class Input extends FlxGroup {
 		lastBtnBStatus = gamePad.buttonB.status;
 		#end
 		#if !FLX_NO_KEYBOARD
-		lastKeyboardAnykeyDown = FlxG.keys.any();
+		lastKeyboardAnykeyDown = FlxG.keyboard.pressed.ANY;
 		#end
 		lastAnalogAngle = AnalogAngle;
 
-	    // var touches:Array<FlxTouch> = FlxG.touchManager.touches;
+	    // var touches:Array<FlxTouch> = FlxG.touches.list;
 	    // var touch:FlxTouch;
 	 
 	    // for(touch in touches)
 	    // {
-	    //     if (touch.pressed())
+	    //     if (touch.pressed)
 	    //     {
 	    //         var px:Int = touch.screenX;
 	    //         var py:Int = touch.screenY;
@@ -312,7 +312,7 @@ class Input extends FlxGroup {
 	    //        		inRIGHT = true;
 	    //     }
 
-	    //     if(touch.justPressed())
+	    //     if(touch.justPressed)
 	    //     {
 
 	    //     }
@@ -330,8 +330,8 @@ class Input extends FlxGroup {
 	private var keyboardRightDown:Bool;
 	private var keyboardUpDown:Bool;
 	private var keyboardDownDown:Bool;
-	private var keyboardZDown:Bool;
 	private var keyboardXDown:Bool;
+	private var keyboardCDown:Bool;
 	private var keyboardSpaceDown:Bool;
 	private var keyboardAnykeyDown:Bool;
 

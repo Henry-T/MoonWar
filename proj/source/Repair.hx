@@ -1,6 +1,6 @@
 package;
-import org.flixel.FlxSprite;
-import org.flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxG;
 
 class Repair extends FlxSprite
 {
@@ -41,6 +41,6 @@ class Repair extends FlxSprite
 	public function Wait(){
 		waitOn = true;
 		waitTimer = 0;
-		flicker(waitCD);
+		flixel.util.FlxSpriteUtil.flicker(this, waitCD);
 	}
 }

@@ -1,7 +1,7 @@
 package ;
-import org.flixel.FlxG;
-import org.flixel.FlxGroup;
-import org.flixel.FlxObject;
+import flixel.FlxG;
+import flixel.group.FlxGroup;
+import flixel.FlxObject;
 
 
 

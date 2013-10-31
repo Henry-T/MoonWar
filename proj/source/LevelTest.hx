@@ -1,9 +1,9 @@
 package;
 
-import org.flixel.tweens.misc.VarTween;
-import org.flixel.tweens.FlxTween;
-import org.flixel.FlxG;
-import org.flixel.tweens.util.Ease;
+import flixel.tweens.misc.VarTween;
+import flixel.tweens.FlxTween;
+import flixel.FlxG;
+import flixel.tweens.FlxEase;
 
 
 class LevelTest extends Level{
@@ -23,7 +23,7 @@ class LevelTest extends Level{
 
 		// Test : VarTween
 		//var camTween:VarTween = new VarTween(null, FlxTween.PERSIST);
-		//camTween.tween(FlxG.camera.scroll, "x", 100, 2, Ease.quartInOut);
+		//camTween.tween(FlxG.camera.scroll, "x", 100, 2, FlxEase.quartInOut);
 		//this.addTween(camTween);
 
 		// Test : Camera Tween

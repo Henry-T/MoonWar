@@ -1,9 +1,9 @@
 package ;
 
-import org.flixel.FlxSprite;
-import org.flixel.FlxText;
-import org.flixel.FlxGroup;
-import org.flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.text.FlxText;
+import flixel.group.FlxGroup;
+import flixel.FlxG;
 import flash.display.BitmapData;
 
 class Confirm extends FlxGroup{
@@ -40,41 +40,41 @@ class Confirm extends FlxGroup{
 		confirmMask = new FlxSprite(0,0);
 		confirmMask.makeGraphic(FlxG.width, FlxG.height, 0xff000000);
 		confirmMask.alpha = 0.5;
-		confirmMask.scrollFactor.make(0,0);
+		confirmMask.scrollFactor.set(0,0);
 
 		confirmBg = new SliceShape(0, FlxG.height*0.91,FlxG.width, Std.int(FlxG.height * 0.08), ResUtil.IMG_ui_barh_yellow, SliceShape.MODE_HERT, 1);
-		confirmBg.scrollFactor.make(0,0);
+		confirmBg.scrollFactor.set(0,0);
 
 		note = new MyText(10, FlxG.height*0.95 - 6, FlxG.width - 20, "word");	// !Don't change text here for it will be used to masure height of bg bar
-		note.scrollFactor.make(0,0);
+		note.scrollFactor.set(0,0);
 		note.setFormat(ResUtil.FNT_Pixelex,GameStatic.txtSize_menuButton, 0x000000, "left");
 
 		_bgTextOnly = new SliceShape(0,0,FlxG.width, note.GetTextHeight() + 6, ResUtil.IMG_ui_barh_blue, SliceShape.MODE_HERT, 1).pixels.clone();
 		_bgFull = new SliceShape(0,0,FlxG.width, FlxG.height * 0.08, ResUtil.IMG_ui_barh_blue, SliceShape.MODE_HERT, 1).pixels.clone();
 
-		btnCancel = new MyButton(FlxG.width*0.6+15, FlxG.height*0.95-ResUtil.bmpBtnBMenuNormal.height*0.5, "Cancel", onConfirm);
+		btnCancel = new MyButton(FlxG.width*0.6+15, FlxG.height*0.95-ResUtil.bmpBtnBMenuNormal.height*0.5, "Cancel", onCancel);
 		btnCancel.loadGraphic(ResUtil.bmpBtnBMenuNormal);
 		btnCancel.label.setFormat(ResUtil.FNT_Pixelex,GameStatic.txtSize_menuButton, 0xffffff, "center");
-		btnCancel.scrollFactor.make(0,0);
+		btnCancel.scrollFactor.set(0,0);
 
-		btnConfirm = new MyButton(FlxG.width*0.6+15 + 5 + btnCancel.width, FlxG.height*0.95-ResUtil.bmpBtnBMenuNormal.height*0.5, "Confirm", onCancel);
+		btnConfirm = new MyButton(FlxG.width*0.6+15 + 5 + btnCancel.width, FlxG.height*0.95-ResUtil.bmpBtnBMenuNormal.height*0.5, "Confirm", onConfirm);
 		btnConfirm.loadGraphic(ResUtil.bmpBtnBMenuNormal);
 		btnConfirm.label.setFormat(ResUtil.FNT_Pixelex,GameStatic.txtSize_menuButton, 0xffffff, "center");
-		btnConfirm.scrollFactor.make(0,0);
+		btnConfirm.scrollFactor.set(0,0);
 
 		// Pre-scale images to fit the button rectangle's height
-		imgConfirm = new FlxSprite();	imgConfirm.scrollFactor.make(0,0);
+		imgConfirm = new FlxSprite();	imgConfirm.scrollFactor.set(0,0);
 		imgConfirm.x = btnConfirm.x + 4;
 		imgConfirm.y = confirmBg.y;
-		imgCancel = new FlxSprite();	imgCancel.scrollFactor.make(0,0);
+		imgCancel = new FlxSprite();	imgCancel.scrollFactor.set(0,0);
 		imgCancel.x = btnCancel.x + 4;
 		imgCancel.y = confirmBg.y;
 
-		imgUp = new FlxSprite();	imgUp.scrollFactor.make(0,0);
+		imgUp = new FlxSprite();	imgUp.scrollFactor.set(0,0);
 		imgUp.x = 0;
 		imgUp.y = 0;
 
-		imgDown = new FlxSprite();	imgDown.scrollFactor.make(0,0);
+		imgDown = new FlxSprite();	imgDown.scrollFactor.set(0,0);
 		imgDown.x = 0;
 		imgDown.y = 0;
 
@@ -91,12 +91,12 @@ class Confirm extends FlxGroup{
 
 		#if !FLX_NO_TOUCH
 		if(GameStatic.screenDensity == GameStatic.Density_S){
-			imgConfirm.loadGraphic("assets/img/key_X_S.png");
-			imgCancel.loadGraphic("assets/img/key_Z_S.png");
+			//imgConfirm.loadGraphic("assets/img/key_X_S.png");
+			//imgCancel.loadGraphic("assets/img/key_Z_S.png");
 		}
 		else if(GameStatic.screenDensity == GameStatic.Density_M){
-			imgConfirm.loadGraphic("assets/img/key_X_M.png");
-			imgCancel.loadGraphic("assets/img/key_Z_M.png");
+			//imgConfirm.loadGraphic("assets/img/key_X_M.png");
+			//imgCancel.loadGraphic("assets/img/key_Z_M.png");
 		}
 		#end
 

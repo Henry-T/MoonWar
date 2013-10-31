@@ -1,13 +1,13 @@
 package;
-import org.flixel.util.FlxRect;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.FlxGroup;
-import org.flixel.util.FlxPoint;
-import org.flixel.util.FlxTimer;
-import org.flixel.FlxObject;
-import org.flixel.system.input.FlxTouch;
-import org.flixel.util.FlxAngle;
+import flixel.util.FlxRect;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.group.FlxGroup;
+import flixel.util.FlxPoint;
+import flixel.util.FlxTimer;
+import flixel.FlxObject;
+import flixel.system.input.touch.FlxTouch;
+import flixel.util.FlxAngle;
 
 class Bot extends FlxSprite
 {
@@ -117,11 +117,11 @@ class Bot extends FlxSprite
 
 		gunHand = new FlxSprite(-10,-10);
 		gunHand.loadGraphic("assets/img/botGun.png", true, true, 26, 30);
-		gunHand.addAnimation("front", [0], 1, false);
-		gunHand.addAnimation("upfront", [1], 1, false);
-		gunHand.addAnimation("downfront", [2], 1, false);
-		gunHand.addAnimation("up", [3], 1, false);
-		gunHand.addAnimation("down", [4], 1, false);
+		gunHand.animation.add("front", [0], 1, false);
+		gunHand.animation.add("upfront", [1], 1, false);
+		gunHand.animation.add("downfront", [2], 1, false);
+		gunHand.animation.add("up", [3], 1, false);
+		gunHand.animation.add("down", [4], 1, false);
 		gunHand.offset.x = 4;
 		gunHand.width = 18;
 
@@ -130,12 +130,12 @@ class Bot extends FlxSprite
 		
 		this.loadGraphic("assets/img/bot.png", true, true, 26, 30);
 		
-		immuTimer = new FlxTimer();
+		immuTimer = TimerPool.Get();
 		
-		addAnimation("idle",[0, 1, 2, 1],5,true);
-		addAnimation("jump_up",[3],0,false);
-		addAnimation("jump_down",[3],0,false);
-		addAnimation("walk",[3,0,4,0],10,true);
+		animation.add("idle",[0, 1, 2, 1],5,true);
+		animation.add("jump_up",[3],0,false);
+		animation.add("jump_down",[3],0,false);
+		animation.add("walk",[3,0,4,0],10,true);
 		
 		this.offset.x = 4;
 		this.width = 18;
@@ -146,7 +146,7 @@ class Bot extends FlxSprite
 		_jumpPower = 1000;
 		drag.x = maxVelocity.x*4;
 		
-		this.play("idle");
+		this.animation.play("idle");
 		
 		_bullets = Bullets;
 		
@@ -179,23 +179,23 @@ class Bot extends FlxSprite
 		// hack
 		#if test
 		#if !FLX_NO_KEYBOARD
-		if (FlxG.keys.Q)
+		if (FlxG.keys.pressedQ)
 			hurt(99999);
-		if (FlxG.keys.W)
+		if (FlxG.keys.pressedW)
 		{
 			if (lvl.boss1 != null)
 				lvl.boss1.hurt(99999);
 			if (lvl.boss3 != null)
 				lvl.boss3.hurt(99999);
 		}
-		if(FlxG.keys.E)
+		if(FlxG.keys.pressedE)
 		{
 			for (bee in cast(FlxG.state, Level).Bees.members) {
 				if(bee!=null && bee.alive)
 					bee.kill();
 			}
 		}
-		if(FlxG.keys.O)
+		if(FlxG.keys.pressedO)
 		{
 			cast(FlxG.state, Level).EndLevel();
 		}
@@ -225,7 +225,7 @@ class Bot extends FlxSprite
 		if(On && !InVc && lvl.input.JustDown_Jump && !lvl.input.Down && isTouching(FlxObject.DOWN))
 		{
 			velocity.y = -_jumpPower;
-			FlxG.play("jump2");
+			FlxG.sound.play("jump2");
 		}
 		if (On && !InVc && lvl.input.JustDown_Jump && lvl.input.Down && (velocity.y == 0))
 		{
@@ -278,35 +278,35 @@ class Bot extends FlxSprite
 		//AIMING
 		if((inUP||keyUpSustain) && (inRIGHT||keyRightSustain)) {
 			_aim = FlxObject.UP|FlxObject.RIGHT;
-			gunHand.play("upfront");
+			gunHand.animation.play("upfront");
 		}
 		else if((inUP||keyUpSustain) && (inLEFT||keyLeftSustain)){
 			_aim = FlxObject.UP|FlxObject.LEFT;
-			gunHand.play("upfront");
+			gunHand.animation.play("upfront");
 		}
 		else if((inDOWN||keyDownSustain) && (inRIGHT||keyRightSustain)) {
 			_aim = FlxObject.DOWN|FlxObject.RIGHT;
-			gunHand.play("downfront");
+			gunHand.animation.play("downfront");
 		}
 		else if((inDOWN||keyDownSustain) && (inLEFT||keyLeftSustain)){
 			_aim = FlxObject.DOWN|FlxObject.LEFT;
-			gunHand.play("downfront");
+			gunHand.animation.play("downfront");
 		}
 		else if(inUP||keyUpSustain){
 			_aim = FlxObject.UP;
-			gunHand.play("up");
+			gunHand.animation.play("up");
 		}
 		else if(inDOWN||keyDownSustain){
 			_aim = FlxObject.DOWN;
-			gunHand.play("down");
+			gunHand.animation.play("down");
 		}
 		else if(inLEFT||keyLeftSustain){
 			_aim = FlxObject.LEFT;
-			gunHand.play("front");
+			gunHand.animation.play("front");
 		}
 		else if(inRIGHT||keyRightSustain){
 			_aim = FlxObject.RIGHT;
-			gunHand.play("front");
+			gunHand.animation.play("front");
 		}
 		else {
 			_aim = FlxObject.RIGHT;
@@ -315,17 +315,17 @@ class Bot extends FlxSprite
 		//ANIMATION
 		if(velocity.y != 0)
 		{
-			if(_aim == FlxObject.UP) play("jump_up");
-			else if(_aim == FlxObject.DOWN) play("jump_down");
-			else play("jump_up");
+			if(_aim == FlxObject.UP) animation.play("jump_up");
+			else if(_aim == FlxObject.DOWN) animation.play("jump_down");
+			else animation.play("jump_up");
 		}
 		else if(velocity.x == 0)
 		{
-			play("idle");
+			animation.play("idle");
 		}
 		else
 		{
-			play("walk");
+			animation.play("walk");
 		}
 		
 		//SHOOTING
@@ -376,8 +376,8 @@ class Bot extends FlxSprite
 		{
 			super.hurt(Damage);
 			isActorImmu = true;
-			immuTimer.start(1.5, 1, function(t:FlxTimer) { isActorImmu = false; } );
-			flicker(1.5);
+			immuTimer.run(1.5, function(t:FlxTimer) { isActorImmu = false; } );
+			flixel.util.FlxSpriteUtil.flicker(this, 1.5);
 		}
 	}
 
@@ -393,7 +393,7 @@ class Bot extends FlxSprite
 	// prevent bot from shoot with a very very short period
 	public function JamShoot():Void{
 		gunJamed = true;
-		TimerPool.Get().start(0.20, 1, function(t:FlxTimer){
+		TimerPool.Get().run(0.20, function(t:FlxTimer){
 			gunJamed = false;
 		});
 	}

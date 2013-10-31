@@ -1,9 +1,9 @@
 package ;
 
-import org.flixel.FlxGroup;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.FlxText;
+import flixel.group.FlxGroup;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.text.FlxText;
 
 class TipManager extends FlxGroup{
 
@@ -51,43 +51,60 @@ class TipManager extends FlxGroup{
 			"Use Lifts"
 		];
 
+		#if !FLX_NO_TOUCH
 		descs = [
-			"Press X to poll tip on a console",
-			"Press Left and Right to run around",
-			"Press Z to jump over things",
+			"Press A to poll tip on a console",
+			"Use the analog to run around",
+			"Press B to jump over things",
 			"Run-Jump is usual way to avoid spikes",
-			"Hold Down then press Z to jump down",
-			"Hold X to shoot a decent amount of bullets!",
-			"Z to Jump then X to Shoot",
-			"Hold X with any arrow keys, try it out!",
+			"Hold Down then press B to jump down",
+			"Hold A to shoot a decent amount of bullets!",
+			"B to Jump then A to Shoot",
+			"Hold A with any arrow keys, try it out!",
 			"Grub the blue cage to get full repaired",
 			"Keep moving to avoid bullets then shoot back",
 			"Move in air to avoid bunches of bullets while shooting back",
-			"Press X to open gates or get into lifts"
+			"Press A to open gates or get into lifts"
 		];
+		#else
+		descs = [
+			"Press C to poll tip on a console",
+			"Press Left and Right to run around",
+			"Press X to jump over things",
+			"Run-Jump is usual way to avoid spikes",
+			"Hold Down then press X to jump down",
+			"Hold C to shoot a decent amount of bullets!",
+			"X to Jump then C to Shoot",
+			"Hold C with any arrow keys, try it out!",
+			"Grub the blue cage to get full repaired",
+			"Keep moving to avoid bullets then shoot back",
+			"Move in air to avoid bunches of bullets while shooting back",
+			"Press C to open gates or get into lifts"
+		];
+		#end
 
 		mask = new FlxSprite(0,0);
 		mask.makeGraphic(FlxG.width, FlxG.height, 0xff000000);
 		mask.alpha = 0.8;
-		mask.scrollFactor.make(0,0);
+		mask.scrollFactor.set(0,0);
 		add(mask);
 
 		bg = new SliceShape(FlxG.width * 0.2, FlxG.height * 0.2, FlxG.width * 0.6, FlxG.height * 0.6, ResUtil.IMG_ui_pnl_blue, SliceShape.MODE_BOX, 5);
-		bg.scrollFactor.make(0,0);
+		bg.scrollFactor.set(0,0);
 		add(bg);
 
 		image = new FlxSprite(0,0);
-		image.scrollFactor.make(0,0);
+		image.scrollFactor.set(0,0);
 		add(image);
 
 		txtTitle = new FlxText(0, FlxG.height * 0.06, FlxG.width, "Title");
 		txtTitle.setFormat(ResUtil.FNT_Pixelex, 15, 0xffffff, "center");
-		txtTitle.scrollFactor.make(0,0);
+		txtTitle.scrollFactor.set(0,0);
 		add(txtTitle);
 
 		txtDesc = new FlxText(0, FlxG.height * 0.8, FlxG.width, "Desc");
 		txtDesc.setFormat(ResUtil.FNT_Amble, GameStatic.txtSize_desc, 0xffffff, "center");
-		txtDesc.scrollFactor.make(0,0);
+		txtDesc.scrollFactor.set(0,0);
 		add(txtDesc);
 
 		visible = false;
@@ -118,9 +135,12 @@ class TipManager extends FlxGroup{
 		txtDesc.text = descs[id];
 
 		hideCall = call;
+
+		cast(FlxG.state, Level).input.showControl(false);
 		cast(FlxG.state, MWState).confirm.ShowConfirm(Confirm.Mode_OK,true,"Dismiss the Tip?","OK", "",false, function(){
 			 HideTip();
-			 if(hideCall!=null) hideCall(); 
+			 if(hideCall!=null) hideCall();
+			 cast(FlxG.state, Level).input.showControl(true);
 		});
 	}
 

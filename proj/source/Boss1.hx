@@ -1,10 +1,10 @@
 package;
-import org.flixel.FlxG;
-import org.flixel.FlxSprite;
-import org.flixel.FlxGroup;
-import org.flixel.util.FlxPoint;
-import org.flixel.util.FlxTimer;
-import org.flixel.FlxObject;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.group.FlxGroup;
+import flixel.util.FlxPoint;
+import flixel.util.FlxTimer;
+import flixel.FlxObject;
 
 class Boss1 extends Enemy
 {
@@ -78,8 +78,8 @@ class Boss1 extends Enemy
 		
 		this.game = game;
 		
-		timer = new FlxTimer();
-		timerPShot = new FlxTimer();
+		timer = TimerPool.Get();
+		timerPShot = TimerPool.Get();
 		
 		this.loadGraphic("assets/img/hm.png", true, true, 150);
 		this.width = 65;
@@ -89,28 +89,28 @@ class Boss1 extends Enemy
 
 		landHeight = 400;
 		
-		addAnimation("idle",[0],1,true);
-		addAnimation("walk",[1,2,3,4,5,6,7,8],10,true);
-		addAnimation("preJump",[11,12,13],3,false);
-		addAnimation("jumping",[14],1,true);
-		addAnimation("slash",[15,16,1,18,19],10,false);
-		addAnimation("shot",[20,21,22,23,24,25,26],3,false);
-		addAnimation("air",[27],4,true);	// 27, 28
-		addAnimation("airShot",[29,30,31,32,33,34,35],3,false);
-		addAnimation("airDash",[36,37],2,false);
-		addAnimation("airDashEnd",[38],1,false);
-		addAnimation("zPre",[39,40],4,false);
-		addAnimation("zIdle",[40],1,false);
-		addAnimation("zWalk",[41,42,43,44,45,46,47,48],20,true);
-		addAnimation("zEnd",[51],2,false);
-		addAnimation("fall",[52,53,54,55,56,57],4,false);
-		addAnimation("airDeath",[58,59,60,60,62,63],2,false);
-		addAnimation("airShock", [57], 1, false);
+		animation.add("idle",[0],1,true);
+		animation.add("walk",[1,2,3,4,5,6,7,8],10,true);
+		animation.add("preJump",[11,12,13],3,false);
+		animation.add("jumping",[14],1,true);
+		animation.add("slash",[15,16,1,18,19],10,false);
+		animation.add("shot",[20,21,22,23,24,25,26],3,false);
+		animation.add("air",[27],4,true);	// 27, 28
+		animation.add("airShot",[29,30,31,32,33,34,35],3,false);
+		animation.add("airDash",[36,37],2,false);
+		animation.add("airDashEnd",[38],1,false);
+		animation.add("zPre",[39,40],4,false);
+		animation.add("zIdle",[40],1,false);
+		animation.add("zWalk",[41,42,43,44,45,46,47,48],20,true);
+		animation.add("zEnd",[51],2,false);
+		animation.add("fall",[52,53,54,55,56,57],4,false);
+		animation.add("airDeath",[58,59,60,60,62,63],2,false);
+		animation.add("airShock", [57], 1, false);
 		
 		perShotCnt = 0;
 		
 		this.facing = FlxObject.LEFT;
-		//this.play("walk");
+		//this.animation.play("walk");
 		  
 		lastAppearLeft = false;
 		appearLL = 0;	// This value is set in level2 based on surface base position
@@ -130,16 +130,16 @@ class Boss1 extends Enemy
 		slash = new FlxSprite(0,0);
 		slash.loadGraphic("assets/img/slash.png", true, true, 160, 120);
 		//slash.makeGraphic(160, 120, 0x88ffffff);
-		slash.addAnimation("slash", [0,1,2,3,4,5,6,7], 10, false);
+		slash.animation.add("slash", [0,1,2,3,4,5,6,7], 10, false);
 		
 		health = maxLife;
 
 		bossFire = new FlxSprite(-100, 0);
 		bossFire.loadGraphic("assets/img/fire2.png", true, false, 64, 64);
-		bossFire.addAnimation("idle", [0, 1, 2, 1, 0], 20, true);
-		bossFire.addAnimation("off", [3, 4, 5, 6, 7, 8, 9, 10], 15, false);
-		bossFire.offset.make(32, 0);
-		bossFire.play("idle");
+		bossFire.animation.add("idle", [0, 1, 2, 1, 0], 20, true);
+		bossFire.animation.add("off", [3, 4, 5, 6, 7, 8, 9, 10], 15, false);
+		bossFire.offset.set(32, 0);
+		bossFire.animation.play("idle");
 
 		FireOn = false;
 	}
@@ -159,20 +159,20 @@ class Boss1 extends Enemy
 			slash.y = this.y;
 		}
 		//slash.update();
-		slash.updateAnimation();
-		if (slash.frame == 3 || slash.frame == 4 || slash.frame == 5 || slash.frame == 6)
+		slash.animation.update();
+		if (slash.animation.frameIndex == 3 || slash.animation.frameIndex == 4 || slash.animation.frameIndex == 5 || slash.animation.frameIndex == 6)
 		{
 			FlxG.overlap(cast(FlxG.state , Level).bot, slash, function(bot:FlxObject, s:FlxObject) 
 			{ 
 				bot.hurt(30); 
 			});
 		}
-		if (slash.frame == 4 && hurtBase==false)
+		if (slash.animation.frameIndex == 4 && hurtBase==false)
 		{
 			game.sBase.hurt(10);
 			hurtBase = true;
 		}
-		if (slash.finished)
+		if (slash.animation.finished)
 		hurtBase = false;
 		
 		//timerPShot.update();
@@ -213,7 +213,7 @@ class Boss1 extends Enemy
 
 		bossFire.x = getMidpoint().x;
 		bossFire.y = getMidpoint().y + 20;
-		bossFire.updateAnimation();
+		bossFire.animation.update();
 
 		super.update();
 	}
@@ -254,13 +254,13 @@ class Boss1 extends Enemy
 			// find appear x
 			if(lastAppearLeft)
 			{
-				appearX = FlxG.random() * appearRW + appearRL;
+				appearX = Math.random() * appearRW + appearRL;
 				facing = FlxObject.LEFT;
 				slash.facing = FlxObject.LEFT;
 			}
 			else
 			{
-				appearX = FlxG.random() * appearLW + appearLL;
+				appearX = Math.random() * appearLW + appearLL;
 				facing = FlxObject.RIGHT;
 				slash.facing = FlxObject.RIGHT;
 			}
@@ -274,60 +274,60 @@ class Boss1 extends Enemy
 		else if(state == STpreShoot)
 		{
 			// wait
-			play("idle", true);
+			animation.play("idle", true);
 			this.velocity = new FlxPoint(0,0);
-			timer.start(3,1, function(t:FlxTimer){switchState(2);});
+			timer.run(3, function(t:FlxTimer){switchState(2);});
 		}
 		else if(state == STshoot)
 		{
 			// shoot
-			play("shot", true);
-			timerPShot.start(0.3, 3, perShot);
+			animation.play("shot", true);
+			timerPShot.run(0.3, perShot, 3);
 			shotCnt++;
 			if(shotCnt < 2)
 			{
-				timer.start(3,1, function(t:FlxTimer){switchState(3);});
+				timer.run(3, function(t:FlxTimer){switchState(3);});
 			}
 			else
 			{
 				shotCnt = 0;
-				timer.start(3,1, function(t:FlxTimer){switchState(4);});
+				timer.run(3, function(t:FlxTimer){switchState(4);});
 			}
 		}
 		else if(state == STstopShot)
 		{
 			// turnEnd
-			play("idle", true);
-			timer.start(3,1, function(t:FlxTimer){switchState(6);});
+			animation.play("idle", true);
+			timer.run(3, function(t:FlxTimer){switchState(6);});
 		}
 		else if(state == STpreJump)
 		{
 			// prepjump
-			play("preJump", true);
-			timer.start(1,1, function(t:FlxTimer){switchState(5);});
+			animation.play("preJump", true);
+			timer.run(1, function(t:FlxTimer){switchState(5);});
 		}
 		else if(state == STjumpAtk)
 		{
 			// jumpattack
-			play("slash", true);
+			animation.play("slash", true);
 			if(facing == FlxObject.RIGHT)
 				velocity = new FlxPoint(300, -500);
 			else 
 				velocity = new FlxPoint(-300, -500);
 			acceleration.y = 1000;
-			timer.start(3,1,function(t:FlxTimer):Void{switchState(6);});
+			timer.run(3, function(t:FlxTimer):Void{switchState(6);});
 			lastAppearLeft = !lastAppearLeft;		// change site!
 			// jump over!!!!!
 			// use second timer to produce an light
-			slash.play("slash", true);
+			slash.animation.play("slash", true);
 			// use third timer to produce damage box
 		}
 		else if(state == STdisappear)
 		{
 			// disappear
-			play("idle", true);
+			animation.play("idle", true);
 			this.acceleration.y = 0;
-			timer.start(4, 1, function(t:FlxTimer):Void{switchState(0);});
+			timer.run(4, function(t:FlxTimer):Void{switchState(0);});
 			this.velocity.y = 50;
 			game.smokeEmt2.start(false, 0.5, 0.2, 15); 
 			game.smokeEmt2.on = true;
@@ -338,8 +338,8 @@ class Boss1 extends Enemy
 			velocity.y = 30;
 			acceleration = new FlxPoint(0,0);
 			game.eExplo.visible = true;
-			game.eExplo.play("expl", true);
-			timer.start(3, 1, function(t:FlxTimer):Void{game.switchState(3);});
+			game.eExplo.animation.play("expl", true);
+			timer.run(3, function(t:FlxTimer):Void{game.switchState(3);});
 			// kill all ducks
 			for (d in cast(FlxG.state, Level).ducks.members) {
 				if(d!=null && d.alive)
@@ -351,7 +351,7 @@ class Boss1 extends Enemy
 			velocity.x = 0;
 			velocity.y = 30;
 			acceleration = new FlxPoint(0,0);
-			timer.start(2, 1, function(t:FlxTimer):Void{game.switchState(5);});
+			timer.run(2, function(t:FlxTimer):Void{game.switchState(5);});
 		}
 	}
 

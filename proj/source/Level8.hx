@@ -1,17 +1,17 @@
 package ;
-import org.flixel.util.FlxRect;
-import org.flixel.FlxG;
-import org.flixel.FlxTilemap;
-import org.flixel.FlxSprite;
-import org.flixel.FlxObject;
-import org.flixel.util.FlxPoint;
-import org.flixel.util.FlxTimer;
-import org.flixel.tmx.TmxObjectGroup;
-import org.flixel.FlxCamera;
-import org.flixel.tweens.FlxTween;
-import org.flixel.tweens.util.Ease;
-import org.flixel.tweens.motion.LinearMotion;
-import org.flixel.addons.FlxBackdrop;
+import flixel.FlxG;
+import flixel.tile.FlxTilemap;
+import flixel.FlxSprite;
+import flixel.util.FlxRect;
+import flixel.FlxObject;
+import flixel.util.FlxPoint;
+import flixel.util.FlxTimer;
+import flixel.addons.editors.tiled.TiledObjectGroup;
+import flixel.FlxCamera;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.tweens.motion.LinearMotion;
+import flixel.addons.display.FlxBackdrop;
 
 class Level8 extends Level 
 {
@@ -55,7 +55,7 @@ class Level8 extends Level
 		GameStatic.CurLvl = 7;
 		
 		// load misc
-		var mG:TmxObjectGroup = tmx.getObjectGroup("misc");
+		var mG:TiledObjectGroup = tmx.getObjectGroup("misc");
 		for(o in mG.objects)
 		{
 			if (o.name == "door1")
@@ -113,7 +113,7 @@ class Level8 extends Level
 		righting = false;
 		triggered = false;
 		FlxG.camera.follow(bot);
-		FlxG.flash(0xff000000, 2);
+		FlxG.camera.flash(0xff000000, 2);
 		ResUtil.playGame1();
 		endTalkHappened = false;
 		ShowSceneName("8 - MOON CORE");
@@ -163,7 +163,7 @@ class Level8 extends Level
 		// boss killed
 		if (!isEnd && !boss3.alive && !endTalkHappened){
 			endTalkHappened = true;
-			TimerPool.Get().start(0.5, 1, function(t:FlxTimer){
+			TimerPool.Get().run(0.5, function(t:FlxTimer){
 				lineMgr.Start(lines2, function(){
 					EndLevel(true);
 				});
@@ -192,13 +192,13 @@ class Level8 extends Level
 			righting = true;
 			FlxG.camera.follow(null);
 			TweenCamera(camPos1.x, camPos1.y, 3.5, false, function(){
-				FlxG.camera.bounds.make(fightRect.x, fightRect.y, fightRect.width, fightRect.height);
+				FlxG.camera.bounds.set(fightRect.x, fightRect.y, fightRect.width, fightRect.height);
 			});
 
 			var gate:FlxSprite = cast(gates.members[0], FlxSprite);
 			var gateTween:LinearMotion = new LinearMotion(null, FlxTween.ONESHOT);
 			gateTween.setObject(gate);
-			gateTween.setMotion(gate.x, gate.y, gate.x, gate.y + 100, 2, Ease.quadInOut);
+			gateTween.setMotion(gate.x, gate.y, gate.x, gate.y + 100, 2, FlxEase.quadInOut);
 			addTween(gateTween);
 		}
 		if (righting)
@@ -209,7 +209,7 @@ class Level8 extends Level
 			{
 				righting = false;
 				bot.velocity.x = 0;
-				TimerPool.Get().start(1, 1, function(t:FlxTimer):Void {
+				TimerPool.Get().run(1, function(t:FlxTimer):Void {
 					lineMgr.Start(lines1, function(){
 						//cast(gates.members[0], FlxSprite).y  += 100;
 						gates.members[0].visible = true;

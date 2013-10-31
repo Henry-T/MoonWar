@@ -1,7 +1,7 @@
 package;
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxPoint;
-import org.flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxPoint;
+import flixel.FlxG;
 
 class HPBar extends FlxSprite{
 	public var bg:SliceShape;
@@ -12,7 +12,7 @@ class HPBar extends FlxSprite{
 	public function new(){
 		super();
 		bg = new SliceShape(15, 6, 164, 30, "assets/img/ui_slice_b.png", SliceShape.MODE_BOX, 5);
-		bg.scrollFactor.make(0,0);
+		bg.scrollFactor.set(0,0);
 		hud = new FlxSprite(-30,-5, "assets/img/hud.png");
 		hud.scrollFactor = new FlxPoint(0,0);
 		bhBar = new FlxSprite(19, 15, "assets/img/bhBar.png");

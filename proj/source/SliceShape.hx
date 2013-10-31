@@ -1,10 +1,9 @@
 package;
+import openfl.Assets;
+import flixel.FlxSprite;
 import flash.display.BitmapData;
 import flash.geom.Rectangle;
 import flash.geom.Point;
-import openfl.Assets;
-import org.flixel.FlxAssets;
-import org.flixel.FlxSprite;
 import flash.geom.Matrix;
 
 // slice bitmap and extract to shape like panels or buttons
@@ -41,7 +40,7 @@ class SliceShape extends FlxSprite
 		this.height = Std.int(height);
 		this.paddin = paddin;
 		this.mode = mode;
-		scratchLen = _pixels.width - paddin * 2;
+		scratchLen = pixels.width - paddin * 2;
 
 		pixelCache = Assets.getBitmapData(sourceGraphic);
 
@@ -97,47 +96,47 @@ class SliceShape extends FlxSprite
 		this.makeGraphic(Math.floor(width), Math.floor(height), 0x00000000);	// NOTE: NO NOT USE 'new BitmapData' !
 
 		if(mode == MODE_BOX){
-			_pixels.copyPixels(_srcTopLeft, _srcTopLeft.rect, _flashPointZero);
-			_pixels.copyPixels(_srcTopRight, _srcTopRight.rect, new Point(width - paddin, 0));
-			_pixels.copyPixels(_srcBottomLeft, _srcBottomLeft.rect, new Point(0, height - paddin));
-			_pixels.copyPixels(_srcBottomRight, _srcBottomRight.rect, new Point(width - paddin, height - paddin));
+			pixels.copyPixels(_srcTopLeft, _srcTopLeft.rect, _flashPointZero);
+			pixels.copyPixels(_srcTopRight, _srcTopRight.rect, new Point(width - paddin, 0));
+			pixels.copyPixels(_srcBottomLeft, _srcBottomLeft.rect, new Point(0, height - paddin));
+			pixels.copyPixels(_srcBottomRight, _srcBottomRight.rect, new Point(width - paddin, height - paddin));
 			var scaleTop:BitmapData = scaleBitmapData(_srcTop, (width-paddin*2)/_srcTop.width, 1);
-			_pixels.copyPixels(scaleTop, scaleTop.rect, new Point(paddin, 0));
+			pixels.copyPixels(scaleTop, scaleTop.rect, new Point(paddin, 0));
 			var scaleBottom:BitmapData = scaleBitmapData(_srcBottom, (width-paddin*2)/_srcBottom.width, 1);
-			_pixels.copyPixels(scaleBottom, scaleBottom.rect, new Point(paddin, height-paddin));
+			pixels.copyPixels(scaleBottom, scaleBottom.rect, new Point(paddin, height-paddin));
 			var scaleLeft:BitmapData = scaleBitmapData(_srcLeft, 1, (height-paddin*2)/_srcLeft.height);
-			_pixels.copyPixels(scaleLeft, scaleLeft.rect, new Point(0, paddin));
+			pixels.copyPixels(scaleLeft, scaleLeft.rect, new Point(0, paddin));
 			var scaleRight:BitmapData = scaleBitmapData(_srcRight, 1, (height-paddin*2)/_srcRight.height);
-			_pixels.copyPixels(scaleRight, scaleRight.rect, new Point(width-paddin, paddin));
+			pixels.copyPixels(scaleRight, scaleRight.rect, new Point(width-paddin, paddin));
 			var scaleCenter:BitmapData = scaleBitmapData(_srcCenter, (width-paddin*2)/_srcCenter.width, (height-paddin*2)/_srcCenter.height);
-			_pixels.copyPixels(scaleCenter, scaleCenter.rect, new Point(paddin, paddin));
+			pixels.copyPixels(scaleCenter, scaleCenter.rect, new Point(paddin, paddin));
 		}
 		else if(mode == MODE_HERT){
 			var scaleTop:BitmapData = scaleBitmapData(_srcTop, (width-paddin*2)/_srcTop.width, 1);
-			_pixels.copyPixels(scaleTop, scaleTop.rect, new Point(0, 0));
+			pixels.copyPixels(scaleTop, scaleTop.rect, new Point(0, 0));
 
 			var scaleBottom:BitmapData = scaleBitmapData(_srcBottom, (width-paddin*2)/_srcBottom.width, 1);
-			_pixels.copyPixels(scaleBottom, scaleBottom.rect, new Point(0, height-paddin));
+			pixels.copyPixels(scaleBottom, scaleBottom.rect, new Point(0, height-paddin));
 
 			var scaleCenter:BitmapData = scaleBitmapData(_srcCenter, width/_srcCenter.width, (height-paddin*2)/_srcCenter.height);
-			_pixels.copyPixels(scaleCenter, scaleCenter.rect, new Point(0, paddin));
+			pixels.copyPixels(scaleCenter, scaleCenter.rect, new Point(0, paddin));
 		}
 		else if(mode == MODE_VERTICLE){
 			var scaleLeft:BitmapData = scaleBitmapData(_srcLeft, 1, (height-paddin*2)/_srcLeft.height);
-			_pixels.copyPixels(scaleLeft, scaleLeft.rect, new Point(0, 0));
+			pixels.copyPixels(scaleLeft, scaleLeft.rect, new Point(0, 0));
 			var scaleRight:BitmapData = scaleBitmapData(_srcRight, 1, (height-paddin*2)/_srcRight.height);
-			_pixels.copyPixels(scaleRight, scaleRight.rect, new Point(width-paddin, 0));
+			pixels.copyPixels(scaleRight, scaleRight.rect, new Point(width-paddin, 0));
 
 			var scaleCenter:BitmapData = scaleBitmapData(_srcCenter, (width-paddin*2)/_srcCenter.width, height/_srcCenter.height);
-			_pixels.copyPixels(scaleCenter, scaleCenter.rect, new Point(paddin, 0));
+			pixels.copyPixels(scaleCenter, scaleCenter.rect, new Point(paddin, 0));
 		}
 		else if(mode == MODE_CENTER){
 			var scaleCenter:BitmapData = scaleBitmapData(_srcCenter, width/_srcCenter.width, height/_srcCenter.height);
-			_pixels.copyPixels(scaleCenter, scaleCenter.rect, _flashPointZero);
+			pixels.copyPixels(scaleCenter, scaleCenter.rect, _flashPointZero);
 		}
 	}
 
-	public function setSize(width:Int, height:Int){
+	public function changeSize(width:Int, height:Int){
 		this.width = width; this.height = height;
 		rebuildGraphic();
 	}

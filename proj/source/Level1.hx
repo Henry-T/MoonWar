@@ -1,11 +1,11 @@
 package;
-import org.flixel.FlxG;
-import org.flixel.FlxObject;
-import org.flixel.util.FlxPoint;
-import org.flixel.FlxSprite;
-import org.flixel.util.FlxTimer;
-import org.flixel.tmx.TmxObjectGroup;
-import org.flixel.addons.FlxBackdrop;
+import flixel.FlxG;
+import flixel.FlxObject;
+import flixel.util.FlxPoint;
+import flixel.FlxSprite;
+import flixel.util.FlxTimer;
+import flixel.addons.editors.tiled.TiledObjectGroup;
+import flixel.addons.display.FlxBackdrop;
 
 class Level1 extends Level
 {
@@ -49,7 +49,7 @@ class Level1 extends Level
 		super.create();
 
 		// load fight data
-		var fd:TmxObjectGroup = tmx.getObjectGroup("misc");
+		var fd:TiledObjectGroup = tmx.getObjectGroup("misc");
 		for (td in fd.objects) {
 			if(td.name == "warn")
 			{
@@ -81,12 +81,12 @@ class Level1 extends Level
 		inFight = false;
 		fightOver = false;
 		AddAll();
-		TimerPool.Get().start(2, 1, function(t:FlxTimer){
+		TimerPool.Get().run(2, function(t:FlxTimer){
 			lineMgr.Start(lines1, function(){
 				tipManager.ShowTip(TipManager.Tip_InterCom, function(){
 					lineMgr.Start(lines2, function() {
 						// Hack Well force fix
-						TimerPool.Get().start(0.2, 1, function(t:FlxTimer){
+						TimerPool.Get().run(0.2, function(t:FlxTimer){
 							bot.On = true;
 							hpBar.visible = true;
 						});
@@ -143,7 +143,7 @@ class Level1 extends Level
 					bee.target = bot;
 					Bees.add(bee);
 				}
-				TimerPool.Get().start(1, 1, function(t:FlxTimer){
+				TimerPool.Get().run(1, function(t:FlxTimer){
 					tipManager.ShowTip(TipManager.Tip_UpShoot);
 				});
 			}
