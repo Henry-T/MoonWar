@@ -191,7 +191,7 @@ class Bot extends FlxSprite
 		if(FlxG.keys.E)
 		{
 			for (bee in cast(FlxG.state, Level).Bees.members) {
-				if(bee.alive)
+				if(bee!=null && bee.alive)
 					bee.kill();
 			}
 		}

@@ -342,7 +342,7 @@ class Boss1 extends Enemy
 			timer.start(3, 1, function(t:FlxTimer):Void{game.switchState(3);});
 			// kill all ducks
 			for (d in cast(FlxG.state, Level).ducks.members) {
-				if(d.alive)
+				if(d!=null && d.alive)
 					d.kill();
 			}
 		}

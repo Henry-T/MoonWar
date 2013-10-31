@@ -868,14 +868,17 @@ class Level extends MWState
 		
 		// Bullet Killing!
 		for(bul in bullets.members) {
-		if (!cast(bul,FlxSprite).onScreen())
-			bul.kill(); }
+			if (bul!=null && !cast(bul,FlxSprite).onScreen())
+				bul.kill(); 
+		}
 		for(bgb in bigGunBuls.members) {
-		if (!cast(bgb,FlxSprite).onScreen())
-			bgb.kill(); }
+			if (bgb!=null && !cast(bgb,FlxSprite).onScreen())
+				bgb.kill(); 
+		}
 		for (fgb in fgBuls.members) {
-		if (!cast(fgb,FlxSprite).onScreen())
-			fgb.kill(); }
+			if (fgb!=null && !cast(fgb,FlxSprite).onScreen())
+				fgb.kill(); 
+		}
 			
 		FlxG.overlap(bot, ducks, function(bot:FlxObject, d:FlxObject) {bot.hurt(20);d.kill();});
 		FlxG.overlap(bullets, ducks, function(bul:FlxObject, duck:FlxObject){bul.kill();duck.hurt(1);});
@@ -902,6 +905,7 @@ class Level extends MWState
 		var camRectEx:FlxRect = new FlxRect(FlxG.camera.scroll.x - 50, FlxG.camera.scroll.y - 25, FlxG.width + 100, FlxG.height + 50);
 		for (bg in bigGuns.members) 
 		{
+			if(bg == null) continue;
 			var bgSpr:FlxSprite = cast(bg,FlxSprite);
 			var r:FlxRect = new FlxRect(bgSpr.x, bgSpr.y, bgSpr.width, bgSpr.height);
 			if (r.overlaps(camRectEx))
@@ -911,6 +915,7 @@ class Level extends MWState
 		}
 		for (gpU in gpUps.members) 
 		{
+			if(gpU == null) continue;
 			var gpUSpr:FlxSprite = cast(gpU,FlxSprite);
 			var r:FlxRect = new FlxRect(gpUSpr.x, gpUSpr.y, gpUSpr.width, gpUSpr.height);
 			if (r.overlaps(camRectEx))
@@ -920,6 +925,7 @@ class Level extends MWState
 		}
 		for (gpM in gpMids.members) 
 		{
+			if(gpM == null) continue;
 			var gpMSpr:FlxSprite = cast(gpM,FlxSprite);
 			var r:FlxRect = new FlxRect(gpMSpr.x, gpMSpr.y, gpMSpr.width, gpMSpr.height);
 			if (r.overlaps(camRectEx))
@@ -929,6 +935,7 @@ class Level extends MWState
 		}
 		for (gpD in gpDowns.members) 
 		{
+			if(gpD == null) continue;
 			var gpDSpr:FlxSprite = cast(gpD,FlxSprite);
 			var r:FlxRect = new FlxRect(gpDSpr.x, gpDSpr.y, gpDSpr.width, gpDSpr.height);
 			if (r.overlaps(camRectEx))

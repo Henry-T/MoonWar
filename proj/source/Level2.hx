@@ -256,12 +256,15 @@ class Level2 extends Level
 			TimerPool.Get().start(4.5, 1, function(t:FlxTimer){
 				lineMgr.Start(lines1, function(){
 					TimerPool.Get().start(0.8, 1,function(t:FlxTimer){
-						for (grd in guards.members)grd.kill();
-						for (b in Bees.members)b.kill();
+						for (grd in guards.members)
+							if(grd!=null) grd.kill();
+						for (b in Bees.members)
+							if(b!=null) b.kill();
 
 						// compare anim
 						AddHugeExplo(exploPos1.x, exploPos1.y);
 						for (c in cubes.members) {
+							if(c==null) continue;
 							var cb:Cube = cast(c, Cube);
 							if(cb.alive && cb.isBomb && cb.group == 0)
 								cb.kill();
@@ -284,6 +287,7 @@ class Level2 extends Level
 							TimerPool.Get().start(1.0, 1, function(t:FlxTimer){
 								AddHugeExplo(exploPos2.x, exploPos2.y);
 								for (c in cubes.members) {
+									if(c==null) continue;
 									var cb:Cube = cast(c, Cube);
 									if(cb.alive && cb.isBomb && cb.group == 1)
 										cb.kill();
@@ -388,6 +392,7 @@ class Level2 extends Level
 
 		// remove cubes when out of view range
 		for (c in cubes.members) {
+			if(c == null) continue;
 			var cube:Cube = cast(c, Cube);
 			if(cube.alive && cube.y > FlxG.camera.bounds.bottom)
 				cube.kill();
@@ -404,6 +409,7 @@ class Level2 extends Level
 
 		// handle guards
 		for (i in 0...guards.length) {
+			if(guards.members[i]==null) continue;
 			var gd:Guard = cast(guards.members[i], Guard);
 			if(gd.x <= posGrdAry[i].x){
 				gd.On = false;
@@ -420,6 +426,7 @@ class Level2 extends Level
 		//tileBreak.overlapsWithCallback(boss, onBreak);
 		//tileBreak.overlaps(boss);
 
+		// NOTE ! breakers.members may get null gap ! use for-in with null check 
 		//for(var i:Int=0;i<breakers.countLiving();i++)
 		//{
 		//	cast(breakers.members[i] , FlxSprite).offset = new FlxPoint(50,50);	

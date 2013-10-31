@@ -301,7 +301,7 @@ class Level3 extends Level
 					battleEnd = true;
 					bot.On = false;
 					for (r in hps.members) {
-						if(r.alive) r.kill();
+						if(r!=null && r.alive) r.kill();
 					}
 					TimerPool.Get().start(2.5, 1, function(tmr:FlxTimer){
 						// start trans again!
