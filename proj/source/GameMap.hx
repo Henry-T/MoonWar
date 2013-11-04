@@ -191,11 +191,11 @@ class GameMap extends MWState
 			SwitchMenu(-1);
 			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keyboard.justPressed("X")){
+		else if(FlxG.keyboard.justPressed("C")){
 			//MenuAction(curMenuSel);
 			FlxG.switchState(GameStatic.GetCurLvlInst());
 		}
-		else if(FlxG.keyboard.justPressed("Z"))
+		else if(FlxG.keyboard.justPressed("X"))
 			FlxG.switchState(new MainMenu());
 		#end
 	}

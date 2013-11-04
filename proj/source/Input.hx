@@ -105,16 +105,16 @@ class Input extends FlxGroup {
 		keyboardRightJustDown = false;
 		keyboardUpJustDown = false;
 		keyboardDownJustDown = false;
-		keyboardZJustDown = false;
 		keyboardXJustDown = false;
+		keyboardCJustDown = false;
 		keyboardSpaceJustDown = false;
 		keyboardAnykeyJustDown = false;
 		keyboardLeftJustUp = false;
 		keyboardRightJustUp = false;
 		keyboardUpJustUp = false;
 		keyboardDownJustUp = false;
-		keyboardZJustUp = false;
 		keyboardXJustUp = false;
+		keyboardCJustUp = false;
 		keyboardSpaceJustUp = false;
 		keyboardAnykeyJustUp = false;
 
@@ -144,16 +144,16 @@ class Input extends FlxGroup {
 		keyboardRightJustDown = FlxG.keyboard.justPressed("RIGHT");
 		keyboardUpJustDown = FlxG.keyboard.justPressed("UP");
 		keyboardDownJustDown = FlxG.keyboard.justPressed("DOWN");
-		keyboardZJustDown = FlxG.keyboard.justPressed("Z");
 		keyboardXJustDown = FlxG.keyboard.justPressed("X");
+		keyboardCJustDown = FlxG.keyboard.justPressed("C");
 		keyboardSpaceJustDown = FlxG.keyboard.justPressed("SPACE");
 		keyboardAnykeyJustDown = FlxG.keyboard.pressed.ANY && !lastKeyboardAnykeyDown;
 		keyboardLeftJustUp = FlxG.keyboard.justPressed("LEFT");
 		keyboardRightJustUp = FlxG.keyboard.justPressed("RIGHT");
 		keyboardUpJustUp = FlxG.keyboard.justPressed("UP");
 		keyboardDownJustUp = FlxG.keyboard.justPressed("DOWN");
-		keyboardZJustUp = FlxG.keyboard.justPressed("Z");
 		keyboardXJustUp = FlxG.keyboard.justPressed("X");
+		keyboardCJustUp = FlxG.keyboard.justPressed("C");
 		keyboardSpaceJustUp = FlxG.keyboard.justPressed("SPACE");
 		keyboardAnykeyJustUp = !FlxG.keyboard.pressed.ANY && lastKeyboardAnykeyDown;
 		#end
@@ -228,14 +228,14 @@ class Input extends FlxGroup {
 			JustDown_Up = true;
 		if(keyboardDownJustDown || (AnalogJustPressed&&(AnalogAngle>30&&AnalogAngle<150)))
 			JustDown_Down = true;
-		if (keyboardZJustDown 
+		if (keyboardXJustDown 
 			#if !FLX_NO_TOUCH
 			|| (gamePad.buttonB.status == FlxButton.PRESSED&&
 				(lastBtnBStatus == FlxButton.NORMAL || lastBtnBStatus == FlxButton.HIGHLIGHT))
 			#end
 			)
 			JustDown_Jump = true;
-		if (keyboardXJustDown 
+		if (keyboardCJustDown 
 			#if !FLX_NO_TOUCH
 			|| (gamePad.buttonA.status == FlxButton.PRESSED&&
 			(lastBtnAStatus == FlxButton.NORMAL || lastBtnAStatus == FlxButton.HIGHLIGHT))
@@ -259,14 +259,14 @@ class Input extends FlxGroup {
 			JustUp_Up = true;
 		if(keyboardDownJustUp || (AnalogJustReleased&&(lastAnalogAngle>30&&lastAnalogAngle<150)))
 			JustUp_Down = true;
-		if (keyboardZJustUp 
+		if (keyboardXJustUp 
 			#if !FLX_NO_TOUCH
 			||(lastBtnBStatus == FlxButton.PRESSED&&
 			(gamePad.buttonB.status == FlxButton.NORMAL || gamePad.buttonB.status == FlxButton.HIGHLIGHT))
 			#end
 			)
 			JustUp_Jump = true;
-		if (keyboardXJustUp 
+		if (keyboardCJustUp 
 			#if !FLX_NO_TOUCH
 			||(lastBtnAStatus == FlxButton.PRESSED&&
 			(gamePad.buttonA.status == FlxButton.NORMAL || gamePad.buttonA.status == FlxButton.HIGHLIGHT))
@@ -339,8 +339,8 @@ class Input extends FlxGroup {
 	private var keyboardRightJustDown:Bool;
 	private var keyboardUpJustDown:Bool;
 	private var keyboardDownJustDown:Bool;
-	private var keyboardZJustDown:Bool;
 	private var keyboardXJustDown:Bool;
+	private var keyboardCJustDown:Bool;
 	private var keyboardSpaceJustDown:Bool;
 	private var keyboardAnykeyJustDown:Bool;
 
@@ -348,8 +348,8 @@ class Input extends FlxGroup {
 	private var keyboardRightJustUp:Bool;
 	private var keyboardUpJustUp:Bool;
 	private var keyboardDownJustUp:Bool;
-	private var keyboardZJustUp:Bool;
 	private var keyboardXJustUp:Bool;
+	private var keyboardCJustUp:Bool;
 	private var keyboardSpaceJustUp:Bool;
 	private var keyboardAnykeyJustUp:Bool;
 }

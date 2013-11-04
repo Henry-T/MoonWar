@@ -753,9 +753,9 @@ class Level extends MWState
 					ChangeSelPause(curSelPause-1);
 				else if(FlxG.keyboard.justPressed("DOWN"))
 					ChangeSelPause(curSelPause+1);
-				else if(FlxG.keyboard.justPressed("X"))
+				else if(FlxG.keyboard.justPressed("C"))
 					ActionPause(curSelPause);
-				else if(FlxG.keyboard.justPressed("Z"))
+				else if(FlxG.keyboard.justPressed("X"))
 					Pause(false);	// Do nothing by now
 			}
 			#end

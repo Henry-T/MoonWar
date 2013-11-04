@@ -139,7 +139,7 @@ class MainMenu extends MWState
 			ChangeSel(1);
 			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keyboard.justPressed("X")){
+		else if(FlxG.keyboard.justPressed("C")){
 			SelAction(selId);
 		}
 		#end
