@@ -1,7 +1,7 @@
 package;
 import flixel.text.FlxText;
 import flixel.FlxSprite;
-import flixel.addons.editors.tiled.TiledObject;
+import org.flixel.tmx.TmxObject;
 
 class Tip1 extends FlxSprite
 {
@@ -14,7 +14,7 @@ class Tip1 extends FlxSprite
 		super(0, 0, null);
 	}
 
-	public function make(o:TiledObject)
+	public function make(o:TmxObject)
 	{
 		reset(o.x, o.y);
 		width = o.width;

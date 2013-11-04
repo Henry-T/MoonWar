@@ -6,7 +6,7 @@ import flixel.group.FlxGroup;
 import flixel.util.FlxPoint;
 import flixel.util.FlxTimer;
 import flixel.tile.FlxTile;
-import flixel.addons.editors.tiled.TiledObjectGroup;
+import org.flixel.tmx.TmxObjectGroup;
 import flixel.addons.display.FlxBackdrop;
 
 class Level3 extends Level
@@ -87,7 +87,7 @@ class Level3 extends Level
 			eGroups.push(new EnemyGroup(eg));
 		}
 		
-		var os:TiledObjectGroup = tmx.getObjectGroup("misc");
+		var os:TmxObjectGroup = tmx.getObjectGroup("misc");
 		for (to in os.objects)
 		{
 			if (to.name == "door2"){

@@ -8,7 +8,7 @@ import flixel.FlxObject;
 import flixel.util.FlxPoint;
 import flixel.tile.FlxTile;
 import flixel.util.FlxTimer;
-import flixel.addons.editors.tiled.TiledObjectGroup;
+import org.flixel.tmx.TmxObjectGroup;
 import flixel.tweens.motion.QuadMotion;
 import flixel.tweens.motion.LinearMotion;
 import flixel.tweens.FlxTween;
@@ -140,7 +140,7 @@ class Level2 extends Level
 		eExplo.visible = false;
 		
 		// datas
-		var fd:TiledObjectGroup = tmx.getObjectGroup("misc");
+		var fd:TmxObjectGroup = tmx.getObjectGroup("misc");
 		for (td in fd.objects) {
 			if(td.type == "posBee")
 				posBeeAry.push(new FlxPoint(td.x, td.y));

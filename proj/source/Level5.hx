@@ -4,7 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxPoint;
 import flixel.FlxObject;
-import flixel.addons.editors.tiled.TiledObjectGroup;
+import org.flixel.tmx.TmxObjectGroup;
 import flixel.addons.display.FlxBackdrop;
 
 class Level5 extends Level 
@@ -29,7 +29,7 @@ class Level5 extends Level
 		
 		GameStatic.CurLvl = 4;
 		
-		var os:TiledObjectGroup = tmx.getObjectGroup("misc");
+		var os:TmxObjectGroup = tmx.getObjectGroup("misc");
 		for ( to in os.objects)
 		{
 			if (to.name == "bPos1")

@@ -5,7 +5,7 @@ import flixel.FlxSprite;
 import flixel.FlxObject;
 import flixel.util.FlxPoint;
 import flixel.tile.FlxTile;
-import flixel.addons.editors.tiled.TiledObjectGroup;
+import org.flixel.tmx.TmxObjectGroup;
 import flixel.addons.display.FlxBackdrop;
 
 class Level7 extends Level 
@@ -44,7 +44,7 @@ class Level7 extends Level
 		
 		GameStatic.CurLvl = 6;
 		
-		var mG:TiledObjectGroup = tmx.getObjectGroup("misc");
+		var mG:TmxObjectGroup = tmx.getObjectGroup("misc");
 		for (o in mG.objects) 
 		{
 			if (o.name == "door1")

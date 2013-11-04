@@ -8,8 +8,8 @@ import flixel.util.FlxAngle;
 import flixel.util.FlxPoint;
 import flixel.util.FlxTimer;
 import flash.geom.Point;
-import flixel.addons.editors.tiled.TiledMap;
-import flixel.addons.editors.tiled.TiledObjectGroup;
+import org.flixel.tmx.TmxMap;
+import org.flixel.tmx.TmxObjectGroup;
 import flixel.tweens.motion.LinearMotion;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
@@ -101,7 +101,7 @@ class Boss3 extends Enemy
 		bossFire.offset.set(32, 0);
 
 		// load
-		var os:TiledObjectGroup = cast(FlxG.state,Level8).tmx.getObjectGroup("misc");
+		var os:TmxObjectGroup = cast(FlxG.state,Level8).tmx.getObjectGroup("misc");
 		for(to in os.objects)
 		{
 			if(to.name=="bossLaunchMark")

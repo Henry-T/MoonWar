@@ -1,6 +1,6 @@
 package ;
 import flixel.FlxSprite;
-import flixel.addons.editors.tiled.TiledObject;
+import org.flixel.tmx.TmxObject;
 import flixel.FlxG;
 
 class Com extends FlxSprite 
@@ -21,7 +21,7 @@ class Com extends FlxSprite
 		SetOn(on);
 	}
 
-	public function make(o:TiledObject)
+	public function make(o:TmxObject)
 	{
 		reset(o.x, o.y);
 		name = o.name;

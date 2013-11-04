@@ -6,7 +6,7 @@ import flixel.util.FlxRect;
 import flixel.FlxObject;
 import flixel.util.FlxPoint;
 import flixel.util.FlxTimer;
-import flixel.addons.editors.tiled.TiledObjectGroup;
+import org.flixel.tmx.TmxObjectGroup;
 import flixel.FlxCamera;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
@@ -55,7 +55,7 @@ class Level8 extends Level
 		GameStatic.CurLvl = 7;
 		
 		// load misc
-		var mG:TiledObjectGroup = tmx.getObjectGroup("misc");
+		var mG:TmxObjectGroup = tmx.getObjectGroup("misc");
 		for(o in mG.objects)
 		{
 			if (o.name == "door1")

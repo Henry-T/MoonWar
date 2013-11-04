@@ -4,7 +4,7 @@ import flixel.FlxObject;
 import flixel.util.FlxPoint;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
-import flixel.addons.editors.tiled.TiledObjectGroup;
+import org.flixel.tmx.TmxObjectGroup;
 import flixel.addons.display.FlxBackdrop;
 
 class Level1 extends Level
@@ -23,6 +23,7 @@ class Level1 extends Level
 		super();
 		
 		tileXML = openfl.Assets.getText("assets/dat/level1.tmx");
+		//tileXML = "assets/dat/level1.tmx";
 
 		lines1 = [
 			new Line(0, "CubeBot, it will be battle field soon outside the laboratory."),
@@ -49,7 +50,7 @@ class Level1 extends Level
 		super.create();
 
 		// load fight data
-		var fd:TiledObjectGroup = tmx.getObjectGroup("misc");
+		var fd:TmxObjectGroup = tmx.getObjectGroup("misc");
 		for (td in fd.objects) {
 			if(td.name == "warn")
 			{

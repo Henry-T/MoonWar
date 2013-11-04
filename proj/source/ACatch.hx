@@ -3,7 +3,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxAngle;
 import flixel.util.FlxPoint;
-import flixel.addons.editors.tiled.TiledObject;
+import org.flixel.tmx.TmxObject;
 
 class ACatch extends Enemy 
 {
@@ -28,7 +28,7 @@ class ACatch extends Enemy
 		ShotTimer = 0;
 	}
 
-	public function make(o:TiledObject):Void
+	public function make(o:TmxObject):Void
 	{
 		reset(o.x, o.y);
 		width = o.width;

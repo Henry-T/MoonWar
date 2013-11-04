@@ -6,7 +6,7 @@ import flixel.util.FlxPoint;
 import flixel.FlxObject;
 import flixel.util.FlxPoint;
 import flixel.FlxSprite;
-import flixel.addons.editors.tiled.TiledObject;
+import org.flixel.tmx.TmxObject;
 
 class Lift extends FlxSprite 
 {
@@ -26,7 +26,7 @@ class Lift extends FlxSprite
 		allowCollisions = FlxObject.UP;
 	}
 
-	public function make(o:TiledObject)
+	public function make(o:TmxObject)
 	{
 		reset(o.x, o.y);
 		w = Std.parseInt(o.custom.w);

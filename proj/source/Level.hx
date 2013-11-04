@@ -18,11 +18,17 @@ import flixel.util.FlxTimer;
 
 import flixel.tile.FlxTilemap;
 import flixel.tile.FlxTile;
-import flixel.addons.editors.tiled.TiledMap;
-import flixel.addons.editors.tiled.TiledLayer;
-import flixel.addons.editors.tiled.TiledObjectGroup;
-import flixel.addons.editors.tiled.TiledTileSet;
-import flixel.addons.editors.tiled.TiledObject;
+// import org.flixel.tmx.TmxMap;
+// import org.flixel.tmx.TiledLayer;
+// import org.flixel.tmx.TmxObjectGroup;
+// import org.flixel.tmx.TiledTileSet;
+// import org.flixel.tmx.TmxObject;
+
+import org.flixel.tmx.TmxMap;
+import org.flixel.tmx.TmxLayer;
+import org.flixel.tmx.TmxObjectGroup;
+import org.flixel.tmx.TmxTileSet;
+import org.flixel.tmx.TmxObject;
 
 import flixel.tweens.FlxTween;
 import flixel.tweens.misc.VarTween;
@@ -46,7 +52,7 @@ class Level extends MWState
 
 	// Tiles
 	public var tileXML:String;	// Set this in Constructor to perform preload
-	public var tmx:TiledMap;
+	public var tmx:TmxMap;
 	public var EmptyTile:FlxTilemap;
 	public var tileCover:FlxTilemap;	// cover everything
 	public var tileCoverD:FlxTilemap;	// used only in level4
@@ -240,7 +246,7 @@ class Level extends MWState
 		
 		// Preload Tile Data
 		if (tileXML != null)
-			tmx = new TiledMap(tileXML);
+			tmx = new TmxMap(tileXML);
 		
 		// Bullets
 		bullets = new FlxGroup();
@@ -442,7 +448,7 @@ class Level extends MWState
 		addTween(camScrollYTween);
 		
 		// load misc
-		var mG:TiledObjectGroup = tmx.getObjectGroup("misc");
+		var mG:TmxObjectGroup = tmx.getObjectGroup("misc");
 		if (mG != null)
 		{
 			for (o in mG.objects)
@@ -498,7 +504,7 @@ class Level extends MWState
 		}
 		
 		// load enemy!
-		var eG:TiledObjectGroup = tmx.getObjectGroup("enemy");
+		var eG:TmxObjectGroup = tmx.getObjectGroup("enemy");
 		if (eG != null)
 		{
 			for (o in eG.objects)
@@ -1030,15 +1036,18 @@ class Level extends MWState
 	{
 		var tMap:FlxTilemap = new FlxTilemap();
 		tMap.allowCollisions = collFlag;
-		var layer:TiledLayer = tmx.getLayer(name);
+		var layer:TmxLayer = tmx.getLayer(name);
 		if (layer == null)
 		{
 			return EmptyTile;
 		}
-		var ts:TiledTileSet = tmx.getTileSet('defTile');	// force tiled use the name defTile
-		//var mapCsv:String = layer.toCsv(ts);
-		//tMap.loadMap(mapCsv, "assets/img/defTile.png", 20, 20);
-		tMap.loadMap(layer.tileArray, "assets/img/defTile.png", 20, 20);
+		var ts:TmxTileSet = tmx.getTileSet('defTile');	// force tiled use the name defTile
+		var mapCsv:String = layer.toCsv(ts);
+		tMap.loadMap(mapCsv, "assets/img/defTile.png", 20, 20);
+		// NOTE upgrade failed to use flxiel.addons.editors.tiled...
+		//tMap.widthInTiles = 225;// Math.round(tMap.width);
+		//tMap.heightInTiles = 24;// Math.round(tMap.height);
+		//tMap.loadMap(layer.tileArray, "assets/img/defTile.png", 20, 20);
 		return tMap;
 	}
 

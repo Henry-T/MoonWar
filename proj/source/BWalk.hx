@@ -4,7 +4,7 @@ import flixel.util.FlxAngle;
 import flixel.FlxSprite;
 import flixel.FlxObject;
 import flixel.util.FlxRect;
-import flixel.addons.editors.tiled.TiledObject;
+import org.flixel.tmx.TmxObject;
 
 class BWalk extends Enemy 
 {
@@ -29,7 +29,7 @@ class BWalk extends Enemy
 		inAction = false;
 	}
 
-	public function make(o:TiledObject){
+	public function make(o:TmxObject){
 		reset(o.x, o.y);
 		var d:String = o.custom.resolve("dir");
 		dirRight = (d!="left");

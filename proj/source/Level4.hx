@@ -6,7 +6,7 @@ import flixel.util.FlxPoint;
 import flash.geom.Point;
 import flixel.util.FlxTimer;
 import flixel.FlxSprite;
-import flixel.addons.editors.tiled.TiledObjectGroup;
+import org.flixel.tmx.TmxObjectGroup;
 import flixel.addons.display.FlxBackdrop;
 
 class Level4 extends Level 
@@ -65,7 +65,7 @@ class Level4 extends Level
 		
 		GameStatic.CurLvl = 3;
 		
-		var os:TiledObjectGroup = tmx.getObjectGroup("misc");
+		var os:TmxObjectGroup = tmx.getObjectGroup("misc");
 		for (to in os.objects)
 		{
 			if (to.name == "door1")

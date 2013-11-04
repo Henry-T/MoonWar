@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="defTile" tilewidth="20" tileheight="20">
- <image source="../img/defTile.png" width="360" height="140"/>
+ <image source="../img/defTile.png" width="360" height="280"/>
  <terraintypes>
   <terrain name="light" tile="-1"/>
  </terraintypes>
