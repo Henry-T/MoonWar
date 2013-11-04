@@ -27,7 +27,7 @@ class TimerPool {
 		}
 
 		// create a new one
-		var timer:FlxTimer = TimerPool.Get();
+		var timer:FlxTimer = FlxTimer.recycle();
 		timers.push(timer);
 
 		return timer;
