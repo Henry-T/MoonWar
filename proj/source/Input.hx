@@ -132,29 +132,29 @@ class Input extends FlxGroup {
 		#end
 
 		#if !FLX_NO_KEYBOARD
-		keyboardLeftDown = FlxG.keyboard.pressed.LEFT;
-		keyboardRightDown = FlxG.keyboard.pressed.RIGHT;
-		keyboardUpDown = FlxG.keyboard.pressed.UP;
-		keyboardDownDown = FlxG.keyboard.pressed.DOWN;
-		keyboardXDown = FlxG.keyboard.pressed.X;
-		keyboardCDown = FlxG.keyboard.pressed.C;
-		keyboardSpaceDown = FlxG.keyboard.pressed.SPACE;
+		keyboardLeftDown = FlxG.keyboard.pressed("LEFT");
+		keyboardRightDown = FlxG.keyboard.pressed("RIGHT");
+		keyboardUpDown = FlxG.keyboard.pressed("UP");
+		keyboardDownDown = FlxG.keyboard.pressed("DOWN");
+		keyboardXDown = FlxG.keyboard.pressed("X");
+		keyboardCDown = FlxG.keyboard.pressed("C");
+		keyboardSpaceDown = FlxG.keyboard.pressed("SPACE");
 		keyboardAnykeyDown = FlxG.keyboard.pressed.ANY;
-		keyboardLeftJustDown = FlxG.keyboard.justPressed.LEFT;
-		keyboardRightJustDown = FlxG.keyboard.justPressed.RIGHT;
-		keyboardUpJustDown = FlxG.keyboard.justPressed.UP;
-		keyboardDownJustDown = FlxG.keyboard.justPressed.DOWN;
-		keyboardZJustDown = FlxG.keyboard.justPressed.Z;
-		keyboardXJustDown = FlxG.keyboard.justPressed.X;
-		keyboardSpaceJustDown = FlxG.keyboard.justPressed.SPACE;
+		keyboardLeftJustDown = FlxG.keyboard.justPressed("LEFT");
+		keyboardRightJustDown = FlxG.keyboard.justPressed("RIGHT");
+		keyboardUpJustDown = FlxG.keyboard.justPressed("UP");
+		keyboardDownJustDown = FlxG.keyboard.justPressed("DOWN");
+		keyboardZJustDown = FlxG.keyboard.justPressed("Z");
+		keyboardXJustDown = FlxG.keyboard.justPressed("X");
+		keyboardSpaceJustDown = FlxG.keyboard.justPressed("SPACE");
 		keyboardAnykeyJustDown = FlxG.keyboard.pressed.ANY && !lastKeyboardAnykeyDown;
-		keyboardLeftJustUp = FlxG.keyboard.justReleased.LEFT;
-		keyboardRightJustUp = FlxG.keyboard.justReleased.RIGHT;
-		keyboardUpJustUp = FlxG.keyboard.justReleased.UP;
-		keyboardDownJustUp = FlxG.keyboard.justReleased.DOWN;
-		keyboardZJustUp = FlxG.keyboard.justReleased.Z;
-		keyboardXJustUp = FlxG.keyboard.justReleased.X;
-		keyboardSpaceJustUp = FlxG.keyboard.justReleased.SPACE;
+		keyboardLeftJustUp = FlxG.keyboard.justPressed("LEFT");
+		keyboardRightJustUp = FlxG.keyboard.justPressed("RIGHT");
+		keyboardUpJustUp = FlxG.keyboard.justPressed("UP");
+		keyboardDownJustUp = FlxG.keyboard.justPressed("DOWN");
+		keyboardZJustUp = FlxG.keyboard.justPressed("Z");
+		keyboardXJustUp = FlxG.keyboard.justPressed("X");
+		keyboardSpaceJustUp = FlxG.keyboard.justPressed("SPACE");
 		keyboardAnykeyJustUp = !FlxG.keyboard.pressed.ANY && lastKeyboardAnykeyDown;
 		#end
 

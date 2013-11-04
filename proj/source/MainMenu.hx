@@ -123,7 +123,7 @@ class MainMenu extends MWState
 		super.update();
 		#if debug 
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keyboard.pressed.T){
+		if(FlxG.keyboard.pressed("T")){
 			FlxG.switchState(new LevelTest());
 		}
 		#end
@@ -131,15 +131,15 @@ class MainMenu extends MWState
 
 		// Handle Keyboard Input
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keyboard.justPressed.UP){
+		if(FlxG.keyboard.justPressed("UP")){
 			ChangeSel(-1);
 			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keyboard.justPressed.DOWN){
+		else if(FlxG.keyboard.justPressed("DOWN")){
 			ChangeSel(1);
 			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keyboard.justPressed.X){
+		else if(FlxG.keyboard.justPressed("X")){
 			SelAction(selId);
 		}
 		#end

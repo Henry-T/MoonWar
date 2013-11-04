@@ -129,7 +129,7 @@ class EndScreen extends MWState
 		super.update();
 
 		#if !FLX_NO_KEYBOARD
-		if(exitEnabled && GameStatic.useKeyboard && FlxG.keyboard.justPressed.X){
+		if(exitEnabled && GameStatic.useKeyboard && FlxG.keyboard.justPressed("X")){
 			FlxG.switchState(new GameMap());
 		}
 		#end

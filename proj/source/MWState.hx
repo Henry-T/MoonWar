@@ -117,11 +117,11 @@ class MWState extends FlxState
 		super.update();
 
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keyboard.justPressed.M){
+		if(FlxG.keyboard.justPressed("M")){
 			FlxG.sound.muted = !FlxG.sound.muted;
 			updateMuteButton();
 		}
-		if(FlxG.keyboard.justPressed.P){
+		if(FlxG.keyboard.justPressed("P")){
 			Pause(true);
 			updatePauseButton();
 		}

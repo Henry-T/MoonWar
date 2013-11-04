@@ -65,10 +65,10 @@ class IntroScreen extends MWState
 	public override function update(){
 		super.update();
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keyboard.justPressed.RIGHT){
+		if(FlxG.keyboard.justPressed("RIGHT")){
 			onNext();
 		}
-		else if(FlxG.keyboard.justPressed.LEFT){
+		else if(FlxG.keyboard.justPressed("LEFT")){
 			onLast();
 		}
 		#end

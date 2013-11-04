@@ -175,27 +175,27 @@ class GameMap extends MWState
 	public override function update(){
 		super.update();
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keyboard.justPressed.UP){
+		if(FlxG.keyboard.justPressed("UP")){
 			SwitchLevel(GameStatic.CurLvl-1);
 			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keyboard.justPressed.DOWN){
+		else if(FlxG.keyboard.justPressed("DOWN")){
 			SwitchLevel(GameStatic.CurLvl+1);
 			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keyboard.justPressed.RIGHT){
+		else if(FlxG.keyboard.justPressed("RIGHT")){
 			SwitchMenu(1);
 			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keyboard.justPressed.LEFT){
+		else if(FlxG.keyboard.justPressed("LEFT")){
 			SwitchMenu(-1);
 			FlxG.sound.play("sel1");
 		}
-		else if(FlxG.keyboard.justPressed.X){
+		else if(FlxG.keyboard.justPressed("X")){
 			//MenuAction(curMenuSel);
 			FlxG.switchState(GameStatic.GetCurLvlInst());
 		}
-		else if(FlxG.keyboard.justPressed.Z)
+		else if(FlxG.keyboard.justPressed("Z"))
 			FlxG.switchState(new MainMenu());
 		#end
 	}

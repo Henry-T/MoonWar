@@ -184,11 +184,11 @@ class HelpScreen extends MWState
 		super.update();
 
 		#if !FLX_NO_KEYBOARD
-		if(FlxG.keyboard.justPressed.LEFT)
+		if(FlxG.keyboard.justPressed("LEFT"))
 			UpdateDesc(-1);
-		if(FlxG.keyboard.justPressed.RIGHT)
+		if(FlxG.keyboard.justPressed("RIGHT"))
 			UpdateDesc(1);
-		if(FlxG.keyboard.justPressed.X)
+		if(FlxG.keyboard.justPressed("X"))
 			FlxG.switchState(new MainMenu());
 		#end
 	}

@@ -743,13 +743,13 @@ class Level extends MWState
 
 			#if !FLX_NO_KEYBOARD
 			if(pauseBg.visible == true){
-				if(FlxG.keyboard.justPressed.UP)
+				if(FlxG.keyboard.justPressed("UP"))
 					ChangeSelPause(curSelPause-1);
-				else if(FlxG.keyboard.justPressed.DOWN)
+				else if(FlxG.keyboard.justPressed("DOWN"))
 					ChangeSelPause(curSelPause+1);
-				else if(FlxG.keyboard.justPressed.X)
+				else if(FlxG.keyboard.justPressed("X"))
 					ActionPause(curSelPause);
-				else if(FlxG.keyboard.justPressed.Z)
+				else if(FlxG.keyboard.justPressed("Z"))
 					Pause(false);	// Do nothing by now
 			}
 			#end
@@ -759,7 +759,7 @@ class Level extends MWState
 		// Block Prority #2 Tip Pause ~ Tip is now behind Confirm, no need to handle it anymore
 		// if(FlxG.paused && tipManager.visible){
 		// 	input.update();
-		// 	if(FlxG.keyboard.justPressed.X)
+		// 	if(FlxG.keyboard.justPressed("X"))
 		// 		tipManager.HideTip();
 		// 	return;
 		// }
@@ -771,11 +771,11 @@ class Level extends MWState
 
 			#if !FLX_NO_KEYBOARD
 			if(endBg.visible){
-				if(FlxG.keyboard.justPressed.UP)
+				if(FlxG.keyboard.justPressed("UP"))
 					ChangeSelEnd(curSelEnd-1);
-				else if(FlxG.keyboard.justPressed.DOWN)
+				else if(FlxG.keyboard.justPressed("DOWN"))
 					ChangeSelEnd(curSelEnd+1);
-				else if(FlxG.keyboard.justPressed.X)
+				else if(FlxG.keyboard.justPressed("X"))
 					ActionEnd(curSelEnd);
 			}
 			#end
