@@ -163,7 +163,7 @@ class Level8 extends Level
 		// boss killed
 		if (!isEnd && !boss3.alive && !endTalkHappened){
 			endTalkHappened = true;
-			TimerPool.Get().run(0.5, function(t:FlxTimer){
+			FlxTimer.start(0.5, function(t:FlxTimer){
 				lineMgr.Start(lines2, function(){
 					EndLevel(true);
 				});
@@ -209,7 +209,7 @@ class Level8 extends Level
 			{
 				righting = false;
 				bot.velocity.x = 0;
-				TimerPool.Get().run(1, function(t:FlxTimer):Void {
+				FlxTimer.start(1, function(t:FlxTimer):Void {
 					lineMgr.Start(lines1, function(){
 						//cast(gates.members[0], FlxSprite).y  += 100;
 						gates.members[0].visible = true;

@@ -82,12 +82,12 @@ class Level1 extends Level
 		inFight = false;
 		fightOver = false;
 		AddAll();
-		TimerPool.Get().run(2, function(t:FlxTimer){
+		FlxTimer.start(2, function(t:FlxTimer){
 			lineMgr.Start(lines1, function(){
 				tipManager.ShowTip(TipManager.Tip_InterCom, function(){
 					lineMgr.Start(lines2, function() {
 						// Hack Well force fix
-						TimerPool.Get().run(0.2, function(t:FlxTimer){
+						FlxTimer.start(0.2, function(t:FlxTimer){
 							bot.On = true;
 							hpBar.visible = true;
 						});
@@ -144,7 +144,7 @@ class Level1 extends Level
 					bee.target = bot;
 					Bees.add(bee);
 				}
-				TimerPool.Get().run(1, function(t:FlxTimer){
+				FlxTimer.start(1, function(t:FlxTimer){
 					tipManager.ShowTip(TipManager.Tip_UpShoot);
 				});
 			}

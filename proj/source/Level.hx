@@ -178,9 +178,6 @@ class Level extends MWState
 	public var tipManager:TipManager;
 
 	// Utility
-	public var timer1:FlxTimer;
-	public var timer2:FlxTimer;
-	public var timer3:FlxTimer;
 	public var timerSceneName:FlxTimer;
 	public var gvTimer:FlxTimer;	// Game Over Time
 	public var jsCntr:Int;			// 
@@ -238,11 +235,8 @@ class Level extends MWState
 		isEnd = false;
 		isWin = false;
 		
-		timer1 = TimerPool.Get();
-		timer2 = TimerPool.Get();
-		timer3 = TimerPool.Get();
-		timerSceneName = TimerPool.Get();
-		gvTimer = TimerPool.Get();
+		timerSceneName = FlxTimer.recycle();
+		gvTimer = FlxTimer.recycle();
 		
 		// Preload Tile Data
 		if (tileXML != null)
@@ -1097,10 +1091,10 @@ class Level extends MWState
 
 		endMask.visible = true;
 		endMask.alpha = 0;
-		TimerPool.Get().run(0.1, function(t:FlxTimer){
+		FlxTimer.start(0.1, function(t:FlxTimer){
 			endMask.alpha += 0.03;
 		}, 20);
-		TimerPool.Get().run(2, function(t:FlxTimer){
+		FlxTimer.start(2, function(t:FlxTimer){
 			endPause = true;
 			endBg.visible = true;
 			selector_End.visible = true;
@@ -1165,7 +1159,7 @@ class Level extends MWState
 		var twn:VarTween = new VarTween(null, FlxTween.ONESHOT);
 		twn.tween(sceneName, "alpha", 1, 2, FlxEase.quartOut);
 		twn.complete = function(t:FlxTween){
-			TimerPool.Get().run(2, function(t:FlxTimer){
+			FlxTimer.start(2, function(t:FlxTimer){
 				var twn2:VarTween = new VarTween(null, FlxTween.ONESHOT);
 				twn2.tween(sceneName, "alpha", 0, 2, FlxEase.quartOut);
 				addTween(twn2);

@@ -40,8 +40,8 @@ class Bee extends Enemy
 		super(x, y);
 		
 		// makeGraphic(40, 40, 0xff448811);
-		timer1 = TimerPool.Get();
-		timer2 = TimerPool.Get();
+		timer1 = FlxTimer.recycle();
+		timer2 = FlxTimer.recycle();
 		canShot = true;
 	}
 

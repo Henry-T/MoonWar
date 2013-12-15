@@ -78,8 +78,8 @@ class Boss1 extends Enemy
 		
 		this.game = game;
 		
-		timer = TimerPool.Get();
-		timerPShot = TimerPool.Get();
+		timer = FlxTimer.recycle();
+		timerPShot = FlxTimer.recycle();
 		
 		this.loadGraphic("assets/img/hm.png", true, true, 150);
 		this.width = 65;

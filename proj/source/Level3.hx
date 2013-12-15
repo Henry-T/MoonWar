@@ -199,9 +199,9 @@ class Level3 extends Level
 					preWalking = false;
 					bot.velocity.x = 0;
 					bot.animation.play("idle");
-					TimerPool.Get().run(0.5, function(t:FlxTimer) { 
+					FlxTimer.start(0.5, function(t:FlxTimer) { 
 						lineMgr.Start(lines1, function() {
-							TimerPool.Get().run(0.5, talkOver);
+							FlxTimer.start(0.5, talkOver);
 						});
 					});
 				}
@@ -216,7 +216,7 @@ class Level3 extends Level
 					bot.y -= 10;
 					bot.velocity.y = -bot._jumpPower;
 					bot.animation.play("jump_up", true); 
-					TimerPool.Get().run(3, preEnd);
+					FlxTimer.start(3, preEnd);
 					onBoard = true;
 				}
 			}
@@ -291,7 +291,7 @@ class Level3 extends Level
 				if (egPointer < eGroups.length)
 				{
 					var eg:EnemyGroup = cast(eGroups[egPointer] , EnemyGroup);
-					TimerPool.Get().run(eg.timeSpan, function(t:FlxTimer) { spawnBee(); spawnFlag=false;} );
+					FlxTimer.start(eg.timeSpan, function(t:FlxTimer) { spawnBee(); spawnFlag=false;} );
 					if(egPointer == 4 || egPointer == 7)
 						spawnRepair();
 					egPointer++;
@@ -303,7 +303,7 @@ class Level3 extends Level
 					for (r in hps.members) {
 						if(r!=null && r.alive) r.kill();
 					}
-					TimerPool.Get().run(2.5, function(tmr:FlxTimer){
+					FlxTimer.start(2.5, function(tmr:FlxTimer){
 						// start trans again!
 						battling = false;
 						//bg1.velocity.x = 0;

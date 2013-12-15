@@ -60,9 +60,9 @@ class Boss3 extends Enemy
 		
 		game = cast(FlxG.state , Level8);
 		
-		missileTimer = TimerPool.Get();
-		bulletTimer = TimerPool.Get();
-		bouncerTimer = TimerPool.Get();
+		missileTimer = FlxTimer.recycle();
+		bulletTimer = FlxTimer.recycle();
+		bouncerTimer = FlxTimer.recycle();
 		
 		loadGraphic("assets/img/hm_red.png", true, true, 150);
 		offset.x = 35;
@@ -183,15 +183,15 @@ class Boss3 extends Enemy
 			game.addTween(deathPingTween);
 
 			// schedule explosion
-			TimerPool.Get().run(0.7, function(t:FlxTimer){
+			FlxTimer.start(0.7, function(t:FlxTimer){
 				game.AddExp(x + Math.random() * width, y + Math.random() * height);
 				game.AddExp(x + Math.random() * width, y + Math.random() * height);
-				TimerPool.Get().run(0.1, function(t:FlxTimer){
-					TimerPool.Get().run(0.5, function(t:FlxTimer){FlxG.camera.flash(0xffffffff, 0.3);},2);
-					TimerPool.Get().run(1, function(t:FlxTimer){realKill = true;kill();});
+				FlxTimer.start(0.1, function(t:FlxTimer){
+					FlxTimer.start(0.5, function(t:FlxTimer){FlxG.camera.flash(0xffffffff, 0.3);},2);
+					FlxTimer.start(1, function(t:FlxTimer){realKill = true;kill();});
 				});
 			},7);
-			TimerPool.Get().run(2.2, function(t:FlxTimer){
+			FlxTimer.start(2.2, function(t:FlxTimer){
 				game.AddHugeExplo(x + Math.random() * width, y + Math.random() * height);
 			},2);
 		}
@@ -210,7 +210,7 @@ class Boss3 extends Enemy
 			moveTween.setObject(this);
 			moveTween.complete = function(t:FlxTween){
 				enableFloat(true);
-				TimerPool.Get().run(0.5, function(t:FlxTimer):Void {
+				FlxTimer.start(0.5, function(t:FlxTimer):Void {
 					ChangeState("shoting");
 				});
 			}
@@ -219,7 +219,7 @@ class Boss3 extends Enemy
 		else if (name == "shoting")
 		{
 			shoting = true;
-			TimerPool.Get().run(5, function(t:FlxTimer) {
+			FlxTimer.start(5, function(t:FlxTimer) {
 				shoting = false;
 				ChangeState("dashing");
 			});
@@ -238,13 +238,13 @@ class Boss3 extends Enemy
 			enableFloat(false);
 			moveTween.setMotion(x, y, lastBcrRight?posBcrL.x:posBcrR.x, lastBcrRight?posBcrL.y:posBcrR.y, 1.5, FlxEase.quadInOut);
 			moveTween.setObject(this);
-			moveTween.complete = function(t:FlxTween){enableFloat(true); TimerPool.Get().run(0.5, function(_){ChangeState("bouncing");});};
+			moveTween.complete = function(t:FlxTween){enableFloat(true); FlxTimer.start(0.5, function(_){ChangeState("bouncing");});};
 			game.addTween(moveTween);
 		}
 		else if (name == "bouncing")
 		{
 			enableFloat(true);
-			TimerPool.Get().run(5, function(t:FlxTimer):Void {
+			FlxTimer.start(5, function(t:FlxTimer):Void {
 				ChangeState("landing");
 			});
 			bouncerTimer.run(0.7, function(t:FlxTimer):Void {
@@ -266,7 +266,7 @@ class Boss3 extends Enemy
 			moveTween.setMotion(x, y, lastBcrRight?posMslL.x:posMslR.x, lastBcrRight?posMslL.y:posMslR.y, 1.5, FlxEase.quadInOut);
 			moveTween.setObject(this);
 			moveTween.complete = function(tween:FlxTween){
-				TimerPool.Get().run(1.5, function(t:FlxTimer):Void {
+				FlxTimer.start(1.5, function(t:FlxTimer):Void {
 					velocity.set(0, 0);
 					ChangeState("misling");
 				});
@@ -283,11 +283,11 @@ class Boss3 extends Enemy
 		}
 		else if (name == "misling")
 		{
-			TimerPool.Get().run(5, function(t:FlxTimer):Void {
+			FlxTimer.start(5, function(t:FlxTimer):Void {
 				velocity.set(0, 0);
 				ChangeState("launching");
 			});
-			TimerPool.Get().run(2,function(_){animation.play("idle");});
+			FlxTimer.start(2,function(_){animation.play("idle");});
 			missileTimer.run(1, function(t:FlxTimer):Void {
 				animation.play("shot");
 				for (i in 0...3) 

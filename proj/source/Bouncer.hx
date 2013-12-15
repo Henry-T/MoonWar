@@ -14,7 +14,7 @@ class Bouncer extends FlxSprite
 	{
 		super(x, y, "assets/img/bouncer.png");
 		this.elasticity = 1;
-		timer = TimerPool.Get();
+		timer = FlxTimer.recycle();
 	}
 
 	override public function reset(X:Float, Y:Float):Void 

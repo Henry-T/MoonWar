@@ -23,10 +23,6 @@ class EndScreen extends MWState
 	public var btnGBigNormal:BitmapData;
 	public var btnGBigOver:BitmapData;
 
-	public var timer1:FlxTimer;
-	public var timer2:FlxTimer;
-	public var timer3:FlxTimer;
-
 	public var exitEnabled:Bool;
 
 	public function new() 
@@ -37,10 +33,6 @@ class EndScreen extends MWState
 	override public function create():Void
 	{
 		super.create();
-
-		timer1 = TimerPool.Get();
-		timer2 = TimerPool.Get();
-		timer3 = TimerPool.Get();
 		
 		btnGBigNormal = new SliceShape(0,0, GameStatic.button_menuWidth, GameStatic.button_menuHeight, "assets/img/ui_box_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
 		btnGBigOver = new SliceShape(0,0, GameStatic.button_menuWidth, GameStatic.button_menuHeight, "assets/img/ui_boxact_y.png", SliceShape.MODE_BOX, 3).pixels.clone();
@@ -89,37 +81,37 @@ class EndScreen extends MWState
 		tween1.setMotion(txtTheEnd.x, txtTheEnd.y, txtTheEnd.x, txtTheEnd.y + 100, 1.5, FlxEase.bounceOut);
 		addTween(tween1);
 
-		TimerPool.Get().run(1.5, function(t:FlxTimer){
+		FlxTimer.start(1.5, function(t:FlxTimer){
 			var tween2:VarTween = new VarTween(null, FlxTween.ONESHOT);
 			tween2.tween(txtThanks, "alpha", 1, 1, FlxEase.quadOut);
 			addTween(tween2);
 		});
 
-		TimerPool.Get().run(1.5, function(t:FlxTimer){
+		FlxTimer.start(1.5, function(t:FlxTimer){
 			var tween3:VarTween = new VarTween(null, FlxTween.ONESHOT);
 			tween3.tween(bottomPnl, "alpha", 1, 1.5, FlxEase.quadOut);
 			addTween(tween3);
 		});
 
-		TimerPool.Get().run(2, function(t:FlxTimer){
+		FlxTimer.start(2, function(t:FlxTimer){
 			var tween4:VarTween = new VarTween(null, FlxTween.ONESHOT);
 			tween4.tween(btnBack, "alpha", 1, 1.5, FlxEase.quadOut);
 			addTween(tween4);
 		});
 
-		TimerPool.Get().run(2, function(t:FlxTimer){
+		FlxTimer.start(2, function(t:FlxTimer){
 			var tween5:VarTween = new VarTween(null, FlxTween.ONESHOT);
 			tween5.tween(btnBack.label,"alpha", 1, 1.5, FlxEase.quadOut);
 			addTween(tween5);
 		});
 
-		TimerPool.Get().run(2, function(t:FlxTimer){
+		FlxTimer.start(2, function(t:FlxTimer){
 			var tween6:VarTween = new VarTween(null, FlxTween.ONESHOT);
 			tween6.tween(btnBack, "y", FlxG.height * 0.9, 1.5, FlxEase.quadOut);
 			addTween(tween6);
 		});
 
-		TimerPool.Get().run(3.5, function(t:FlxTimer){
+		FlxTimer.start(3.5, function(t:FlxTimer){
 			selector.visible = true;
 			exitEnabled = true;
 		});

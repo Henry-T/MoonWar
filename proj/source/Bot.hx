@@ -130,7 +130,7 @@ class Bot extends FlxSprite
 		
 		this.loadGraphic("assets/img/bot.png", true, true, 26, 30);
 		
-		immuTimer = TimerPool.Get();
+		immuTimer = FlxTimer.recycle();
 		
 		animation.add("idle",[0, 1, 2, 1],5,true);
 		animation.add("jump_up",[3],0,false);
@@ -395,7 +395,7 @@ class Bot extends FlxSprite
 	// prevent bot from shoot with a very very short period
 	public function JamShoot():Void{
 		gunJamed = true;
-		TimerPool.Get().run(0.20, function(t:FlxTimer){
+		FlxTimer.start(0.20, function(t:FlxTimer){
 			gunJamed = false;
 		});
 	}
