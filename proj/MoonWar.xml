@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	<meta title="Moon War" description="Cubebot fight back RageMetal with Dr.Cube." package="com.lolofinil.moonwar" version="1.0.0" company="lolofinil" />
-	<app title="MoonWar" file="MoonWar" main="Main" version="0.0.1" path="export" company="Lolofinil"/>
+	<app title="MoonWar" file="MoonWar" main="Main" version="0.0.1" path="export" company="Lolofinil" />
 	
 	<window width="550" height="400" fps="30" orientation="portrait" resizable="false" if="web" />
 	<window width="0" height="0" fps="30" orientation="landscape" fullscreen="true" if="mobile" />
@@ -68,7 +68,7 @@
 
 	<!-- Change compilerflag to haxeflag -->
 	<haxeflag name="-swf-lib" value="lib/mochi.swf" if="flash" />
-	<haxedef name="no-pattern-matching" />
+	<!--<haxedef name="no-pattern-matching" />-->
 
 	<set name="BUILD_DIR" value="export" />
 	<set name="network-sandbox" />
@@ -78,7 +78,7 @@
 	
 	<!--haxeflag name="-debug" /-->
 	<!--<haxeflag name="-release" />-->
-	<haxedef name="FLX_NO_DEBUG" />
+	<!--<haxedef name="FLX_NO_DEBUG" />-->
 	
 	<!--Optimise Flags of Flixel-->
     <haxedef name="FLX_NO_MOUSE" />
@@ -91,5 +91,5 @@
 	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
 
     <!-- Set preloader just at the end of this file as someone said on HaxeFlixel forum-->
-    <app preloader="Preloader" swf-version="10.1" />
+    <app preloader="Preloader" swf-version="11.2" />
 </project>
