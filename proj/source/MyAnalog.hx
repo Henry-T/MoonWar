@@ -3,7 +3,7 @@ import flixel.FlxSprite;
 import flixel.FlxG;
 import flixel.system.FlxAssets;
 
-import flixel.system.input.FlxAnalog;
+import flixel.ui.FlxAnalog;
 
 class MyAnalog extends FlxAnalog {
 	public function new(X:Float, Y:Float, Radius:Float = 0, FlxEase:Float = 0.25){
@@ -11,30 +11,30 @@ class MyAnalog extends FlxAnalog {
 	}
 
 	private override function createBase():Void{
-		_base = new FlxSprite(x, y).loadGraphic(GameStatic.screenDensity==GameStatic.Density_S?"assets/img/tbBaseS.png":"assets/img/tbBaseM.png");
-		_base.cameras = [FlxG.camera];
-		_base.x += -_base.width * .5;
-		_base.y += -_base.height * .5;
-		_base.scrollFactor.x = _base.scrollFactor.y = 0;
-		_base.solid = false;
+		base = new FlxSprite(x, y).loadGraphic(GameStatic.screenDensity==GameStatic.Density_S?"assets/img/tbBaseS.png":"assets/img/tbBaseM.png");
+		base.cameras = [FlxG.camera];
+		base.x += -base.width * .5;
+		base.y += -base.height * .5;
+		base.scrollFactor.x = base.scrollFactor.y = 0;
+		base.solid = false;
 		
 		#if !FLX_NO_DEBUG
-		_base.ignoreDrawDebug = true;
+		base.ignoreDrawDebug = true;
 		#end
 		
-		add(_base);	
+		add(base);	
 	}
 
 	private override function createThumb():Void{
-		_stick = new FlxSprite(x, y).loadGraphic(GameStatic.screenDensity==GameStatic.Density_S?"assets/img/tbStickS.png":"assets/img/tbStickM.png");
-		_stick.cameras = [FlxG.camera];
-		_stick.scrollFactor.x = _stick.scrollFactor.y = 0;
-		_stick.solid = false;
+		thumb = new FlxSprite(x, y).loadGraphic(GameStatic.screenDensity==GameStatic.Density_S?"assets/img/tbStickS.png":"assets/img/tbStickM.png");
+		thumb.cameras = [FlxG.camera];
+		thumb.scrollFactor.x = thumb.scrollFactor.y = 0;
+		thumb.solid = false;
 		
 		#if !FLX_NO_DEBUG
-		_stick.ignoreDrawDebug = true;
+		thumb.ignoreDrawDebug = true;
 		#end
 		
-		add(_stick);
+		add(thumb);
 	}
 }

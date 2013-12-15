@@ -72,7 +72,7 @@ class LineMgr extends FlxSprite
 		#else
 		pressSpace = new MyText(100, 94, 400,"PRESS X");
 		#end
-		pressSpace.setFormat(ResUtil.FNT_Pixelex, 8, 0x000000, "right");
+		pressSpace.setFormat(ResUtil.FNT_Pixelex, 8, 0xaa0000, "right");
 		pressSpace.visible = false;
 		pressSpace.scrollFactor.set(0, 0);
 

@@ -168,7 +168,7 @@ class GameMap extends MWState
 		btnStart.visible = false;
 		selectorMenu.visible = false;
 
-		confirm.ShowConfirm(Confirm.Mode_TextOnly, false, "X to Start Level, z for Back to Menu", "", "", false,null, null);
+		confirm.ShowConfirm(Confirm.Mode_TextOnly, false, "C to Start Level, X for Back to Menu", "", "", false,null, null);
 		#end
 	}
 

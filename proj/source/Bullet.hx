@@ -53,46 +53,41 @@ class Bullet extends FlxSprite
 		FlxG.sound.play("shoot1");
 		super.reset(Location.x-width/2,Location.y-height/2);
 		solid = true;
-		switch(Aim)
-		{
-		case FlxObject.UP|FlxObject.RIGHT:
+		if(Aim == FlxObject.UP|FlxObject.RIGHT){
 			animation.play("fly");
 			velocity.y = -speed * Math.sqrt(2) * 0.5;
 			velocity.x = speed * Math.sqrt(2) * 0.8;// 0.5;
-			
-		case FlxObject.UP|FlxObject.LEFT:
+		}
+		else if(Aim == FlxObject.UP|FlxObject.LEFT){
 			animation.play("fly");
 			velocity.y = -speed * Math.sqrt(2)*0.5;
 			velocity.x = -speed * Math.sqrt(2) * 0.8;// 0.5;
-			
-		case FlxObject.DOWN|FlxObject.RIGHT:
+		}
+		else if(Aim == FlxObject.DOWN|FlxObject.RIGHT){
 			animation.play("fly");
 			velocity.y = speed * Math.sqrt(2)*0.5;
 			velocity.x = speed * Math.sqrt(2) * 0.8;// 0.5;
-			
-		case FlxObject.DOWN|FlxObject.LEFT:
+		}
+		else if (Aim == FlxObject.DOWN|FlxObject.LEFT){
 			animation.play("fly");
 			velocity.y = speed * Math.sqrt(2)*0.5;
 			velocity.x = -speed * Math.sqrt(2) * 0.8;// 0.5;
-			
-		case FlxObject.UP:
+		}
+		else if (Aim == FlxObject.UP){
 			animation.play("fly");
 			velocity.y = -speed;
-			
-		case FlxObject.DOWN:
+		}
+		else if (Aim == FlxObject.DOWN){
 			animation.play("fly");
 			velocity.y = speed;
-			
-		case FlxObject.LEFT:
+		}
+		else if (Aim == FlxObject.LEFT){
 			animation.play("fly");
 			velocity.x = -speed;
-			
-		case FlxObject.RIGHT:
+		}
+		else if (Aim == FlxObject.RIGHT){
 			animation.play("fly");
 			velocity.x = speed;
-			
-		default:
-			
 		}
 	}
 }

@@ -80,23 +80,23 @@ class Confirm extends FlxGroup{
 
 		#if !FLX_NO_KEYBOARD
 		if(GameStatic.screenDensity == GameStatic.Density_S){
-			imgConfirm.loadGraphic("assets/img/key_X_S.png");
-			imgCancel.loadGraphic("assets/img/key_Z_S.png");
+			imgConfirm.loadGraphic("assets/img/key_C_S.png");
+			imgCancel.loadGraphic("assets/img/key_X_S.png");
 		}
 		else if(GameStatic.screenDensity == GameStatic.Density_M){
-			imgConfirm.loadGraphic("assets/img/key_X_M.png");
-			imgCancel.loadGraphic("assets/img/key_Z_M.png");
+			imgConfirm.loadGraphic("assets/img/key_C_M.png");
+			imgCancel.loadGraphic("assets/img/key_X_M.png");
 		}
 		#end
 
 		#if !FLX_NO_TOUCH
 		if(GameStatic.screenDensity == GameStatic.Density_S){
-			//imgConfirm.loadGraphic("assets/img/key_X_S.png");
-			//imgCancel.loadGraphic("assets/img/key_Z_S.png");
+			//imgConfirm.loadGraphic("assets/img/key_C_S.png");
+			//imgCancel.loadGraphic("assets/img/key_X_S.png");
 		}
 		else if(GameStatic.screenDensity == GameStatic.Density_M){
-			//imgConfirm.loadGraphic("assets/img/key_X_M.png");
-			//imgCancel.loadGraphic("assets/img/key_Z_M.png");
+			//imgConfirm.loadGraphic("assets/img/key_C_M.png");
+			//imgCancel.loadGraphic("assets/img/key_X_M.png");
 		}
 		#end
 
@@ -149,8 +149,7 @@ class Confirm extends FlxGroup{
 
 		confirmMask.visible = useMask;
 
-		switch (_mode) {
-			case Mode_TextOnly:
+			if (_mode == Mode_TextOnly){
 				confirmBg.loadGraphic(_bgTextOnly);
 				confirmBg.y = FlxG.height * 0.95 - confirmBg.height * 0.5;
 				note.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_dialog, 0xffffff, "center");
@@ -158,7 +157,8 @@ class Confirm extends FlxGroup{
 				btnConfirm.visible = false;
 				imgCancel.visible = false;
 				btnCancel.visible = false;
-			case Mode_OK:
+			}
+			else if (_mode == Mode_OK){
 				confirmBg.loadGraphic(_bgFull);
 				confirmBg.y = FlxG.height * 0.95 - confirmBg.height * 0.5;
 				note.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_dialog, 0xffffff, "left");
@@ -166,7 +166,8 @@ class Confirm extends FlxGroup{
 				btnConfirm.visible = true;
 				imgCancel.visible = false;
 				btnCancel.visible = false;
-			case Mode_YesNo:
+			}
+			else if (_mode == Mode_YesNo){
 				confirmBg.loadGraphic(_bgFull);
 				confirmBg.y = FlxG.height * 0.95 - confirmBg.height * 0.5;
 				note.setFormat(ResUtil.FNT_Pixelex, GameStatic.txtSize_dialog, 0xffffff, "left");
@@ -174,7 +175,7 @@ class Confirm extends FlxGroup{
 				btnConfirm.visible = true;
 				imgCancel.visible = true;
 				btnCancel.visible = true;
-		}
+			}
 
 		visible = true;
 		_firstFrame = true;

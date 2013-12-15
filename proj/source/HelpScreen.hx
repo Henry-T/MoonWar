@@ -57,9 +57,9 @@ class HelpScreen extends MWState
 
 		descs = [
 			"Press Arrow Left and Right to Walk",
-			"Press Z to Jump Up, Hold Down and Press Z to Jump Down",
-			"Hold X to Shoot, Combining with Arrow keys to Shoot At Different Directoins",
-			"Use X to Talk, Trigger console and Enter Lift",
+			"Press X to Jump Up, Hold Down and Press X to Jump Down",
+			"Hold C to Shoot, Combining with Arrow keys to Shoot At Different Directoins",
+			"Use C to Talk, Trigger console and Enter Lift",
 			"When In Low Health, Grub the Blue Cage to Get Repaired"
 		];
 	}

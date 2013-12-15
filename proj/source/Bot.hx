@@ -155,8 +155,8 @@ class Bot extends FlxSprite
 		moveRightKey = "RIGHT";
 		moveDownKey = "DOWN";
 		moveUpKey = "UP";
-		moveJumpKey = "Z";
-		shootKey = "X";
+		moveJumpKey = "X";
+		shootKey = "C";
 		
 		health = maxHealth;
 
@@ -308,9 +308,9 @@ class Bot extends FlxSprite
 			_aim = FlxObject.RIGHT;
 			gunHand.animation.play("front");
 		}
-		else {
-			_aim = FlxObject.RIGHT;
-		}
+		//else {
+		//	_aim = FlxObject.RIGHT;
+		//}
 		
 		//ANIMATION
 		if(velocity.y != 0)
@@ -376,7 +376,9 @@ class Bot extends FlxSprite
 		{
 			super.hurt(Damage);
 			isActorImmu = true;
-			immuTimer.run(1.5, function(t:FlxTimer) { isActorImmu = false; } );
+			trace("immu start");
+			FlxTimer.start(1.5, function(t:FlxTimer) { isActorImmu = false; trace("immu end"); });
+			//immuTimer.run(1.5, function(t:FlxTimer) { isActorImmu = false; trace("immu end"); } );
 			flixel.util.FlxSpriteUtil.flicker(this, 1.5);
 		}
 	}

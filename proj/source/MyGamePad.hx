@@ -51,7 +51,7 @@ class MyGamePad extends FlxTypedGroup<FlxButton>
 		
 		if (OnClick != null)
 		{
-			button.onDown = OnClick;
+			button.setOnDownCallback(OnClick);
 		}
 		return button;
 	}

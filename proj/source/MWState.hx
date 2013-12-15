@@ -55,7 +55,7 @@ class MWState extends FlxState
 		_img_pause_dis = "assets/img/ui_f_pause_dis.png";
 		#end
 
-		#if mobile
+		#if (mobile || cpp)
 		if(GameStatic.screenDensity == GameStatic.Density_S){
 			_img_mute_normal = "assets/img/ui_t_mute_S.png";
 			_img_mute_over = "assets/img/ui_t_mute_act_S.png";

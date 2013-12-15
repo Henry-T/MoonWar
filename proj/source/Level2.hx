@@ -488,15 +488,14 @@ class Level2 extends Level
 	public function switchState(state:Int):Void
 	{
 		lvlState = state;	
-		switch(lvlState)
-		{
-		case STpostTalk:	// used in Boss1.hx
+		if (lvlState == STpostTalk){	// used in Boss1.hx
 			ShowBossHP(false);
 			bot.On = false;
 			baseHPBar.visible = false;
 			baseHPBg.visible = false;
 			lineMgr.Start(lines4, function(){boss1.switchState(8); lvlState = 4;});
-		case 5:				// used in Boss1.hx
+		}
+		else if (lvlState == 5){				// used in Boss1.hx
 			EndLevel(true);
 		}
 	}
