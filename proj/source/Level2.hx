@@ -229,16 +229,13 @@ class Level2 extends Level
 
 		ShowSceneName("2 - Moon Surface Base");
 
-		TweenCamera(posCam2.x, posCam2.y, 3, true, function(){
+		TweenCamera2(posCam2.x, posCam2.y, 3, true, function(){
 			roam = false;
 			roamDone = true;
 
 			// Create enemy
 			boss1.x = posBInSrc.x; boss1.y = posBInSrc.y;boss1.FireOn = true;
-			var bMoveTween:QuadMotion = new QuadMotion(function(t:FlxTween){boss1.enableFloat(true);}, FlxTween.ONESHOT);
-			bMoveTween.setMotion(posBInSrc.x, posBInSrc.y, posBInCtrl.x, posBInCtrl.y, posBIn.x, posBIn.y, 4, FlxEase.sineOut);
-			bMoveTween.setObject(boss1);
-			addTween(bMoveTween);
+			FlxTween.quadMotion( boss1 , posBInSrc.x, posBInSrc.y, posBInCtrl.x, posBInCtrl.y, posBIn.x, posBIn.y, 4, true, {type:FlxTween.ONESHOT, ease:FlxEase.sineOut} );
 
 			for (grdPos in posGrdAry) {
 				var grd:Guard = new Guard(grdPos.x + 200, grdPos.y);
@@ -253,9 +250,9 @@ class Level2 extends Level
 				Bees.add(bee);
 			}
 
-			TimerPool.Get().run(4.5, function(t:FlxTimer){
+			FlxTimer.start(4.5, function(t:FlxTimer){
 				lineMgr.Start(lines1, function(){
-					TimerPool.Get().run(0.8, function(t:FlxTimer){
+					FlxTimer.start(0.8, function(t:FlxTimer){
 						for (grd in guards.members)
 							if(grd!=null) grd.kill();
 						for (b in Bees.members)
@@ -281,10 +278,10 @@ class Level2 extends Level
 							bShakeTween.setObject(boss1);
 							addTween(bShakeTween);
 							boss1.animation.play("airShock");
-							TimerPool.Get().run(1.0, function(t:FlxTimer){
+							FlxTimer.start(1.0, function(t:FlxTimer){
 								this.removeTween(bShakeTween);
 							});
-							TimerPool.Get().run(1.0, function(t:FlxTimer){
+							FlxTimer.start(1.0, function(t:FlxTimer){
 								AddHugeExplo(exploPos2.x, exploPos2.y);
 								for (c in cubes.members) {
 									if(c==null) continue;
@@ -302,20 +299,21 @@ class Level2 extends Level
 							});
 						});
 
-						TimerPool.Get().run(2.5, function(t:FlxTimer){
+						FlxTimer.start(2.5, function(t:FlxTimer){
 							boss1.enableFloat(false);
 							boss1.animation.play("fall");
-							TimerPool.Get().run(1.5, function(t:FlxTimer){boss1.animation.play("idle");});
+							FlxTimer.start(1.5, function(t:FlxTimer){boss1.animation.play("idle");});
 							boss1.bossFire.animation.play("off");
-							var bLandTween:LinearMotion = new LinearMotion(function(t:FlxTween){
-								TimerPool.Get().run(0.5, function(t:FlxTimer){
+							FlxTween.linearMotion( boss1, boss1.x, boss1.y, boss1.x, posBInLand.y, 1.5, true, {type:FlxTween.ONESHOT, ease:FlxEase.quadInOut, complete:function(t:FlxTween){
+								FlxTimer.start(0.5, function(t:FlxTimer){
 									lineMgr.Start(lines2, function(){
 										dash = true;
 										boss1.animation.play("walk");
 										smokeEmt1.start(false, 0.5, 0.03, 0);
 										smokeEmt1.on = true;
 										FlxG.camera.follow(boss1, FlxCamera.STYLE_LOCKON, null, 0.5);
-										var bDashTween:LinearMotion = new LinearMotion(function(t:FlxTween){
+										FlxTween.linearMotion(boss1, boss1.x, boss1.y, posBStart.x, posBStart.y, 7, true, {type:FlxTween.ONESHOT, ease:FlxEase.quadInOut, complete:function(t:FlxTween){
+										//var bDashTween:LinearMotion = new LinearMotion(function(t:FlxTween){
 											dash = false;
 											dashDone = true;
 											boss1.velocity.x = 0;
@@ -330,6 +328,7 @@ class Level2 extends Level
 
 											FlxG.camera.follow(null);
 											TweenCamera(posCam3.x, posCam3.y, 2, true, function(){
+												trace("line should start !");
 												lineMgr.Start(lines3, function(){
 													tipManager.ShowTip(TipManager.Tip_Master1, function(){
 														bot.On = true;
@@ -341,16 +340,13 @@ class Level2 extends Level
 													});
 												});
 											});
-										}, FlxTween.ONESHOT);
-										bDashTween.setMotion(boss1.x, boss1.y, posBStart.x, posBStart.y, 7, FlxEase.quadInOut);
-										bDashTween.setObject(boss1);
-										addTween(bDashTween);
+										}});
+										//bDashTween.setMotion(boss1.x, boss1.y, posBStart.x, posBStart.y, 7, FlxEase.quadInOut);
+										//bDashTween.setObject(boss1);
+										//addTween(bDashTween);
 									});
 								});
-							}, FlxTween.ONESHOT);
-							bLandTween.setMotion(boss1.x, boss1.y, boss1.x, posBInLand.y, 1.5, FlxEase.cubeIn);
-							bLandTween.setObject(boss1);
-							addTween(bLandTween);
+							}});
 						});
 					});
 				});
@@ -363,9 +359,6 @@ class Level2 extends Level
 		bShakeTween.cancel();
 		clearTweens();
 		FlxG.camera.scroll = posCam3;
-		timer1.abort();
-		timer2.abort();
-		timer3.abort();
 
 		bot.x = 152;
 		bot.y = 130;
