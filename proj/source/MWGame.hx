@@ -45,7 +45,7 @@ class MWGame extends FlxGame
 		});
 		palseTimer.start();
 		#end
-
+		FlxG.log.redirectTraces = false;
 		GameStatic.Initial();
 		GameStatic.Load();
 		#if debug
