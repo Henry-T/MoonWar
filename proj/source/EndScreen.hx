@@ -76,39 +76,26 @@ class EndScreen extends MWState
 		selector.x = btnBack.x + GameStatic.offset_border;
 		selector.y = FlxG.height * 0.9 + GameStatic.offset_border;
 
-		var tween1:LinearMotion = new LinearMotion(null, FlxTween.ONESHOT);
-		tween1.setObject(txtTheEnd);
-		tween1.setMotion(txtTheEnd.x, txtTheEnd.y, txtTheEnd.x, txtTheEnd.y + 100, 1.5, FlxEase.bounceOut);
-		addTween(tween1);
+		FlxTween.linearMotion(txtTheEnd, txtTheEnd.x, txtTheEnd.y, txtTheEnd.x, txtTheEnd.y + 100, 1.5, true, {type:FlxTween.ONESHOT, ease:FlxEase.bounceOut});
 
 		FlxTimer.start(1.5, function(t:FlxTimer){
-			var tween2:VarTween = new VarTween(null, FlxTween.ONESHOT);
-			tween2.tween(txtThanks, "alpha", 1, 1, FlxEase.quadOut);
-			addTween(tween2);
+			FlxTween.multiVar(txtThanks, {alpha:1}, 1, {type:FlxTween.ONESHOT, ease:FlxEase.quadOut});
 		});
 
 		FlxTimer.start(1.5, function(t:FlxTimer){
-			var tween3:VarTween = new VarTween(null, FlxTween.ONESHOT);
-			tween3.tween(bottomPnl, "alpha", 1, 1.5, FlxEase.quadOut);
-			addTween(tween3);
+			FlxTween.multiVar(bottomPnl, {alpha:1}, 1.5, {type:FlxTween.ONESHOT, ease:FlxEase.quadOut});
 		});
 
 		FlxTimer.start(2, function(t:FlxTimer){
-			var tween4:VarTween = new VarTween(null, FlxTween.ONESHOT);
-			tween4.tween(btnBack, "alpha", 1, 1.5, FlxEase.quadOut);
-			addTween(tween4);
+			FlxTween.multiVar(btnBack, {alpha:1}, 1.5, {type:FlxTween.ONESHOT, ease:FlxEase.quadOut});
 		});
 
 		FlxTimer.start(2, function(t:FlxTimer){
-			var tween5:VarTween = new VarTween(null, FlxTween.ONESHOT);
-			tween5.tween(btnBack.label,"alpha", 1, 1.5, FlxEase.quadOut);
-			addTween(tween5);
+			FlxTween.multiVar(btnBack.label, {alpha:1}, 1.5, {type:FlxTween.ONESHOT, ease:FlxEase.quadOut});
 		});
 
 		FlxTimer.start(2, function(t:FlxTimer){
-			var tween6:VarTween = new VarTween(null, FlxTween.ONESHOT);
-			tween6.tween(btnBack, "y", FlxG.height * 0.9, 1.5, FlxEase.quadOut);
-			addTween(tween6);
+			FlxTween.multiVar(btnBack, {y:FlxG.height*0.9}, 1.5, {type:FlxTween.ONESHOT, ease:FlxEase.quadOut});
 		});
 
 		FlxTimer.start(3.5, function(t:FlxTimer){

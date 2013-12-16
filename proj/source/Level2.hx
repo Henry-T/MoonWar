@@ -229,7 +229,7 @@ class Level2 extends Level
 
 		ShowSceneName("2 - Moon Surface Base");
 
-		TweenCamera2(posCam2.x, posCam2.y, 3, true, function(){
+		TweenCamera(posCam2.x, posCam2.y, 3, true, function(){
 			roam = false;
 			roamDone = true;
 
@@ -273,13 +273,10 @@ class Level2 extends Level
 							}
 						}
 						FlxG.camera.flash(0xffffffff, 0.1, function(){
-							bShakeTween = new LinearMotion(null, FlxTween.PINGPONG);
-							bShakeTween.setMotion(boss1.x-3, boss1.y, boss1.x + 3, boss1.y, 0.1, FlxEase.cubeInOut);
-							bShakeTween.setObject(boss1);
-							addTween(bShakeTween);
+							bShakeTween = FlxTween.linearMotion(boss1, boss1.x-3, boss1.y, boss1.x+3, boss1.y, 0.1, true, {type:FlxTween.PINGPONG, ease:FlxEase.cubeInOut});
 							boss1.animation.play("airShock");
 							FlxTimer.start(1.0, function(t:FlxTimer){
-								this.removeTween(bShakeTween);
+								bShakeTween.cancel();
 							});
 							FlxTimer.start(1.0, function(t:FlxTimer){
 								AddHugeExplo(exploPos2.x, exploPos2.y);
@@ -341,9 +338,6 @@ class Level2 extends Level
 												});
 											});
 										}});
-										//bDashTween.setMotion(boss1.x, boss1.y, posBStart.x, posBStart.y, 7, FlxEase.quadInOut);
-										//bDashTween.setObject(boss1);
-										//addTween(bDashTween);
 									});
 								});
 							}});

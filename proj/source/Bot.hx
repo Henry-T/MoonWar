@@ -172,6 +172,7 @@ class Bot extends FlxSprite
 		facing = FlxObject.RIGHT;
 
 		lvl = cast(FlxG.state, Level);
+		_aim = FlxObject.RIGHT;
 	}
 
 	override public function update():Void

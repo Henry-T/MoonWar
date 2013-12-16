@@ -194,10 +194,11 @@ class Level extends MWState
 	public var eStar:FlxSprite;
 
 	// camera
-	public var camScrollXTween : VarTween;
-	public var camScrollYTween : VarTween;
-	private var camXTweenDone:Bool;
-	private var camYTweenDone:Bool;
+	//public var camScrollXTween : VarTween;
+	//public var camScrollYTween : VarTween;
+	//private var camXTweenDone:Bool;
+	//private var camYTweenDone:Bool;
+	private var camTweenDone:Bool;
 	private var camTweening:Bool;
 	private var onCamTweenDone:Void->Void;
 
@@ -434,12 +435,6 @@ class Level extends MWState
 		tileNail = GetTile("nail", FlxObject.ANY);
 		tileCover = GetTile("cover", FlxObject.ANY);
 		tileCoverD = GetTile("coverD", FlxObject.ANY);
-
-		// camera
-		camScrollXTween = new VarTween(function(t:FlxTween){camXTweenDone=true;},0);
-		camScrollYTween = new VarTween(function(t:FlxTween){camYTweenDone=true;},0);
-		addTween(camScrollXTween);
-		addTween(camScrollYTween);
 		
 		// load misc
 		var mG:TmxObjectGroup = tmx.getObjectGroup("misc");
@@ -577,8 +572,9 @@ class Level extends MWState
 				}
 			}
 		}
-		camXTweenDone = false;
-		camYTweenDone = false;
+		//camXTweenDone = false;
+		//camYTweenDone = false;
+		camTweenDone = false;
 		camTweening = false;
 
 		// Initial
@@ -775,7 +771,7 @@ class Level extends MWState
 					ChangeSelEnd(curSelEnd-1);
 				else if(FlxG.keyboard.justPressed("DOWN"))
 					ChangeSelEnd(curSelEnd+1);
-				else if(FlxG.keyboard.justPressed("X"))
+				else if(FlxG.keyboard.justPressed("C"))
 					ActionEnd(curSelEnd);
 			}
 			#end
@@ -809,9 +805,15 @@ class Level extends MWState
 			FlxG.collide(bullets, tileCoverD, function(b:FlxObject, t:FlxObject){b.kill();});
 
 		// check camera tween
-		if(camTweening && camXTweenDone && camYTweenDone){
+		// if(camTweening && camXTweenDone && camYTweenDone){
+		// 	camTweening = false;
+		// 	if(onCamTweenDone!=null)
+		// 		onCamTweenDone();
+		// }
+
+		if(camTweening && camTweenDone){
 			camTweening = false;
-			if(onCamTweenDone!=null)
+			if(onCamTweenDone != null)
 				onCamTweenDone();
 		}
 
@@ -1110,7 +1112,7 @@ class Level extends MWState
 				btnHelp.visible = true;
 				lbResult.text = "FAILED";
 			}
-			confirm.ShowConfirm(Confirm.Mode_TextOnly, false, "UP/DOWN to Select, X to Confirm", "", "", false, null, null);
+			confirm.ShowConfirm(Confirm.Mode_TextOnly, false, "UP/DOWN to Select, C to Confirm", "", "", false, null, null);
 			#if !FLX_NO_MOUSE
 			FlxG.mouse.show(); 
 			#end
@@ -1132,10 +1134,11 @@ class Level extends MWState
 	}
 
 	public function TweenCamera2(scrollX:Float, scrollY:Float, dur:Float, useEase:Bool, onDone:Void->Void){
-		camScrollXTween.tween(FlxG.camera.scroll, "x", scrollX, dur, useEase?FlxEase.quartInOut:null);
-		camScrollYTween.tween(FlxG.camera.scroll, "y", scrollY, dur, useEase?FlxEase.quartInOut:null);
-		camXTweenDone = false;
-		camYTweenDone = false;
+		FlxTween.multiVar(FlxG.camera.scroll, { x:scrollX, y:scrollY }, dur, { type:FlxTween.ONESHOT, ease:useEase?FlxEase.quartInOut:null, complete:function(t:FlxTween) {
+			camTweenDone = true; trace("OK !");
+		}});
+
+		camTweenDone = false;
 		camTweening = true;
 		onCamTweenDone = onDone;
 	} 
@@ -1156,16 +1159,12 @@ class Level extends MWState
 
 	public function ShowSceneName(name:String){
 		sceneName.text = name;
-		var twn:VarTween = new VarTween(null, FlxTween.ONESHOT);
-		twn.tween(sceneName, "alpha", 1, 2, FlxEase.quartOut);
-		twn.complete = function(t:FlxTween){
+		sceneName.alpha = 0;
+		FlxTween.multiVar(sceneName, {alpha:1}, 2, {type:FlxTween.ONESHOT, ease:FlxEase.quartOut, complete:function(t:FlxTween){
 			FlxTimer.start(2, function(t:FlxTimer){
-				var twn2:VarTween = new VarTween(null, FlxTween.ONESHOT);
-				twn2.tween(sceneName, "alpha", 0, 2, FlxEase.quartOut);
-				addTween(twn2);
+				FlxTween.multiVar(sceneName, {alpha:0}, 2, {type:FlxTween.ONESHOT, ease:FlxEase.quartOut});
 			});
-		};
-		addTween(twn);
+		}});
 	}
 
 	public override function onFocus(){

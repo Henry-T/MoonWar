@@ -196,10 +196,7 @@ class Level8 extends Level
 			});
 
 			var gate:FlxSprite = cast(gates.members[0], FlxSprite);
-			var gateTween:LinearMotion = new LinearMotion(null, FlxTween.ONESHOT);
-			gateTween.setObject(gate);
-			gateTween.setMotion(gate.x, gate.y, gate.x, gate.y + 100, 2, FlxEase.quadInOut);
-			addTween(gateTween);
+			FlxTween.linearMotion(gate, gate.x, gate.y, gate.x, gate.y+100, 2, true, {type:FlxTween.ONESHOT, ease:FlxEase.quadInOut});
 		}
 		if (righting)
 		{

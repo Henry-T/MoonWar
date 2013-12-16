@@ -126,8 +126,6 @@ class Boss3 extends Enemy
 		facing = FlxObject.LEFT;
 		health = maxLife;
 		FireOn = false;
-		moveTween = new LinearMotion(null, FlxTween.ONESHOT);
-		moveTween.setObject(this);
 		lastBcrRight = false;
 		realKill = false;
 		immu = true;
@@ -176,11 +174,9 @@ class Boss3 extends Enemy
 			bouncerTimer.abort();
 
 			// clear tween
-			moveTween.cancel();
-			deathPingTween = new LinearMotion(null, FlxTween.PINGPONG);
-			deathPingTween.setMotion(x-3, y, x + 3, y, 0.6, FlxEase.cubeInOut);
-			deathPingTween.setObject(this);
-			game.addTween(deathPingTween);
+			if(moveTween==null)
+				moveTween.cancel();
+			deathPingTween = FlxTween.linearMotion(this, x-3, y, x+3, y, 0.6, true, {type:FlxTween.ONESHOT, ease:FlxEase.cubeInOut});
 
 			// schedule explosion
 			FlxTimer.start(0.7, function(t:FlxTimer){
@@ -206,15 +202,12 @@ class Boss3 extends Enemy
 			animation.play("air");
 			FireOn = true;
 			bossFire.animation.play("on");
-			moveTween.setMotion(x, y, posSnap.x, posSnap.y, 2, FlxEase.quadInOut);
-			moveTween.setObject(this);
-			moveTween.complete = function(t:FlxTween){
+			moveTween = FlxTween.linearMotion(this, x, y, posSnap.x, posSnap.y, 2, true, {type:FlxTween.ONESHOT, ease:FlxEase.quadInOut, complete:function(t:FlxTween){
 				enableFloat(true);
 				FlxTimer.start(0.5, function(t:FlxTimer):Void {
 					ChangeState("shoting");
 				});
-			}
-			game.addTween(moveTween);
+			}});
 		}
 		else if (name == "shoting")
 		{
@@ -236,10 +229,12 @@ class Boss3 extends Enemy
 		else if (name == "dashing")
 		{
 			enableFloat(false);
-			moveTween.setMotion(x, y, lastBcrRight?posBcrL.x:posBcrR.x, lastBcrRight?posBcrL.y:posBcrR.y, 1.5, FlxEase.quadInOut);
-			moveTween.setObject(this);
-			moveTween.complete = function(t:FlxTween){enableFloat(true); FlxTimer.start(0.5, function(_){ChangeState("bouncing");});};
-			game.addTween(moveTween);
+			moveTween = FlxTween.linearMotion(this, x, y, lastBcrRight?posBcrL.x:posBcrR.x, lastBcrRight?posBcrL.y:posBcrR.y, 1.5, true, {type:FlxTween.ONESHOT, ease:FlxEase.quadInOut, complete:function(t:FlxTween){
+				enableFloat(true);
+				FlxTimer.start(0.5, function(_){
+					ChangeState("bouncing");
+				});
+			}});
 		}
 		else if (name == "bouncing")
 		{
@@ -263,15 +258,12 @@ class Boss3 extends Enemy
 			bossFire.animation.play("off");
 			enableFloat(false);
 
-			moveTween.setMotion(x, y, lastBcrRight?posMslL.x:posMslR.x, lastBcrRight?posMslL.y:posMslR.y, 1.5, FlxEase.quadInOut);
-			moveTween.setObject(this);
-			moveTween.complete = function(tween:FlxTween){
+			moveTween = FlxTween.linearMotion(this, x, y, lastBcrRight?posMslL.x:posMslR.x, lastBcrRight?posMslL.y:posMslR.y, 1.5, true, {type:FlxTween.ONESHOT, ease:FlxEase.quadInOut, complete:function(t:FlxTween){
 				FlxTimer.start(1.5, function(t:FlxTimer):Void {
 					velocity.set(0, 0);
 					ChangeState("misling");
 				});
-			};
-			game.addTween(moveTween);
+			}});
 			lastBcrRight = !lastBcrRight;
 
 			//var len:Float = FlxMath.getDistance(mislPos, new FlxPoint(x, y));
