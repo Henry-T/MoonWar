@@ -81,9 +81,8 @@ class LineMgr extends FlxSprite
 		roleName.visible = false;
 		roleName.scrollFactor.set(0, 0);
 
-		_pressTween = new ColorTween(null, FlxTween.PINGPONG);
-		_pressTween.tween(1, 0x000000, 0x666666, 0, 1, FlxEase.quadInOut);
-		//addTween(_pressTween);
+		_pressTween = FlxTween.color(1, 0x000000, 0x666666, 0, 1, {type:FlxTween.PINGPONG, ease:FlxEase.quadInOut});
+		_pressTween.start();
 	}
 
 	public function Start(lines:Array<Line>, finCall:Void->Void=null):Void{
@@ -130,7 +129,6 @@ class LineMgr extends FlxSprite
 		for (hd in heads)
 			hd.animation.update();
 
-		_pressTween.update();
 		_pressColor = _pressTween.color;
 		super.update();
 	}
